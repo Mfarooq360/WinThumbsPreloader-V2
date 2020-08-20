@@ -8,4 +8,4 @@ Thumbnails preloader for Windows Explorer
 -r : Recursive directory search
 -m : Multi-threaded generation
 
-### Download: [WinThumbsPreloader-1.0.1-setup.exe](https://github.com/inthebrilliantblue/WinThumbsPreloader/releases/download/v1.0.2/WinThumbsPreloader.exe)
+### Download: [WinThumbsPreloader.exe](https://github.com/inthebrilliantblue/WinThumbsPreloader/releases/download/v1.0.2/WinThumbsPreloader.exe)
