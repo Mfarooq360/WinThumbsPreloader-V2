@@ -13,6 +13,7 @@ namespace ConsoleWTP
             //Check args
             if (string.IsNullOrWhiteSpace(args[0])) {
                 Console.WriteLine("Please provide a location to scan!");
+                return;
             }
             //Get the items first before doing work
             List<string> items = DirectoryScanner.GetItemsBulk(args[0], true);
