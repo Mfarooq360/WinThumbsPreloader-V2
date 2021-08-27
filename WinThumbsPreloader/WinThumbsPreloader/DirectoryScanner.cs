@@ -32,11 +32,11 @@ namespace WinThumbsPreloader
             List<string> items = new List<string>();
             if (includeNestedDirectories)
             {
-                foreach (string item in GetItemsNested()) items.Add(item);
+                items = Directory.GetFiles("path/to/dir", "*.*", SearchOption.AllDirectories).ToList();
             }
             else
             {
-                foreach (string item in GetItemsOnlyFirstLevel()) items.Add(item);
+                items = Directory.GetFiles("path/to/dir", "*.*", SearchOption.TopDirectoryOnly).ToList();
             }
             return items;
         }

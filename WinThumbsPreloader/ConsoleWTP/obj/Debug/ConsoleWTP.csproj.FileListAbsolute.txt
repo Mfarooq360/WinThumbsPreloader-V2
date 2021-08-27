@@ -1,0 +1,7 @@
+C:\Users\scott\Downloads\WinThumbsPreloader-master (1)\WinThumbsPreloader-master\WinThumbsPreloader\ConsoleWTP\obj\Debug\ConsoleWTP.csprojAssemblyReference.cache
+C:\Users\scott\Downloads\WinThumbsPreloader-master (1)\WinThumbsPreloader-master\WinThumbsPreloader\ConsoleWTP\obj\Debug\ConsoleWTP.csproj.CoreCompileInputs.cache
+C:\Users\scott\Downloads\WinThumbsPreloader-master (1)\WinThumbsPreloader-master\WinThumbsPreloader\ConsoleWTP\bin\Debug\ConsoleWTP.exe.config
+C:\Users\scott\Downloads\WinThumbsPreloader-master (1)\WinThumbsPreloader-master\WinThumbsPreloader\ConsoleWTP\bin\Debug\ConsoleWTP.exe
+C:\Users\scott\Downloads\WinThumbsPreloader-master (1)\WinThumbsPreloader-master\WinThumbsPreloader\ConsoleWTP\bin\Debug\ConsoleWTP.pdb
+C:\Users\scott\Downloads\WinThumbsPreloader-master (1)\WinThumbsPreloader-master\WinThumbsPreloader\ConsoleWTP\obj\Debug\ConsoleWTP.exe
+C:\Users\scott\Downloads\WinThumbsPreloader-master (1)\WinThumbsPreloader-master\WinThumbsPreloader\ConsoleWTP\obj\Debug\ConsoleWTP.pdb
