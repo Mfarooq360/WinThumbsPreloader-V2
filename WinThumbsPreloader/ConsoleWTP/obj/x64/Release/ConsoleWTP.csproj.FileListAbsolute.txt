@@ -1,6 +1,0 @@
-C:\Users\scott\Downloads\WinThumbsPreloader-master (1)\WinThumbsPreloader-master\WinThumbsPreloader\ConsoleWTP\bin\x64\Release\ConsoleWTP.exe.config
-C:\Users\scott\Downloads\WinThumbsPreloader-master (1)\WinThumbsPreloader-master\WinThumbsPreloader\ConsoleWTP\bin\x64\Release\ConsoleWTP.exe
-C:\Users\scott\Downloads\WinThumbsPreloader-master (1)\WinThumbsPreloader-master\WinThumbsPreloader\ConsoleWTP\bin\x64\Release\ConsoleWTP.pdb
-C:\Users\scott\Downloads\WinThumbsPreloader-master (1)\WinThumbsPreloader-master\WinThumbsPreloader\ConsoleWTP\obj\x64\Release\ConsoleWTP.csproj.CoreCompileInputs.cache
-C:\Users\scott\Downloads\WinThumbsPreloader-master (1)\WinThumbsPreloader-master\WinThumbsPreloader\ConsoleWTP\obj\x64\Release\ConsoleWTP.exe
-C:\Users\scott\Downloads\WinThumbsPreloader-master (1)\WinThumbsPreloader-master\WinThumbsPreloader\ConsoleWTP\obj\x64\Release\ConsoleWTP.pdb
