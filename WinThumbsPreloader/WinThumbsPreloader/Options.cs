@@ -44,7 +44,7 @@ namespace WinThumbsPreloader
             }
 
             //Check if the path we grabbed is real
-            badArguments = !Directory.Exists(path);
+            badArguments = !(Directory.Exists(path) || File.Exists(path));
             if (badArguments) return;
         }
     }

@@ -4,6 +4,8 @@ using System.IO;
 using WinThumbsPreloader.Properties;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 namespace WinThumbsPreloader
 {
@@ -31,8 +33,47 @@ namespace WinThumbsPreloader
         public int processedItemsCount = 0;
         public string currentFile = "";
 
+        string executablePath = "";
+
+        List<string> NotThreadSafeFileTypes = (new string[] { "heic" }).ToList();
+
+
         public ThumbnailsPreloader(string path, bool includeNestedDirectories, bool silentMode, bool multiThreaded)
         {
+
+            //
+            // Single File Mode (HEIC and other files that cause this app to crash while using Parallel)
+            //
+
+
+
+            executablePath = Process.GetCurrentProcess().MainModule.FileName;
+            FileAttributes fAt = File.GetAttributes(path);
+            if(! fAt.HasFlag(FileAttributes.Directory)) //not a directory
+            {
+                //it's a  single file
+
+                if( NotThreadSafeFileTypes.Contains( new FileInfo(path).Extension.ToLower().TrimStart('.') ))
+                {
+                    //it'a a heic or other, not threadsafe file , let's process it directly
+                    ThumbnailPreloader thumbnailPreloader = new ThumbnailPreloader();
+                    thumbnailPreloader.PreloadThumbnail(path);
+                    Environment.Exit(0);
+                    
+
+                }
+
+            }
+
+
+            //
+            // EOF Single File Mode
+            //
+
+
+
+
+
             directoryScanner = new DirectoryScanner(path, includeNestedDirectories);
             if (!silentMode)
             {
@@ -122,8 +163,20 @@ namespace WinThumbsPreloader
                 {
                     foreach (string item in items)
                     {
+
+                        FileAttributes fAt = File.GetAttributes(item);
+                        if (fAt.HasFlag(FileAttributes.Directory))
+                            continue; ;
+
                         currentFile = item;
-                        thumbnailPreloader.PreloadThumbnail(item);
+                        if (NotThreadSafeFileTypes.Contains(new FileInfo(item).Extension.ToLower().TrimStart('.'))) // launch a copy of app for each HEIC or other not threadsafe file, aka start in single file mode
+                        {
+                            Process.Start(executablePath, '"' + item + '"').WaitForExit();
+                        }
+                        else
+                        {
+                            thumbnailPreloader.PreloadThumbnail(item);
+                        }
                         processedItemsCount++;
                         if (processedItemsCount == totalItemsCount) state = ThumbnailsPreloaderState.Done;
                         if (state == ThumbnailsPreloaderState.Canceled) return;
@@ -132,11 +185,23 @@ namespace WinThumbsPreloader
                 else {
                     Parallel.ForEach(
                         items,
-                        new ParallelOptions { MaxDegreeOfParallelism = 2048 },
+                        new ParallelOptions { MaxDegreeOfParallelism = Environment.ProcessorCount*32 },
                         item =>
                         {
+                            // let's skip directories
+                            FileAttributes fAt = File.GetAttributes(item);
+                            if (fAt.HasFlag(FileAttributes.Directory))
+                                return;
+
                             currentFile = item;
-                            thumbnailPreloader.PreloadThumbnail(item);
+                            if (NotThreadSafeFileTypes.Contains( new FileInfo(item).Extension.ToLower().TrimStart('.') )) // launch a copy of app for each HEIC or other not threadsafe file, aka start in single file mode
+                            {
+                                Process.Start(executablePath, '"'+item + '"').WaitForExit();
+                            }
+                            else
+                            {
+                                thumbnailPreloader.PreloadThumbnail(item);
+                            }
                             processedItemsCount++;
                             if (processedItemsCount == totalItemsCount) state = ThumbnailsPreloaderState.Done;
                             if (state == ThumbnailsPreloaderState.Canceled) return;

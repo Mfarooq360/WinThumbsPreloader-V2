@@ -1,7 +1,9 @@
 # WinThumbsPreloader
 Thumbnails preloader for Windows Explorer
 
-![Screenshot](https://raw.githubusercontent.com/inthebrilliantblue/WinThumbsPreloader/master/Website/images/preview.gif)
+with workaround for fast multithreaded processing of .HEIC files
+
+![Screenshot](https://raw.githubusercontent.com/arturdd/WinThumbsPreloader/master/Website/images/preview.gif)
 
 # CLI Options
 -s : Silent mode
@@ -11,4 +13,4 @@ Thumbnails preloader for Windows Explorer
 -m : Multi-threaded generation
 
 
-### Download: [WinThumbsPreloader.exe](https://github.com/inthebrilliantblue/WinThumbsPreloader/releases/download/v1.0.2/WinThumbsPreloader.exe)
+### Download: [WinThumbsPreloader.exe](https://github.com/inthebrilliantblue/WinThumbsPreloader/raw/master/WinThumbsPreloader/WinThumbsPreloader/bin/Release/WinThumbsPreloader.exe)
