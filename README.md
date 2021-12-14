@@ -13,4 +13,4 @@ with workaround for fast multithreaded processing of .HEIC files
 -m : Multi-threaded generation
 
 
-### Download: [WinThumbsPreloader.exe](https://github.com/inthebrilliantblue/WinThumbsPreloader/raw/master/WinThumbsPreloader/WinThumbsPreloader/bin/Release/WinThumbsPreloader.exe)
+### Download: [WinThumbsPreloader.exe](https://github.com/arturdd/WinThumbsPreloader/raw/master/WinThumbsPreloader/WinThumbsPreloader/bin/Release/WinThumbsPreloader.exe)
