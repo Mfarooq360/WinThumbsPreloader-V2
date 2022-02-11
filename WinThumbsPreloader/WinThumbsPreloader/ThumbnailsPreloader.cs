@@ -45,21 +45,18 @@ namespace WinThumbsPreloader
             // Single File Mode (HEIC and other files that cause this app to crash while using Parallel)
             //
 
-
-
             executablePath = Process.GetCurrentProcess().MainModule.FileName;
             FileAttributes fAt = File.GetAttributes(path);
-            if(! fAt.HasFlag(FileAttributes.Directory)) //not a directory
+            if(! fAt.HasFlag(FileAttributes.Directory)) // path is file and not a directory, so the application had to be run in single file mode:
             {
-                //it's a  single file
+
 
                 if( NotThreadSafeFileTypes.Contains( new FileInfo(path).Extension.ToLower().TrimStart('.') ))
                 {
                     //it'a a heic or other, not threadsafe file , let's process it directly
                     ThumbnailPreloader thumbnailPreloader = new ThumbnailPreloader();
-                    thumbnailPreloader.PreloadThumbnail(path);
-                    Environment.Exit(0);
-                    
+                    thumbnailPreloader.PreloadThumbnail(path); // generating thumbnail
+                    Environment.Exit(0); //  done, let's exit this app instance
 
                 }
 
