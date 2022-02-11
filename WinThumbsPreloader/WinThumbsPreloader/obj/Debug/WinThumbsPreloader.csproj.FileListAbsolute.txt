@@ -16,7 +16,6 @@ C:\Workspace\Projects\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\W
 C:\Workspace\Projects\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\bin\Debug\WinThumbsPreloader.exe
 C:\Workspace\Projects\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\bin\Debug\WinThumbsPreloader.pdb
 C:\Workspace\Projects\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\bin\Debug\ru\WinThumbsPreloader.resources.dll
-C:\Workspace\Projects\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\obj\Debug\WinThumbsPreloader.csprojAssemblyReference.cache
 C:\Workspace\Projects\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\obj\Debug\WinThumbsPreloader.AboutForm.resources
 C:\Workspace\Projects\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\obj\Debug\WinThumbsPreloader.Properties.Resources.resources
 C:\Workspace\Projects\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\obj\Debug\WinThumbsPreloader.AboutForm.ru.resources

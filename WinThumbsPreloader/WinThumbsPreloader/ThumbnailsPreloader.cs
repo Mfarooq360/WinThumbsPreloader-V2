@@ -35,7 +35,7 @@ namespace WinThumbsPreloader
 
         string executablePath = "";
 
-        List<string> NotThreadSafeFileTypes = (new string[] { "heic" }).ToList();
+        List<string> NotThreadSafeFileTypes = (new string[] { "heic", "mp4", "mov", "png" }).ToList();
 
 
         public ThumbnailsPreloader(string path, bool includeNestedDirectories, bool silentMode, bool multiThreaded)
