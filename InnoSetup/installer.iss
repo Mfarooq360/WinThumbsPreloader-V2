@@ -3,21 +3,21 @@
 #define MyAppFilename MyAppName + ".exe"
 #define MyAppFilepath MyAppReleaseDirectory + "\" + MyAppFilename
 #dim Version[4]
-#expr ParseVersion(MyAppFilepath, Version[0], Version[1], Version[2], Version[3])
+#expr GetVersionComponents(MyAppFilepath, Version[0], Version[1], Version[2], Version[3])
 #define MyAppVersion Str(Version[0]) + "." + Str(Version[1]) + "." + Str(Version[2])
-#define MyAppPublisher "Dmitry Bruhov"
+#define MyAppPublisher "Original work: Dmitry Bruhov, MT fork https://github.com/arturdd/WinThumbsPreloader"
 #define MyAppId "CF49DD18-AA76-4E79-97C2-4FEAED1AED5F"
 
-#include <idp.iss>
-#include <idplang\Russian.iss> 
+//#include <idp.iss>
+//#include <idplang\Russian.iss> 
 
 [Setup]
-AppCopyright=Copyright (c) 2018 {#MyAppPublisher}
+AppCopyright=Copyright (c) 2022 {#MyAppPublisher}
 AppId={#MyAppId}
 AppMutex={#MyAppId}
 AppName={#MyAppName}
 AppPublisher={#MyAppPublisher}
-AppPublisherURL=https://bruhov.com/WinThumbsPreloader
+AppPublisherURL=https://github.com/arturdd/WinThumbsPreloader
 AppSupportURL=https://github.com/bruhov/WinThumbsPreloader/issues
 AppUpdatesURL=https://github.com/bruhov/WinThumbsPreloader/releases
 AppVerName={#MyAppName} {#MyAppVersion}
@@ -42,6 +42,7 @@ WizardImageFile=WizardImageFile.bmp
 WizardImageStretch=no
 WizardSmallImageFile=WizardSmallImageFile.bmp
 SolidCompression=yes
+Compression=lzma2/max
 
 [Languages]
 Name: en; MessagesFile: "compiler:Default.isl"
@@ -82,10 +83,10 @@ Root: "HKCR"; Subkey: "Directory\shell\{#MyAppName}"; ValueType: string; ValueNa
 Root: "HKCR"; Subkey: "Directory\shell\{#MyAppName}\Shell"
 Root: "HKCR"; Subkey: "Directory\shell\{#MyAppName}\Shell\Preload"; ValueType: string; ValueName: "MUIVerb"; ValueData: "{cm:PreloadThumbnails}"
 Root: "HKCR"; Subkey: "Directory\shell\{#MyAppName}\Shell\Preload"; ValueType: string; ValueName: "Icon"; ValueData: """{app}\{#MyAppFilename}"",0"
-Root: "HKCR"; Subkey: "Directory\shell\{#MyAppName}\Shell\Preload\command"; ValueType: string; ValueData: """{app}\{#MyAppFilename}"" ""%1"""
+Root: "HKCR"; Subkey: "Directory\shell\{#MyAppName}\Shell\Preload\command"; ValueType: string; ValueData: """{app}\{#MyAppFilename}"" -m ""%1"""
 Root: "HKCR"; Subkey: "Directory\shell\{#MyAppName}\Shell\PreloadRecursively"; ValueType: string; ValueName: "MUIVerb"; ValueData: "{cm:PreloadThumbnailsRecursively}"
 Root: "HKCR"; Subkey: "Directory\shell\{#MyAppName}\Shell\PreloadRecursively"; ValueType: string; ValueName: "Icon"; ValueData: """{app}\{#MyAppFilename}"",0"
-Root: "HKCR"; Subkey: "Directory\shell\{#MyAppName}\Shell\PreloadRecursively\command"; ValueType: string; ValueData: """{app}\{#MyAppFilename}"" -r ""%1"""
+Root: "HKCR"; Subkey: "Directory\shell\{#MyAppName}\Shell\PreloadRecursively\command"; ValueType: string; ValueData: """{app}\{#MyAppFilename}"" -m -r ""%1"""
 
 [Code]
 function Framework45IsNotInstalled(): Boolean;
@@ -101,12 +102,20 @@ begin
   end;
 end;
 
+function OnDownloadProgress(const Url, Filename: string; const Progress, ProgressMax: Int64): Boolean;
+begin
+  if ProgressMax <> 0 then
+    Log(Format('  %d of %d bytes done.', [Progress, ProgressMax]))
+  else
+    Log(Format('  %d bytes done.', [Progress]));
+  Result := True;
+end;
+
 procedure InitializeWizard;
 begin
   if Framework45IsNotInstalled() then
   begin
-    idpAddFile('http://go.microsoft.com/fwlink/?LinkId=397707', ExpandConstant('{tmp}\NetFrameworkInstaller.exe'));
-    idpDownloadAfter(wpReady);
+    DownloadTemporaryFile('http://go.microsoft.com/fwlink/?LinkId=397707', ExpandConstant('{tmp}\NetFrameworkInstaller.exe'),'',@OnDownloadProgress);
   end;
 end;
 
