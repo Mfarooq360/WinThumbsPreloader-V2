@@ -4,10 +4,9 @@ Thumbnails preloader for Windows Explorer
 with workaround for fast multithreaded processing of .HEIC files
 and fixed .JPG and other files from not preloading
 
-Download HEIF/HEIC extension for Windows: https://www.microsoft.com/en-us/p/heif-image-extensions/9pmmsr1cgpwg
-
-
 ![Screenshot](https://raw.githubusercontent.com/arturdd/WinThumbsPreloader/master/Website/images/preview.gif)
+
+Download HEIF/HEIC extension for Windows: https://www.microsoft.com/en-us/p/heif-image-extensions/9pmmsr1cgpwg
 
 # CLI Options
 -s : Silent mode
