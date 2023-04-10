@@ -1,18 +1,18 @@
 ﻿#define MyAppName "WinThumbsPreloader"
-#define MyAppReleaseDirectory "..\WinThumbsPreloader\WinThumbsPreloader\bin\Release"
+#define MyAppReleaseDirectory "..\WinThumbsPreloader\WinThumbsPreloader\bin\Debug"
 #define MyAppFilename MyAppName + ".exe"
 #define MyAppFilepath MyAppReleaseDirectory + "\" + MyAppFilename
 #dim Version[4]
 #expr GetVersionComponents(MyAppFilepath, Version[0], Version[1], Version[2], Version[3])
 #define MyAppVersion Str(Version[0]) + "." + Str(Version[1]) + "." + Str(Version[2])
-#define MyAppPublisher "Original work: Dmitry Bruhov, MT fork https://github.com/arturdd/WinThumbsPreloader"
+#define MyAppPublisher "Original work: Dmitry Bruhov, MT fork https://github.com/arturdd/WinThumbsPreloader, Fixed by Mfarooq360"
 #define MyAppId "CF49DD18-AA76-4E79-97C2-4FEAED1AED5F"
 
 //#include <idp.iss>
 //#include <idplang\Russian.iss> 
 
 [Setup]
-AppCopyright=Copyright (c) 2022 {#MyAppPublisher}
+AppCopyright=Copyright (c) 2023 {#MyAppPublisher}
 AppId={#MyAppId}
 AppMutex={#MyAppId}
 AppName={#MyAppName}

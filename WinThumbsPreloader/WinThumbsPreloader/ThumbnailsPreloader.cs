@@ -35,7 +35,7 @@ namespace WinThumbsPreloader
 
         string executablePath = "";
 
-        List<string> NotThreadSafeFileTypes = (new string[] { "heic", "mp4", "mov", "png" }).ToList();
+        List<string> NotThreadSafeFileTypes = (new string[] { "heic", "mp4", "mov", "png", "jpg", "jpeg" }).ToList();
 
 
         public ThumbnailsPreloader(string path, bool includeNestedDirectories, bool silentMode, bool multiThreaded)
@@ -182,7 +182,7 @@ namespace WinThumbsPreloader
                 else {
                     Parallel.ForEach(
                         items,
-                        new ParallelOptions { MaxDegreeOfParallelism = Environment.ProcessorCount*32 },
+                        new ParallelOptions { MaxDegreeOfParallelism = 2048 },
                         item =>
                         {
                             // let's skip directories

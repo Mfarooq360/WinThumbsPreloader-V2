@@ -24,7 +24,7 @@ namespace WinThumbsPreloader
             //Set default options
             includeNestedDirectories = false;
             silentMode = false;
-            multithreaded = false;
+            multithreaded = true;
             //Set the options the user wants from the arguments
             foreach (string argu in arguments) {
                 switch (argu) {

@@ -377,6 +377,7 @@ Options:
     -s Silent mode - don't show a progress dialog.
     -m Multi-Threaded mode
 
+Multi-Threaded mode is enabled by default in this version.
 
 Website: https://bruhov.com/WinThumbsPreloader
 Project page: https://github.com/bruhov/WinThumbsPreloader
