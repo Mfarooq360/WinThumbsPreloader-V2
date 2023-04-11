@@ -4,7 +4,7 @@
   <description asmv2:iconFile="icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="WinThumbsPreloader" version="1.0.4.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="WinThumbsPreloader" version="1.0.5.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="WinThumbsPreloader.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -44,25 +44,25 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WinThumbsPreloader.exe" size="107512">
-      <assemblyIdentity name="WinThumbsPreloader" version="1.0.4.0" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="WinThumbsPreloader" version="1.0.5.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>SlvXdPVhBxA3nxVdItHFAd7nf2wyuX/xTJDW40svMW0=</dsig:DigestValue>
+        <dsig:DigestValue>ANgAoRi3VQ2w8ZpaVFKR72A1UuPR5jst/fzIiNlPMdY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ru\WinThumbsPreloader.resources.dll" size="7168">
-      <assemblyIdentity name="WinThumbsPreloader.resources" version="1.0.4.0" language="ru" processorArchitecture="msil" />
+      <assemblyIdentity name="WinThumbsPreloader.resources" version="1.0.5.0" language="ru" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>1IxtLtMFrqotCX1lUWpuYsRCUXBI3bsjPwDUUBeHi8g=</dsig:DigestValue>
+        <dsig:DigestValue>h0M4Ufy7lmjVS+BqwFpNPxkvg509ZuvxKNCuYKJk0jk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

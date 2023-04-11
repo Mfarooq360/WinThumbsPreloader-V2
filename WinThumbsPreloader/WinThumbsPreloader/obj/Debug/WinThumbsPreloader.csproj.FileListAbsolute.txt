@@ -44,3 +44,22 @@ I:\Downloads\Github Cloned Repos\WinThumbsPreloader\WinThumbsPreloader\bin\Debug
 I:\Downloads\Github Cloned Repos\WinThumbsPreloader\WinThumbsPreloader\bin\Debug\WinThumbsPreloader.application
 I:\Downloads\Github Cloned Repos\WinThumbsPreloader\WinThumbsPreloader\obj\Debug\WinThumbsPreloader.exe.manifest
 I:\Downloads\Github Cloned Repos\WinThumbsPreloader\WinThumbsPreloader\obj\Debug\WinThumbsPreloader.application
+I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\bin\Debug\WinThumbsPreloader.exe.config
+I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\bin\Debug\WinThumbsPreloader.exe.manifest
+I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\bin\Debug\WinThumbsPreloader.application
+I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\bin\Debug\WinThumbsPreloader.exe
+I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\bin\Debug\WinThumbsPreloader.pdb
+I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\bin\Debug\ru\WinThumbsPreloader.resources.dll
+I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\obj\Debug\WinThumbsPreloader.csproj.AssemblyReference.cache
+I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\obj\Debug\WinThumbsPreloader.csproj.SuggestedBindingRedirects.cache
+I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\obj\Debug\WinThumbsPreloader.AboutForm.resources
+I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\obj\Debug\WinThumbsPreloader.Properties.Resources.resources
+I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\obj\Debug\WinThumbsPreloader.AboutForm.ru.resources
+I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\obj\Debug\WinThumbsPreloader.Properties.Resources.ru.resources
+I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\obj\Debug\WinThumbsPreloader.csproj.GenerateResource.cache
+I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\obj\Debug\WinThumbsPreloader.csproj.CoreCompileInputs.cache
+I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\obj\Debug\ru\WinThumbsPreloader.resources.dll
+I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\obj\Debug\WinThumbsPreloader.exe.manifest
+I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\obj\Debug\WinThumbsPreloader.application
+I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\obj\Debug\WinThumbsPreloader.exe
+I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\obj\Debug\WinThumbsPreloader.pdb

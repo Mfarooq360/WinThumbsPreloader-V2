@@ -35,7 +35,7 @@ namespace WinThumbsPreloader
 
         string executablePath = "";
 
-        List<string> NotThreadSafeFileTypes = (new string[] { "heic", "mp4", "mov", "png", "jpg", "jpeg" }).ToList();
+        private static readonly List<string> NotThreadSafeFileTypes = new List<string> { "heic", "mp4", "mov", "png", "jpg", "jpeg" };
 
 
         public ThumbnailsPreloader(string path, bool includeNestedDirectories, bool silentMode, bool multiThreaded)
@@ -50,8 +50,7 @@ namespace WinThumbsPreloader
             if(! fAt.HasFlag(FileAttributes.Directory)) // path is file and not a directory, so the application had to be run in single file mode:
             {
 
-
-                if( NotThreadSafeFileTypes.Contains( new FileInfo(path).Extension.ToLower().TrimStart('.') ))
+                if (NotThreadSafeFileTypes.Contains( new FileInfo(path).Extension.ToLower().TrimStart('.') ))
                 {
                     //it'a a heic or other, not threadsafe file , let's process it directly
                     ThumbnailPreloader thumbnailPreloader = new ThumbnailPreloader();
@@ -66,9 +65,6 @@ namespace WinThumbsPreloader
             //
             // EOF Single File Mode
             //
-
-
-
 
 
             directoryScanner = new DirectoryScanner(path, includeNestedDirectories);
@@ -166,7 +162,7 @@ namespace WinThumbsPreloader
                             continue; ;
 
                         currentFile = item;
-                        if (NotThreadSafeFileTypes.Contains(new FileInfo(item).Extension.ToLower().TrimStart('.'))) // launch a copy of app for each HEIC or other not threadsafe file, aka start in single file mode
+                        if (NotThreadSafeFileTypes.Contains( new FileInfo(item).Extension.ToLower().TrimStart('.') )) // launch a copy of app for each HEIC or other not threadsafe file, aka start in single file mode
                         {
                             Process.Start(executablePath, '"' + item + '"').WaitForExit();
                         }
@@ -201,7 +197,7 @@ namespace WinThumbsPreloader
                             }
                             processedItemsCount++;
                             if (processedItemsCount == totalItemsCount) state = ThumbnailsPreloaderState.Done;
-                            if (state == ThumbnailsPreloaderState.Canceled) return;
+                            if (state == ThumbnailsPreloaderState.Canceled) Application.Exit();
                         });
                 }       
             });

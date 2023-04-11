@@ -123,6 +123,7 @@
             this.RichTextBox.ShortcutsEnabled = false;
             this.RichTextBox.TabStop = false;
             this.RichTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichTextBox_LinkClicked);
+            this.RichTextBox.TextChanged += new System.EventHandler(this.RichTextBox_TextChanged);
             // 
             // AboutForm
             // 

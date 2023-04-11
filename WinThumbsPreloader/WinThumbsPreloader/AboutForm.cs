@@ -43,7 +43,7 @@ namespace WinThumbsPreloader
                     using (WebClient client = new WebClient())
                     {
                         client.Headers.Add("User-Agent", "WinThumbPreloader");
-                        string GitHubApiResponse = client.DownloadString("https://api.github.com/repos/bruhov/WinThumbsPreloader/releases/latest");
+                        string GitHubApiResponse = client.DownloadString("https://api.github.com/repos/Mfarooq360/WinThumbsPreloader/releases/latest");
                         string latestVersionString = Regex.Match(GitHubApiResponse, @"""tag_name"":\s*""v([\d\.]+)").Groups[1].Captures[0].ToString();
                         Version currentVersion = new Version(Application.ProductVersion);
                         Version latestVersion = new Version(latestVersionString);
@@ -90,6 +90,11 @@ namespace WinThumbsPreloader
         private void UpdateLabel_Click(object sender, EventArgs e)
         {
             if (UpdateLabel.Text == Resources.AboutForm_WinThumbsPreloader_NewVersionAvailable) Process.Start("https://bruhov.com/WinThumbsPreloader");
+        }
+
+        private void RichTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
