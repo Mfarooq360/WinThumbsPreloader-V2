@@ -1,15 +1,16 @@
 ﻿#define MyAppName "WinThumbsPreloader"
-#define MyAppReleaseDirectory "..\WinThumbsPreloader\WinThumbsPreloader\bin\Debug"
+#define MyAppReleaseDirectory "..\WinThumbsPreloader\WinThumbsPreloader\bin\Release"
 #define MyAppFilename MyAppName + ".exe"
 #define MyAppFilepath MyAppReleaseDirectory + "\" + MyAppFilename
 #dim Version[4]
 #expr GetVersionComponents(MyAppFilepath, Version[0], Version[1], Version[2], Version[3])
 #define MyAppVersion Str(Version[0]) + "." + Str(Version[1]) + "." + Str(Version[2])
-#define MyAppPublisher "Original work: Dmitry Bruhov, MT fork https://github.com/arturdd/WinThumbsPreloader, Fixed by Mfarooq360"
+#define MyAppPublisher "Dmitry Bruhov, inthebrilliantblue, arturdd, Mfarooq360"
 #define MyAppId "CF49DD18-AA76-4E79-97C2-4FEAED1AED5F"
 
 //#include <idp.iss>
 //#include <idplang\Russian.iss> 
+#include "environment.iss"
 
 [Setup]
 AppCopyright=Copyright (c) 2023 {#MyAppPublisher}
@@ -24,6 +25,7 @@ AppVerName={#MyAppName} {#MyAppVersion}
 AppVersion={#MyAppVersion}
 ArchitecturesAllowed=x86 x64 ia64
 ArchitecturesInstallIn64BitMode=x64 ia64
+ChangesEnvironment=yes
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 DirExistsWarning=no
@@ -87,6 +89,18 @@ Root: "HKCR"; Subkey: "Directory\shell\{#MyAppName}\Shell\Preload\command"; Valu
 Root: "HKCR"; Subkey: "Directory\shell\{#MyAppName}\Shell\PreloadRecursively"; ValueType: string; ValueName: "MUIVerb"; ValueData: "{cm:PreloadThumbnailsRecursively}"
 Root: "HKCR"; Subkey: "Directory\shell\{#MyAppName}\Shell\PreloadRecursively"; ValueType: string; ValueName: "Icon"; ValueData: """{app}\{#MyAppFilename}"",0"
 Root: "HKCR"; Subkey: "Directory\shell\{#MyAppName}\Shell\PreloadRecursively\command"; ValueType: string; ValueData: """{app}\{#MyAppFilename}"" -m -r ""%1"""
+Root: "HKCR"; Subkey: "Drive\shell\{#MyAppName}"; Flags: uninsdeletekey
+Root: "HKCR"; Subkey: "Drive\shell\{#MyAppName}"; ValueType: string; ValueName: "MUIVerb"; ValueData: "{#MyAppName}"
+Root: "HKCR"; Subkey: "Drive\shell\{#MyAppName}"; ValueType: string; ValueName: "Icon"; ValueData: """{app}\{#MyAppFilename}"",0"
+Root: "HKCR"; Subkey: "Drive\shell\{#MyAppName}"; ValueType: string; ValueName: "ExtendedSubCommandsKey"; ValueData: "Drive\shell\{#MyAppName}"
+Root: "HKCR"; Subkey: "Drive\shell\{#MyAppName}\Shell"
+Root: "HKCR"; Subkey: "Drive\shell\{#MyAppName}\Shell\Preload"; ValueType: string; ValueName: "MUIVerb"; ValueData: "{cm:PreloadThumbnails}"
+Root: "HKCR"; Subkey: "Drive\shell\{#MyAppName}\Shell\Preload"; ValueType: string; ValueName: "Icon"; ValueData: """{app}\{#MyAppFilename}"",0"
+Root: "HKCR"; Subkey: "Drive\shell\{#MyAppName}\Shell\Preload\command"; ValueType: string; ValueData: "cmd.exe /c start /min cmd /c ""{#MyAppFilename} -m %1"
+Root: "HKCR"; Subkey: "Drive\shell\{#MyAppName}\Shell\PreloadRecursively"; ValueType: string; ValueName: "MUIVerb"; ValueData: "{cm:PreloadThumbnailsRecursively}"
+Root: "HKCR"; Subkey: "Drive\shell\{#MyAppName}\Shell\PreloadRecursively"; ValueType: string; ValueName: "Icon"; ValueData: """{app}\{#MyAppFilename}"",0"
+Root: "HKCR"; Subkey: "Drive\shell\{#MyAppName}\Shell\PreloadRecursively\command"; ValueType: string; ValueData: "cmd.exe /c start /min cmd /c ""{#MyAppFilename} -m -r %1"
+Root: "HKLM"; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{app}" 
 
 [Code]
 function Framework45IsNotInstalled(): Boolean;
@@ -151,4 +165,14 @@ begin
         end;
       end;
   end;
+begin
+    if CurStep = ssPostInstall 
+     then EnvAddPath(ExpandConstant('{app}'));
+  end;
+end;
+
+procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
+begin
+    if CurUninstallStep = usPostUninstall
+    then EnvRemovePath(ExpandConstant('{app}'));
 end;
