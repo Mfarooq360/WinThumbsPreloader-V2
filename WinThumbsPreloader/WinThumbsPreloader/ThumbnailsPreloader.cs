@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-
 namespace WinThumbsPreloader
 {
     public enum ThumbnailsPreloaderState
@@ -35,7 +34,7 @@ namespace WinThumbsPreloader
 
         string executablePath = "";
 
-        private static readonly List<string> NotThreadSafeFileTypes = new List<string> { "heic", "mp4", "mov", "png", "jpg", "jpeg" };
+        List<string> NotThreadSafeFileTypes = new List<string> { "heic", "mp4", "mov", "png", "jpg", "jpeg" };
 
 
         public ThumbnailsPreloader(string path, bool includeNestedDirectories, bool silentMode, bool multiThreaded)
@@ -162,7 +161,7 @@ namespace WinThumbsPreloader
                             continue; ;
 
                         currentFile = item;
-                        if (NotThreadSafeFileTypes.Contains( new FileInfo(item).Extension.ToLower().TrimStart('.') )) // launch a copy of app for each HEIC or other not threadsafe file, aka start in single file mode
+                        if (NotThreadSafeFileTypes.Contains(new FileInfo(item).Extension.ToLower().TrimStart('.'))) // launch a copy of app for each HEIC or other not threadsafe file, aka start in single file mode
                         {
                             Process.Start(executablePath, '"' + item + '"').WaitForExit();
                         }
@@ -187,9 +186,9 @@ namespace WinThumbsPreloader
                                 return;
 
                             currentFile = item;
-                            if (NotThreadSafeFileTypes.Contains( new FileInfo(item).Extension.ToLower().TrimStart('.') )) // launch a copy of app for each HEIC or other not threadsafe file, aka start in single file mode
+                            if (NotThreadSafeFileTypes.Contains(new FileInfo(item).Extension.ToLower().TrimStart('.') )) // launch a copy of app for each HEIC or other not threadsafe file, aka start in single file mode
                             {
-                                Process.Start(executablePath, '"'+item + '"').WaitForExit();
+                                Process.Start(executablePath, '"' + item + '"').WaitForExit();
                             }
                             else
                             {
