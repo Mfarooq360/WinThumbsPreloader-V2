@@ -16,6 +16,6 @@ Download HEIF/HEIC extension for Windows: https://www.microsoft.com/en-us/p/heif
 
 Multi-Threaded mode is enabled by default in this version.
 
-### Download standalone: [WinThumbsPreloader.exe](https://github.com/Mfarooq360/WinThumbsPreloader/releases/download/v1.0.5/WinThumbsPreloader.exe)
-### Download SETUP: [WinThumbsPreloader-1.0.5-setup.exe](https://github.com/Mfarooq360/WinThumbsPreloader/releases/download/v1.0.5/WinThumbsPreloader-1.0.5-setup.exe)
+### Download standalone: [WinThumbsPreloader.exe](https://github.com/Mfarooq360/WinThumbsPreloader/releases/download/v1.0.6/WinThumbsPreloader.exe)
+### Download SETUP: [WinThumbsPreloader-1.0.6-setup.exe](https://github.com/Mfarooq360/WinThumbsPreloader/releases/download/v1.0.6/WinThumbsPreloader-1.0.6-setup.exe)
 
