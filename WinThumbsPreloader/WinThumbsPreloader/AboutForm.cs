@@ -89,7 +89,7 @@ namespace WinThumbsPreloader
 
         private void UpdateLabel_Click(object sender, EventArgs e)
         {
-            if (UpdateLabel.Text == Resources.AboutForm_WinThumbsPreloader_NewVersionAvailable) Process.Start("https://bruhov.com/WinThumbsPreloader");
+            if (UpdateLabel.Text == Resources.AboutForm_WinThumbsPreloader_NewVersionAvailable) Process.Start("https://github.com/Mfarooq360/WinThumbsPreloader");
         }
 
         private void RichTextBox_TextChanged(object sender, EventArgs e)
