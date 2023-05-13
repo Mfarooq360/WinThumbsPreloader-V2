@@ -177,7 +177,7 @@ namespace WinThumbsPreloader
                 else {
                     Parallel.ForEach(
                         items,
-                        new ParallelOptions { MaxDegreeOfParallelism = 2048 },
+                        new ParallelOptions { MaxDegreeOfParallelism = Environment.ProcessorCount },
                         item =>
                         {
                             // let's skip directories
