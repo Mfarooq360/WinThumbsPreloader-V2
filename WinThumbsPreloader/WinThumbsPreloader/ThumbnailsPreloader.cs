@@ -34,9 +34,6 @@ namespace WinThumbsPreloader
 
         string executablePath = "";
 
-        List<string> NotThreadSafeFileTypes = new List<string> { "heic", "mp4", "mov", "png", "jpg", "jpeg", "svg" };
-
-
         public ThumbnailsPreloader(string path, bool includeNestedDirectories, bool silentMode, bool multiThreaded)
         {
 
@@ -48,12 +45,7 @@ namespace WinThumbsPreloader
             FileAttributes fAt = File.GetAttributes(path);
             if(! fAt.HasFlag(FileAttributes.Directory)) // path is file and not a directory, so the application had to be run in single file mode:
             {
-
-                if (NotThreadSafeFileTypes.Contains( new FileInfo(path).Extension.ToLower().TrimStart('.') ))
-                {
-                    //it'a a heic or other, not threadsafe file , let's process it directly
-                    ThumbnailPreloader thumbnailPreloader = new ThumbnailPreloader();
-                    thumbnailPreloader.PreloadThumbnail(path); // generating thumbnail
+                ThumbnailPreloader.PreloadThumbnail(path); // generating thumbnail
                     Environment.Exit(0); //  done, let's exit this app instance
 
                 }
