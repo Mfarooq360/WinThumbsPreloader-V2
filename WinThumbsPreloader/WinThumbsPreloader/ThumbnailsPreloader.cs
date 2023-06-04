@@ -128,9 +128,12 @@ namespace WinThumbsPreloader
             {
                 //Get total items count
                 state = ThumbnailsPreloaderState.GettingNumberOfItems;
-                foreach (int itemsCount in directoryScanner.GetItemsCount())
+
+                List<string> items = new List<string>();
+                foreach (Tuple<int, List<string>> itemsCount in directoryScanner.GetItemsCount()) //Get items and items count
                 {
-                    totalItemsCount += itemsCount;
+                    totalItemsCount = itemsCount.Item1;
+                    items = itemsCount.Item2;
                     if (state == ThumbnailsPreloaderState.Canceled) return;
                 }
                 if (totalItemsCount == 0)
@@ -140,18 +143,12 @@ namespace WinThumbsPreloader
                 }
                 //Start processing
                 state = ThumbnailsPreloaderState.Processing;
-                ThumbnailPreloader thumbnailPreloader = new ThumbnailPreloader();
-                //Get the items first before doing work
-                List<string> items = directoryScanner.GetItemsBulk();
                 if (!_multiThreaded)
                 {
                     foreach (string item in items)
                     {
-
-                        FileAttributes fAt = File.GetAttributes(item);
-                        if (fAt.HasFlag(FileAttributes.Directory))
-                            continue; ;
-
+                        try
+                        {
                         currentFile = item;
                         if (NotThreadSafeFileTypes.Contains(new FileInfo(item).Extension.ToLower().TrimStart('.'))) // launch a copy of app for each HEIC or other not threadsafe file, aka start in single file mode
                         {
@@ -172,11 +169,8 @@ namespace WinThumbsPreloader
                         new ParallelOptions { MaxDegreeOfParallelism = Environment.ProcessorCount },
                         item =>
                         {
-                            // let's skip directories
-                            FileAttributes fAt = File.GetAttributes(item);
-                            if (fAt.HasFlag(FileAttributes.Directory))
-                                return;
-
+                            try
+                            {
                             currentFile = item;
                             if (NotThreadSafeFileTypes.Contains(new FileInfo(item).Extension.ToLower().TrimStart('.') )) // launch a copy of app for each HEIC or other not threadsafe file, aka start in single file mode
                             {
