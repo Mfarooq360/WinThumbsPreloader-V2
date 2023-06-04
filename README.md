@@ -5,8 +5,6 @@ Fast Thumbnails preloader for Windows Explorer
 
 Download fast SVG extension previewer: https://github.com/tibold/svg-explorer-extension/releases
 
-(Use this SVG previewer instead of PowerToys' SVG previewer as thumbnail processing is significantly faster and works in admin mode)
-
 Download HEIF/HEIC extension for Windows: https://www.microsoft.com/en-us/p/heif-image-extensions/9pmmsr1cgpwg
 
 # CLI Options
