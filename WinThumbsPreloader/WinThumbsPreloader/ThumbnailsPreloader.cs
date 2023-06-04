@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+
 namespace WinThumbsPreloader
 {
     public enum ThumbnailsPreloaderState
@@ -36,28 +37,20 @@ namespace WinThumbsPreloader
 
         public ThumbnailsPreloader(string path, bool includeNestedDirectories, bool silentMode, bool multiThreaded)
         {
+            //Set the process priority to Below Normal to prevent system unresponsiveness
+            using (Process p = Process.GetCurrentProcess())
+                p.PriorityClass = ProcessPriorityClass.BelowNormal;
 
-            //
-            // Single File Mode (HEIC and other files that cause this app to crash while using Parallel)
-            //
-
+            // Single File Mode for when passing a file through the command line or preloading a .svg file
             executablePath = Process.GetCurrentProcess().MainModule.FileName;
             FileAttributes fAt = File.GetAttributes(path);
-            if(! fAt.HasFlag(FileAttributes.Directory)) // path is file and not a directory, so the application had to be run in single file mode:
+            if (!fAt.HasFlag(FileAttributes.Directory)) // path is file and not a directory, so the application had to be run in single file mode:
             {
                 ThumbnailPreloader.PreloadThumbnail(path); // generating thumbnail
-                    Environment.Exit(0); //  done, let's exit this app instance
-
-                }
-
+                Environment.Exit(0); //  done, let's exit this app instance
             }
 
-
-            //
-            // EOF Single File Mode
-            //
-
-
+            // Normal mode for when passing a directory through the command line
             directoryScanner = new DirectoryScanner(path, includeNestedDirectories);
             if (!silentMode)
             {
@@ -126,7 +119,10 @@ namespace WinThumbsPreloader
         {
             await Task.Run(() =>
             {
-                //Get total items count
+                //Set the process priority to Below Normal to prevent system unresponsiveness
+                using (Process p = Process.GetCurrentProcess())
+                    p.PriorityClass = ProcessPriorityClass.BelowNormal;
+
                 state = ThumbnailsPreloaderState.GettingNumberOfItems;
 
                 List<string> items = new List<string>();
@@ -141,29 +137,25 @@ namespace WinThumbsPreloader
                     state = ThumbnailsPreloaderState.Done;
                     return;
                 }
-                //Start processing
-                state = ThumbnailsPreloaderState.Processing;
+
+                state = ThumbnailsPreloaderState.Processing; //Start processing
                 if (!_multiThreaded)
                 {
                     foreach (string item in items)
                     {
                         try
                         {
-                        currentFile = item;
-                        if (NotThreadSafeFileTypes.Contains(new FileInfo(item).Extension.ToLower().TrimStart('.'))) // launch a copy of app for each HEIC or other not threadsafe file, aka start in single file mode
-                        {
-                            Process.Start(executablePath, '"' + item + '"').WaitForExit();
+                            currentFile = item;
+                            ThumbnailPreloader.PreloadThumbnail(item);
+                            processedItemsCount++;
+                            if (processedItemsCount == totalItemsCount) state = ThumbnailsPreloaderState.Done;
+                            if (state == ThumbnailsPreloaderState.Canceled) Application.Exit();
                         }
-                        else
-                        {
-                            thumbnailPreloader.PreloadThumbnail(item);
-                        }
-                        processedItemsCount++;
-                        if (processedItemsCount == totalItemsCount) state = ThumbnailsPreloaderState.Done;
-                        if (state == ThumbnailsPreloaderState.Canceled) return;
+                        catch (Exception) { } // Do nothing
                     }
                 }
-                else {
+                else
+                {
                     Parallel.ForEach(
                         items,
                         new ParallelOptions { MaxDegreeOfParallelism = Environment.ProcessorCount },
@@ -171,20 +163,15 @@ namespace WinThumbsPreloader
                         {
                             try
                             {
-                            currentFile = item;
-                            if (NotThreadSafeFileTypes.Contains(new FileInfo(item).Extension.ToLower().TrimStart('.') )) // launch a copy of app for each HEIC or other not threadsafe file, aka start in single file mode
-                            {
-                                Process.Start(executablePath, '"' + item + '"').WaitForExit();
+                                currentFile = item;
+                                ThumbnailPreloader.PreloadThumbnail(item);
+                                processedItemsCount++;
+                                if (processedItemsCount == totalItemsCount) state = ThumbnailsPreloaderState.Done;
+                                if (state == ThumbnailsPreloaderState.Canceled) Application.Exit();
                             }
-                            else
-                            {
-                                thumbnailPreloader.PreloadThumbnail(item);
-                            }
-                            processedItemsCount++;
-                            if (processedItemsCount == totalItemsCount) state = ThumbnailsPreloaderState.Done;
-                            if (state == ThumbnailsPreloaderState.Canceled) Application.Exit();
+                            catch (Exception) { } // Do nothing
                         });
-                }       
+                }
             });
             Application.Exit();
         }
