@@ -79,7 +79,33 @@ namespace WinThumbsPreloader
 
         private void LicenceButton_Click(object sender, EventArgs e)
         {
-            Process.Start(Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase) +  @"\LICENSE.txt");
+            string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "LICENSE.txt");
+            try
+            {
+                Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
+            }
+            catch (Exception) { } // Do nothing
+        }
+
+        string[] defaultExtensions = new string[] { "avif", "bmp", "gif", "heic", "jpg", "jpeg", "mkv", "mov", "mp4", "png", "svg", "tif", "tiff", "webp" };
+        private void ExtensionsButton_Click(object sender, EventArgs e)
+        {
+            string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "ThumbnailExtensions.txt");
+            try
+            {
+                Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
+            }
+            catch (Exception)
+            {
+                File.WriteAllLines(path, defaultExtensions);
+                Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
+            }
+        }
+
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "ThumbnailExtensions.txt");
+            File.WriteAllLines(path, defaultExtensions);
         }
 
         private void RichTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
@@ -90,11 +116,6 @@ namespace WinThumbsPreloader
         private void UpdateLabel_Click(object sender, EventArgs e)
         {
             if (UpdateLabel.Text == Resources.AboutForm_WinThumbsPreloader_NewVersionAvailable) Process.Start("https://github.com/Mfarooq360/WinThumbsPreloader");
-        }
-
-        private void RichTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
