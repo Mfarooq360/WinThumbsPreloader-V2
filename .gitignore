@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/WinThumbsPreloader/WinThumbsPreloader/.vshistory
+/.vs
+/WinThumbsPreloader/WinThumbsPreloader/WinThumbsPreloader.csproj.user
+/InnoSetup/Output
+/WinThumbsPreloader/WinThumbsPreloader/WinThumbsPreloader.csproj.user
+/WinThumbsPreloader/WinThumbsPreloader/WinThumbsPreloader.csproj.user
+/InnoSetup/.vshistory/installer.iss

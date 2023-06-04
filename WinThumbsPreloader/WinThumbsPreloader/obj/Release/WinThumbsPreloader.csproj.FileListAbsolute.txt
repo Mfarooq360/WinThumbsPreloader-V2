@@ -45,3 +45,22 @@ I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\obj\
 I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\obj\Release\WinThumbsPreloader.application
 I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\obj\Release\WinThumbsPreloader.exe
 I:\Downloads\WinThumbsPreloader-1.0.4\WinThumbsPreloader\WinThumbsPreloader\obj\Release\WinThumbsPreloader.pdb
+C:\Users\Mutahar Farooq\source\repos\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\bin\Release\WinThumbsPreloader.exe.config
+C:\Users\Mutahar Farooq\source\repos\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\bin\Release\WinThumbsPreloader.exe.manifest
+C:\Users\Mutahar Farooq\source\repos\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\bin\Release\WinThumbsPreloader.application
+C:\Users\Mutahar Farooq\source\repos\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\bin\Release\WinThumbsPreloader.exe
+C:\Users\Mutahar Farooq\source\repos\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\bin\Release\WinThumbsPreloader.pdb
+C:\Users\Mutahar Farooq\source\repos\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\bin\Release\ru\WinThumbsPreloader.resources.dll
+C:\Users\Mutahar Farooq\source\repos\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\obj\Release\WinThumbsPreloader.csproj.AssemblyReference.cache
+C:\Users\Mutahar Farooq\source\repos\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\obj\Release\WinThumbsPreloader.csproj.SuggestedBindingRedirects.cache
+C:\Users\Mutahar Farooq\source\repos\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\obj\Release\WinThumbsPreloader.AboutForm.resources
+C:\Users\Mutahar Farooq\source\repos\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\obj\Release\WinThumbsPreloader.Properties.Resources.resources
+C:\Users\Mutahar Farooq\source\repos\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\obj\Release\WinThumbsPreloader.AboutForm.ru.resources
+C:\Users\Mutahar Farooq\source\repos\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\obj\Release\WinThumbsPreloader.Properties.Resources.ru.resources
+C:\Users\Mutahar Farooq\source\repos\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\obj\Release\WinThumbsPreloader.csproj.GenerateResource.cache
+C:\Users\Mutahar Farooq\source\repos\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\obj\Release\WinThumbsPreloader.csproj.CoreCompileInputs.cache
+C:\Users\Mutahar Farooq\source\repos\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\obj\Release\ru\WinThumbsPreloader.resources.dll
+C:\Users\Mutahar Farooq\source\repos\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\obj\Release\WinThumbsPreloader.exe.manifest
+C:\Users\Mutahar Farooq\source\repos\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\obj\Release\WinThumbsPreloader.application
+C:\Users\Mutahar Farooq\source\repos\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\obj\Release\WinThumbsPreloader.exe
+C:\Users\Mutahar Farooq\source\repos\WinThumbsPreloader\WinThumbsPreloader\WinThumbsPreloader\obj\Release\WinThumbsPreloader.pdb

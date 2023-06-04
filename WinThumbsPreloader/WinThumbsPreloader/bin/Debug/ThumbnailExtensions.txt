@@ -1,0 +1,14 @@
+avif
+bmp
+gif
+heic
+jpg
+jpeg
+mkv
+mov
+mp4
+png
+svg
+tif
+tiff
+webp
