@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WinThumbsPreloader
 {
@@ -12,8 +7,8 @@ namespace WinThumbsPreloader
         public bool badArguments;
         public bool includeNestedDirectories;
         public bool silentMode;
-        public string path;
         public bool multithreaded;
+        public string path;
 
         public Options(string[] arguments)
         {
@@ -24,7 +19,7 @@ namespace WinThumbsPreloader
             //Set default options
             includeNestedDirectories = false;
             silentMode = false;
-            multithreaded = true;
+            multithreaded = false;
             //Set the options the user wants from the arguments
             foreach (string argu in arguments) {
                 switch (argu) {
