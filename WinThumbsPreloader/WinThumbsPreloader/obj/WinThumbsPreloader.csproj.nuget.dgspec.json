@@ -1,0 +1,80 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Mutahar Farooq\\source\\repos\\WinThumbsPreloader-V2\\WinThumbsPreloader\\WinThumbsPreloader\\WinThumbsPreloader.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Mutahar Farooq\\source\\repos\\WinThumbsPreloader-V2\\WinThumbsPreloader\\WinThumbsPreloader\\WinThumbsPreloader.csproj": {
+      "version": "1.2.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Mutahar Farooq\\source\\repos\\WinThumbsPreloader-V2\\WinThumbsPreloader\\WinThumbsPreloader\\WinThumbsPreloader.csproj",
+        "projectName": "WinThumbsPreloader",
+        "projectPath": "C:\\Users\\Mutahar Farooq\\source\\repos\\WinThumbsPreloader-V2\\WinThumbsPreloader\\WinThumbsPreloader\\WinThumbsPreloader.csproj",
+        "packagesPath": "C:\\Users\\Mutahar Farooq\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mutahar Farooq\\source\\repos\\WinThumbsPreloader-V2\\WinThumbsPreloader\\WinThumbsPreloader\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Mutahar Farooq\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "Microsoft.CSharp": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Data.DataSetExtensions": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "TaskScheduler": {
+              "target": "Package",
+              "version": "[2.10.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

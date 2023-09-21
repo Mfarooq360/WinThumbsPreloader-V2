@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Threading;
+using System.Runtime.Versioning;
 
 namespace WinThumbsPreloader
 {
@@ -11,6 +12,8 @@ namespace WinThumbsPreloader
     /// Managed wrapper for the COM ProgressDialog component. Displays a 
     /// dialog box to track the progress of a long-running operation.
     /// </summary>
+    [SupportedOSPlatform("windows")]
+
     public class ProgressDialog : Component
     {
 
@@ -35,7 +38,7 @@ namespace WinThumbsPreloader
         /// <summary>
         /// Gets or sets whether the progress dialog is automatically closed when the Value property equals or exceeds the value of Maximum.
         /// </summary>
-        [DefaultValue(true), Category("Behaviour"), Description("whether the progress dialog is automatically closed when the Value property equals or exceeds the value of Maximum.")]
+        [DefaultValue(false), Category("Behaviour"), Description("whether the progress dialog is automatically closed when the Value property equals or exceeds the value of Maximum.")]
         public bool AutoClose
         {
             get
@@ -369,7 +372,7 @@ namespace WinThumbsPreloader
             _progressDialogType = Type.GetTypeFromCLSID(new Guid(CLSID_ProgressDialog));
 
             // default/initial values
-            _autoClose = true;
+            _autoClose = false;
             _state = ProgressDialogState.Stopped;
             _maximum = 100;
             _line1 = _line2 = _line3 = String.Empty;

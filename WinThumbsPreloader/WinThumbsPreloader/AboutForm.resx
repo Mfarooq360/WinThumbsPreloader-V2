@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+  <!--
     Microsoft ResX Schema 
-    
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
     <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
     <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
     <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing"">Blue</data>
     <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
         <value>[base64 mime encoded serialized .NET Framework object]</value>
     </data>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -117,16 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="CloseButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
+  <data name="CloseButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="CloseButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>302, 9</value>
+    <value>328, 10</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="CloseButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
   <data name="CloseButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 25</value>
+    <value>88, 29</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="CloseButton.TabIndex" type="System.Int32, mscorlib">
@@ -139,7 +146,7 @@
     <value>CloseButton</value>
   </data>
   <data name="&gt;&gt;CloseButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;CloseButton.Parent" xml:space="preserve">
     <value>BottomPanel</value>
@@ -154,10 +161,13 @@
     <value>NoControl</value>
   </data>
   <data name="LicenceButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>221, 9</value>
+    <value>232, 10</value>
+  </data>
+  <data name="LicenceButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
   <data name="LicenceButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 25</value>
+    <value>88, 29</value>
   </data>
   <data name="LicenceButton.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -169,7 +179,7 @@
     <value>LicenceButton</value>
   </data>
   <data name="&gt;&gt;LicenceButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LicenceButton.Parent" xml:space="preserve">
     <value>BottomPanel</value>
@@ -177,71 +187,20 @@
   <data name="&gt;&gt;LicenceButton.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="ExtensionsButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="ExtensionsButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 9</value>
-  </data>
-  <data name="ExtensionsButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 25</value>
-  </data>
-  <data name="ExtensionsButton.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="ExtensionsButton.Text" xml:space="preserve">
-    <value>Extensions</value>
-  </data>
-  <data name="&gt;&gt;ExtensionsButton.Name" xml:space="preserve">
-    <value>ExtensionsButton</value>
-  </data>
-  <data name="&gt;&gt;ExtensionsButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ExtensionsButton.Parent" xml:space="preserve">
-    <value>BottomPanel</value>
-  </data>
-  <data name="&gt;&gt;ExtensionsButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="ResetButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="ResetButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ResetButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 9</value>
-  </data>
-  <data name="ResetButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 25</value>
-  </data>
-  <data name="ResetButton.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="ResetButton.Text" xml:space="preserve">
-    <value>Reset</value>
-  </data>
-  <data name="&gt;&gt;ResetButton.Name" xml:space="preserve">
-    <value>ResetButton</value>
-  </data>
-  <data name="&gt;&gt;ResetButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ResetButton.Parent" xml:space="preserve">
-    <value>BottomPanel</value>
-  </data>
-  <data name="&gt;&gt;ResetButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="BorderBottom.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
+  <data name="BorderBottom.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="BorderBottom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 315</value>
+    <value>0, 360</value>
+  </data>
+  <data name="BorderBottom.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="BorderBottom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>386, 1</value>
+    <value>434, 1</value>
   </data>
   <data name="BorderBottom.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -250,7 +209,7 @@
     <value>BorderBottom</value>
   </data>
   <data name="&gt;&gt;BorderBottom.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;BorderBottom.Parent" xml:space="preserve">
     <value>$this</value>
@@ -258,14 +217,90 @@
   <data name="&gt;&gt;BorderBottom.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="PreloadButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="PreloadButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PreloadButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 10</value>
+  </data>
+  <data name="PreloadButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="PreloadButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 29</value>
+  </data>
+  <data name="PreloadButton.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="PreloadButton.Text" xml:space="preserve">
+    <value>Preload</value>
+  </data>
+  <metadata name="PreloadTooltip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="PreloadButton.ToolTip" xml:space="preserve">
+    <value>Selects a folder to preload thumbnails within.
+Holding "SHIFT" will recursively preload thumbnails.</value>
+  </data>
+  <data name="&gt;&gt;PreloadButton.Name" xml:space="preserve">
+    <value>PreloadButton</value>
+  </data>
+  <data name="&gt;&gt;PreloadButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PreloadButton.Parent" xml:space="preserve">
+    <value>BottomPanel</value>
+  </data>
+  <data name="&gt;&gt;PreloadButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="SettingsButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="SettingsButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="SettingsButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>109, 10</value>
+  </data>
+  <data name="SettingsButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="SettingsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 29</value>
+  </data>
+  <data name="SettingsButton.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="SettingsButton.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="&gt;&gt;SettingsButton.Name" xml:space="preserve">
+    <value>SettingsButton</value>
+  </data>
+  <data name="&gt;&gt;SettingsButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SettingsButton.Parent" xml:space="preserve">
+    <value>BottomPanel</value>
+  </data>
+  <data name="&gt;&gt;SettingsButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="BottomPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
   <data name="BottomPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 316</value>
+    <value>0, 361</value>
+  </data>
+  <data name="BottomPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
   <data name="BottomPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>386, 43</value>
+    <value>434, 50</value>
   </data>
   <data name="BottomPanel.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -274,7 +309,7 @@
     <value>BottomPanel</value>
   </data>
   <data name="&gt;&gt;BottomPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;BottomPanel.Parent" xml:space="preserve">
     <value>$this</value>
@@ -282,29 +317,20 @@
   <data name="&gt;&gt;BottomPanel.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="button1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
-  </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="BorderTop.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
+  <data name="BorderTop.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="BorderTop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 68</value>
+    <value>0, 78</value>
+  </data>
+  <data name="BorderTop.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="BorderTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>386, 1</value>
+    <value>434, 1</value>
   </data>
   <data name="BorderTop.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -313,7 +339,7 @@
     <value>BorderTop</value>
   </data>
   <data name="&gt;&gt;BorderTop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;BorderTop.Parent" xml:space="preserve">
     <value>$this</value>
@@ -321,11 +347,17 @@
   <data name="&gt;&gt;BorderTop.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="AppIconPictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="AppIconPictureBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 10</value>
+    <value>18, 12</value>
+  </data>
+  <data name="AppIconPictureBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
   <data name="AppIconPictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>56, 55</value>
   </data>
   <data name="AppIconPictureBox.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -334,7 +366,7 @@
     <value>AppIconPictureBox</value>
   </data>
   <data name="&gt;&gt;AppIconPictureBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;AppIconPictureBox.Parent" xml:space="preserve">
     <value>HeaderPanel</value>
@@ -345,11 +377,17 @@
   <data name="UpdateLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="UpdateLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="UpdateLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>71, 38</value>
+    <value>83, 44</value>
+  </data>
+  <data name="UpdateLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="UpdateLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 13</value>
+    <value>129, 15</value>
   </data>
   <data name="UpdateLabel.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -361,7 +399,7 @@
     <value>UpdateLabel</value>
   </data>
   <data name="&gt;&gt;UpdateLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;UpdateLabel.Parent" xml:space="preserve">
     <value>HeaderPanel</value>
@@ -375,8 +413,14 @@
   <data name="AppNameLabel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 14.25pt</value>
   </data>
+  <data name="AppNameLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="AppNameLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>69, 14</value>
+    <value>80, 16</value>
+  </data>
+  <data name="AppNameLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="AppNameLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>195, 24</value>
@@ -391,7 +435,7 @@
     <value>AppNameLabel</value>
   </data>
   <data name="&gt;&gt;AppNameLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;AppNameLabel.Parent" xml:space="preserve">
     <value>HeaderPanel</value>
@@ -405,8 +449,11 @@
   <data name="HeaderPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="HeaderPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
   <data name="HeaderPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>386, 68</value>
+    <value>434, 78</value>
   </data>
   <data name="HeaderPanel.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -415,7 +462,7 @@
     <value>HeaderPanel</value>
   </data>
   <data name="&gt;&gt;HeaderPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;HeaderPanel.Parent" xml:space="preserve">
     <value>$this</value>
@@ -427,39 +474,40 @@
     <value>Fill</value>
   </data>
   <data name="RichTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 10</value>
+    <value>18, 12</value>
   </data>
   <data name="RichTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>20, 20, 20, 20</value>
+    <value>23, 23, 23, 23</value>
   </data>
   <data name="RichTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>356, 226</value>
+    <value>398, 257</value>
   </data>
   <data name="RichTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="RichTextBox.Text" xml:space="preserve">
-    <value>To use this app start with a right click on a folder to call the context menu and select WinThumbsPreloader &gt; Preload thumbnails in the menu.
+    <value>To use this app, press "Preload" or right click on a folder to call the context menu and select WinThumbsPreloader &gt; Preload thumbnails in the menu.
 
-Also you can launch the app from command line:
+This app can also be launched from the command line:
 Usage:
     WinThumbsPreloader.exe [-r -s] &lt;path&gt;
 Options:
     -r Recursively preload thumbnails in nested folders.
     -s Silent mode - don't show a progress dialog.
-    -m Multi-Threaded mode
+    -m / -m&lt;n&gt; / -m:&lt;n&gt; Multi-Threaded mode with optional thread count
 
-File extensions for thumbnail generation can be added with the "Extensions" button.
+File extensions for thumbnail preloading can be modified in the Settings.
 
 Project page: https://github.com/Mfarooq360/WinThumbsPreloader
 
-Copyright (c) 2018 Dmitry Bruhov</value>
+Copyright (c) 2018 Dmitry Bruhov
+Copyright (c) 2023 Mutahar Farooq</value>
   </data>
   <data name="&gt;&gt;RichTextBox.Name" xml:space="preserve">
     <value>RichTextBox</value>
   </data>
   <data name="&gt;&gt;RichTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;RichTextBox.Parent" xml:space="preserve">
     <value>ContentPanel</value>
@@ -471,13 +519,16 @@ Copyright (c) 2018 Dmitry Bruhov</value>
     <value>Fill</value>
   </data>
   <data name="ContentPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 69</value>
+    <value>0, 79</value>
+  </data>
+  <data name="ContentPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
   <data name="ContentPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>15, 10, 15, 10</value>
+    <value>18, 12, 18, 12</value>
   </data>
   <data name="ContentPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>386, 246</value>
+    <value>434, 281</value>
   </data>
   <data name="ContentPanel.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -486,7 +537,7 @@ Copyright (c) 2018 Dmitry Bruhov</value>
     <value>ContentPanel</value>
   </data>
   <data name="&gt;&gt;ContentPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ContentPanel.Parent" xml:space="preserve">
     <value>$this</value>
@@ -498,10 +549,13 @@ Copyright (c) 2018 Dmitry Bruhov</value>
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>386, 359</value>
+    <value>434, 411</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
@@ -509,10 +563,16 @@ Copyright (c) 2018 Dmitry Bruhov</value>
   <data name="$this.Text" xml:space="preserve">
     <value>WinThumbsPreloader - About</value>
   </data>
+  <data name="&gt;&gt;PreloadTooltip.Name" xml:space="preserve">
+    <value>PreloadTooltip</value>
+  </data>
+  <data name="&gt;&gt;PreloadTooltip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AboutForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

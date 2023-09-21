@@ -1,9 +1,11 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30225.117
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinThumbsPreloader", "WinThumbsPreloader\WinThumbsPreloader.csproj", "{08E06E69-90AF-421A-B2C1-95D886657F77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinThumbsPreloader", "WinThumbsPreloader\WinThumbsPreloader.csproj", "{08E06E69-90AF-421A-B2C1-95D886657F77}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinThumbsPreloaderCore", "WinThumbsPreloaderCore\WinThumbsPreloaderCore.csproj", "{6B9976E0-3F45-4125-99CF-57A3F26559CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,14 +23,14 @@ Global
 		{08E06E69-90AF-421A-B2C1-95D886657F77}.Release|Any CPU.Build.0 = Release|Any CPU
 		{08E06E69-90AF-421A-B2C1-95D886657F77}.Release|x64.ActiveCfg = Release|x64
 		{08E06E69-90AF-421A-B2C1-95D886657F77}.Release|x64.Build.0 = Release|x64
-		{3B8D4D60-2087-42E3-B074-3AC3159FBDFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3B8D4D60-2087-42E3-B074-3AC3159FBDFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3B8D4D60-2087-42E3-B074-3AC3159FBDFE}.Debug|x64.ActiveCfg = Debug|x64
-		{3B8D4D60-2087-42E3-B074-3AC3159FBDFE}.Debug|x64.Build.0 = Debug|x64
-		{3B8D4D60-2087-42E3-B074-3AC3159FBDFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3B8D4D60-2087-42E3-B074-3AC3159FBDFE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3B8D4D60-2087-42E3-B074-3AC3159FBDFE}.Release|x64.ActiveCfg = Release|x64
-		{3B8D4D60-2087-42E3-B074-3AC3159FBDFE}.Release|x64.Build.0 = Release|x64
+		{6B9976E0-3F45-4125-99CF-57A3F26559CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B9976E0-3F45-4125-99CF-57A3F26559CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B9976E0-3F45-4125-99CF-57A3F26559CC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6B9976E0-3F45-4125-99CF-57A3F26559CC}.Debug|x64.Build.0 = Debug|Any CPU
+		{6B9976E0-3F45-4125-99CF-57A3F26559CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B9976E0-3F45-4125-99CF-57A3F26559CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B9976E0-3F45-4125-99CF-57A3F26559CC}.Release|x64.ActiveCfg = Release|Any CPU
+		{6B9976E0-3F45-4125-99CF-57A3F26559CC}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

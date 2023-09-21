@@ -14,14 +14,14 @@
     <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="WinThumbsPreloader.exe.manifest" size="4661">
+    <dependentAssembly dependencyType="install" codebase="WinThumbsPreloader.exe.manifest" size="4662">
       <assemblyIdentity name="WinThumbsPreloader.exe" version="1.1.0.5" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>6UCRbfn7OfTkV14BVZTaYEUGIbVOJrH3MlRhdZ1O28o=</dsig:DigestValue>
+        <dsig:DigestValue>vkGddIha8foPPIgBqPVyZStkSABDKcTfODLQfKcqLKI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using WinThumbsPreloader.Properties;
 
 namespace WinThumbsPreloader
 {
@@ -24,19 +25,14 @@ namespace WinThumbsPreloader
             string[] thumbnailExtensions;
             try
             {
-                thumbnailExtensions = File.ReadAllLines("ThumbnailExtensions.txt")
-                                          .SelectMany(line => line.Split(new[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries)) //Ignore commas and spaces between extensions written on one line
-                                          .Where(ext => !string.IsNullOrWhiteSpace(ext)) //Ignore blank lines or lines with only spaces
-                                          .Select(ext => ext.Trim(' ')).ToArray(); //Ignore spaces after the extension for each line
-                if (thumbnailExtensions == null)
-                {
-                    thumbnailExtensions = defaultExtensions;
-                }
+                thumbnailExtensions = Properties.Settings.Default.ExtensionsText
+                                      .Split(new[] { ',', ' ', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries) // Ignore commas, spaces and newlines between extensions
+                                      .Where(ext => !string.IsNullOrWhiteSpace(ext)) // Ignore blank lines or lines with only spaces
+                                      .Select(ext => ext.Trim(' ')).ToArray(); // Ignore spaces after the extension for each line
+
+                if (thumbnailExtensions == null) { thumbnailExtensions = defaultExtensions; }
             }
-            catch (FileNotFoundException)
-            {
-                thumbnailExtensions = defaultExtensions;
-            }
+            catch (Exception) { thumbnailExtensions = defaultExtensions; }
             return thumbnailExtensions;
         }
 
@@ -78,9 +74,27 @@ namespace WinThumbsPreloader
                 currentPath = queue.Dequeue();
                 try
                 {
-                    foreach (string subDir in Directory.GetDirectories(currentPath))
+                    if (Settings.Default.PreloadFolderIcons == true)
                     {
-                        queue.Enqueue(subDir);
+                        foreach (string subDir in Directory.GetDirectories(currentPath))
+                        {
+                            queue.Enqueue(subDir);
+                            try
+                            {   // Check if the subDir contains any files with the specified extensions
+                                if (Directory.EnumerateFiles(subDir).Any(file => thumbnailExtensions.Contains(new FileInfo(file).Extension.TrimStart('.'), StringComparer.OrdinalIgnoreCase) || thumbnailExtensions.Length == 0))
+                                {
+                                    filesList.Add(subDir);
+                                }
+                            }
+                            catch (Exception) { } // Do nothing
+                        }
+                    }
+                    else
+                    {
+                        foreach (string subDir in Directory.GetDirectories(currentPath))
+                        {
+                            queue.Enqueue(subDir);
+                        }
                     }
                     foreach (string subFiles in Directory.GetFiles(currentPath))
                     {

@@ -168,5 +168,22 @@ namespace WinThumbsPreloader.Properties {
                 return ResourceManager.GetString("ThumbnailsPreloader_Processing", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WinThumbsPreloader.
+        /// </summary>
+        internal static string ThumbnailsPreloader_Title {
+            get {
+                return ResourceManager.GetString("ThumbnailsPreloader_Title", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Backing up thumbnail cache....
+        /// </summary>
+        internal static string ThumbnailsPreloader_BackingUpThumbsCache {
+            get {
+                return ResourceManager.GetString("ThumbnailsPreloader_BackingUpThumbsCache", resourceCulture);
+            }
+        }
     }
 }

@@ -1,9 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Reflection;
+using System.Runtime.Versioning;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -11,11 +14,17 @@ using WinThumbsPreloader.Properties;
 
 namespace WinThumbsPreloader
 {
+    [SupportedOSPlatform("windows")]
     public partial class AboutForm : Form
     {
         public AboutForm()
         {
             InitializeComponent();
+            this.KeyDown += AboutForm_KeyDown;
+            this.KeyUp += AboutForm_KeyUp;
+            this.Activated += AboutForm_Activated;
+            this.KeyPreview = true;
+            this.Shown += AboutForm_Shown;
         }
 
         private void AboutForm_Load(object sender, EventArgs e)
@@ -24,6 +33,11 @@ namespace WinThumbsPreloader
             this.Icon = Resources.MainIcon;
             AppIconPictureBox.Image = new Icon(Resources.MainIcon, 48, 48).ToBitmap();
             CheckForUpdates();
+        }
+
+        private async void AboutForm_Shown(object sender, EventArgs e)
+        {
+            await CheckForCacheReset();
         }
 
         private enum UpdateState
@@ -35,15 +49,15 @@ namespace WinThumbsPreloader
 
         private async void CheckForUpdates()
         {
-            UpdateState updateState = await Task.Run(() =>
+            UpdateState updateState = await Task.Run(async () =>
             {
                 try
                 {
                     ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                    using (WebClient client = new WebClient())
+                    using (HttpClient client = new HttpClient())
                     {
-                        client.Headers.Add("User-Agent", "WinThumbPreloader");
-                        string GitHubApiResponse = client.DownloadString("https://api.github.com/repos/Mfarooq360/WinThumbsPreloader/releases/latest");
+                        client.DefaultRequestHeaders.UserAgent.ParseAdd("WinThumbPreloader");
+                        string GitHubApiResponse = await client.GetStringAsync("https://api.github.com/repos/Mfarooq360/WinThumbsPreloader/releases/latest");
                         string latestVersionString = Regex.Match(GitHubApiResponse, @"""tag_name"":\s*""v([\d\.]+)").Groups[1].Captures[0].ToString();
                         Version currentVersion = new Version(Application.ProductVersion);
                         Version latestVersion = new Version(latestVersionString);
@@ -74,7 +88,12 @@ namespace WinThumbsPreloader
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Environment.Exit(0);
+        }
+
+        private void AppNameLabel_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void LicenceButton_Click(object sender, EventArgs e)
@@ -87,27 +106,6 @@ namespace WinThumbsPreloader
             catch (Exception) { } // Do nothing
         }
 
-        string[] defaultExtensions = new string[] { "avif", "bmp", "gif", "heic", "jpg", "jpeg", "mkv", "mov", "mp4", "png", "svg", "tif", "tiff", "webp" };
-        private void ExtensionsButton_Click(object sender, EventArgs e)
-        {
-            string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "ThumbnailExtensions.txt");
-            try
-            {
-                Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
-            }
-            catch (Exception)
-            {
-                File.WriteAllLines(path, defaultExtensions);
-                Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
-            }
-        }
-
-        private void ResetButton_Click(object sender, EventArgs e)
-        {
-            string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "ThumbnailExtensions.txt");
-            File.WriteAllLines(path, defaultExtensions);
-        }
-
         private void RichTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
         {
             Process.Start(e.LinkText);
@@ -116,6 +114,104 @@ namespace WinThumbsPreloader
         private void UpdateLabel_Click(object sender, EventArgs e)
         {
             if (UpdateLabel.Text == Resources.AboutForm_WinThumbsPreloader_NewVersionAvailable) Process.Start("https://github.com/Mfarooq360/WinThumbsPreloader");
+        }
+
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm();
+            this.OpenFormCentered(settingsForm);
+        }
+
+        string argument;
+        private void PreloadButton_Click(object sender, EventArgs e)
+        {
+            string preloadMode = PreloadButton.Text;
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            folderBrowserDialog.ShowDialog();
+            string folderName = folderBrowserDialog.SelectedPath;
+            if (folderName == null || folderName == string.Empty) return;
+            else
+            {
+                try
+                {
+                    folderName = folderName.Replace("\\", "/");
+                    if (preloadMode == "Preload")
+                    {
+                        argument = $"\"{folderName}\"";
+                    }
+                    else if (preloadMode == "Recursively")
+                    {
+                        argument = $"-r \"{folderName}\"";
+                    }
+                    var startInfo = new ProcessStartInfo
+                    {
+                        FileName = Application.ExecutablePath,
+                        Arguments = argument,
+                        UseShellExecute = false
+                    };
+
+                    Process.Start(startInfo);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Failed to start winthumbspreloader: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void AboutForm_Activated(object sender, EventArgs e)
+        {
+            if (Control.ModifierKeys == Keys.Shift)
+            {
+                // Shift key is currently pressed, so change the button text
+                PreloadButton.Text = "Recursively";
+            }
+            else
+            {
+                // Shift key is not pressed, so set the button text to its original value
+                PreloadButton.Text = "Preload";
+            }
+        }
+
+        private void AboutForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.ShiftKey)
+            {
+                // Change the button text when Shift is pressed
+                PreloadButton.Text = "Recursively";
+            }
+        }
+
+        private void AboutForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.ShiftKey)
+            {
+                // Change the button text back when Shift is released
+                PreloadButton.Text = "Preload";
+            }
+        }
+
+        public static async Task CheckForCacheReset()
+        {
+            await Task.Run(async () =>
+            {
+                if (Settings.Default.ThumbsResetAlert == true && CacheForm.CompareThumbsCacheSize() == false && Settings.Default.ResetRecognized == false)
+                {
+                    DialogResult dialogResult = MessageBox.Show("The Explorer cache has reset. Would you like to restore the backup?", "Restore Backup", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        await CacheForm.RestoreThumbsCache();
+                        if (CacheForm.CompareThumbsCacheSize() == true)
+                        {
+                            MessageBox.Show("Explorer cache successfully restored.", "Restore Successful", MessageBoxButtons.OK);
+                        }
+                        Settings.Default.ResetRecognized = true;
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        Settings.Default.ResetRecognized = true;
+                    }
+                }
+            });
         }
     }
 }

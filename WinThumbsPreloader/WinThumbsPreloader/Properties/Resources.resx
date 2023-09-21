@@ -154,4 +154,10 @@
   <data name="ThumbnailsPreloader_ItemsRemaining" xml:space="preserve">
     <value>Items remaining: {0:N0}</value>
   </data>
+  <data name="ThumbnailsPreloader_Title" xml:space="preserve">
+    <value>WinThumbsPreloader</value>
+  </data>
+  <data name="ThumbnailsPreloader_BackingUpThumbsCache" xml:space="preserve">
+    <value>Backing up thumbnail cache...</value>
+  </data>
 </root>
