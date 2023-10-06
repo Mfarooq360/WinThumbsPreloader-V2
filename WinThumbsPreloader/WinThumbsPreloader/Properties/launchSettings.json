@@ -1,8 +1,7 @@
 {
   "profiles": {
     "WinThumbsPreloader": {
-      "commandName": "Project",
-      "commandLineArgs": "-m -r C:\\ D:\\F:\\ \"I:\\\""
+      "commandName": "Project"
     }
   }
 }

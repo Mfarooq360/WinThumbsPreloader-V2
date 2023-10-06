@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\Mutahar Farooq\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Mutahar Farooq\\.nuget\\packages"
+      "C:\\Users\\mutah\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\mutah\\.nuget\\packages"
     ],
     "configProperties": {
       "System.Reflection.Metadata.MetadataUpdater.IsSupported": false,

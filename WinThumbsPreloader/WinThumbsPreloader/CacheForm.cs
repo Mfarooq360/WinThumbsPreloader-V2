@@ -20,7 +20,7 @@ namespace WinThumbsPreloader
     [SupportedOSPlatform("windows")]
     public partial class CacheForm : Form
     {
-        /*TODO: Add Tooltips, add error correction, 
+        /*TODO: Add Tooltips, update backup tooltip, add error correction, 
          * fix auto backup and auto restore (make auto restore occur when auto backing up after preloading)
          * allow interval change
          * create new exe for cacheform
@@ -75,7 +75,7 @@ namespace WinThumbsPreloader
 
         private void AutoBackupAndRestoreThumbsCache()
         {
-            autoTimer.Interval = 1000; // 1 second
+            autoTimer.Interval = 5000; // 5 second
             autoTimer.Tick += AutoBackupAndRestoreThumbsCache_Tick;
             autoTimer.Start();
         }
@@ -91,7 +91,7 @@ namespace WinThumbsPreloader
             {
                 await RestoreThumbsCache();
             }
-            if (AutoBackupCheckBox.Checked == true && ExplorerCacheSize() > BackupCacheSize())
+            if (AutoBackupCheckBox.Checked == true && ExplorerCacheSize() > BackupCacheSize() && ExplorerCacheSize() == ExplorerCacheSize())
             {
                 await BackupThumbsCache();
             }
@@ -155,7 +155,7 @@ namespace WinThumbsPreloader
         }
 
         static string explorerPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Microsoft\Windows\Explorer");
-        static string backupPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Explorer Backup");
+        static string backupPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Explorer Backup"); //Add code to handle backup folder not existing
 
         static long ExplorerCacheSize()
         {
@@ -172,12 +172,17 @@ namespace WinThumbsPreloader
         static long BackupCacheSize()
         {
             long backupCacheSize = 0;
-            try
+
+            if (Directory.Exists(backupPath))
             {
-                string[] destinationFiles = Directory.GetFiles(backupPath, "*.db");
-                backupCacheSize = destinationFiles.Sum(file => new FileInfo(file).Length);
+                try
+                {
+                    string[] destinationFiles = Directory.GetFiles(backupPath, "*.db");
+                    backupCacheSize = destinationFiles.Sum(file => new FileInfo(file).Length);
+                }
+                catch { }
             }
-            catch { }
+
             return backupCacheSize;
         }
 
@@ -277,6 +282,7 @@ namespace WinThumbsPreloader
 
         private void OutputTextBox_Initialize(object sender, EventArgs e)
         {
+            if (BackupCacheSize() == 0) { OutputTextBox.Text = "Backup doesn't exist or is empty."; }
             if (ExplorerCacheSize() < BackupCacheSize() && Settings.Default.ResetRecognized == false) { OutputTextBox.Text = "Explorer cache has been reset."; Settings.Default.ResetRecognized = true; }
             if (ExplorerCacheSize() < BackupCacheSize() && Settings.Default.ResetRecognized == true) { if (OutputTextBox.Text != "Explorer cache cleared.") { OutputTextBox.Text = "Backup cache larger than explorer cache."; } }
             if (ExplorerCacheSize() >= BackupCacheSize() && Settings.Default.ResetRecognized == true) { Settings.Default.ResetRecognized = false; }
@@ -421,8 +427,7 @@ namespace WinThumbsPreloader
             // Ensure the backup directory exists
             if (!Directory.Exists(backupPath))
             {
-                OutputTextBox.Text = "Backup not found.";
-                return;
+                Directory.CreateDirectory(backupPath);
             }
 
             if (ClearButton.Text == "Open Backup")

@@ -132,7 +132,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>EO9GVKBaOZN+7yHNOJ58oLGxfTjamsFWyI6ye8bUkzQ=</dsig:DigestValue>
+      <dsig:DigestValue>JFpxXqt3W9OvISGi9B3e14PJE/QCn1RM8IuHO02ePDs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll" size="37768">
@@ -180,13 +180,13 @@
       <dsig:DigestValue>Vzjx4BTWWXmJiEh4EHXbJe7eHxTX441ozqakxJvCssQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="WinThumbsPreloader.dll" size="192512">
+  <file name="WinThumbsPreloader.dll" size="195584">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Ipkr37vR91UatYrTWI0Bf40sukrlmMPueH14TzrmI4I=</dsig:DigestValue>
+      <dsig:DigestValue>3RacO6f259zQDepvuBr50iesk5yQ7yBWOVDSniIEq8Y=</dsig:DigestValue>
     </hash>
   </file>
   <file name="WinThumbsPreloader.dll.config" size="2087">
@@ -198,13 +198,13 @@
       <dsig:DigestValue>HQQH/SYXg+AjGbyr6mDQyK7v2unwvraPx/VxqXQjwXY=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="WinThumbsPreloader.exe" size="172544">
+  <file name="WinThumbsPreloader.exe" size="174080">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>czPqofsvyGLYwRQ2chaPe4sNi9zDlWxFzszSDnlKF80=</dsig:DigestValue>
+      <dsig:DigestValue>T2QM5eXGYsLGMP2qGevwRDDN8e6NDhRAJi/gYOtSD1w=</dsig:DigestValue>
     </hash>
   </file>
   <file name="zh-CN\Microsoft.Win32.TaskScheduler.resources.dll" size="9728">

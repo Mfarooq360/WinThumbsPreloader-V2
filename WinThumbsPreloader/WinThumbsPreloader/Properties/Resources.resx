@@ -160,4 +160,7 @@
   <data name="ThumbnailsPreloader_BackingUpThumbsCache" xml:space="preserve">
     <value>Backing up thumbnail cache...</value>
   </data>
+  <data name="AboutForm_WinThumbsPreloader_BetaVersionAvailable" xml:space="preserve">
+    <value>A newer beta version of WinThumbsPreloader is available</value>
+  </data>
 </root>

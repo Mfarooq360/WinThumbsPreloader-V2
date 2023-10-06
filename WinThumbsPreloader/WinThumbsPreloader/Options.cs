@@ -42,7 +42,7 @@ namespace WinThumbsPreloader
                     string count = argu.Substring(3); // Get everything after -m:
                     if (int.TryParse(count, out int result)) // Try to parse it as int
                     {
-                        if (result >= 0) { threadCount = result + 1; }
+                        if (result >= 0 && result <= 256) { threadCount = result + 1; }
                     }
                     continue;
                 }
@@ -52,7 +52,7 @@ namespace WinThumbsPreloader
                     string count = argu.Substring(2);
                     if (int.TryParse(count, out int result))
                     {
-                        if (result >= 0) { threadCount = result + 1; }
+                        if (result >= 0 && result <= 256) { threadCount = result + 1; }
                     }
                     continue;
                 }

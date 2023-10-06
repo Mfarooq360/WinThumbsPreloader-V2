@@ -54,7 +54,6 @@
             toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             CacheToolTips = new System.Windows.Forms.ToolTip(components);
-            comboBox1 = new System.Windows.Forms.ComboBox();
             CacheOptionsGroupBox.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             SuspendLayout();
@@ -62,7 +61,6 @@
             // CacheOptionsGroupBox
             // 
             CacheOptionsGroupBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            CacheOptionsGroupBox.Controls.Add(comboBox1);
             CacheOptionsGroupBox.Controls.Add(StartWithWindowsCheckBox);
             CacheOptionsGroupBox.Controls.Add(AutoRestoreCheckBox);
             CacheOptionsGroupBox.Controls.Add(BackupSizeLabel);
@@ -220,7 +218,7 @@
             AutoBackupCheckBox.Size = new System.Drawing.Size(94, 19);
             AutoBackupCheckBox.TabIndex = 0;
             AutoBackupCheckBox.Text = "Auto Backup";
-            CacheToolTips.SetToolTip(AutoBackupCheckBox, "Enables backing up of thumbnail cache\r\nin the background at set intervals");
+            CacheToolTips.SetToolTip(AutoBackupCheckBox, "Enables backing up of thumbnail cache\r\nin the background every 5 seconds.");
             AutoBackupCheckBox.UseVisualStyleBackColor = true;
             AutoBackupCheckBox.CheckedChanged += AutoBackupCheckBox_CheckedChanged;
             // 
@@ -302,14 +300,6 @@
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new System.Drawing.Point(110, 140);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new System.Drawing.Size(75, 23);
-            comboBox1.TabIndex = 17;
-            // 
             // CacheForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -354,6 +344,5 @@
         private System.Windows.Forms.ToolStripMenuItem startWithWindowsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toggleCacheResetAlertToolStripMenuItem;
         private System.Windows.Forms.ToolTip CacheToolTips;
-        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

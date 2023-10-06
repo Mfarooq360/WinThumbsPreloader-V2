@@ -54,6 +54,33 @@
       </hash>
     </dependentAssembly>
   </dependency>
+  <file name="de\Microsoft.Win32.TaskScheduler.resources.dll" size="9728">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>WCWL17hSSRsiiHpJ76dKLd+Z8WI3Tx78ejwTdhX9Sog=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="es\Microsoft.Win32.TaskScheduler.resources.dll" size="10240">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>2vIeeSNljxDuNL4b685ohyzCSTBHS7J1tXD5n/nNgCM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="fr\Microsoft.Win32.TaskScheduler.resources.dll" size="10240">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>droJ+6gyAdaQcp/0jGXuzh/YNb35IIcLTbwubHSum6U=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="icon.ico" size="24156">
     <hash>
       <dsig:Transforms>
@@ -63,40 +90,139 @@
       <dsig:DigestValue>wJJxE0cYFo/dU5utVFUknOqv/+1TIkT8pq/y73GiCyg=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="it\Microsoft.Win32.TaskScheduler.resources.dll" size="10240">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>12Cm2teaNaqSg8AKxQtidu/DHmgWILtWo5OvQdYZxuI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Microsoft.Win32.TaskScheduler.dll" size="336896">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>PvjZeN+womEUNt4Ycu92q7sPOrE2i80rzQu1hNv51g0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="pl\Microsoft.Win32.TaskScheduler.resources.dll" size="10240">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>/5dkkCHH4CQL0CEe9S7Rzytj4gwmY8iU4T0W3IYizDo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ru\Microsoft.Win32.TaskScheduler.resources.dll" size="10752">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>S7JbIS6N6t2onlrFiUU7MbeuYJchDTt0U6eQN17WP5s=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="ru\WinThumbsPreloader.resources.dll" size="7168">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Trm7a+0y0vmLD4Ts9nmqi5KED8om5EAZjCA43KcY4Bg=</dsig:DigestValue>
+      <dsig:DigestValue>4q6dqs6Qa+vzuR0Di5X3bbOdnq/jiejPKaBXCxWuDHs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="WinThumbsPreloader.dll" size="124928">
+  <file name="runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll" size="37768">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>8QWGRQ3/Yn7N+6j2baq9SRgmuePj2f/mgyuTlRdCf5Y=</dsig:DigestValue>
+      <dsig:DigestValue>9HDH7g+Z9c6qJfUZcJiM+83b4PjdhJHKPpz0+fUv23U=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="WinThumbsPreloader.dll.config" size="1425">
+  <file name="runtimes\win\lib\netcoreapp2.0\System.Diagnostics.EventLog.dll" size="130440">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>5SV/ilwLH2iXdejJkT8XjbW2VrxN+o6xrXT9XwVCgQk=</dsig:DigestValue>
+      <dsig:DigestValue>NR+GGcPa+604rIyJNJtMFQc6lEspBrQsx+/mNT0hqYU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="WinThumbsPreloader.exe" size="172544">
+  <file name="runtimes\win\lib\netcoreapp2.0\System.Security.AccessControl.dll" size="102280">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>+hFC+MveuOn3UCQELThJeUfrr3TK4IGuEZ3sJL8Ug38=</dsig:DigestValue>
+      <dsig:DigestValue>lNMvvnB8WhYsH343sJLw7Dn1wDFSYJoUDJ+Fqk+HaOw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll" size="81800">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Ct2Tol/U4BHbVcrJ58BiuAfZhEe8gnLPOiSwa3Q3wWw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="runtimes\win\lib\netstandard2.0\Microsoft.Win32.Registry.dll" size="53640">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Vzjx4BTWWXmJiEh4EHXbJe7eHxTX441ozqakxJvCssQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="WinThumbsPreloader.dll" size="188416">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>L76eltpW8IX+YzmIIdKwdcQKCypGF1kFRnHr7aelECU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="WinThumbsPreloader.dll.config" size="2087">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>HQQH/SYXg+AjGbyr6mDQyK7v2unwvraPx/VxqXQjwXY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="WinThumbsPreloader.exe" size="174080">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>T2QM5eXGYsLGMP2qGevwRDDN8e6NDhRAJi/gYOtSD1w=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="zh-CN\Microsoft.Win32.TaskScheduler.resources.dll" size="9728">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>4RPobVaaavj1tzzXaBOhV9beGzlVqHVrAddYlnOTIX0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="zh-Hant\Microsoft.Win32.TaskScheduler.resources.dll" size="9728">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>x9/Jw/kxwZ1QLlviraz3HaRyFwX3JTG7k6xrFCP99lw=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

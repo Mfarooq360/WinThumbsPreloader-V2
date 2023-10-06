@@ -59,11 +59,13 @@ namespace WinThumbsPreloader
             {
                 // Shift key is currently pressed, so change the button text
                 CloseButton.Text = "Exit";
+                ScheduleSaveButton.Text = "Delete Task";
             }
             else
             {
                 // Shift key is not pressed, so set the button text to its original value
                 CloseButton.Text = "Close";
+                ScheduleSaveButton.Text = "Save Task";
             }
         }
 
@@ -73,6 +75,7 @@ namespace WinThumbsPreloader
             {
                 // Change the button text when Shift is pressed
                 CloseButton.Text = "Exit";
+                ScheduleSaveButton.Text = "Delete Task";
             }
         }
 
@@ -82,6 +85,7 @@ namespace WinThumbsPreloader
             {
                 // Change the button text back when Shift is released
                 CloseButton.Text = "Close";
+                ScheduleSaveButton.Text = "Save Task";
             }
         }
 
@@ -184,58 +188,111 @@ namespace WinThumbsPreloader
 
         private void ScheduleSaveButton_Click(object sender, EventArgs e)
         {
-            //Saves the scheduled task
-            using (TaskService ts = new TaskService())
+            if (ScheduleSaveButton.Text == "Save Task")
             {
-                TaskDefinition td = ts.NewTask();
-                td.RegistrationInfo.Description = "Runs WinThumbsPreloader based on user's schedule";
-
-                // Set trigger based on user's selection
-                DateTime selectedTime = GetSelectedTime();
-                if (RunEveryComboBox.SelectedItem.ToString() == "Day")
-                {
-                    var dailyTrigger = new DailyTrigger();
-                    dailyTrigger.StartBoundary = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, selectedTime.Hour, selectedTime.Minute, 0);
-                    td.Triggers.Add(dailyTrigger);
-                }
-                else if (RunEveryComboBox.SelectedItem.ToString() == "Week")
-                {
-                    var weeklyTrigger = new WeeklyTrigger();
-                    weeklyTrigger.StartBoundary = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, selectedTime.Hour, selectedTime.Minute, 0);
-                    td.Triggers.Add(weeklyTrigger);
-                }
-                else if (RunEveryComboBox.SelectedItem.ToString() == "Month")
-                {
-                    var monthlyTrigger = new MonthlyTrigger();
-                    monthlyTrigger.StartBoundary = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, selectedTime.Hour, selectedTime.Minute, 0);
-                    td.Triggers.Add(monthlyTrigger);
-                }
-
-                if (OnIdleCheckBox.Checked)
-                {
-                    var idleTrigger = new IdleTrigger();
-                    td.Triggers.Add(idleTrigger);
-                }
-
-                // Construct the arguments for the task action
-                string arguments = ConstructArguments();
-
-                td.Actions.Add(new ExecAction(currentExePath, arguments, null));
-                Task task = ts.RootFolder.RegisterTaskDefinition(TaskName, td);
-                task.Enabled = EnabledCheckBox.Checked;
-
-                OutputTextBox.Text = "Task saved successfully.";
+                SaveTask();
+            }
+            else if (ScheduleSaveButton.Text == "Delete Task")
+            {
+                DeleteTask();
             }
         }
 
-        private DateTime GetSelectedTime()
+        private void SaveTask()
         {
+            try
+            {
+                DateTime? selectedTime = GetSelectedTime();
+                if (!selectedTime.HasValue)
+                {
+                    return; // Exit the method if the selected time is not valid
+                }
+                    
+                //Saves the scheduled task
+                using (TaskService ts = new TaskService())
+                {
+                    TaskDefinition td = ts.NewTask();
+                    td.RegistrationInfo.Description = "Runs WinThumbsPreloader based on user's schedule";
+
+                    // Set trigger based on user's selection
+                    
+                    if (RunEveryComboBox.SelectedItem.ToString() == "Day")
+                    {
+                        var dailyTrigger = new DailyTrigger();
+                        dailyTrigger.StartBoundary = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, selectedTime.Value.Hour, selectedTime.Value.Minute, 0);
+                        td.Triggers.Add(dailyTrigger);
+                    }
+                    else if (RunEveryComboBox.SelectedItem.ToString() == "Week")
+                    {
+                        var weeklyTrigger = new WeeklyTrigger();
+                        weeklyTrigger.StartBoundary = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, selectedTime.Value.Hour, selectedTime.Value.Minute, 0);
+                        td.Triggers.Add(weeklyTrigger);
+                    }
+                    else if (RunEveryComboBox.SelectedItem.ToString() == "Month")
+                    {
+                        var monthlyTrigger = new MonthlyTrigger();
+                        monthlyTrigger.StartBoundary = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, selectedTime.Value.Hour, selectedTime.Value.Minute, 0);
+                        td.Triggers.Add(monthlyTrigger);
+                    }
+
+                    if (OnIdleCheckBox.Checked)
+                    {
+                        var idleTrigger = new IdleTrigger();
+                        td.Triggers.Add(idleTrigger);
+                    }
+
+                    // Construct the arguments for the task action
+                    string arguments = ConstructArguments();
+
+                    if (arguments != null)
+                    {
+                        td.Actions.Add(new ExecAction(currentExePath, arguments, null));
+                        Task task = ts.RootFolder.RegisterTaskDefinition(TaskName, td);
+                        task.Enabled = EnabledCheckBox.Checked;
+                    }
+                    else
+                    {
+                        return;
+                    }
+
+                    OutputTextBox.Text = "Task saved successfully.";
+                }
+            }
+            catch { OutputTextBox.Text = "Task failed to save."; }
+        }
+        private void DeleteTask()
+        {
+            using (TaskService ts = new TaskService())
+            {
+                try
+                {
+                    ts.RootFolder.DeleteTask(TaskName);
+                    EnabledCheckBox.Checked = false;
+                    OutputTextBox.Text = "Task deleted successfully.";
+                }
+                catch (Exception ex)
+                {
+                    // Handle specific exceptions as needed
+                    OutputTextBox.Text = "Failed to delete task. Error: " + ex.Message;
+                }
+            }
+        }
+
+        private DateTime? GetSelectedTime()
+        {
+            if (TimeDigitsComboBox.SelectedItem == null || TimeOfDayComboBox.SelectedItem == null || RunEveryComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select the time to be scheduled before saving the task.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+
             string timeStr = TimeDigitsComboBox.SelectedItem.ToString() + " " + TimeOfDayComboBox.SelectedItem.ToString();
             DateTime selectedTime;
             if (!DateTime.TryParseExact(timeStr, "h:mm tt", null, System.Globalization.DateTimeStyles.None, out selectedTime))
             {
                 // Provide a default time if parsing fails, or handle the error appropriately
-                selectedTime = DateTime.Now;
+                MessageBox.Show("The selected time is invalid. Please correct it before saving the task.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
             return selectedTime;
         }
@@ -251,9 +308,17 @@ namespace WinThumbsPreloader
             }
 
             // Assuming CheckedListBox1 contains drive letters
-            foreach (string driveLetter in CheckedListBox1.CheckedItems)
+            if (CheckedListBox1.CheckedItems.Count != 0)
             {
-                arguments += $"{driveLetter}:/ ";
+                foreach (string driveLetter in CheckedListBox1.CheckedItems)
+                {
+                    arguments += $"{driveLetter}:/ ";
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select at least one drive letter before saving the task.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
 
             return arguments.Trim();

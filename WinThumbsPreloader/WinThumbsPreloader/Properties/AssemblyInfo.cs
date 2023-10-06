@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("WinThumbsPreloader")]
-[assembly: AssemblyCopyright("Copyright © 2018 Dmitry Bruhov")]
+[assembly: AssemblyCopyright("Copyright © 2018 Dmitry Bruhov, Copyright © 2023 Mutahar Farooq")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -55,3 +55,4 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("2.0.0")]
 [assembly: AssemblyFileVersion("2.0.0")]
+[assembly: AssemblyInformationalVersion("2.0.0-beta1")]

@@ -79,6 +79,15 @@ namespace WinThumbsPreloader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A newer beta version of WinThumbsPreloader is available.
+        /// </summary>
+        internal static string AboutForm_WinThumbsPreloader_BetaVersionAvailable
+        {
+            get {
+                return ResourceManager.GetString("AboutForm_WinThumbsPreloader_BetaVersionAvailable", resourceCulture);
+            }
+        }
+        /// <summary>
         ///   Looks up a localized string similar to Update check failed.
         /// </summary>
         internal static string AboutForm_WinThumbsPreloader_UpdateCheckFailed {

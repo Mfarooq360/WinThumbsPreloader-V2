@@ -1,7 +1,8 @@
 ﻿#define MyAppName "WinThumbsPreloader"
-#define MyAppReleaseDirectory "..\WinThumbsPreloader\WinThumbsPreloader\bin\Release"
+#define MyAppReleaseDirectory "..\WinThumbsPreloader\WinThumbsPreloader\bin\Release\net6.0-windows"
 #define MyAppFilename MyAppName + ".exe"
 #define MyAppFilepath MyAppReleaseDirectory + "\" + MyAppFilename
+#define MyAppConfig MyAppReleaseDirectory + "\" + MyAppName
 #dim Version[4]
 #expr GetVersionComponents(MyAppFilepath, Version[0], Version[1], Version[2], Version[3])
 #define MyAppVersion Str(Version[0]) + "." + Str(Version[1]) + "." + Str(Version[2])
@@ -67,7 +68,9 @@ ru.PreloadThumbnailsRecursively=Загрузить эскизы включая �
 
 [Files]
 Source: "{#MyAppFilepath}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyAppFilepath}.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyAppConfig}.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyAppConfig}.dll.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyAppConfig}.runtimeconfig"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyAppReleaseDirectory}\LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyAppReleaseDirectory}\ru\*.resources.dll"; DestDir: "{app}\Languages\ru"; Flags: ignoreversion
 

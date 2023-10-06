@@ -43,7 +43,8 @@ namespace WinThumbsPreloader
         private enum UpdateState
         {
             Updated,
-            NotUpdated,
+            UpdateAvailable,
+            BetaAvailable,
             Error
         }
 
@@ -57,11 +58,44 @@ namespace WinThumbsPreloader
                     using (HttpClient client = new HttpClient())
                     {
                         client.DefaultRequestHeaders.UserAgent.ParseAdd("WinThumbPreloader");
-                        string GitHubApiResponse = await client.GetStringAsync("https://api.github.com/repos/Mfarooq360/WinThumbsPreloader/releases/latest");
-                        string latestVersionString = Regex.Match(GitHubApiResponse, @"""tag_name"":\s*""v([\d\.]+)").Groups[1].Captures[0].ToString();
-                        Version currentVersion = new Version(Application.ProductVersion);
-                        Version latestVersion = new Version(latestVersionString);
-                        return (currentVersion >= latestVersion ? UpdateState.Updated : UpdateState.NotUpdated);
+                        string GitHubApiResponse = await client.GetStringAsync("https://api.github.com/repos/Mfarooq360/WinThumbsPreloader-V2/releases/latest");
+                        string latestVersionString = Regex.Match(GitHubApiResponse, @"""tag_name"":\s*""v([\d\.]+(-beta\d+)?)""").Groups[1].Captures[0].ToString();
+
+                        Version currentNumericVersion = new Version(Regex.Match(Application.ProductVersion, @"(\d+\.\d+\.\d+)").Value);
+                        Version latestNumericVersion = new Version(Regex.Match(latestVersionString, @"(\d+\.\d+\.\d+)").Value);
+
+                        var currentBetaMatch = Regex.Match(Application.ProductVersion, @"-beta(\d+)");
+                        var latestBetaMatch = Regex.Match(latestVersionString, @"-beta(\d+)");
+                        bool isCurrentBeta = currentBetaMatch.Success;
+                        bool isLatestBeta = latestBetaMatch.Success;
+                        int currentBetaNumber = isCurrentBeta ? int.Parse(currentBetaMatch.Groups[1].Value) : 0;
+                        int latestBetaNumber = isLatestBeta ? int.Parse(latestBetaMatch.Groups[1].Value) : 0;
+
+                        // If latest version is NOT a beta and current version IS a beta or is older, then update is available
+                        if (!isLatestBeta && (isCurrentBeta && currentNumericVersion == latestNumericVersion))
+                        {
+                            return UpdateState.UpdateAvailable;
+                        }
+                        // If both current and latest versions are betas, check their beta numbers
+                        else if (isCurrentBeta && isLatestBeta)
+                        {
+                            if (currentBetaNumber < latestBetaNumber)
+                            {
+                                return UpdateState.BetaAvailable;
+                            }
+                            else
+                            {
+                                return UpdateState.Updated;
+                            }
+                        }
+                        else if (currentNumericVersion < latestNumericVersion)
+                        {
+                            return UpdateState.UpdateAvailable;
+                        }
+                        else
+                        {
+                            return UpdateState.Updated;
+                        }
                     }
                 }
                 catch (Exception)
@@ -69,6 +103,7 @@ namespace WinThumbsPreloader
                     return UpdateState.Error;
                 }
             });
+
             switch (updateState)
             {
                 case UpdateState.Updated:
@@ -77,8 +112,14 @@ namespace WinThumbsPreloader
                 case UpdateState.Error:
                     UpdateLabel.Text = Resources.AboutForm_WinThumbsPreloader_UpdateCheckFailed;
                     break;
-                case UpdateState.NotUpdated:
+                case UpdateState.UpdateAvailable:
                     UpdateLabel.Text = Resources.AboutForm_WinThumbsPreloader_NewVersionAvailable;
+                    UpdateLabel.ForeColor = Color.FromArgb(0, 102, 204);
+                    UpdateLabel.Font = new Font(UpdateLabel.Font.Name, UpdateLabel.Font.SizeInPoints, FontStyle.Underline);
+                    UpdateLabel.Cursor = Cursors.Hand;
+                    break;
+                case UpdateState.BetaAvailable:
+                    UpdateLabel.Text = Resources.AboutForm_WinThumbsPreloader_BetaVersionAvailable;
                     UpdateLabel.ForeColor = Color.FromArgb(0, 102, 204);
                     UpdateLabel.Font = new Font(UpdateLabel.Font.Name, UpdateLabel.Font.SizeInPoints, FontStyle.Underline);
                     UpdateLabel.Cursor = Cursors.Hand;
