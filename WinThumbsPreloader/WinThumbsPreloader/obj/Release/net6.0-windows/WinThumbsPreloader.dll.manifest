@@ -132,7 +132,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>4q6dqs6Qa+vzuR0Di5X3bbOdnq/jiejPKaBXCxWuDHs=</dsig:DigestValue>
+      <dsig:DigestValue>1+ptDXPxaH/EnuKLlUv28QNCdwY/9IctmZCNBvHexmU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll" size="37768">
@@ -186,7 +186,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>L76eltpW8IX+YzmIIdKwdcQKCypGF1kFRnHr7aelECU=</dsig:DigestValue>
+      <dsig:DigestValue>/hUF1o482t3jHuwZwQb9NxrcDHJGch3od1ctGLsrmNc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="WinThumbsPreloader.dll.config" size="2087">
