@@ -5,7 +5,6 @@ using System.Runtime.Versioning;
 namespace WinThumbsPreloader
 {
     //Preload one thumbnail
-    [SupportedOSPlatform("windows")]
     class ThumbnailPreloader
     {
         public static void PreloadThumbnail(string filePath)

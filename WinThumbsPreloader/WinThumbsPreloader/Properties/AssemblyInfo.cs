@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
@@ -17,6 +18,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright © 2018 Dmitry Bruhov, Copyright © 2023 Mutahar Farooq")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+[assembly: SupportedOSPlatform("windows")]
+
 
 // Установка значения False для параметра ComVisible делает типы в этой сборке невидимыми
 // для компонентов COM. Если необходимо обратиться к типу в этой сборке через
@@ -55,4 +58,4 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("2.0.0")]
 [assembly: AssemblyFileVersion("2.0.0")]
-[assembly: AssemblyInformationalVersion("2.0.0-beta1")]
+[assembly: AssemblyInformationalVersion("2.0.0-beta2")]

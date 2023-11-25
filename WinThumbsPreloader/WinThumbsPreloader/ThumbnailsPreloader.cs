@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Versioning;
+using static System.Windows.Forms.Design.AxImporter;
 
 namespace WinThumbsPreloader
 {
@@ -31,25 +32,27 @@ namespace WinThumbsPreloader
 
         public ThumbnailsPreloaderState state = ThumbnailsPreloaderState.GettingNumberOfItems;
         public ThumbnailsPreloaderState prevState = ThumbnailsPreloaderState.New;
+        public event Action<ThumbnailsPreloader> PreloaderCompleted;
+        private bool hasDecrementedActiveInstances = false;
         public int totalItemsCount = 0;
         public int processedItemsCount = 0;
         public string currentFile = "";
         
-        [SupportedOSPlatform("windows")]
         public ThumbnailsPreloader(string path, bool includeNestedDirectories, bool silentMode, bool multiThreaded, int threadCount)
         {
-            // Single File Mode for when passing a file through the command line or preloading a .svg file
-            
+            // Single File Mode for when passing a file through the command line
+
             FileAttributes fAt = File.GetAttributes(path);
             // Path is file and not a directory, so the application had to be run in single file mode:
             if (!fAt.HasFlag(FileAttributes.Directory))
             {
                 ThumbnailPreloader.PreloadThumbnail(path); // Generating thumbnail
-                Environment.Exit(0); // Done, let's exit this app instance
+                state = ThumbnailsPreloaderState.Done;
+                if (InstanceCompleted() == true) { EndInstance(); return; }
             }
 
             // Normal mode for when passing a directory through the command line
-            
+
             if (!silentMode)
             {
                 InitProgressDialog();
@@ -62,7 +65,6 @@ namespace WinThumbsPreloader
             Run();
         }
         
-        [SupportedOSPlatform("windows")]
         private void InitProgressDialog()
         {
             progressDialog = new ProgressDialog();
@@ -73,7 +75,6 @@ namespace WinThumbsPreloader
             UpdateProgressDialog(null, null);
         }
         
-        [SupportedOSPlatform("windows")]
         private void InitProgressDialogUpdateTimer()
         {
             progressDialogUpdateTimer = new Timer();
@@ -82,13 +83,20 @@ namespace WinThumbsPreloader
             progressDialogUpdateTimer.Start();
         }
         
-        [SupportedOSPlatform("windows")]
         private async void UpdateProgressDialog(object sender, EventArgs e)
         {
             if (progressDialog.HasUserCancelled)
             {
                 state = ThumbnailsPreloaderState.Canceled;
-                Environment.Exit(0);
+                progressDialog.Close();
+                progressDialog?.Dispose();
+                progressDialogUpdateTimer.Stop();
+                progressDialogUpdateTimer?.Dispose();
+                if (InstanceCompleted() == true) 
+                {
+                    EndInstance();
+                    return; 
+                }
             }
             else if (state == ThumbnailsPreloaderState.GettingNumberOfItems)
             {
@@ -119,38 +127,41 @@ namespace WinThumbsPreloader
             {
                 if (prevState != state)
                 {
-                    if (Settings.Default.AutoBackupThumbs == true)
+                    if (Settings.Default.AutoBackupThumbs == true && CacheForm.CompareThumbsCacheSize() == true && Program.activeInstances <= 1)
                     {
                         prevState = state;
                         progressDialog.Line3 = Resources.ThumbnailsPreloader_BackingUpThumbsCache;
-                        if (CacheForm.CompareThumbsCacheSize() == true)
-                        {
-                            await CacheForm.BackupThumbsCache();
-                        }
+                        await CacheForm.BackupThumbsCache(null);
                     }
-                    Environment.Exit(0);
+                    if (InstanceCompleted() == true) 
+                    {
+                        progressDialog.Close();
+                        progressDialog?.Dispose();
+                        progressDialogUpdateTimer.Stop();
+                        progressDialogUpdateTimer?.Dispose();
+                        EndInstance();
+                        return; 
+                    }
                 }
             }
         }
         
-        [SupportedOSPlatform("windows")]
         private async void Run()
         {
             await Task.Run(() =>
             {
                 state = ThumbnailsPreloaderState.GettingNumberOfItems;
-                
+
                 directoryScanner = new DirectoryScanner(path, includeNestedDirectories);
                 List<string> items = new List<string>();
                 foreach (Tuple<int, List<string>> itemsCount in directoryScanner.GetItemsCount()) //Get items and items count
                 {
                     totalItemsCount = itemsCount.Item1;
                     items = itemsCount.Item2;
-                } 
-                if (totalItemsCount == 0)
+                }
+                if (totalItemsCount == 0 )
                 {
                     state = ThumbnailsPreloaderState.Done;
-                    return;
                 }
 
                 state = ThumbnailsPreloaderState.Processing; //Start processing
@@ -160,18 +171,7 @@ namespace WinThumbsPreloader
                     p.PriorityClass = ProcessPriorityClass.BelowNormal;
 
                 //Set the thread count
-                int threads;
-                //If the threadCount is 0, use the settings default. This is when threadCount is not specified.
-                if (threadCount == 0)
-                {
-                    //If the settings default is 0, use system thread count
-                    threads = (Settings.Default.ThreadCount == 0) ? Environment.ProcessorCount : Settings.Default.ThreadCount;
-                }
-                //If the threadCount is 1, use system thread count
-                else if (threadCount == 1) { threads = Environment.ProcessorCount; }
-                //For other cases, use threadCount - 1
-                else if (threadCount <= 257) { threads = threadCount - 1; }
-                else { threads = Environment.ProcessorCount; }
+                int threads = DetermineThreadCount();
 
                 if (!multiThreaded)
                 {
@@ -181,11 +181,11 @@ namespace WinThumbsPreloader
                         {
                             currentFile = item;
                             ThumbnailPreloader.PreloadThumbnail(item);
-                            processedItemsCount++;
-                            if (processedItemsCount == totalItemsCount) state = ThumbnailsPreloaderState.Done;
                         }
                         catch (Exception) { } // Do nothing
+                        processedItemsCount++;
                     }
+                    state = ThumbnailsPreloaderState.Done;
                 }
                 else
                 {
@@ -198,13 +198,44 @@ namespace WinThumbsPreloader
                             {
                                 currentFile = item;
                                 ThumbnailPreloader.PreloadThumbnail(item);
-                                processedItemsCount++;
-                                if (processedItemsCount == totalItemsCount) state = ThumbnailsPreloaderState.Done;
                             }
                             catch (Exception) { } // Do nothing
+                            processedItemsCount++;
                         });
+                    state = ThumbnailsPreloaderState.Done;
                 }
+                if (InstanceCompleted() == true) { EndInstance(); return; }
             });
+        }
+
+        private int DetermineThreadCount()
+        {
+            if (threadCount == 0) //If the threadCount is 0, use the settings default. This is when threadCount is not specified.
+            {
+                return Settings.Default.ThreadCount == 0 ? Environment.ProcessorCount : Settings.Default.ThreadCount;
+            }
+            if (threadCount == 1) //If the threadCount is 1, use system thread count
+            {
+                return Environment.ProcessorCount;
+            }
+            return threadCount <= 257 ? threadCount - 1 : Environment.ProcessorCount; //For other cases, use threadCount - 1
+        }
+
+        //This was done to track how many preloading instances are open due to multiple instances now occurring in the same program, which helps to properly end the application when there are no more preloading instances.
+        private bool InstanceCompleted()
+        {
+            if (state == ThumbnailsPreloaderState.Canceled || state == ThumbnailsPreloaderState.Done) { return true; }
+            else { return false; }
+        }
+        
+        private void EndInstance()
+        {
+            if (!hasDecrementedActiveInstances)
+            {
+                Program.activeInstances--;
+                hasDecrementedActiveInstances = true;
+            }
+            PreloaderCompleted?.Invoke(this);
         }
     }
 }

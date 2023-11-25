@@ -12,11 +12,13 @@ namespace WinThumbsPreloader
         private bool includeNestedDirectories;
         List<string> filesList = new List<string>();
         string[] thumbnailExtensions = ThumbnailExtensions();
+        private bool preloadFolderIcons;
 
         public DirectoryScanner(string path, bool includeNestedDirectories)
         {
             this.path = path;
             this.includeNestedDirectories = includeNestedDirectories;
+            this.preloadFolderIcons = Settings.Default.PreloadFolderIcons; // Read once if value doesn't change often
         }
 
         public static string[] ThumbnailExtensions()
@@ -60,8 +62,8 @@ namespace WinThumbsPreloader
                     }
                 }
             }
-            catch (Exception) {  } // Do nothing
-           if (filesList.Count > 0) yield return new Tuple<int, List<string>>(filesList.Count, filesList);
+            catch (Exception) { } // Do nothing
+            if (filesList.Count > 0) yield return new Tuple<int, List<string>>(filesList.Count, filesList);
         }
 
         private IEnumerable<Tuple<int, List<string>>> GetItemsCountNested()
@@ -74,7 +76,7 @@ namespace WinThumbsPreloader
                 currentPath = queue.Dequeue();
                 try
                 {
-                    if (Settings.Default.PreloadFolderIcons == true)
+                    if (preloadFolderIcons)
                     {
                         foreach (string subDir in Directory.GetDirectories(currentPath))
                         {
@@ -104,7 +106,7 @@ namespace WinThumbsPreloader
                         }
                     }
                 }
-                catch (Exception) {  } // Do nothing
+                catch (Exception) { } // Do nothing
                 if (filesList.Count > 0) yield return new Tuple<int, List<string>>(filesList.Count, filesList);
             }
         }

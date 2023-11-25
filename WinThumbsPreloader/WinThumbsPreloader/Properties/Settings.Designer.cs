@@ -12,7 +12,7 @@ namespace WinThumbsPreloader.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.6.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.8.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -140,6 +140,102 @@ namespace WinThumbsPreloader.Properties {
             }
             set {
                 this["StartWithWindows"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DriveSelectionEnabled {
+            get {
+                return ((bool)(this["DriveSelectionEnabled"]));
+            }
+            set {
+                this["DriveSelectionEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Vertical")]
+        public string DriveSortChoice {
+            get {
+                return ((string)(this["DriveSortChoice"]));
+            }
+            set {
+                this["DriveSortChoice"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool TwentyFourHourMode {
+            get {
+                return ((bool)(this["TwentyFourHourMode"]));
+            }
+            set {
+                this["TwentyFourHourMode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DetailedTimeMode {
+            get {
+                return ((bool)(this["DetailedTimeMode"]));
+            }
+            set {
+                this["DetailedTimeMode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("250")]
+        public int CacheUpdateInterval {
+            get {
+                return ((int)(this["CacheUpdateInterval"]));
+            }
+            set {
+                this["CacheUpdateInterval"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5000")]
+        public int AutoBackupInterval {
+            get {
+                return ((int)(this["AutoBackupInterval"]));
+            }
+            set {
+                this["AutoBackupInterval"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5000")]
+        public int AutoRestoreInterval {
+            get {
+                return ((int)(this["AutoRestoreInterval"]));
+            }
+            set {
+                this["AutoRestoreInterval"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("MB")]
+        public string CacheSizeFormat {
+            get {
+                return ((string)(this["CacheSizeFormat"]));
+            }
+            set {
+                this["CacheSizeFormat"] = value;
             }
         }
     }

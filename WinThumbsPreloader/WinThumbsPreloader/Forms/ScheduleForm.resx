@@ -1,0 +1,984 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--
+    Microsoft ResX Schema 
+
+    Version 2.0
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
+    associated with the data types.
+
+    Example:
+
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+
+    There are any number of "resheader" rows that contain simple
+    name/value pairs.
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
+    mimetype set.
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
+    extensible. For a given mimetype the value must be set accordingly:
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
+    read any of the formats listed below.
+
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="MultithreadedCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="MultithreadedCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 47</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="MultithreadedCheckBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="MultithreadedCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 19</value>
+  </data>
+  <data name="MultithreadedCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="MultithreadedCheckBox.Text" xml:space="preserve">
+    <value>Multi-Threaded</value>
+  </data>
+  <metadata name="ScheduleToolTips.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="MultithreadedCheckBox.ToolTip" xml:space="preserve">
+    <value>Enables or disables Multi-Threaded mode by default.
+Enabled is recommended for best performance.
+</value>
+  </data>
+  <data name="&gt;&gt;MultithreadedCheckBox.Name" xml:space="preserve">
+    <value>MultithreadedCheckBox</value>
+  </data>
+  <data name="&gt;&gt;MultithreadedCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MultithreadedCheckBox.Parent" xml:space="preserve">
+    <value>ScheduleOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;MultithreadedCheckBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="EnabledCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="EnabledCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 22</value>
+  </data>
+  <data name="EnabledCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 19</value>
+  </data>
+  <data name="EnabledCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="EnabledCheckBox.Text" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="EnabledCheckBox.ToolTip" xml:space="preserve">
+    <value>Enables the scheduler to run in the background
+at every user set interval.</value>
+  </data>
+  <data name="&gt;&gt;EnabledCheckBox.Name" xml:space="preserve">
+    <value>EnabledCheckBox</value>
+  </data>
+  <data name="&gt;&gt;EnabledCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EnabledCheckBox.Parent" xml:space="preserve">
+    <value>ScheduleOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;EnabledCheckBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ThreadsLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ThreadsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 76</value>
+  </data>
+  <data name="ThreadsLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="ThreadsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 15</value>
+  </data>
+  <data name="ThreadsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="ThreadsLabel.Text" xml:space="preserve">
+    <value>Threads:</value>
+  </data>
+  <data name="ThreadsLabel.ToolTip" xml:space="preserve">
+    <value>Choose the amount of threads the preloader can use.
+A value of 0 will use the number of threads in the system.</value>
+  </data>
+  <data name="&gt;&gt;ThreadsLabel.Name" xml:space="preserve">
+    <value>ThreadsLabel</value>
+  </data>
+  <data name="&gt;&gt;ThreadsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ThreadsLabel.Parent" xml:space="preserve">
+    <value>ScheduleOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;ThreadsLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ThreadsNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 74</value>
+  </data>
+  <data name="ThreadsNumericUpDown.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="ThreadsNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 23</value>
+  </data>
+  <data name="ThreadsNumericUpDown.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;ThreadsNumericUpDown.Name" xml:space="preserve">
+    <value>ThreadsNumericUpDown</value>
+  </data>
+  <data name="&gt;&gt;ThreadsNumericUpDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ThreadsNumericUpDown.Parent" xml:space="preserve">
+    <value>ScheduleOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;ThreadsNumericUpDown.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ScheduleOptionsGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 12</value>
+  </data>
+  <data name="ScheduleOptionsGroupBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="ScheduleOptionsGroupBox.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="ScheduleOptionsGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>408, 112</value>
+  </data>
+  <data name="ScheduleOptionsGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="ScheduleOptionsGroupBox.Text" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="&gt;&gt;ScheduleOptionsGroupBox.Name" xml:space="preserve">
+    <value>ScheduleOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;ScheduleOptionsGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ScheduleOptionsGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ScheduleOptionsGroupBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AdvancedButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="AdvancedButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>237, 421</value>
+  </data>
+  <data name="AdvancedButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="AdvancedButton.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="AdvancedButton.Text" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="AdvancedButton.ToolTip" xml:space="preserve">
+    <value>Opens a form to customize more advanced settings
+such as modifying the Schedule form along with
+modifying the Settings and Conditions of the task</value>
+  </data>
+  <data name="&gt;&gt;AdvancedButton.Name" xml:space="preserve">
+    <value>AdvancedButton</value>
+  </data>
+  <data name="&gt;&gt;AdvancedButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AdvancedButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;AdvancedButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="AtLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="AtLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>139, 22</value>
+  </data>
+  <data name="AtLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>22, 15</value>
+  </data>
+  <data name="AtLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="AtLabel.Text" xml:space="preserve">
+    <value>At:</value>
+  </data>
+  <data name="&gt;&gt;AtLabel.Name" xml:space="preserve">
+    <value>AtLabel</value>
+  </data>
+  <data name="&gt;&gt;AtLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AtLabel.Parent" xml:space="preserve">
+    <value>ScheduleSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;AtLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="TimeOfDayComboBox.Items" xml:space="preserve">
+    <value>AM</value>
+  </data>
+  <data name="TimeOfDayComboBox.Items1" xml:space="preserve">
+    <value>PM</value>
+  </data>
+  <data name="TimeOfDayComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>226, 18</value>
+  </data>
+  <data name="TimeOfDayComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="TimeOfDayComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 23</value>
+  </data>
+  <data name="TimeOfDayComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;TimeOfDayComboBox.Name" xml:space="preserve">
+    <value>TimeOfDayComboBox</value>
+  </data>
+  <data name="&gt;&gt;TimeOfDayComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TimeOfDayComboBox.Parent" xml:space="preserve">
+    <value>ScheduleSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;TimeOfDayComboBox.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="TimeDigitsComboBox.Items" xml:space="preserve">
+    <value>1:00</value>
+  </data>
+  <data name="TimeDigitsComboBox.Items1" xml:space="preserve">
+    <value>2:00</value>
+  </data>
+  <data name="TimeDigitsComboBox.Items2" xml:space="preserve">
+    <value>3:00</value>
+  </data>
+  <data name="TimeDigitsComboBox.Items3" xml:space="preserve">
+    <value>4:00</value>
+  </data>
+  <data name="TimeDigitsComboBox.Items4" xml:space="preserve">
+    <value>5:00</value>
+  </data>
+  <data name="TimeDigitsComboBox.Items5" xml:space="preserve">
+    <value>6:00</value>
+  </data>
+  <data name="TimeDigitsComboBox.Items6" xml:space="preserve">
+    <value>7:00</value>
+  </data>
+  <data name="TimeDigitsComboBox.Items7" xml:space="preserve">
+    <value>8:00</value>
+  </data>
+  <data name="TimeDigitsComboBox.Items8" xml:space="preserve">
+    <value>9:00</value>
+  </data>
+  <data name="TimeDigitsComboBox.Items9" xml:space="preserve">
+    <value>10:00</value>
+  </data>
+  <data name="TimeDigitsComboBox.Items10" xml:space="preserve">
+    <value>11:00</value>
+  </data>
+  <data name="TimeDigitsComboBox.Items11" xml:space="preserve">
+    <value>12:00</value>
+  </data>
+  <data name="TimeDigitsComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 18</value>
+  </data>
+  <data name="TimeDigitsComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="TimeDigitsComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 23</value>
+  </data>
+  <data name="TimeDigitsComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;TimeDigitsComboBox.Name" xml:space="preserve">
+    <value>TimeDigitsComboBox</value>
+  </data>
+  <data name="&gt;&gt;TimeDigitsComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TimeDigitsComboBox.Parent" xml:space="preserve">
+    <value>ScheduleSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;TimeDigitsComboBox.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="DrivesCheckedListBox.ColumnWidth" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items1" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items2" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items3" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items4" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items5" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items6" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items7" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items8" xml:space="preserve">
+    <value>I</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items9" xml:space="preserve">
+    <value>J</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items10" xml:space="preserve">
+    <value>K</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items11" xml:space="preserve">
+    <value>L</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items12" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items13" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items14" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items15" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items16" xml:space="preserve">
+    <value>Q</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items17" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items18" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items19" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items20" xml:space="preserve">
+    <value>U</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items21" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items22" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items23" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items24" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="DrivesCheckedListBox.Items25" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="DrivesCheckedListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 64</value>
+  </data>
+  <data name="DrivesCheckedListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 58</value>
+  </data>
+  <data name="DrivesCheckedListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;DrivesCheckedListBox.Name" xml:space="preserve">
+    <value>DrivesCheckedListBox</value>
+  </data>
+  <data name="&gt;&gt;DrivesCheckedListBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DrivesCheckedListBox.Parent" xml:space="preserve">
+    <value>ScheduleSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;DrivesCheckedListBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="ScheduleSaveButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 421</value>
+  </data>
+  <data name="ScheduleSaveButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="ScheduleSaveButton.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="ScheduleSaveButton.Text" xml:space="preserve">
+    <value>Save Task</value>
+  </data>
+  <data name="ScheduleSaveButton.ToolTip" xml:space="preserve">
+    <value>Saves the task to the Task Scheduler
+Holding "SHIFT" will delete the task</value>
+  </data>
+  <data name="&gt;&gt;ScheduleSaveButton.Name" xml:space="preserve">
+    <value>ScheduleSaveButton</value>
+  </data>
+  <data name="&gt;&gt;ScheduleSaveButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ScheduleSaveButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ScheduleSaveButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="OnIdleCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="OnIdleCheckBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OnIdleCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>276, 21</value>
+  </data>
+  <data name="OnIdleCheckBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="OnIdleCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 19</value>
+  </data>
+  <data name="OnIdleCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="OnIdleCheckBox.Text" xml:space="preserve">
+    <value>On Idle</value>
+  </data>
+  <data name="OnIdleCheckBox.ToolTip" xml:space="preserve">
+    <value>Enabling this forces the scheduler to only run
+when the system is idle.</value>
+  </data>
+  <data name="&gt;&gt;OnIdleCheckBox.Name" xml:space="preserve">
+    <value>OnIdleCheckBox</value>
+  </data>
+  <data name="&gt;&gt;OnIdleCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OnIdleCheckBox.Parent" xml:space="preserve">
+    <value>ScheduleSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;OnIdleCheckBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="RunEveryLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RunEveryLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 22</value>
+  </data>
+  <data name="RunEveryLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 15</value>
+  </data>
+  <data name="RunEveryLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="RunEveryLabel.Text" xml:space="preserve">
+    <value>Run Every:</value>
+  </data>
+  <data name="RunEveryLabel.ToolTip" xml:space="preserve">
+    <value>Sets the interval at which the scheduler
+will preload thumbnails in the background.</value>
+  </data>
+  <data name="&gt;&gt;RunEveryLabel.Name" xml:space="preserve">
+    <value>RunEveryLabel</value>
+  </data>
+  <data name="&gt;&gt;RunEveryLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RunEveryLabel.Parent" xml:space="preserve">
+    <value>ScheduleSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;RunEveryLabel.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="RunEveryComboBox.Items" xml:space="preserve">
+    <value>Hour</value>
+  </data>
+  <data name="RunEveryComboBox.Items1" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="RunEveryComboBox.Items2" xml:space="preserve">
+    <value>Week</value>
+  </data>
+  <data name="RunEveryComboBox.Items3" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="RunEveryComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>73, 18</value>
+  </data>
+  <data name="RunEveryComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="RunEveryComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 23</value>
+  </data>
+  <data name="RunEveryComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;RunEveryComboBox.Name" xml:space="preserve">
+    <value>RunEveryComboBox</value>
+  </data>
+  <data name="&gt;&gt;RunEveryComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RunEveryComboBox.Parent" xml:space="preserve">
+    <value>ScheduleSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;RunEveryComboBox.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="DrivesLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="DrivesLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 46</value>
+  </data>
+  <data name="DrivesLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="DrivesLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 15</value>
+  </data>
+  <data name="DrivesLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="DrivesLabel.Text" xml:space="preserve">
+    <value>Drives:</value>
+  </data>
+  <data name="DrivesLabel.ToolTip" xml:space="preserve">
+    <value>Select which drives will be included
+in the scheduled preloading</value>
+  </data>
+  <data name="&gt;&gt;DrivesLabel.Name" xml:space="preserve">
+    <value>DrivesLabel</value>
+  </data>
+  <data name="&gt;&gt;DrivesLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DrivesLabel.Parent" xml:space="preserve">
+    <value>ScheduleSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;DrivesLabel.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="CloseButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="CloseButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="CloseButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>332, 421</value>
+  </data>
+  <data name="CloseButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="CloseButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="CloseButton.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="CloseButton.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="&gt;&gt;CloseButton.Name" xml:space="preserve">
+    <value>CloseButton</value>
+  </data>
+  <data name="&gt;&gt;CloseButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CloseButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CloseButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="dateTimePicker1.CustomFormat" xml:space="preserve">
+    <value>hh:mm tt</value>
+  </data>
+  <data name="dateTimePicker1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 18</value>
+  </data>
+  <data name="dateTimePicker1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 23</value>
+  </data>
+  <data name="dateTimePicker1.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;dateTimePicker1.Name" xml:space="preserve">
+    <value>dateTimePicker1</value>
+  </data>
+  <data name="&gt;&gt;dateTimePicker1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dateTimePicker1.Parent" xml:space="preserve">
+    <value>ScheduleSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;dateTimePicker1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="OutputTextBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 250</value>
+  </data>
+  <data name="OutputTextBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 23</value>
+  </data>
+  <data name="OutputTextBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox1.Name" xml:space="preserve">
+    <value>OutputTextBox1</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox1.Parent" xml:space="preserve">
+    <value>ScheduleSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PathsTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 143</value>
+  </data>
+  <data name="PathsTextBox.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="PathsTextBox.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Both</value>
+  </data>
+  <data name="PathsTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 52</value>
+  </data>
+  <data name="PathsTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;PathsTextBox.Name" xml:space="preserve">
+    <value>PathsTextBox</value>
+  </data>
+  <data name="&gt;&gt;PathsTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PathsTextBox.Parent" xml:space="preserve">
+    <value>ScheduleSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;PathsTextBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="PathsLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="PathsLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PathsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 125</value>
+  </data>
+  <data name="PathsLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="PathsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 15</value>
+  </data>
+  <data name="PathsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="PathsLabel.Text" xml:space="preserve">
+    <value>Paths:</value>
+  </data>
+  <data name="PathsLabel.ToolTip" xml:space="preserve">
+    <value>Select which paths will be included
+in the scheduled preloading</value>
+  </data>
+  <data name="&gt;&gt;PathsLabel.Name" xml:space="preserve">
+    <value>PathsLabel</value>
+  </data>
+  <data name="&gt;&gt;PathsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PathsLabel.Parent" xml:space="preserve">
+    <value>ScheduleSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;PathsLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="OutputLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="OutputLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 203</value>
+  </data>
+  <data name="OutputLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 15</value>
+  </data>
+  <data name="OutputLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="OutputLabel.Text" xml:space="preserve">
+    <value>Output:</value>
+  </data>
+  <data name="OutputLabel.ToolTip" xml:space="preserve">
+    <value>Displays any completion or error messages</value>
+  </data>
+  <data name="&gt;&gt;OutputLabel.Name" xml:space="preserve">
+    <value>OutputLabel</value>
+  </data>
+  <data name="&gt;&gt;OutputLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputLabel.Parent" xml:space="preserve">
+    <value>ScheduleSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;OutputLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="OutputTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 221</value>
+  </data>
+  <data name="OutputTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 23</value>
+  </data>
+  <data name="OutputTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox.Name" xml:space="preserve">
+    <value>OutputTextBox</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox.Parent" xml:space="preserve">
+    <value>ScheduleSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="ScheduleSettingsGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 130</value>
+  </data>
+  <data name="ScheduleSettingsGroupBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="ScheduleSettingsGroupBox.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="ScheduleSettingsGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>408, 285</value>
+  </data>
+  <data name="ScheduleSettingsGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="ScheduleSettingsGroupBox.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="&gt;&gt;ScheduleSettingsGroupBox.Name" xml:space="preserve">
+    <value>ScheduleSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;ScheduleSettingsGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ScheduleSettingsGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ScheduleSettingsGroupBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="OpenTaskSchedulerButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="OpenTaskSchedulerButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OpenTaskSchedulerButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 421</value>
+  </data>
+  <data name="OpenTaskSchedulerButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="OpenTaskSchedulerButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 28</value>
+  </data>
+  <data name="OpenTaskSchedulerButton.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="OpenTaskSchedulerButton.Text" xml:space="preserve">
+    <value>Task Scheduler</value>
+  </data>
+  <data name="OpenTaskSchedulerButton.ToolTip" xml:space="preserve">
+    <value>Opens the Task Scheduler window</value>
+  </data>
+  <data name="&gt;&gt;OpenTaskSchedulerButton.Name" xml:space="preserve">
+    <value>OpenTaskSchedulerButton</value>
+  </data>
+  <data name="&gt;&gt;OpenTaskSchedulerButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OpenTaskSchedulerButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;OpenTaskSchedulerButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>434, 461</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>WinThumbsPreloader - Schedule</value>
+  </data>
+  <data name="&gt;&gt;ScheduleToolTips.Name" xml:space="preserve">
+    <value>ScheduleToolTips</value>
+  </data>
+  <data name="&gt;&gt;ScheduleToolTips.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ScheduleForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>

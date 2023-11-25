@@ -1,12 +1,13 @@
 ﻿#define MyAppName "WinThumbsPreloader"
-#define MyAppReleaseDirectory "..\WinThumbsPreloader\WinThumbsPreloader\bin\Release\net6.0-windows"
+#define MyAppReleaseDirectory "..\WinThumbsPreloader\WinThumbsPreloader\bin\Release\net6.0-windows\win-x64"
 #define MyAppFilename MyAppName + ".exe"
 #define MyAppFilepath MyAppReleaseDirectory + "\" + MyAppFilename
 #define MyAppConfig MyAppReleaseDirectory + "\" + MyAppName
 #dim Version[4]
 #expr GetVersionComponents(MyAppFilepath, Version[0], Version[1], Version[2], Version[3])
 #define MyAppVersion Str(Version[0]) + "." + Str(Version[1]) + "." + Str(Version[2])
-#define MyAppPublisher "Dmitry Bruhov, inthebrilliantblue, arturdd, Mfarooq360"
+#define MyAppPublisher1 "Dmitry Bruhov"
+#define MyAppPublisher2 "Mutahar Farooq"
 #define MyAppId "CF49DD18-AA76-4E79-97C2-4FEAED1AED5F"
 
 //#include <idp.iss>
@@ -14,14 +15,14 @@
 #include "environment.iss"
 
 [Setup]
-AppCopyright=Copyright (c) 2023 {#MyAppPublisher}
+AppCopyright=Copyright (c) 2018 {#MyAppPublisher1}, Copyright (c) 2023 {#MyAppPublisher2}
 AppId={#MyAppId}
 AppMutex={#MyAppId}
 AppName={#MyAppName}
-AppPublisher={#MyAppPublisher}
-AppPublisherURL=https://github.com/Mfarooq360/WinThumbsPreloader
-AppSupportURL=https://github.com/bruhov/WinThumbsPreloader/issues
-AppUpdatesURL=https://github.com/bruhov/WinThumbsPreloader/releases
+AppPublisher={#MyAppPublisher1}, {#MyAppPublisher2}
+AppPublisherURL=https://github.com/Mfarooq360/WinThumbsPreloader-V2
+AppSupportURL=https://github.com/Mfarooq360/WinThumbsPreloader-V2/issues
+AppUpdatesURL=https://github.com/Mfarooq360/WinThumbsPreloader-V2/releases
 AppVerName={#MyAppName} {#MyAppVersion}
 AppVersion={#MyAppVersion}
 ArchitecturesAllowed=x86 x64 ia64
@@ -70,7 +71,7 @@ ru.PreloadThumbnailsRecursively=Загрузить эскизы включая �
 Source: "{#MyAppFilepath}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyAppConfig}.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyAppConfig}.dll.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyAppConfig}.runtimeconfig"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyAppConfig}.runtimeconfig.json"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyAppReleaseDirectory}\LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyAppReleaseDirectory}\ru\*.resources.dll"; DestDir: "{app}\Languages\ru"; Flags: ignoreversion
 
@@ -92,6 +93,16 @@ Root: "HKCR"; Subkey: "Directory\shell\{#MyAppName}\Shell\Preload\command"; Valu
 Root: "HKCR"; Subkey: "Directory\shell\{#MyAppName}\Shell\PreloadRecursively"; ValueType: string; ValueName: "MUIVerb"; ValueData: "{cm:PreloadThumbnailsRecursively}"
 Root: "HKCR"; Subkey: "Directory\shell\{#MyAppName}\Shell\PreloadRecursively"; ValueType: string; ValueName: "Icon"; ValueData: """{app}\{#MyAppFilename}"",0"
 Root: "HKCR"; Subkey: "Directory\shell\{#MyAppName}\Shell\PreloadRecursively\command"; ValueType: string; ValueData: """{app}\{#MyAppFilename}"" -m -r ""%1"""
+Root: "HKCR"; Subkey: "Directory\Background\shell\{#MyAppName}"; Flags: uninsdeletekey
+Root: "HKCR"; Subkey: "Directory\Background\shell\{#MyAppName}"; ValueType: string; ValueName: "MUIVerb"; ValueData: "{#MyAppName}"
+Root: "HKCR"; Subkey: "Directory\Background\shell\{#MyAppName}"; ValueType: string; ValueName: "Icon"; ValueData: """{app}\{#MyAppFilename}"",0"
+Root: "HKCR"; Subkey: "Directory\Background\shell\{#MyAppName}"; ValueType: string; ValueName: "ExtendedSubCommandsKey"; ValueData: "Directory\Background\shell\{#MyAppName}"
+Root: "HKCR"; Subkey: "Directory\Background\shell\{#MyAppName}\Shell\Preload"; ValueType: string; ValueName: "MUIVerb"; ValueData: "{cm:PreloadThumbnails}"
+Root: "HKCR"; Subkey: "Directory\Background\shell\{#MyAppName}\Shell\Preload"; ValueType: string; ValueName: "Icon"; ValueData: """{app}\{#MyAppFilename}"",0"
+Root: "HKCR"; Subkey: "Directory\Background\shell\{#MyAppName}\Shell\Preload\command"; ValueType: string; ValueData: "cmd.exe /c start /min cmd /c ""{#MyAppFilename} -m %V"
+Root: "HKCR"; Subkey: "Directory\Background\shell\{#MyAppName}\Shell\PreloadRecursively"; ValueType: string; ValueName: "MUIVerb"; ValueData: "{cm:PreloadThumbnailsRecursively}"
+Root: "HKCR"; Subkey: "Directory\Background\shell\{#MyAppName}\Shell\PreloadRecursively"; ValueType: string; ValueName: "Icon"; ValueData: """{app}\{#MyAppFilename}"",0"
+Root: "HKCR"; Subkey: "Directory\Background\shell\{#MyAppName}\Shell\PreloadRecursively\command"; ValueType: string; ValueData: "cmd.exe /c start /min cmd /c ""{#MyAppFilename} -m -r %V"
 Root: "HKCR"; Subkey: "Drive\shell\{#MyAppName}"; Flags: uninsdeletekey
 Root: "HKCR"; Subkey: "Drive\shell\{#MyAppName}"; ValueType: string; ValueName: "MUIVerb"; ValueData: "{#MyAppName}"
 Root: "HKCR"; Subkey: "Drive\shell\{#MyAppName}"; ValueType: string; ValueName: "Icon"; ValueData: """{app}\{#MyAppFilename}"",0"

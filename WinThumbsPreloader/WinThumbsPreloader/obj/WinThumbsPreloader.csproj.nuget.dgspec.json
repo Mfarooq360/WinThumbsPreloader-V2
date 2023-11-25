@@ -44,6 +44,18 @@
               "target": "Package",
               "version": "[4.7.0, )"
             },
+            "Microsoft.NET.ILLink.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.100-1.23211.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.100-1.23211.1, )",
+              "autoReferenced": true
+            },
             "System.Data.DataSetExtensions": {
               "target": "Package",
               "version": "[4.5.0, )"
@@ -72,7 +84,12 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     }

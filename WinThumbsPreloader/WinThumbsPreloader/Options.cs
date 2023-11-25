@@ -73,6 +73,7 @@ namespace WinThumbsPreloader
                     default:
                         // if it's not a switch argument, then it should be a path
                         string path = argu.Replace("\"", ""); // remove quotation marks
+                        /*path = path.Replace("\\\\", "\\");*/
                         if (!Directory.Exists(path) && !File.Exists(path))
                         {
                             badArguments = true; // if the path doesn't exist, set badArguments to true

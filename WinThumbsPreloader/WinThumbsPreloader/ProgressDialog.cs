@@ -12,8 +12,6 @@ namespace WinThumbsPreloader
     /// Managed wrapper for the COM ProgressDialog component. Displays a 
     /// dialog box to track the progress of a long-running operation.
     /// </summary>
-    [SupportedOSPlatform("windows")]
-
     public class ProgressDialog : Component
     {
 

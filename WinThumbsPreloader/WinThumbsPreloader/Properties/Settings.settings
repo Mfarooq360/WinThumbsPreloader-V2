@@ -32,5 +32,29 @@
     <Setting Name="StartWithWindows" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="DriveSelectionEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DriveSortChoice" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Vertical</Value>
+    </Setting>
+    <Setting Name="TwentyFourHourMode" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DetailedTimeMode" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="CacheUpdateInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">250</Value>
+    </Setting>
+    <Setting Name="AutoBackupInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5000</Value>
+    </Setting>
+    <Setting Name="AutoRestoreInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5000</Value>
+    </Setting>
+    <Setting Name="CacheSizeFormat" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MB</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
