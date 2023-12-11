@@ -74,6 +74,7 @@ Source: "{#MyAppConfig}.dll.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyAppConfig}.runtimeconfig.json"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyAppReleaseDirectory}\LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyAppReleaseDirectory}\ru\*.resources.dll"; DestDir: "{app}\Languages\ru"; Flags: ignoreversion
+Source: "{#MyAppReleaseDirectory}\Microsoft.Win32.TaskScheduler.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{commonprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppFilename}"

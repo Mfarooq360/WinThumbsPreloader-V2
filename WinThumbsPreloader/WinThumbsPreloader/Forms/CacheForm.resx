@@ -117,16 +117,647 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="progressBarRestore.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 216</value>
+  </data>
+  <data name="progressBarRestore.Size" type="System.Drawing.Size, System.Drawing">
+    <value>319, 23</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="progressBarRestore.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="progressBarRestore.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;progressBarRestore.Name" xml:space="preserve">
+    <value>progressBarRestore</value>
+  </data>
+  <data name="&gt;&gt;progressBarRestore.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;progressBarRestore.Parent" xml:space="preserve">
+    <value>CacheOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;progressBarRestore.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="StartWithWindowsCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="StartWithWindowsCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 92</value>
+  </data>
+  <data name="StartWithWindowsCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 19</value>
+  </data>
+  <data name="StartWithWindowsCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="StartWithWindowsCheckBox.Text" xml:space="preserve">
+    <value>Start with Windows</value>
+  </data>
   <metadata name="CacheToolTips.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>285, 17</value>
   </metadata>
+  <data name="StartWithWindowsCheckBox.ToolTip" xml:space="preserve">
+    <value>Enables the program to start in the system tray</value>
+  </data>
+  <data name="&gt;&gt;StartWithWindowsCheckBox.Name" xml:space="preserve">
+    <value>StartWithWindowsCheckBox</value>
+  </data>
+  <data name="&gt;&gt;StartWithWindowsCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;StartWithWindowsCheckBox.Parent" xml:space="preserve">
+    <value>CacheOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;StartWithWindowsCheckBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="AutoRestoreCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="AutoRestoreCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 167</value>
+  </data>
+  <data name="AutoRestoreCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 19</value>
+  </data>
+  <data name="AutoRestoreCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="AutoRestoreCheckBox.Text" xml:space="preserve">
+    <value>Auto Restore</value>
+  </data>
+  <data name="AutoRestoreCheckBox.ToolTip" xml:space="preserve">
+    <value>Enables restoring of the thumbnail cache from
+backup when the cache size is less than the backup.</value>
+  </data>
+  <data name="&gt;&gt;AutoRestoreCheckBox.Name" xml:space="preserve">
+    <value>AutoRestoreCheckBox</value>
+  </data>
+  <data name="&gt;&gt;AutoRestoreCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AutoRestoreCheckBox.Parent" xml:space="preserve">
+    <value>CacheOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;AutoRestoreCheckBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="BackupSizeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="BackupSizeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 28</value>
+  </data>
+  <data name="BackupSizeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 15</value>
+  </data>
+  <data name="BackupSizeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="BackupSizeLabel.Text" xml:space="preserve">
+    <value>Backup Size:</value>
+  </data>
+  <data name="&gt;&gt;BackupSizeLabel.Name" xml:space="preserve">
+    <value>BackupSizeLabel</value>
+  </data>
+  <data name="&gt;&gt;BackupSizeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BackupSizeLabel.Parent" xml:space="preserve">
+    <value>CacheOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;BackupSizeLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="CacheSizeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CacheSizeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 62</value>
+  </data>
+  <data name="CacheSizeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 15</value>
+  </data>
+  <data name="CacheSizeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="CacheSizeLabel.Text" xml:space="preserve">
+    <value>Cache Size:</value>
+  </data>
+  <data name="&gt;&gt;CacheSizeLabel.Name" xml:space="preserve">
+    <value>CacheSizeLabel</value>
+  </data>
+  <data name="&gt;&gt;CacheSizeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CacheSizeLabel.Parent" xml:space="preserve">
+    <value>CacheOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;CacheSizeLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 198</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 15</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Output:</value>
+  </data>
+  <data name="label1.ToolTip" xml:space="preserve">
+    <value>Displays any completion or error messages</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>CacheOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ClearCacheButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="ClearCacheButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ClearCacheButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>103, 245</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ClearCacheButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="ClearCacheButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="ClearCacheButton.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="ClearCacheButton.Text" xml:space="preserve">
+    <value>Open Cache</value>
+  </data>
+  <data name="ClearCacheButton.ToolTip" xml:space="preserve">
+    <value>Opens thumbnail cache folder
+Holding "SHIFT" will prompt to clear the cache</value>
+  </data>
+  <data name="&gt;&gt;ClearCacheButton.Name" xml:space="preserve">
+    <value>ClearCacheButton</value>
+  </data>
+  <data name="&gt;&gt;ClearCacheButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ClearCacheButton.Parent" xml:space="preserve">
+    <value>CacheOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;ClearCacheButton.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="OutputTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 216</value>
+  </data>
+  <data name="OutputTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>319, 23</value>
+  </data>
+  <data name="OutputTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox.Name" xml:space="preserve">
+    <value>OutputTextBox</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox.Parent" xml:space="preserve">
+    <value>CacheOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="RestoreButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="RestoreButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="RestoreButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 56</value>
+  </data>
+  <data name="RestoreButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="RestoreButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="RestoreButton.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="RestoreButton.Text" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="RestoreButton.ToolTip" xml:space="preserve">
+    <value>Restores the thumbnail cache from backup
+Holding "SHIFT" will close explorer before restoring</value>
+  </data>
+  <data name="&gt;&gt;RestoreButton.Name" xml:space="preserve">
+    <value>RestoreButton</value>
+  </data>
+  <data name="&gt;&gt;RestoreButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RestoreButton.Parent" xml:space="preserve">
+    <value>CacheOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;RestoreButton.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="ClearButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="ClearButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ClearButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 245</value>
+  </data>
+  <data name="ClearButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="ClearButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="ClearButton.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="ClearButton.Text" xml:space="preserve">
+    <value>Open Backup</value>
+  </data>
+  <data name="ClearButton.ToolTip" xml:space="preserve">
+    <value>Opens backup folder
+Holding "SHIFT" will prompt to clear the backup</value>
+  </data>
+  <data name="&gt;&gt;ClearButton.Name" xml:space="preserve">
+    <value>ClearButton</value>
+  </data>
+  <data name="&gt;&gt;ClearButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ClearButton.Parent" xml:space="preserve">
+    <value>CacheOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;ClearButton.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="BackupButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="BackupButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BackupButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 22</value>
+  </data>
+  <data name="BackupButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="BackupButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="BackupButton.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="BackupButton.Text" xml:space="preserve">
+    <value>Backup</value>
+  </data>
+  <data name="BackupButton.ToolTip" xml:space="preserve">
+    <value>Creates a backup of the thumbnail cache</value>
+  </data>
+  <data name="&gt;&gt;BackupButton.Name" xml:space="preserve">
+    <value>BackupButton</value>
+  </data>
+  <data name="&gt;&gt;BackupButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BackupButton.Parent" xml:space="preserve">
+    <value>CacheOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;BackupButton.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="AlertCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="AlertCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 117</value>
+  </data>
+  <data name="AlertCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 19</value>
+  </data>
+  <data name="AlertCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="AlertCheckBox.Text" xml:space="preserve">
+    <value>Alert on Cache Reset</value>
+  </data>
+  <data name="AlertCheckBox.ToolTip" xml:space="preserve">
+    <value>Creates a popup on startup that alerts the user
+when the program detects a cache reset.</value>
+  </data>
+  <data name="&gt;&gt;AlertCheckBox.Name" xml:space="preserve">
+    <value>AlertCheckBox</value>
+  </data>
+  <data name="&gt;&gt;AlertCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AlertCheckBox.Parent" xml:space="preserve">
+    <value>CacheOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;AlertCheckBox.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="AutoBackupCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="AutoBackupCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 142</value>
+  </data>
+  <data name="AutoBackupCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 19</value>
+  </data>
+  <data name="AutoBackupCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="AutoBackupCheckBox.Text" xml:space="preserve">
+    <value>Auto Backup</value>
+  </data>
+  <data name="AutoBackupCheckBox.ToolTip" xml:space="preserve">
+    <value>Enables backing up of thumbnail cache
+in the background every 5 seconds.</value>
+  </data>
+  <data name="&gt;&gt;AutoBackupCheckBox.Name" xml:space="preserve">
+    <value>AutoBackupCheckBox</value>
+  </data>
+  <data name="&gt;&gt;AutoBackupCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AutoBackupCheckBox.Parent" xml:space="preserve">
+    <value>CacheOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;AutoBackupCheckBox.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="CacheOptionsGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 12</value>
+  </data>
+  <data name="CacheOptionsGroupBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="CacheOptionsGroupBox.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="CacheOptionsGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>333, 279</value>
+  </data>
+  <data name="CacheOptionsGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="CacheOptionsGroupBox.Text" xml:space="preserve">
+    <value>Cache Options</value>
+  </data>
+  <data name="&gt;&gt;CacheOptionsGroupBox.Name" xml:space="preserve">
+    <value>CacheOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;CacheOptionsGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CacheOptionsGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CacheOptionsGroupBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="CloseButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="CloseButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="CloseButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>258, 297</value>
+  </data>
+  <data name="CloseButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="CloseButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="CloseButton.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="CloseButton.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="&gt;&gt;CloseButton.Name" xml:space="preserve">
+    <value>CloseButton</value>
+  </data>
+  <data name="&gt;&gt;CloseButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CloseButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CloseButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>130, 17</value>
   </metadata>
-  <metadata name="CacheToolTips.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>285, 17</value>
+  <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 22</value>
+  </data>
+  <data name="openToolStripMenuItem.Text" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="startWithWindowsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 22</value>
+  </data>
+  <data name="startWithWindowsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Start with Windows</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 6</value>
+  </data>
+  <data name="toggleAutoBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 22</value>
+  </data>
+  <data name="toggleAutoBackupToolStripMenuItem.Text" xml:space="preserve">
+    <value>Auto Backup</value>
+  </data>
+  <data name="toggleAutoRestoreToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 22</value>
+  </data>
+  <data name="toggleAutoRestoreToolStripMenuItem.Text" xml:space="preserve">
+    <value>Auto Restore</value>
+  </data>
+  <data name="toggleCacheResetAlertToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 22</value>
+  </data>
+  <data name="toggleCacheResetAlertToolStripMenuItem.Text" xml:space="preserve">
+    <value>Cache Reset Alert</value>
+  </data>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 6</value>
+  </data>
+  <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 22</value>
+  </data>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 148</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
+    <value>contextMenuStrip1</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="notifyIcon1.Text" xml:space="preserve">
+    <value>WinThumbsPreloader</value>
+  </data>
+  <data name="notifyIcon1.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="AdvancedButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="AdvancedButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="AdvancedButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>162, 297</value>
+  </data>
+  <data name="AdvancedButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="AdvancedButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="AdvancedButton.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="AdvancedButton.Text" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="&gt;&gt;AdvancedButton.Name" xml:space="preserve">
+    <value>AdvancedButton</value>
+  </data>
+  <data name="&gt;&gt;AdvancedButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AdvancedButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;AdvancedButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>359, 336</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>WinThumbsPreloader - Cache</value>
+  </data>
+  <data name="&gt;&gt;notifyIcon1.Name" xml:space="preserve">
+    <value>notifyIcon1</value>
+  </data>
+  <data name="&gt;&gt;notifyIcon1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;openToolStripMenuItem.Name" xml:space="preserve">
+    <value>openToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;openToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;startWithWindowsToolStripMenuItem.Name" xml:space="preserve">
+    <value>startWithWindowsToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;startWithWindowsToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toggleAutoBackupToolStripMenuItem.Name" xml:space="preserve">
+    <value>toggleAutoBackupToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;toggleAutoBackupToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toggleAutoRestoreToolStripMenuItem.Name" xml:space="preserve">
+    <value>toggleAutoRestoreToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;toggleAutoRestoreToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toggleCacheResetAlertToolStripMenuItem.Name" xml:space="preserve">
+    <value>toggleCacheResetAlertToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;toggleCacheResetAlertToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
+    <value>toolStripSeparator2</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;exitToolStripMenuItem.Name" xml:space="preserve">
+    <value>exitToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;exitToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CacheToolTips.Name" xml:space="preserve">
+    <value>CacheToolTips</value>
+  </data>
+  <data name="&gt;&gt;CacheToolTips.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>CacheForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

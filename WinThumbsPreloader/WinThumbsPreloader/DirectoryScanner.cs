@@ -18,7 +18,7 @@ namespace WinThumbsPreloader
         {
             this.path = path;
             this.includeNestedDirectories = includeNestedDirectories;
-            this.preloadFolderIcons = Settings.Default.PreloadFolderIcons; // Read once if value doesn't change often
+            this.preloadFolderIcons = Settings.Default.PreloadFolderIcons;
         }
 
         public static string[] ThumbnailExtensions()
@@ -54,6 +54,17 @@ namespace WinThumbsPreloader
         {
             try
             {
+                if (preloadFolderIcons)
+                {
+                    try
+                    {   // Check if the path contains any files with the specified extensions
+                        if (Directory.EnumerateFiles(path).Any(file => thumbnailExtensions.Contains(new FileInfo(file).Extension.TrimStart('.'), StringComparer.OrdinalIgnoreCase) || thumbnailExtensions.Length == 0))
+                        {
+                            filesList.Add(path);
+                        }
+                    }
+                    catch (Exception) { } // Do nothing
+                }
                 foreach (string file in Directory.GetFileSystemEntries(path))
                 {
                     if (thumbnailExtensions.Contains(new FileInfo(file).Extension.TrimStart('.'), StringComparer.OrdinalIgnoreCase))

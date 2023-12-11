@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CacheForm));
             CacheOptionsGroupBox = new System.Windows.Forms.GroupBox();
             progressBarRestore = new System.Windows.Forms.ProgressBar();
             StartWithWindowsCheckBox = new System.Windows.Forms.CheckBox();
@@ -76,181 +77,112 @@
             CacheOptionsGroupBox.Controls.Add(BackupButton);
             CacheOptionsGroupBox.Controls.Add(AlertCheckBox);
             CacheOptionsGroupBox.Controls.Add(AutoBackupCheckBox);
-            CacheOptionsGroupBox.Location = new System.Drawing.Point(13, 12);
-            CacheOptionsGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            resources.ApplyResources(CacheOptionsGroupBox, "CacheOptionsGroupBox");
             CacheOptionsGroupBox.Name = "CacheOptionsGroupBox";
-            CacheOptionsGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            CacheOptionsGroupBox.Size = new System.Drawing.Size(333, 279);
-            CacheOptionsGroupBox.TabIndex = 3;
             CacheOptionsGroupBox.TabStop = false;
-            CacheOptionsGroupBox.Text = "Cache Options";
             // 
             // progressBarRestore
             // 
-            progressBarRestore.Location = new System.Drawing.Point(7, 216);
+            resources.ApplyResources(progressBarRestore, "progressBarRestore");
             progressBarRestore.Name = "progressBarRestore";
-            progressBarRestore.Size = new System.Drawing.Size(319, 23);
-            progressBarRestore.TabIndex = 17;
-            progressBarRestore.Visible = false;
             // 
             // StartWithWindowsCheckBox
             // 
-            StartWithWindowsCheckBox.AutoSize = true;
-            StartWithWindowsCheckBox.Location = new System.Drawing.Point(16, 92);
+            resources.ApplyResources(StartWithWindowsCheckBox, "StartWithWindowsCheckBox");
             StartWithWindowsCheckBox.Name = "StartWithWindowsCheckBox";
-            StartWithWindowsCheckBox.Size = new System.Drawing.Size(128, 19);
-            StartWithWindowsCheckBox.TabIndex = 16;
-            StartWithWindowsCheckBox.Text = "Start with Windows";
-            CacheToolTips.SetToolTip(StartWithWindowsCheckBox, "Enables the program to start in the system tray");
+            CacheToolTips.SetToolTip(StartWithWindowsCheckBox, resources.GetString("StartWithWindowsCheckBox.ToolTip"));
             StartWithWindowsCheckBox.UseVisualStyleBackColor = true;
             StartWithWindowsCheckBox.CheckedChanged += StartWithWindowsCheckBox_CheckedChanged;
             // 
             // AutoRestoreCheckBox
             // 
-            AutoRestoreCheckBox.AutoSize = true;
-            AutoRestoreCheckBox.Location = new System.Drawing.Point(16, 167);
+            resources.ApplyResources(AutoRestoreCheckBox, "AutoRestoreCheckBox");
             AutoRestoreCheckBox.Name = "AutoRestoreCheckBox";
-            AutoRestoreCheckBox.Size = new System.Drawing.Size(94, 19);
-            AutoRestoreCheckBox.TabIndex = 15;
-            AutoRestoreCheckBox.Text = "Auto Restore";
-            CacheToolTips.SetToolTip(AutoRestoreCheckBox, "Enables restoring of the thumbnail cache from\r\nbackup when the cache size is less than the backup.");
+            CacheToolTips.SetToolTip(AutoRestoreCheckBox, resources.GetString("AutoRestoreCheckBox.ToolTip"));
             AutoRestoreCheckBox.UseVisualStyleBackColor = true;
             AutoRestoreCheckBox.CheckedChanged += AutoRestoreCheckBox_CheckedChanged;
             // 
             // BackupSizeLabel
             // 
-            BackupSizeLabel.AutoSize = true;
-            BackupSizeLabel.Location = new System.Drawing.Point(110, 28);
+            resources.ApplyResources(BackupSizeLabel, "BackupSizeLabel");
             BackupSizeLabel.Name = "BackupSizeLabel";
-            BackupSizeLabel.Size = new System.Drawing.Size(72, 15);
-            BackupSizeLabel.TabIndex = 14;
-            BackupSizeLabel.Text = "Backup Size:";
             // 
             // CacheSizeLabel
             // 
-            CacheSizeLabel.AutoSize = true;
-            CacheSizeLabel.Location = new System.Drawing.Point(110, 62);
+            resources.ApplyResources(CacheSizeLabel, "CacheSizeLabel");
             CacheSizeLabel.Name = "CacheSizeLabel";
-            CacheSizeLabel.Size = new System.Drawing.Size(66, 15);
-            CacheSizeLabel.TabIndex = 13;
-            CacheSizeLabel.Text = "Cache Size:";
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(7, 198);
+            resources.ApplyResources(label1, "label1");
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(48, 15);
-            label1.TabIndex = 12;
-            label1.Text = "Output:";
-            CacheToolTips.SetToolTip(label1, "Displays any completion or error messages");
+            CacheToolTips.SetToolTip(label1, resources.GetString("label1.ToolTip"));
             // 
             // ClearCacheButton
             // 
-            ClearCacheButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            ClearCacheButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            ClearCacheButton.Location = new System.Drawing.Point(103, 245);
-            ClearCacheButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            resources.ApplyResources(ClearCacheButton, "ClearCacheButton");
             ClearCacheButton.Name = "ClearCacheButton";
-            ClearCacheButton.Size = new System.Drawing.Size(88, 28);
-            ClearCacheButton.TabIndex = 11;
-            ClearCacheButton.Text = "Open Cache";
-            CacheToolTips.SetToolTip(ClearCacheButton, "Opens thumbnail cache folder\r\nHolding \"SHIFT\" will prompt to clear the cache");
+            CacheToolTips.SetToolTip(ClearCacheButton, resources.GetString("ClearCacheButton.ToolTip"));
             ClearCacheButton.UseVisualStyleBackColor = true;
             ClearCacheButton.Click += ClearCacheButton_Click;
             // 
             // OutputTextBox
             // 
-            OutputTextBox.Location = new System.Drawing.Point(7, 216);
+            resources.ApplyResources(OutputTextBox, "OutputTextBox");
             OutputTextBox.Name = "OutputTextBox";
             OutputTextBox.ReadOnly = true;
-            OutputTextBox.Size = new System.Drawing.Size(319, 23);
-            OutputTextBox.TabIndex = 11;
             // 
             // RestoreButton
             // 
-            RestoreButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            RestoreButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            RestoreButton.Location = new System.Drawing.Point(15, 56);
-            RestoreButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            resources.ApplyResources(RestoreButton, "RestoreButton");
             RestoreButton.Name = "RestoreButton";
-            RestoreButton.Size = new System.Drawing.Size(88, 28);
-            RestoreButton.TabIndex = 9;
-            RestoreButton.Text = "Restore";
-            CacheToolTips.SetToolTip(RestoreButton, "Restores the thumbnail cache from backup\r\nHolding \"SHIFT\" will close explorer before restoring");
+            CacheToolTips.SetToolTip(RestoreButton, resources.GetString("RestoreButton.ToolTip"));
             RestoreButton.UseVisualStyleBackColor = true;
             RestoreButton.Click += RestoreButton_Click;
             // 
             // ClearButton
             // 
-            ClearButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            ClearButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            ClearButton.Location = new System.Drawing.Point(7, 245);
-            ClearButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            resources.ApplyResources(ClearButton, "ClearButton");
             ClearButton.Name = "ClearButton";
-            ClearButton.Size = new System.Drawing.Size(88, 28);
-            ClearButton.TabIndex = 10;
-            ClearButton.Text = "Open Backup";
-            CacheToolTips.SetToolTip(ClearButton, "Opens backup folder\r\nHolding \"SHIFT\" will prompt to clear the backup");
+            CacheToolTips.SetToolTip(ClearButton, resources.GetString("ClearButton.ToolTip"));
             ClearButton.UseVisualStyleBackColor = true;
             ClearButton.Click += ClearButton_Click;
             // 
             // BackupButton
             // 
-            BackupButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            BackupButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            BackupButton.Location = new System.Drawing.Point(15, 22);
-            BackupButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            resources.ApplyResources(BackupButton, "BackupButton");
             BackupButton.Name = "BackupButton";
-            BackupButton.Size = new System.Drawing.Size(88, 28);
-            BackupButton.TabIndex = 8;
-            BackupButton.Text = "Backup";
-            CacheToolTips.SetToolTip(BackupButton, "Creates a backup of the thumbnail cache");
+            CacheToolTips.SetToolTip(BackupButton, resources.GetString("BackupButton.ToolTip"));
             BackupButton.UseVisualStyleBackColor = true;
             BackupButton.Click += BackupButton_Click;
             // 
             // AlertCheckBox
             // 
-            AlertCheckBox.AutoSize = true;
-            AlertCheckBox.Location = new System.Drawing.Point(16, 117);
+            resources.ApplyResources(AlertCheckBox, "AlertCheckBox");
             AlertCheckBox.Name = "AlertCheckBox";
-            AlertCheckBox.Size = new System.Drawing.Size(135, 19);
-            AlertCheckBox.TabIndex = 1;
-            AlertCheckBox.Text = "Alert on Cache Reset";
-            CacheToolTips.SetToolTip(AlertCheckBox, "Creates a popup on startup that alerts the user\r\nwhen the program detects a cache reset.");
+            CacheToolTips.SetToolTip(AlertCheckBox, resources.GetString("AlertCheckBox.ToolTip"));
             AlertCheckBox.UseVisualStyleBackColor = true;
             AlertCheckBox.CheckedChanged += AlertCheckBox_CheckedChanged;
             // 
             // AutoBackupCheckBox
             // 
-            AutoBackupCheckBox.AutoSize = true;
-            AutoBackupCheckBox.Location = new System.Drawing.Point(16, 142);
+            resources.ApplyResources(AutoBackupCheckBox, "AutoBackupCheckBox");
             AutoBackupCheckBox.Name = "AutoBackupCheckBox";
-            AutoBackupCheckBox.Size = new System.Drawing.Size(94, 19);
-            AutoBackupCheckBox.TabIndex = 0;
-            AutoBackupCheckBox.Text = "Auto Backup";
-            CacheToolTips.SetToolTip(AutoBackupCheckBox, "Enables backing up of thumbnail cache\r\nin the background every 5 seconds.");
+            CacheToolTips.SetToolTip(AutoBackupCheckBox, resources.GetString("AutoBackupCheckBox.ToolTip"));
             AutoBackupCheckBox.UseVisualStyleBackColor = true;
             AutoBackupCheckBox.CheckedChanged += AutoBackupCheckBox_CheckedChanged;
             // 
             // CloseButton
             // 
-            CloseButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            CloseButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            CloseButton.Location = new System.Drawing.Point(258, 297);
-            CloseButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            resources.ApplyResources(CloseButton, "CloseButton");
             CloseButton.Name = "CloseButton";
-            CloseButton.Size = new System.Drawing.Size(88, 28);
-            CloseButton.TabIndex = 7;
-            CloseButton.Text = "Close";
             CloseButton.UseVisualStyleBackColor = true;
             CloseButton.Click += CloseButton_Click;
             // 
             // notifyIcon1
             // 
             notifyIcon1.ContextMenuStrip = contextMenuStrip1;
-            notifyIcon1.Text = "WinThumbsPreloader";
-            notifyIcon1.Visible = true;
+            resources.ApplyResources(notifyIcon1, "notifyIcon1");
             // 
             // contextMenuStrip1
             // 
@@ -258,83 +190,69 @@
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.ShowCheckMargin = true;
             contextMenuStrip1.ShowImageMargin = false;
-            contextMenuStrip1.Size = new System.Drawing.Size(177, 148);
+            resources.ApplyResources(contextMenuStrip1, "contextMenuStrip1");
             // 
             // openToolStripMenuItem
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            openToolStripMenuItem.Text = "Open";
+            resources.ApplyResources(openToolStripMenuItem, "openToolStripMenuItem");
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
             // startWithWindowsToolStripMenuItem
             // 
             startWithWindowsToolStripMenuItem.Name = "startWithWindowsToolStripMenuItem";
-            startWithWindowsToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            startWithWindowsToolStripMenuItem.Text = "Start with Windows";
+            resources.ApplyResources(startWithWindowsToolStripMenuItem, "startWithWindowsToolStripMenuItem");
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new System.Drawing.Size(173, 6);
+            resources.ApplyResources(toolStripSeparator1, "toolStripSeparator1");
             // 
             // toggleAutoBackupToolStripMenuItem
             // 
             toggleAutoBackupToolStripMenuItem.Name = "toggleAutoBackupToolStripMenuItem";
-            toggleAutoBackupToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            toggleAutoBackupToolStripMenuItem.Text = "Auto Backup";
+            resources.ApplyResources(toggleAutoBackupToolStripMenuItem, "toggleAutoBackupToolStripMenuItem");
             toggleAutoBackupToolStripMenuItem.Click += toggleAutoBackupToolStripMenuItem_Click;
             // 
             // toggleAutoRestoreToolStripMenuItem
             // 
             toggleAutoRestoreToolStripMenuItem.Name = "toggleAutoRestoreToolStripMenuItem";
-            toggleAutoRestoreToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            toggleAutoRestoreToolStripMenuItem.Text = "Auto Restore";
+            resources.ApplyResources(toggleAutoRestoreToolStripMenuItem, "toggleAutoRestoreToolStripMenuItem");
             toggleAutoRestoreToolStripMenuItem.Click += toggleAutoRestoreToolStripMenuItem_Click;
             // 
             // toggleCacheResetAlertToolStripMenuItem
             // 
             toggleCacheResetAlertToolStripMenuItem.Name = "toggleCacheResetAlertToolStripMenuItem";
-            toggleCacheResetAlertToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            toggleCacheResetAlertToolStripMenuItem.Text = "Cache Reset Alert";
+            resources.ApplyResources(toggleCacheResetAlertToolStripMenuItem, "toggleCacheResetAlertToolStripMenuItem");
             toggleCacheResetAlertToolStripMenuItem.Click += toggleCacheResetAlertToolStripMenuItem_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new System.Drawing.Size(173, 6);
+            resources.ApplyResources(toolStripSeparator2, "toolStripSeparator2");
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            exitToolStripMenuItem.Text = "Exit";
+            resources.ApplyResources(exitToolStripMenuItem, "exitToolStripMenuItem");
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // AdvancedButton
             // 
-            AdvancedButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            AdvancedButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            AdvancedButton.Location = new System.Drawing.Point(162, 297);
-            AdvancedButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            resources.ApplyResources(AdvancedButton, "AdvancedButton");
             AdvancedButton.Name = "AdvancedButton";
-            AdvancedButton.Size = new System.Drawing.Size(88, 28);
-            AdvancedButton.TabIndex = 8;
-            AdvancedButton.Text = "Advanced";
             AdvancedButton.UseVisualStyleBackColor = true;
             AdvancedButton.Click += AdvancedButton_Click;
             // 
             // CacheForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(359, 336);
             Controls.Add(AdvancedButton);
             Controls.Add(CloseButton);
             Controls.Add(CacheOptionsGroupBox);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Name = "CacheForm";
-            Text = "WinThumbsPreloader - Cache";
             Load += CacheForm_Load;
             CacheOptionsGroupBox.ResumeLayout(false);
             CacheOptionsGroupBox.PerformLayout();

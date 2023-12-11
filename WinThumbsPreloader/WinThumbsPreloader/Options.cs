@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -87,39 +88,72 @@ namespace WinThumbsPreloader
                 }
             }
         }
+
         public static string[] SplitArgs(string args)
         {
-            List<string> parsedArguments = new List<string>();
+            var parsedArguments = new List<string>();
+            var currentArg = new StringBuilder();
+            var inQuotes = false;
+            var hyphenArg = false;
 
-            // Match anything inside quotes or any non-space sequences
-            var matches = Regex.Matches(args, @"[\""].+?[\""]|\S+");
-
-            foreach (Match match in matches)
+            for (int i = 0; i < args.Length; i++)
             {
-                string arg = match.Value.Trim('"'); // Remove quotes if any
+                char c = args[i];
 
-                // If the argument starts with a hyphen, just add it.
+                // Toggle inQuotes for quoted strings
+                if (c == '\"')
+                {
+                    inQuotes = !inQuotes;
+                    continue;
+                }
+
+                // Check for hyphen-prefixed arguments
+                if (c == '-' && !inQuotes)
+                {
+                    if (currentArg.Length > 0)
+                    {
+                        parsedArguments.Add(currentArg.ToString());
+                        currentArg.Clear();
+                    }
+                    hyphenArg = true;
+                }
+
+                // If space and not in quotes and the current argument is a hyphen-prefixed argument
+                if (char.IsWhiteSpace(c) && !inQuotes && hyphenArg)
+                {
+                    parsedArguments.Add(currentArg.ToString());
+                    currentArg.Clear();
+                    hyphenArg = false;
+                    continue;
+                }
+
+                currentArg.Append(c);
+            }
+
+            // Add the last argument if any
+            if (currentArg.Length > 0)
+            {
+                parsedArguments.Add(currentArg.ToString());
+            }
+
+            // Now handle the path arguments
+            var finalArguments = new List<string>();
+            foreach (var arg in parsedArguments)
+            {
                 if (arg.StartsWith("-"))
                 {
-                    parsedArguments.Add(arg);
+                    finalArguments.Add(arg);
                 }
                 else
                 {
-                    // If it's not starting with hyphen, assume it's drive paths. 
-                    // Split on the basis of a pattern that looks for drive letters and colons
                     var drivePaths = Regex.Split(arg, @"(?=\w:)");
-
-                    foreach (string path in drivePaths)
-                    {
-                        if (!string.IsNullOrWhiteSpace(path))
-                        {
-                            parsedArguments.Add(path);
-                        }
-                    }
+                    finalArguments.AddRange(drivePaths
+                                  .Where(p => !string.IsNullOrWhiteSpace(p))
+                                  .Select(p => p.TrimEnd(new char[] { ' ', ',' })));
                 }
             }
 
-            return parsedArguments.ToArray();
+            return finalArguments.ToArray();
         }
     }
 }

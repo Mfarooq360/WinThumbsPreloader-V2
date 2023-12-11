@@ -14,6 +14,7 @@ namespace WinThumbsPreloader
         public static Options AppOptions { get; private set; }
 
         public static int activeInstances = 0;
+        public static bool formOpen = false;
 
         /// <summary>
         /// The main entry point for the application.
@@ -40,6 +41,7 @@ namespace WinThumbsPreloader
 
         private static void StartMinimized()
         {
+            formOpen = true;
             Application.EnableVisualStyles();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.SetCompatibleTextRenderingDefault(false);
@@ -50,13 +52,14 @@ namespace WinThumbsPreloader
         {
             CheckForAdminRequirement();
 
+            formOpen = true;
             Application.EnableVisualStyles();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new AboutForm());
         }
 
-        private static void StartPreloader(Options options)
+        public static void StartPreloader(Options options)
         {
             foreach (string path in options.paths)
             {
@@ -66,11 +69,11 @@ namespace WinThumbsPreloader
                 {
                     if (activeInstances == 0)
                     {
-                        Application.Exit();
+                        if (!formOpen) Application.Exit();
                     }
                 };
             }
-            Application.Run();
+            if (!formOpen) Application.Run();
         }
 
         private static void CheckForAdminRequirement()

@@ -162,7 +162,7 @@ namespace WinThumbsPreloader
 
         private void UpdateLabel_Click(object sender, EventArgs e)
         {
-            if (UpdateLabel.Text == Resources.AboutForm_WinThumbsPreloader_NewVersionAvailable) Process.Start("https://github.com/Mfarooq360/WinThumbsPreloader");
+            if (UpdateLabel.Text == Resources.AboutForm_WinThumbsPreloader_NewVersionAvailable) Process.Start("https://github.com/Mfarooq360/WinThumbsPreloader-V2");
             else if (UpdateLabel.Text == Resources.AboutForm_WinThumbsPreloader_BetaVersionAvailable) Process.Start("https://github.com/Mfarooq360/WinThumbsPreloader-V2");
         }
 
@@ -183,19 +183,21 @@ namespace WinThumbsPreloader
             {
                 try
                 {
-                    folderName = folderName.Replace("\\", "/");
-                    if (preloadMode == "Preload")
+                    // Create an Options object with the appropriate settings
+                    Options options = new Options(new string[] { folderName })
                     {
-                        new ThumbnailsPreloader(folderName, false, false, Settings.Default.Multithreaded, Settings.Default.ThreadCount);
-                    }
-                    else if (preloadMode == "Recursively")
-                    {
-                        new ThumbnailsPreloader(folderName, true, false, Settings.Default.Multithreaded, Settings.Default.ThreadCount);
-                    }
+                        includeNestedDirectories = (preloadMode == "Recursively"),
+                        silentMode = false, // Assuming silent mode is false in this context
+                        multiThreaded = Settings.Default.Multithreaded,
+                        threadCount = Settings.Default.ThreadCount
+                    };
+
+                    // Start the preloader with the constructed Options object
+                    Program.StartPreloader(options);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Failed to start winthumbspreloader: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Failed to start WinThumbsPreloader: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

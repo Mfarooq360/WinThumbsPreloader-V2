@@ -499,9 +499,14 @@ namespace WinThumbsPreloader
         private async void RestoreButton_Click(object sender, EventArgs e)
         {
             // Ensure the source directory exists
-            if (!Directory.Exists(explorerPath))
+            if (!Directory.Exists(backupPath))
             {
                 OutputTextBox.Text = "Backup not found.";
+                return;
+            }
+            if (!Directory.Exists(explorerPath))
+            {
+                OutputTextBox.Text = "Cache folder not found.";
                 return;
             }
             if (RestoreButton.Text == "Restore")
