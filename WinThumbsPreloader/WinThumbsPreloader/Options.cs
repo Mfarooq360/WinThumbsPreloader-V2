@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Windows.Shapes;
 
 namespace WinThumbsPreloader
 {
@@ -77,8 +78,25 @@ namespace WinThumbsPreloader
                         /*path = path.Replace("\\\\", "\\");*/
                         if (!Directory.Exists(path) && !File.Exists(path))
                         {
-                            badArguments = true; // if the path doesn't exist, set badArguments to true
-                            return;
+                            if (path.EndsWith(",") || path.EndsWith(" "))
+                            {
+                                path = path.TrimEnd(new char[] { ' ', ',' }); // If the path doesn't exist, remove any trailing spaces or commas to ensure that multiple paths that are separated by commas aren't being considered invalid
+                                if (!Directory.Exists(path) && !File.Exists(path))
+                                {
+                                    badArguments = true; // if the path doesn't exist, set badArguments to true
+                                    return;
+                                }
+                                else
+                                {
+                                    paths.Add(path);
+                                }
+                            }
+                            else
+                            { 
+                                badArguments = true; // if the path doesn't exist, set badArguments to true
+                                return;
+                            }
+
                         }
                         else
                         {
@@ -93,22 +111,26 @@ namespace WinThumbsPreloader
         {
             var parsedArguments = new List<string>();
             var currentArg = new StringBuilder();
-            var inQuotes = false;
+            var inPath = false;
             var hyphenArg = false;
 
             for (int i = 0; i < args.Length; i++)
             {
                 char c = args[i];
 
-                // Toggle inQuotes for quoted strings
-                if (c == '\"')
+                // Check for start of a path
+                if (i < args.Length - 1 && Regex.IsMatch(args.Substring(i, 2), @"\w:"))
                 {
-                    inQuotes = !inQuotes;
-                    continue;
+                    if (currentArg.Length > 0)
+                    {
+                        parsedArguments.Add(currentArg.ToString());
+                        currentArg.Clear();
+                    }
+                    inPath = true;
                 }
 
                 // Check for hyphen-prefixed arguments
-                if (c == '-' && !inQuotes)
+                if (c == '-' && !inPath)
                 {
                     if (currentArg.Length > 0)
                     {
@@ -118,8 +140,8 @@ namespace WinThumbsPreloader
                     hyphenArg = true;
                 }
 
-                // If space and not in quotes and the current argument is a hyphen-prefixed argument
-                if (char.IsWhiteSpace(c) && !inQuotes && hyphenArg)
+                // If space and not in path and the current argument is a hyphen-prefixed argument
+                if (char.IsWhiteSpace(c) && !inPath && hyphenArg)
                 {
                     parsedArguments.Add(currentArg.ToString());
                     currentArg.Clear();

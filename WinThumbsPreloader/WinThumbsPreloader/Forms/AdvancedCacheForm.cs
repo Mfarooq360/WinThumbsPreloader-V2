@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,7 @@ namespace WinThumbsPreloader.Forms
             AutoBackupIntervalNumericUpDown.Value = Properties.Settings.Default.AutoBackupInterval / 1000;
             AutoRestoreIntervalNumericUpDown.Value = Properties.Settings.Default.AutoRestoreInterval / 1000;
             CacheSizeFormatComboBox.SelectedItem = Properties.Settings.Default.CacheSizeFormat;
+            ExplorerCacheDeletionMethodComboBox.SelectedItem = Properties.Settings.Default.ExplorerCacheDeletionMethod;
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -58,6 +60,7 @@ namespace WinThumbsPreloader.Forms
             Properties.Settings.Default.AutoBackupInterval = tempAutoBackupInterval;
             Properties.Settings.Default.AutoRestoreInterval = tempAutoRestoreInterval;
             Properties.Settings.Default.CacheSizeFormat = CacheSizeFormatComboBox.SelectedItem.ToString();
+            Properties.Settings.Default.ExplorerCacheDeletionMethod = ExplorerCacheDeletionMethodComboBox.SelectedItem.ToString();
             Properties.Settings.Default.Save();
 
             CacheForm cacheForm = Owner as CacheForm;
@@ -68,6 +71,10 @@ namespace WinThumbsPreloader.Forms
                 cacheForm.UpdateAutoRestoreInterval(tempAutoRestoreInterval);
                 cacheForm.format = Properties.Settings.Default.CacheSizeFormat;
                 cacheForm.UpdateCacheSizeLabels();
+                if (Properties.Settings.Default.ExplorerCacheDeletionMethod == "Disk Cleanup")
+                {
+                    cacheForm.ConfigureDiskCleanupSageset();
+                }
             }
         }
 
@@ -77,6 +84,7 @@ namespace WinThumbsPreloader.Forms
             AutoBackupIntervalNumericUpDown.Value = 5;
             AutoRestoreIntervalNumericUpDown.Value = 5;
             CacheSizeFormatComboBox.SelectedItem = "MB";
+            ExplorerCacheDeletionMethodComboBox.SelectedItem = "Manual Deletion";
             SaveButton_Click(sender, e);
         }
 
@@ -86,6 +94,11 @@ namespace WinThumbsPreloader.Forms
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CacheSizeFormatLabel_Click(object sender, EventArgs e)
         {
 
         }

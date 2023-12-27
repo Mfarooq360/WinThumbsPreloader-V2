@@ -294,7 +294,7 @@ use the amount of threads in the system.</value>
     <value>4, 3, 4, 3</value>
   </data>
   <data name="OptionsGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>357, 114</value>
+    <value>382, 114</value>
   </data>
   <data name="OptionsGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -312,14 +312,14 @@ use the amount of threads in the system.</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;OptionsGroupBox.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ClearExtensionsButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="ClearExtensionsButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>104, 145</value>
+    <value>103, 171</value>
   </data>
   <data name="ClearExtensionsButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -346,10 +346,10 @@ use the amount of threads in the system.</value>
     <value>ExtensionsGroupBox</value>
   </data>
   <data name="&gt;&gt;ClearExtensionsButton.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="DefaultExtensionsButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 145</value>
+    <value>7, 171</value>
   </data>
   <data name="DefaultExtensionsButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -376,7 +376,70 @@ use the amount of threads in the system.</value>
     <value>ExtensionsGroupBox</value>
   </data>
   <data name="&gt;&gt;DefaultExtensionsButton.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Italic</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>230, 20</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 15</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Drag and Drop Supported</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>ExtensionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ExportButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ExportButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>285, 171</value>
+  </data>
+  <data name="ExportButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="ExportButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="ExportButton.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="ExportButton.Text" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="ExportButton.ToolTip" xml:space="preserve">
+    <value>Export the file extension list as .txt or .csv</value>
+  </data>
+  <data name="&gt;&gt;ExportButton.Name" xml:space="preserve">
+    <value>ExportButton</value>
+  </data>
+  <data name="&gt;&gt;ExportButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ExportButton.Parent" xml:space="preserve">
+    <value>ExtensionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;ExportButton.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="FolderIconsCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -408,7 +471,7 @@ Some folders may cause hanging when preloading.</value>
     <value>ExtensionsGroupBox</value>
   </data>
   <data name="&gt;&gt;FolderIconsCheckBox.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="ExtensionsTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 43</value>
@@ -423,13 +486,13 @@ Some folders may cause hanging when preloading.</value>
     <value>Vertical</value>
   </data>
   <data name="ExtensionsTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>339, 96</value>
+    <value>366, 122</value>
   </data>
   <data name="ExtensionsTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="ExtensionsTextBox.Text" xml:space="preserve">
-    <value>avif, bmp, gif, heic, jpg, jpeg, mkv, mov, mp4, png, svg, tif, tiff, webp</value>
+    <value>avif, bmp, gif, heic, heif, jpg, jpeg, mkv, mov, mp4, png, svg, tif, tiff, webp</value>
   </data>
   <data name="&gt;&gt;ExtensionsTextBox.Name" xml:space="preserve">
     <value>ExtensionsTextBox</value>
@@ -441,7 +504,7 @@ Some folders may cause hanging when preloading.</value>
     <value>ExtensionsGroupBox</value>
   </data>
   <data name="&gt;&gt;ExtensionsTextBox.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="ExtensionsGroupBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 135</value>
@@ -453,7 +516,7 @@ Some folders may cause hanging when preloading.</value>
     <value>4, 3, 4, 3</value>
   </data>
   <data name="ExtensionsGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>355, 183</value>
+    <value>381, 205</value>
   </data>
   <data name="ExtensionsGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -471,7 +534,7 @@ Some folders may cause hanging when preloading.</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ExtensionsGroupBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="CloseButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -480,7 +543,7 @@ Some folders may cause hanging when preloading.</value>
     <value>NoControl</value>
   </data>
   <data name="CloseButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>282, 324</value>
+    <value>308, 346</value>
   </data>
   <data name="CloseButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -504,7 +567,7 @@ Some folders may cause hanging when preloading.</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CloseButton.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <metadata name="ClearExtensionsToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>180, 17</value>
@@ -522,7 +585,7 @@ Some folders may cause hanging when preloading.</value>
     <value>NoControl</value>
   </data>
   <data name="ScheduleButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 324</value>
+    <value>14, 346</value>
   </data>
   <data name="ScheduleButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -546,7 +609,7 @@ Some folders may cause hanging when preloading.</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ScheduleButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <metadata name="ThreadsToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>844, 17</value>
@@ -555,7 +618,7 @@ Some folders may cause hanging when preloading.</value>
     <value>NoControl</value>
   </data>
   <data name="CacheButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 324</value>
+    <value>110, 346</value>
   </data>
   <data name="CacheButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -579,11 +642,44 @@ Some folders may cause hanging when preloading.</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CacheButton.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <metadata name="PreloadFolderIconsToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>979, 17</value>
   </metadata>
+  <data name="AdvancedButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="AdvancedButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="AdvancedButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>212, 346</value>
+  </data>
+  <data name="AdvancedButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="AdvancedButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="AdvancedButton.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="AdvancedButton.Text" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="&gt;&gt;AdvancedButton.Name" xml:space="preserve">
+    <value>AdvancedButton</value>
+  </data>
+  <data name="&gt;&gt;AdvancedButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AdvancedButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;AdvancedButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -591,10 +687,7 @@ Some folders may cause hanging when preloading.</value>
     <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>384, 361</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>409, 386</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>

@@ -39,6 +39,8 @@
             ClearExtensionsButton = new System.Windows.Forms.Button();
             DefaultExtensionsButton = new System.Windows.Forms.Button();
             ExtensionsGroupBox = new System.Windows.Forms.GroupBox();
+            label1 = new System.Windows.Forms.Label();
+            ExportButton = new System.Windows.Forms.Button();
             FolderIconsCheckBox = new System.Windows.Forms.CheckBox();
             ExtensionsTextBox = new System.Windows.Forms.TextBox();
             CloseButton = new System.Windows.Forms.Button();
@@ -51,6 +53,7 @@
             CacheButton = new System.Windows.Forms.Button();
             PreloadFolderIconsToolTip = new System.Windows.Forms.ToolTip(components);
             SettingsToolTips = new System.Windows.Forms.ToolTip(components);
+            AdvancedButton = new System.Windows.Forms.Button();
             OptionsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ThreadsNumericUpDown).BeginInit();
             ExtensionsGroupBox.SuspendLayout();
@@ -83,7 +86,6 @@
             resources.ApplyResources(OptionsGroupBox, "OptionsGroupBox");
             OptionsGroupBox.Name = "OptionsGroupBox";
             OptionsGroupBox.TabStop = false;
-            OptionsGroupBox.Enter += OptionsGroupBox_Enter;
             // 
             // ThreadsLabel
             // 
@@ -125,6 +127,8 @@
             // ExtensionsGroupBox
             // 
             ExtensionsGroupBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            ExtensionsGroupBox.Controls.Add(label1);
+            ExtensionsGroupBox.Controls.Add(ExportButton);
             ExtensionsGroupBox.Controls.Add(FolderIconsCheckBox);
             ExtensionsGroupBox.Controls.Add(ExtensionsTextBox);
             ExtensionsGroupBox.Controls.Add(DefaultExtensionsButton);
@@ -132,6 +136,19 @@
             resources.ApplyResources(ExtensionsGroupBox, "ExtensionsGroupBox");
             ExtensionsGroupBox.Name = "ExtensionsGroupBox";
             ExtensionsGroupBox.TabStop = false;
+            // 
+            // label1
+            // 
+            resources.ApplyResources(label1, "label1");
+            label1.Name = "label1";
+            // 
+            // ExportButton
+            // 
+            resources.ApplyResources(ExportButton, "ExportButton");
+            ExportButton.Name = "ExportButton";
+            SettingsToolTips.SetToolTip(ExportButton, resources.GetString("ExportButton.ToolTip"));
+            ExportButton.UseVisualStyleBackColor = true;
+            ExportButton.Click += ExportButton_Click;
             // 
             // FolderIconsCheckBox
             // 
@@ -143,6 +160,7 @@
             // 
             // ExtensionsTextBox
             // 
+            ExtensionsTextBox.AllowDrop = true;
             resources.ApplyResources(ExtensionsTextBox, "ExtensionsTextBox");
             ExtensionsTextBox.Name = "ExtensionsTextBox";
             ExtensionsTextBox.TextChanged += ExtensionsTextBox_TextChanged;
@@ -168,10 +186,18 @@
             CacheButton.UseVisualStyleBackColor = true;
             CacheButton.Click += CacheButton_Click;
             // 
+            // AdvancedButton
+            // 
+            resources.ApplyResources(AdvancedButton, "AdvancedButton");
+            AdvancedButton.Name = "AdvancedButton";
+            AdvancedButton.UseVisualStyleBackColor = true;
+            AdvancedButton.Click += AdvancedButton_Click;
+            // 
             // SettingsForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            Controls.Add(AdvancedButton);
             Controls.Add(CacheButton);
             Controls.Add(ScheduleButton);
             Controls.Add(CloseButton);
@@ -212,5 +238,8 @@
         private System.Windows.Forms.Button CacheButton;
         private System.Windows.Forms.ToolTip PreloadFolderIconsToolTip;
         private System.Windows.Forms.ToolTip SettingsToolTips;
+        private System.Windows.Forms.Button AdvancedButton;
+        private System.Windows.Forms.Button ExportButton;
+        private System.Windows.Forms.Label label1;
     }
 }

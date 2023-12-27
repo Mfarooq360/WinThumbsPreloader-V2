@@ -12,7 +12,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="ExtensionsText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">avif, bmp, gif, heic, jpg, jpeg, mkv, mov, mp4, png, svg, tif, tiff, webp</Value>
+      <Value Profile="(Default)">avif, bmp, gif, heic, heif, jpg, jpeg, mkv, mov, mp4, png, svg, tif, tiff, webp</Value>
     </Setting>
     <Setting Name="PreloadFolderIcons" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -55,6 +55,18 @@
     </Setting>
     <Setting Name="CacheSizeFormat" Type="System.String" Scope="User">
       <Value Profile="(Default)">MB</Value>
+    </Setting>
+    <Setting Name="ExplorerCacheDeletionMethod" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Manual Deletion</Value>
+    </Setting>
+    <Setting Name="PreloadAllFolders" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ExtensionsAutoFormatting" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Disabled</Value>
+    </Setting>
+    <Setting Name="PreloaderThumbnailSizes" Type="System.String" Scope="User">
+      <Value Profile="(Default)">256</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -365,7 +365,15 @@ namespace WinThumbsPreloader
             {
                 if (forceRestore) CloseExplorer();
 
-                DeleteExplorerThumbsCache();
+                if (Properties.Settings.Default.ExplorerCacheDeletionMethod == "Disk Cleanup")
+                {
+                    CacheForm cacheForm = new CacheForm();
+                    cacheForm.RunThumbnailDiskCleanup();
+                }
+                else if (Properties.Settings.Default.ExplorerCacheDeletionMethod == "Manual Deletion")
+                {
+                    DeleteExplorerThumbsCacheManually();
+                }
 
                 long backupSize = BackupCacheSize();
                 int retryCount = 0;
@@ -382,6 +390,7 @@ namespace WinThumbsPreloader
                     {
                         string fileName = Path.GetFileName(file);
                         string sourceFile = Path.Combine(explorerPath, fileName);
+                        if (forceRestore) CloseExplorer();
                         try { File.Copy(file, sourceFile, true); }
                         catch { }
 
@@ -413,6 +422,7 @@ namespace WinThumbsPreloader
                     progressBar.Value = 100;
                     progressBar.Visible = false;
                 }));
+                if (forceRestore) RestartExplorer();
             });
         }
 
@@ -429,7 +439,16 @@ namespace WinThumbsPreloader
             }
         }
 
-        public static async void DeleteExplorerThumbsCache()
+        private static void RestartExplorer()
+        {
+            try
+            {
+                Process.Start("explorer.exe");
+            }
+            catch { } // Do Nothing
+        }
+
+        public static async void DeleteExplorerThumbsCacheManually()
         {
             await Task.Run(() =>
             {
@@ -440,6 +459,47 @@ namespace WinThumbsPreloader
                     catch { } // Do Nothing
                 }
             });
+        }
+
+        public const int sagesetNumber = 100;
+        private const string ThumbnailCacheKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Thumbnail Cache";
+
+        public void ConfigureDiskCleanupSageset()
+        {
+            try
+            {
+                using (RegistryKey regKey = Registry.LocalMachine.OpenSubKey(ThumbnailCacheKey, writable: true))
+                {
+                    if (regKey != null)
+                    {
+                        regKey.SetValue($"StateFlags{sagesetNumber:D4}", 2, RegistryValueKind.DWord);
+                    }
+                    else
+                    {
+                        throw new Exception("Failed to open registry key.");
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                OutputTextBox.Text = "Failed to configure disk cleanup. Retry as Admin.";
+            }
+        }
+
+        private void RunThumbnailDiskCleanup()
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo
+            {
+                FileName = "cleanmgr.exe",
+                Arguments = $"/sagerun:{sagesetNumber}",
+                UseShellExecute = false
+            };
+
+            using (Process process = new Process { StartInfo = startInfo })
+            {
+                process.Start();
+                process.WaitForExit(); // Wait for the clean-up process to complete
+            }
         }
 
         private async void BackupButton_Click(object sender, EventArgs e)
@@ -530,7 +590,7 @@ namespace WinThumbsPreloader
                     return;
                 }
                 await RestoreThumbsCache(progressBarRestore, true);
-                if (BackupCacheSize() == ExplorerCacheSize()) { OutputTextBox.Text = "Thumbnail cache restored forcefully."; }
+                if (BackupCacheSize() <= ExplorerCacheSize()) { OutputTextBox.Text = "Thumbnail cache restored forcefully."; }
                 else { OutputTextBox.Text = "Force restore failed. Retry as admin."; }
             }
         }
@@ -724,10 +784,18 @@ namespace WinThumbsPreloader
                     OutputTextBox.Text = "Cache clear cancelled.";
                     return;
                 }
-                DeleteExplorerThumbsCache();
+
+                if (Properties.Settings.Default.ExplorerCacheDeletionMethod == "Disk Cleanup")
+                {
+                    RunThumbnailDiskCleanup();
+                }
+                else if (Properties.Settings.Default.ExplorerCacheDeletionMethod == "Manual Deletion")
+                {
+                    DeleteExplorerThumbsCacheManually();
+                }
 
                 OutputTextBox.Text = "Explorer cache cleared.";
-            }
+            } 
         }
         private void CacheForm_Activated(object sender, EventArgs e)
         {
@@ -815,7 +883,8 @@ namespace WinThumbsPreloader
             {
                 if (startWithWindows)
                 {
-                    runKey.SetValue(RunKeyName, Application.ExecutablePath + " -startminimized");
+                    string executablePath = $"\"{Application.ExecutablePath}\" -startminimized";
+                    runKey.SetValue(RunKeyName, executablePath);
                 }
                 else
                 {

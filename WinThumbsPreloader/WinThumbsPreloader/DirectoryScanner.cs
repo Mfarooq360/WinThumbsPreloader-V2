@@ -13,17 +13,19 @@ namespace WinThumbsPreloader
         List<string> filesList = new List<string>();
         string[] thumbnailExtensions = ThumbnailExtensions();
         private bool preloadFolderIcons;
+        private bool preloadAllFolders;
 
         public DirectoryScanner(string path, bool includeNestedDirectories)
         {
             this.path = path;
             this.includeNestedDirectories = includeNestedDirectories;
             this.preloadFolderIcons = Settings.Default.PreloadFolderIcons;
+            this.preloadAllFolders = Settings.Default.PreloadAllFolders;
         }
 
         public static string[] ThumbnailExtensions()
         {
-            string[] defaultExtensions = { "avif", "bmp", "gif", "heic", "jpg", "jpeg", "mkv", "mov", "mp4", "png", "svg", "tif", "tiff", "webp" };
+            string[] defaultExtensions = { "avif", "bmp", "gif", "heic", "heif", "jpg", "jpeg", "mkv", "mov", "mp4", "png", "svg", "tif", "tiff", "webp" };
             string[] thumbnailExtensions;
             try
             {
@@ -52,24 +54,30 @@ namespace WinThumbsPreloader
 
         private IEnumerable<Tuple<int, List<string>>> GetItemsCountOnlyFirstLevel()
         {
+            HashSet<string> addedDirectories = new HashSet<string>(); // To avoid adding the same directory multiple times
+
             try
             {
-                if (preloadFolderIcons)
+                foreach (string entry in Directory.GetFileSystemEntries(path))
                 {
-                    try
-                    {   // Check if the path contains any files with the specified extensions
-                        if (Directory.EnumerateFiles(path).Any(file => thumbnailExtensions.Contains(new FileInfo(file).Extension.TrimStart('.'), StringComparer.OrdinalIgnoreCase) || thumbnailExtensions.Length == 0))
+                    if (Directory.Exists(entry) && preloadFolderIcons)
+                    {
+                        // Check each file in the subdirectory
+                        foreach (string subFile in Directory.GetFiles(entry))
                         {
-                            filesList.Add(path);
+                            if (thumbnailExtensions.Contains(new FileInfo(subFile).Extension.TrimStart('.'), StringComparer.OrdinalIgnoreCase) || preloadAllFolders)
+                            {
+                                if (!addedDirectories.Contains(entry))
+                                {
+                                    filesList.Add(entry); // Add the directory if a file with a thumbnail extension is found
+                                    addedDirectories.Add(entry); // Mark this directory as added
+                                }
+                            }
                         }
                     }
-                    catch (Exception) { } // Do nothing
-                }
-                foreach (string file in Directory.GetFileSystemEntries(path))
-                {
-                    if (thumbnailExtensions.Contains(new FileInfo(file).Extension.TrimStart('.'), StringComparer.OrdinalIgnoreCase))
+                    else if (File.Exists(entry) && thumbnailExtensions.Contains(new FileInfo(entry).Extension.TrimStart('.'), StringComparer.OrdinalIgnoreCase))
                     {
-                        filesList.Add(file);
+                        filesList.Add(entry); // Add the file directly if it has a thumbnail extension
                     }
                 }
             }
@@ -82,39 +90,35 @@ namespace WinThumbsPreloader
             Queue<string> queue = new Queue<string>();
             queue.Enqueue(path);
             string currentPath;
+
             while (queue.Count > 0)
             {
                 currentPath = queue.Dequeue();
+                bool directoryContainsThumbnail = false; // Flag to check if directory contains thumbnail
+
                 try
                 {
-                    if (preloadFolderIcons)
+                    foreach (string file in Directory.GetFiles(currentPath)) // Check each file in the current directory
                     {
-                        foreach (string subDir in Directory.GetDirectories(currentPath))
+                        if (thumbnailExtensions.Contains(new FileInfo(file).Extension.TrimStart('.'), StringComparer.OrdinalIgnoreCase) || thumbnailExtensions.Length == 0)
                         {
-                            queue.Enqueue(subDir);
-                            try
-                            {   // Check if the subDir contains any files with the specified extensions
-                                if (Directory.EnumerateFiles(subDir).Any(file => thumbnailExtensions.Contains(new FileInfo(file).Extension.TrimStart('.'), StringComparer.OrdinalIgnoreCase) || thumbnailExtensions.Length == 0))
-                                {
-                                    filesList.Add(subDir);
-                                }
-                            }
-                            catch (Exception) { } // Do nothing
+                            filesList.Add(file);
+                            directoryContainsThumbnail = true; // Set flag if a thumbnail file is found
                         }
                     }
-                    else
+
+                    if (preloadFolderIcons && directoryContainsThumbnail) // If directory contains thumbnail, add the directory to the list
                     {
-                        foreach (string subDir in Directory.GetDirectories(currentPath))
-                        {
-                            queue.Enqueue(subDir);
-                        }
+                        filesList.Add(currentPath);
                     }
-                    foreach (string subFiles in Directory.GetFiles(currentPath))
+                    else if (preloadFolderIcons && preloadAllFolders)
                     {
-                        if (thumbnailExtensions.Contains(new FileInfo(subFiles).Extension.TrimStart('.'), StringComparer.OrdinalIgnoreCase) || thumbnailExtensions.Length == 0)
-                        {
-                            filesList.Add(subFiles);
-                        }
+                        filesList.Add(currentPath);
+                    }
+
+                    foreach (string subDir in Directory.GetDirectories(currentPath)) // Add subdirectories to the queue
+                    {
+                        queue.Enqueue(subDir);
                     }
                 }
                 catch (Exception) { } // Do nothing

@@ -61,7 +61,7 @@ namespace WinThumbsPreloader.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("avif, bmp, gif, heic, jpg, jpeg, mkv, mov, mp4, png, svg, tif, tiff, webp")]
+        [global::System.Configuration.DefaultSettingValueAttribute("avif, bmp, gif, heic, heif, jpg, jpeg, mkv, mov, mp4, png, svg, tif, tiff, webp")]
         public string ExtensionsText {
             get {
                 return ((string)(this["ExtensionsText"]));
@@ -236,6 +236,54 @@ namespace WinThumbsPreloader.Properties {
             }
             set {
                 this["CacheSizeFormat"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Manual Deletion")]
+        public string ExplorerCacheDeletionMethod {
+            get {
+                return ((string)(this["ExplorerCacheDeletionMethod"]));
+            }
+            set {
+                this["ExplorerCacheDeletionMethod"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool PreloadAllFolders {
+            get {
+                return ((bool)(this["PreloadAllFolders"]));
+            }
+            set {
+                this["PreloadAllFolders"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Disabled")]
+        public string ExtensionsAutoFormatting {
+            get {
+                return ((string)(this["ExtensionsAutoFormatting"]));
+            }
+            set {
+                this["ExtensionsAutoFormatting"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("256")]
+        public string PreloaderThumbnailSizes {
+            get {
+                return ((string)(this["PreloaderThumbnailSizes"]));
+            }
+            set {
+                this["PreloaderThumbnailSizes"] = value;
             }
         }
     }

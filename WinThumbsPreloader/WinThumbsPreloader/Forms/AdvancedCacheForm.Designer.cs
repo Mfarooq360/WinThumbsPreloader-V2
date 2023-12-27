@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdvancedCacheForm));
             groupBox1 = new System.Windows.Forms.GroupBox();
+            ExplorerCacheDeletionMethodComboBox = new System.Windows.Forms.ComboBox();
+            ExplorerCacheDeletionMethodLabel = new System.Windows.Forms.Label();
             CacheSizeFormatComboBox = new System.Windows.Forms.ComboBox();
             CacheSizeFormatLabel = new System.Windows.Forms.Label();
             SaveButton = new System.Windows.Forms.Button();
@@ -44,6 +47,7 @@
             AutoBackupIntervalLabel = new System.Windows.Forms.Label();
             CacheSizeUpdateIntervalLabel = new System.Windows.Forms.Label();
             CloseButton = new System.Windows.Forms.Button();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)AutoBackupIntervalNumericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AutoRestoreIntervalNumericUpDown).BeginInit();
@@ -53,6 +57,8 @@
             // groupBox1
             // 
             groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            groupBox1.Controls.Add(ExplorerCacheDeletionMethodComboBox);
+            groupBox1.Controls.Add(ExplorerCacheDeletionMethodLabel);
             groupBox1.Controls.Add(CacheSizeFormatComboBox);
             groupBox1.Controls.Add(CacheSizeFormatLabel);
             groupBox1.Controls.Add(SaveButton);
@@ -71,6 +77,19 @@
             groupBox1.TabStop = false;
             groupBox1.Enter += groupBox1_Enter;
             // 
+            // ExplorerCacheDeletionMethodComboBox
+            // 
+            ExplorerCacheDeletionMethodComboBox.FormattingEnabled = true;
+            ExplorerCacheDeletionMethodComboBox.Items.AddRange(new object[] { resources.GetString("ExplorerCacheDeletionMethodComboBox.Items"), resources.GetString("ExplorerCacheDeletionMethodComboBox.Items1") });
+            resources.ApplyResources(ExplorerCacheDeletionMethodComboBox, "ExplorerCacheDeletionMethodComboBox");
+            ExplorerCacheDeletionMethodComboBox.Name = "ExplorerCacheDeletionMethodComboBox";
+            // 
+            // ExplorerCacheDeletionMethodLabel
+            // 
+            resources.ApplyResources(ExplorerCacheDeletionMethodLabel, "ExplorerCacheDeletionMethodLabel");
+            ExplorerCacheDeletionMethodLabel.Name = "ExplorerCacheDeletionMethodLabel";
+            toolTip1.SetToolTip(ExplorerCacheDeletionMethodLabel, resources.GetString("ExplorerCacheDeletionMethodLabel.ToolTip"));
+            // 
             // CacheSizeFormatComboBox
             // 
             CacheSizeFormatComboBox.FormattingEnabled = true;
@@ -83,6 +102,8 @@
             // 
             resources.ApplyResources(CacheSizeFormatLabel, "CacheSizeFormatLabel");
             CacheSizeFormatLabel.Name = "CacheSizeFormatLabel";
+            toolTip1.SetToolTip(CacheSizeFormatLabel, resources.GetString("CacheSizeFormatLabel.ToolTip"));
+            CacheSizeFormatLabel.Click += CacheSizeFormatLabel_Click;
             // 
             // SaveButton
             // 
@@ -144,16 +165,19 @@
             // 
             resources.ApplyResources(AutoRestoreIntervalLabel, "AutoRestoreIntervalLabel");
             AutoRestoreIntervalLabel.Name = "AutoRestoreIntervalLabel";
+            toolTip1.SetToolTip(AutoRestoreIntervalLabel, resources.GetString("AutoRestoreIntervalLabel.ToolTip"));
             // 
             // AutoBackupIntervalLabel
             // 
             resources.ApplyResources(AutoBackupIntervalLabel, "AutoBackupIntervalLabel");
             AutoBackupIntervalLabel.Name = "AutoBackupIntervalLabel";
+            toolTip1.SetToolTip(AutoBackupIntervalLabel, resources.GetString("AutoBackupIntervalLabel.ToolTip"));
             // 
             // CacheSizeUpdateIntervalLabel
             // 
             resources.ApplyResources(CacheSizeUpdateIntervalLabel, "CacheSizeUpdateIntervalLabel");
             CacheSizeUpdateIntervalLabel.Name = "CacheSizeUpdateIntervalLabel";
+            toolTip1.SetToolTip(CacheSizeUpdateIntervalLabel, resources.GetString("CacheSizeUpdateIntervalLabel.ToolTip"));
             // 
             // CloseButton
             // 
@@ -195,5 +219,9 @@
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.ComboBox CacheSizeFormatComboBox;
         private System.Windows.Forms.Label CacheSizeFormatLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox ExplorerCacheDeletionMethodComboBox;
+        private System.Windows.Forms.Label ExplorerCacheDeletionMethodLabel;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -117,6 +117,78 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ExplorerCacheDeletionMethodComboBox.Items" xml:space="preserve">
+    <value>Disk Cleanup</value>
+  </data>
+  <data name="ExplorerCacheDeletionMethodComboBox.Items1" xml:space="preserve">
+    <value>Manual Deletion</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ExplorerCacheDeletionMethodComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>189, 166</value>
+  </data>
+  <data name="ExplorerCacheDeletionMethodComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 23</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ExplorerCacheDeletionMethodComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="ExplorerCacheDeletionMethodComboBox.Text" xml:space="preserve">
+    <value>Manual Deletion</value>
+  </data>
+  <data name="&gt;&gt;ExplorerCacheDeletionMethodComboBox.Name" xml:space="preserve">
+    <value>ExplorerCacheDeletionMethodComboBox</value>
+  </data>
+  <data name="&gt;&gt;ExplorerCacheDeletionMethodComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ExplorerCacheDeletionMethodComboBox.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;ExplorerCacheDeletionMethodComboBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ExplorerCacheDeletionMethodLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ExplorerCacheDeletionMethodLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 170</value>
+  </data>
+  <data name="ExplorerCacheDeletionMethodLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 15</value>
+  </data>
+  <data name="ExplorerCacheDeletionMethodLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="ExplorerCacheDeletionMethodLabel.Text" xml:space="preserve">
+    <value>Explorer Cache Deletion Method:</value>
+  </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="ExplorerCacheDeletionMethodLabel.ToolTip" xml:space="preserve">
+    <value>Sets the method used to delete the explorer thumbnail cache
+This affects the deletion and the restoration of thumbs cache
+
+"Manual Deletion" is the default and the fastest method,
+though it may be less stable in certain situations
+
+"Disk Cleanup" uses Windows' method which is slower,
+though it may be more stable in certain situations</value>
+  </data>
+  <data name="&gt;&gt;ExplorerCacheDeletionMethodLabel.Name" xml:space="preserve">
+    <value>ExplorerCacheDeletionMethodLabel</value>
+  </data>
+  <data name="&gt;&gt;ExplorerCacheDeletionMethodLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ExplorerCacheDeletionMethodLabel.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;ExplorerCacheDeletionMethodLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="CacheSizeFormatComboBox.Items" xml:space="preserve">
     <value>Auto</value>
   </data>
@@ -129,16 +201,17 @@
   <data name="CacheSizeFormatComboBox.Items3" xml:space="preserve">
     <value>GB</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="CacheSizeFormatComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>120, 26</value>
+    <value>119, 97</value>
   </data>
   <data name="CacheSizeFormatComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 23</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="CacheSizeFormatComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
+  </data>
+  <data name="CacheSizeFormatComboBox.Text" xml:space="preserve">
+    <value>MB</value>
   </data>
   <data name="&gt;&gt;CacheSizeFormatComboBox.Name" xml:space="preserve">
     <value>CacheSizeFormatComboBox</value>
@@ -150,13 +223,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;CacheSizeFormatComboBox.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="CacheSizeFormatLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="CacheSizeFormatLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 30</value>
+    <value>6, 100</value>
   </data>
   <data name="CacheSizeFormatLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 15</value>
@@ -166,6 +239,12 @@
   </data>
   <data name="CacheSizeFormatLabel.Text" xml:space="preserve">
     <value>Cache Size Format:</value>
+  </data>
+  <data name="CacheSizeFormatLabel.ToolTip" xml:space="preserve">
+    <value>Sets the size format that the cache sizes display
+
+"Auto" switches between size formats depending
+on the sizes of the backup or explorer thumbs cache</value>
   </data>
   <data name="&gt;&gt;CacheSizeFormatLabel.Name" xml:space="preserve">
     <value>CacheSizeFormatLabel</value>
@@ -177,7 +256,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;CacheSizeFormatLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="SaveButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -212,7 +291,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;SaveButton.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="DefaultButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -245,13 +324,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;DefaultButton.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="MilisecondsLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="MilisecondsLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>222, 74</value>
+    <value>222, 140</value>
   </data>
   <data name="MilisecondsLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 15</value>
@@ -272,13 +351,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;MilisecondsLabel.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="BackupSecondsLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="BackupSecondsLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>176, 113</value>
+    <value>176, 36</value>
   </data>
   <data name="BackupSecondsLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>12, 15</value>
@@ -299,13 +378,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;BackupSecondsLabel.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="RestoreSecondsLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="RestoreSecondsLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>176, 153</value>
+    <value>176, 71</value>
   </data>
   <data name="RestoreSecondsLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>12, 15</value>
@@ -326,10 +405,10 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;RestoreSecondsLabel.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="AutoBackupIntervalNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 106</value>
+    <value>132, 28</value>
   </data>
   <data name="AutoBackupIntervalNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
     <value>43, 23</value>
@@ -347,10 +426,10 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;AutoBackupIntervalNumericUpDown.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="AutoRestoreIntervalNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 147</value>
+    <value>132, 63</value>
   </data>
   <data name="AutoRestoreIntervalNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
     <value>43, 23</value>
@@ -368,10 +447,10 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;AutoRestoreIntervalNumericUpDown.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="CacheSizeUpdateIntervalNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 67</value>
+    <value>161, 132</value>
   </data>
   <data name="CacheSizeUpdateIntervalNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 23</value>
@@ -389,13 +468,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;CacheSizeUpdateIntervalNumericUpDown.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="AutoRestoreIntervalLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="AutoRestoreIntervalLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 150</value>
+    <value>6, 65</value>
   </data>
   <data name="AutoRestoreIntervalLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 15</value>
@@ -405,6 +484,11 @@
   </data>
   <data name="AutoRestoreIntervalLabel.Text" xml:space="preserve">
     <value>Auto Restore Interval:</value>
+  </data>
+  <data name="AutoRestoreIntervalLabel.ToolTip" xml:space="preserve">
+    <value>Sets the interval that the application checks for when
+to auto restore the thumbnail cache from the backup
+</value>
   </data>
   <data name="&gt;&gt;AutoRestoreIntervalLabel.Name" xml:space="preserve">
     <value>AutoRestoreIntervalLabel</value>
@@ -416,13 +500,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;AutoRestoreIntervalLabel.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="AutoBackupIntervalLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="AutoBackupIntervalLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 110</value>
+    <value>6, 30</value>
   </data>
   <data name="AutoBackupIntervalLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 15</value>
@@ -432,6 +516,10 @@
   </data>
   <data name="AutoBackupIntervalLabel.Text" xml:space="preserve">
     <value>Auto Backup Interval:</value>
+  </data>
+  <data name="AutoBackupIntervalLabel.ToolTip" xml:space="preserve">
+    <value>Sets the interval that the application checks for when
+to make an auto backup of the thumbnail cache</value>
   </data>
   <data name="&gt;&gt;AutoBackupIntervalLabel.Name" xml:space="preserve">
     <value>AutoBackupIntervalLabel</value>
@@ -443,13 +531,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;AutoBackupIntervalLabel.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="CacheSizeUpdateIntervalLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="CacheSizeUpdateIntervalLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 70</value>
+    <value>6, 135</value>
   </data>
   <data name="CacheSizeUpdateIntervalLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>149, 15</value>
@@ -459,6 +547,9 @@
   </data>
   <data name="CacheSizeUpdateIntervalLabel.Text" xml:space="preserve">
     <value>Cache Size Update Interval:</value>
+  </data>
+  <data name="CacheSizeUpdateIntervalLabel.ToolTip" xml:space="preserve">
+    <value>Sets the interval that the thumbnail cache sizes are updated</value>
   </data>
   <data name="&gt;&gt;CacheSizeUpdateIntervalLabel.Name" xml:space="preserve">
     <value>CacheSizeUpdateIntervalLabel</value>
@@ -470,7 +561,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;CacheSizeUpdateIntervalLabel.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
@@ -540,6 +631,12 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>WinThumbsPreloader - Advanced Cache</value>
+  </data>
+  <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
+    <value>toolTip1</value>
+  </data>
+  <data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AdvancedCacheForm</value>

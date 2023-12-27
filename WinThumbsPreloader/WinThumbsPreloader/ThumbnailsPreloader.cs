@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Versioning;
 using static System.Windows.Forms.Design.AxImporter;
+using System.Linq;
 
 namespace WinThumbsPreloader
 {
@@ -37,7 +38,8 @@ namespace WinThumbsPreloader
         public int totalItemsCount = 0;
         public int processedItemsCount = 0;
         public string currentFile = "";
-        
+        public int[] thumbnailSizes = ParseThumbnailSizes();
+
         public ThumbnailsPreloader(string path, bool includeNestedDirectories, bool silentMode, bool multiThreaded, int threadCount)
         {
             // Single File Mode for when passing a file through the command line
@@ -46,7 +48,7 @@ namespace WinThumbsPreloader
             // Path is file and not a directory, so the application had to be run in single file mode:
             if (!fAt.HasFlag(FileAttributes.Directory))
             {
-                ThumbnailPreloader.PreloadThumbnail(path); // Generating thumbnail
+                ThumbnailPreloader.PreloadThumbnail(path, thumbnailSizes); // Generating thumbnail
                 state = ThumbnailsPreloaderState.Done;
                 if (InstanceCompleted() == true) { EndInstance(); return; }
             }
@@ -92,10 +94,14 @@ namespace WinThumbsPreloader
                 progressDialog?.Dispose();
                 progressDialogUpdateTimer.Stop();
                 progressDialogUpdateTimer?.Dispose();
-                if (InstanceCompleted() == true) 
+                if (InstanceCompleted() == true)
                 {
+                    progressDialog.Close();
+                    progressDialog?.Dispose();
+                    progressDialogUpdateTimer.Stop();
+                    progressDialogUpdateTimer?.Dispose();
                     EndInstance();
-                    return; 
+                    return;
                 }
             }
             else if (state == ThumbnailsPreloaderState.GettingNumberOfItems)
@@ -146,71 +152,73 @@ namespace WinThumbsPreloader
             }
         }
         
-        private async void Run()
-        {
-            await Task.Run(() =>
+            private async void Run()
             {
-                state = ThumbnailsPreloaderState.GettingNumberOfItems;
-
-                directoryScanner = new DirectoryScanner(path, includeNestedDirectories);
-                List<string> items = new List<string>();
-                foreach (Tuple<int, List<string>> itemsCount in directoryScanner.GetItemsCount()) //Get items and items count
+                await Task.Run(() =>
                 {
-                    totalItemsCount = itemsCount.Item1;
-                    items = itemsCount.Item2;
-                }
-                if (totalItemsCount == 0 )
-                {
-                    state = ThumbnailsPreloaderState.Done;
-                }
+                    state = ThumbnailsPreloaderState.GettingNumberOfItems;
 
-                state = ThumbnailsPreloaderState.Processing; //Start processing
-                
-                //Set the process priority to Below Normal to prevent system unresponsiveness
-                using (Process p = Process.GetCurrentProcess())
-                    p.PriorityClass = ProcessPriorityClass.BelowNormal;
-
-                //Set the thread count
-                int threads = DetermineThreadCount();
-
-                if (!multiThreaded)
-                {
-                    foreach (string item in items)
+                    directoryScanner = new DirectoryScanner(path, includeNestedDirectories);
+                    List<string> items = new List<string>();
+                    foreach (Tuple<int, List<string>> itemsCount in directoryScanner.GetItemsCount()) //Get items and items count
                     {
-                        try
-                        {
-                            currentFile = item;
-                            ThumbnailPreloader.PreloadThumbnail(item);
-                        }
-                        catch (Exception) { } // Do nothing
-                        processedItemsCount++;
+                        totalItemsCount = itemsCount.Item1;
+                        items = itemsCount.Item2;
                     }
-                    state = ThumbnailsPreloaderState.Done;
-                }
-                else
-                {
-                    Parallel.ForEach(
-                        items,
-                        new ParallelOptions { MaxDegreeOfParallelism = threads },
-                        item =>
+                    if (totalItemsCount == 0 )
+                    {
+                        state = ThumbnailsPreloaderState.Done;
+                    }
+
+                    state = ThumbnailsPreloaderState.Processing; //Start processing
+                
+                    //Set the process priority to Below Normal to prevent system unresponsiveness
+                    using (Process p = Process.GetCurrentProcess())
+                        p.PriorityClass = ProcessPriorityClass.BelowNormal;
+
+                    //Set the thread count
+                    int threads = DetermineThreadCount();
+
+                    if (!multiThreaded)
+                    {
+                        foreach (string item in items)
                         {
                             try
                             {
                                 currentFile = item;
-                                ThumbnailPreloader.PreloadThumbnail(item);
+                                ThumbnailPreloader.PreloadThumbnail(item, thumbnailSizes);
                             }
                             catch (Exception) { } // Do nothing
                             processedItemsCount++;
-                        });
-                    state = ThumbnailsPreloaderState.Done;
-                }
-                if (InstanceCompleted() == true) { EndInstance(); return; }
-            });
-        }
+                            if (InstanceCompleted() == true) { return; }
+                        }
+                        state = ThumbnailsPreloaderState.Done;
+                    }
+                    else
+                    {
+                        Parallel.ForEach(
+                            items,
+                            new ParallelOptions { MaxDegreeOfParallelism = threads },
+                            item =>
+                            {
+                                try
+                                {
+                                    currentFile = item;
+                                    ThumbnailPreloader.PreloadThumbnail(item, thumbnailSizes);
+                                }
+                                catch (Exception) { } // Do nothing
+                                processedItemsCount++;
+                                if (InstanceCompleted() == true) { return; }
+                            });
+                        state = ThumbnailsPreloaderState.Done;
+                    }
+                    if (InstanceCompleted() == true) { EndInstance(); return; }
+                });
+            }
 
         private int DetermineThreadCount()
         {
-            if (threadCount == 0) //If the threadCount is 0, use the settings default. This is when threadCount is not specified.
+            if (threadCount == 0) //If the threadCount is 0, use the settings default. This is when threadCount is not specified in the command prompt.
             {
                 return Settings.Default.ThreadCount == 0 ? Environment.ProcessorCount : Settings.Default.ThreadCount;
             }
@@ -219,6 +227,23 @@ namespace WinThumbsPreloader
                 return Environment.ProcessorCount;
             }
             return threadCount <= 257 ? threadCount - 1 : Environment.ProcessorCount; //For other cases, use threadCount - 1
+        }
+
+        private static int[] ParseThumbnailSizes()
+        {
+            try
+            {
+                // Assuming PreloadThumbnailSizes is a comma-separated string
+                return Settings.Default.PreloaderThumbnailSizes
+                    .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(int.Parse)
+                    .ToArray();
+            }
+            catch
+            {
+                // Handle parsing errors or set a default value
+                return new int[] { 128, 256, 512 }; // Example default sizes
+            }
         }
 
         //This was done to track how many preloading instances are open due to multiple instances now occurring in the same program, which helps to properly end the application when there are no more preloading instances.

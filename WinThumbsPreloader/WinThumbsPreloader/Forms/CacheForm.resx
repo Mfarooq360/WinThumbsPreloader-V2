@@ -509,7 +509,7 @@ when the program detects a cache reset.</value>
   </data>
   <data name="AutoBackupCheckBox.ToolTip" xml:space="preserve">
     <value>Enables backing up of thumbnail cache
-in the background every 5 seconds.</value>
+in the background at every user selected interval</value>
   </data>
   <data name="&gt;&gt;AutoBackupCheckBox.Name" xml:space="preserve">
     <value>AutoBackupCheckBox</value>
