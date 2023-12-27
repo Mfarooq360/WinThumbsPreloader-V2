@@ -162,8 +162,30 @@ namespace WinThumbsPreloader
 
         private void UpdateLabel_Click(object sender, EventArgs e)
         {
-            if (UpdateLabel.Text == Resources.AboutForm_WinThumbsPreloader_NewVersionAvailable) Process.Start("https://github.com/Mfarooq360/WinThumbsPreloader-V2");
-            else if (UpdateLabel.Text == Resources.AboutForm_WinThumbsPreloader_BetaVersionAvailable) Process.Start("https://github.com/Mfarooq360/WinThumbsPreloader-V2");
+            string url = "";
+
+            if (UpdateLabel.Text == Resources.AboutForm_WinThumbsPreloader_NewVersionAvailable ||
+                UpdateLabel.Text == Resources.AboutForm_WinThumbsPreloader_BetaVersionAvailable)
+            {
+                url = "https://github.com/Mfarooq360/WinThumbsPreloader-V2";
+            }
+
+            if (!string.IsNullOrEmpty(url))
+            {
+                try
+                {
+                    ProcessStartInfo psi = new ProcessStartInfo
+                    {
+                        FileName = url,
+                        UseShellExecute = true
+                    };
+                    Process.Start(psi);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Unable to open the link: " + ex.Message);
+                }
+            }
         }
 
         private void SettingsButton_Click(object sender, EventArgs e)
