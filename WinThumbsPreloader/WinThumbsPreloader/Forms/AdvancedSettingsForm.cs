@@ -31,7 +31,7 @@ namespace WinThumbsPreloader.Forms
             PreloaderThumbnailSizesCheckedListBox.ItemCheck += PreloaderThumbnailSizesCheckedListBox_ItemCheck;
             LoadCheckedItemsFromSettings();
 
-            if (Settings.Default.PreloaderThumbnailSizes == "768,256" || Settings.Default.PreloaderThumbnailSizes == "256,768")
+            if (Settings.Default.PreloaderThumbnailSizes == "768")
             {
                 PresetsComboBox.SelectedItem = "Photos App Large/Medium";
             }
@@ -135,7 +135,7 @@ namespace WinThumbsPreloader.Forms
                                   .Cast<string>()
                                   .Aggregate((current, next) => current + "," + next);
 
-            if (checkedSizes == "768,256" || checkedSizes == "256,768")
+            if (checkedSizes == "768")
             {
                 PresetsComboBox.SelectedItem = "Photos App Large/Medium";
             }
@@ -175,7 +175,7 @@ namespace WinThumbsPreloader.Forms
         private Dictionary<string, List<string>> presets = new Dictionary<string, List<string>>
         {
             { "Explorer Size/Photos App Small", new List<string> { "256" } },
-            { "Photos App Large/Medium", new List<string> { "768", "256" } },
+            { "Photos App Large/Medium", new List<string> { "768" } },
         };
 
         private void PresetsComboBox_SelectedIndexChanged(object sender, EventArgs e)
