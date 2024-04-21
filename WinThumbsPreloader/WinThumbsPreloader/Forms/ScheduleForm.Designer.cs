@@ -176,7 +176,6 @@
             resources.ApplyResources(DrivesLabel, "DrivesLabel");
             DrivesLabel.Name = "DrivesLabel";
             ScheduleToolTips.SetToolTip(DrivesLabel, resources.GetString("DrivesLabel.ToolTip"));
-            DrivesLabel.Click += DrivesLabel_Click;
             // 
             // CloseButton
             // 
@@ -218,34 +217,29 @@
             resources.ApplyResources(OutputTextBox1, "OutputTextBox1");
             OutputTextBox1.Name = "OutputTextBox1";
             OutputTextBox1.ReadOnly = true;
-            OutputTextBox1.TextChanged += OutputTextBox1_TextChanged;
             // 
             // PathsTextBox
             // 
             resources.ApplyResources(PathsTextBox, "PathsTextBox");
             PathsTextBox.Name = "PathsTextBox";
-            PathsTextBox.TextChanged += PathsTextBox_TextChanged;
             // 
             // PathsLabel
             // 
             resources.ApplyResources(PathsLabel, "PathsLabel");
             PathsLabel.Name = "PathsLabel";
             ScheduleToolTips.SetToolTip(PathsLabel, resources.GetString("PathsLabel.ToolTip"));
-            PathsLabel.Click += PathsLabel_Click;
             // 
             // OutputLabel
             // 
             resources.ApplyResources(OutputLabel, "OutputLabel");
             OutputLabel.Name = "OutputLabel";
             ScheduleToolTips.SetToolTip(OutputLabel, resources.GetString("OutputLabel.ToolTip"));
-            OutputLabel.Click += OutputLabel_Click;
             // 
             // OutputTextBox
             // 
             resources.ApplyResources(OutputTextBox, "OutputTextBox");
             OutputTextBox.Name = "OutputTextBox";
             OutputTextBox.ReadOnly = true;
-            OutputTextBox.TextChanged += OutputTextBox_TextChanged;
             // 
             // OpenTaskSchedulerButton
             // 

@@ -1,14 +1,17 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
+using System.Threading.Tasks;
+using static WinThumbsPreloader.Logger;
 
 namespace WinThumbsPreloader
 {
     //Preload one thumbnail
     class ThumbnailPreloader
     {
-        public static void PreloadThumbnail(string filePath, int[] sizes)
+        public static void PreloadThumbnail(string filePath, int[] sizes) //TODO: Try removing the static and test multi-threaded mode (Exceptions still happen but benchmarking is still needed)
         {
+            /*WriteLine("Initializing Thumbnail Preloader - PreloadThumbnail(string, int[])", LoggingFrequency.DebugLogging);*/
             Guid iIdIShellItem = new Guid("43826d1e-e718-42ee-bc55-a1e261c37bfe");
             Guid CLSIDLocalThumbnailCache = new Guid("50ef4544-ac9f-4a8e-b21b-8a26180db13f");
             var TBCacheType = Type.GetTypeFromCLSID(CLSIDLocalThumbnailCache);
@@ -21,24 +24,41 @@ namespace WinThumbsPreloader
 
             try
             {
+                /*WriteLine("Creating shell item from parsing name", LoggingFrequency.DebugLogging);*/
                 SHCreateItemFromParsingName(filePath, IntPtr.Zero, iIdIShellItem, out shellItem);
+                /*WriteLine("Shell item created", LoggingFrequency.DebugLogging);*/
 
                 foreach (var size in sizes)
                 {
+                    /*WriteLine("Flag: WTS_EXTRACTINPROC", LoggingFrequency.DebugLogging);*/
+                    /*WriteLine("Getting thumbnail for size: " + size, LoggingFrequency.DebugLogging);*/
                     TBCache.GetThumbnail(shellItem, (uint)size, WTS_FLAGS.WTS_EXTRACTINPROC, out bmp, out cFlags, out bmpId);
+                    /*WriteLine("Thumbnail for size " + size + " generated", LoggingFrequency.DebugLogging);*/
 
                     if (bmp != null) Marshal.ReleaseComObject(bmp);
                     bmp = null;
+                    /*WriteLine("Thumbnail for size " + size + " released", LoggingFrequency.DebugLogging);*/
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                // Error handling or do nothing
+                if (Program.AppOptions.multiThreaded == true)
+                {
+                    WriteLine($"Exception thrown while preloading thumbnail at path '{filePath}' with exception: {e.Message} \nNote: COM Exceptions while multithreaded may or may not be harmless and tend to pop up due to multithreading the Windows thumbnail generator" , LoggingFrequency.DebugLogging);
+                }
+                else
+                {
+                    WriteLine($"Exception thrown while preloading thumbnail at path '{filePath}' with exception: {e.Message}", LoggingFrequency.DebugLogging);
+                }
+                /*WriteLine("Exception thrown while preloading thumbnail: " + e.Message, LoggingFrequency.DebugLogging);
+                /*WriteLine("Note: COM Exceptions may or may not be harmless and tend to pop up due to multithreading the Windows thumbnail generator", LoggingFrequency.DebugLogging);*/
             }
             finally
             {
                 if (shellItem != null) Marshal.ReleaseComObject(shellItem);
-                if (TBCache != null) Marshal.ReleaseComObject(TBCache);
+                /*WriteLine("ShellItem released", LoggingFrequency.DebugLogging);*/
+                if (TBCache != null) Marshal.ReleaseComObject(TBCache); //If the TBCache is not released, the speed of thumbnail generation will be slow
+                /*WriteLine("TBCache released", LoggingFrequency.DebugLogging);*/
                 shellItem = null;
                 TBCache = null;
             }

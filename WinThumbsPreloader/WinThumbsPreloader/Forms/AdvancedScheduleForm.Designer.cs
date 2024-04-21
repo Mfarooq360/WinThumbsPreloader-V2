@@ -44,36 +44,37 @@
             GeneralDescriptionTextBox = new System.Windows.Forms.TextBox();
             GeneralHiddenCheckBox = new System.Windows.Forms.CheckBox();
             GeneralSecurityOptionsGroupBox = new System.Windows.Forms.GroupBox();
-            checkBox2 = new System.Windows.Forms.CheckBox();
-            radioButton1 = new System.Windows.Forms.RadioButton();
-            radioButton2 = new System.Windows.Forms.RadioButton();
+            RunWithHighestPrivilegesCheckBox = new System.Windows.Forms.CheckBox();
+            RunOnlyWhenUserIsLoggedOnRadioButton = new System.Windows.Forms.RadioButton();
+            RunWhetherUserIsLoggedOnOrNotRadioButton = new System.Windows.Forms.RadioButton();
             tabPage2 = new System.Windows.Forms.TabPage();
             tabPage3 = new System.Windows.Forms.TabPage();
             groupBox4 = new System.Windows.Forms.GroupBox();
-            comboBox2 = new System.Windows.Forms.ComboBox();
-            comboBox1 = new System.Windows.Forms.ComboBox();
-            label1 = new System.Windows.Forms.Label();
-            checkBox6 = new System.Windows.Forms.CheckBox();
-            checkBox5 = new System.Windows.Forms.CheckBox();
-            checkBox4 = new System.Windows.Forms.CheckBox();
+            StartTheTaskOnlyIfTheComputerIsIdleForComboBox = new System.Windows.Forms.ComboBox();
+            WaitForIdleForComboBox = new System.Windows.Forms.ComboBox();
+            WaitForIdleForLabel = new System.Windows.Forms.Label();
+            RestartIfTheIdleStateResumesCheckBox = new System.Windows.Forms.CheckBox();
+            StopIfTheComputerCeasesToBeIdleCheckBox = new System.Windows.Forms.CheckBox();
+            StartTheTaskOnlyIfTheComputerIsIdleForCheckBox = new System.Windows.Forms.CheckBox();
             groupBox5 = new System.Windows.Forms.GroupBox();
-            checkBox7 = new System.Windows.Forms.CheckBox();
-            checkBox8 = new System.Windows.Forms.CheckBox();
-            checkBox9 = new System.Windows.Forms.CheckBox();
+            StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox = new System.Windows.Forms.CheckBox();
+            StopIfTheComputerSwitchesToBatteryPowerCheckBox = new System.Windows.Forms.CheckBox();
+            WakeTheComputerToRunThisTaskCheckBox = new System.Windows.Forms.CheckBox();
             tabPage4 = new System.Windows.Forms.TabPage();
-            comboBox5 = new System.Windows.Forms.ComboBox();
-            label4 = new System.Windows.Forms.Label();
-            textBox1 = new System.Windows.Forms.TextBox();
-            comboBox4 = new System.Windows.Forms.ComboBox();
-            label3 = new System.Windows.Forms.Label();
-            comboBox3 = new System.Windows.Forms.ComboBox();
-            label2 = new System.Windows.Forms.Label();
-            checkBox14 = new System.Windows.Forms.CheckBox();
-            checkBox13 = new System.Windows.Forms.CheckBox();
-            checkBox12 = new System.Windows.Forms.CheckBox();
-            checkBox11 = new System.Windows.Forms.CheckBox();
-            checkBox10 = new System.Windows.Forms.CheckBox();
+            StopTheTaskIfItRunsLongerThanComboBox = new System.Windows.Forms.ComboBox();
+            TimesLabel = new System.Windows.Forms.Label();
+            AttemptToRestartUpToTextBox = new System.Windows.Forms.TextBox();
+            IfTheTaskFailsRestartEveryComboBox = new System.Windows.Forms.ComboBox();
+            AttemptToRestartUpToLabel = new System.Windows.Forms.Label();
+            IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox = new System.Windows.Forms.ComboBox();
+            IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel = new System.Windows.Forms.Label();
+            IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox = new System.Windows.Forms.CheckBox();
+            StopTheTaskIfItRunsLongerThanCheckBox = new System.Windows.Forms.CheckBox();
+            IfTheTaskFailsRestartEveryCheckBox = new System.Windows.Forms.CheckBox();
+            RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox = new System.Windows.Forms.CheckBox();
+            AllowTaskToBeRunOnDemandCheckBox = new System.Windows.Forms.CheckBox();
             OpenTaskSchedulerButton = new System.Windows.Forms.Button();
+            AdvancedScheduleSaveButton = new System.Windows.Forms.Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -183,41 +184,46 @@
             // 
             resources.ApplyResources(GeneralDescriptionTextBox, "GeneralDescriptionTextBox");
             GeneralDescriptionTextBox.Name = "GeneralDescriptionTextBox";
+            GeneralDescriptionTextBox.TextChanged += GeneralDescriptionTextBox_TextChanged;
             // 
             // GeneralHiddenCheckBox
             // 
             resources.ApplyResources(GeneralHiddenCheckBox, "GeneralHiddenCheckBox");
             GeneralHiddenCheckBox.Name = "GeneralHiddenCheckBox";
             GeneralHiddenCheckBox.UseVisualStyleBackColor = true;
+            GeneralHiddenCheckBox.CheckedChanged += GeneralHiddenCheckBox_CheckedChanged;
             // 
             // GeneralSecurityOptionsGroupBox
             // 
-            GeneralSecurityOptionsGroupBox.Controls.Add(checkBox2);
-            GeneralSecurityOptionsGroupBox.Controls.Add(radioButton1);
-            GeneralSecurityOptionsGroupBox.Controls.Add(radioButton2);
+            GeneralSecurityOptionsGroupBox.Controls.Add(RunWithHighestPrivilegesCheckBox);
+            GeneralSecurityOptionsGroupBox.Controls.Add(RunOnlyWhenUserIsLoggedOnRadioButton);
+            GeneralSecurityOptionsGroupBox.Controls.Add(RunWhetherUserIsLoggedOnOrNotRadioButton);
             resources.ApplyResources(GeneralSecurityOptionsGroupBox, "GeneralSecurityOptionsGroupBox");
             GeneralSecurityOptionsGroupBox.Name = "GeneralSecurityOptionsGroupBox";
             GeneralSecurityOptionsGroupBox.TabStop = false;
             // 
-            // checkBox2
+            // RunWithHighestPrivilegesCheckBox
             // 
-            resources.ApplyResources(checkBox2, "checkBox2");
-            checkBox2.Name = "checkBox2";
-            checkBox2.UseVisualStyleBackColor = true;
+            resources.ApplyResources(RunWithHighestPrivilegesCheckBox, "RunWithHighestPrivilegesCheckBox");
+            RunWithHighestPrivilegesCheckBox.Name = "RunWithHighestPrivilegesCheckBox";
+            RunWithHighestPrivilegesCheckBox.UseVisualStyleBackColor = true;
+            RunWithHighestPrivilegesCheckBox.CheckedChanged += RunWithHighestPrivilegesCheckBox_CheckedChanged;
             // 
-            // radioButton1
+            // RunOnlyWhenUserIsLoggedOnRadioButton
             // 
-            resources.ApplyResources(radioButton1, "radioButton1");
-            radioButton1.Name = "radioButton1";
-            radioButton1.TabStop = true;
-            radioButton1.UseVisualStyleBackColor = true;
+            resources.ApplyResources(RunOnlyWhenUserIsLoggedOnRadioButton, "RunOnlyWhenUserIsLoggedOnRadioButton");
+            RunOnlyWhenUserIsLoggedOnRadioButton.Name = "RunOnlyWhenUserIsLoggedOnRadioButton";
+            RunOnlyWhenUserIsLoggedOnRadioButton.TabStop = true;
+            RunOnlyWhenUserIsLoggedOnRadioButton.UseVisualStyleBackColor = true;
+            RunOnlyWhenUserIsLoggedOnRadioButton.CheckedChanged += RunOnlyWhenUserIsLoggedOnRadioButton_CheckedChanged;
             // 
-            // radioButton2
+            // RunWhetherUserIsLoggedOnOrNotRadioButton
             // 
-            resources.ApplyResources(radioButton2, "radioButton2");
-            radioButton2.Name = "radioButton2";
-            radioButton2.TabStop = true;
-            radioButton2.UseVisualStyleBackColor = true;
+            resources.ApplyResources(RunWhetherUserIsLoggedOnOrNotRadioButton, "RunWhetherUserIsLoggedOnOrNotRadioButton");
+            RunWhetherUserIsLoggedOnOrNotRadioButton.Name = "RunWhetherUserIsLoggedOnOrNotRadioButton";
+            RunWhetherUserIsLoggedOnOrNotRadioButton.TabStop = true;
+            RunWhetherUserIsLoggedOnOrNotRadioButton.UseVisualStyleBackColor = true;
+            RunWhetherUserIsLoggedOnOrNotRadioButton.CheckedChanged += RunWhetherUserIsLoggedOnOrNotRadioButton_CheckedChanged;
             // 
             // tabPage2
             // 
@@ -235,170 +241,190 @@
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(comboBox2);
-            groupBox4.Controls.Add(comboBox1);
-            groupBox4.Controls.Add(label1);
-            groupBox4.Controls.Add(checkBox6);
-            groupBox4.Controls.Add(checkBox5);
-            groupBox4.Controls.Add(checkBox4);
+            groupBox4.Controls.Add(StartTheTaskOnlyIfTheComputerIsIdleForComboBox);
+            groupBox4.Controls.Add(WaitForIdleForComboBox);
+            groupBox4.Controls.Add(WaitForIdleForLabel);
+            groupBox4.Controls.Add(RestartIfTheIdleStateResumesCheckBox);
+            groupBox4.Controls.Add(StopIfTheComputerCeasesToBeIdleCheckBox);
+            groupBox4.Controls.Add(StartTheTaskOnlyIfTheComputerIsIdleForCheckBox);
             resources.ApplyResources(groupBox4, "groupBox4");
             groupBox4.Name = "groupBox4";
             groupBox4.TabStop = false;
             // 
-            // comboBox2
+            // StartTheTaskOnlyIfTheComputerIsIdleForComboBox
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { resources.GetString("comboBox2.Items"), resources.GetString("comboBox2.Items1"), resources.GetString("comboBox2.Items2"), resources.GetString("comboBox2.Items3"), resources.GetString("comboBox2.Items4"), resources.GetString("comboBox2.Items5") });
-            resources.ApplyResources(comboBox2, "comboBox2");
-            comboBox2.Name = "comboBox2";
+            StartTheTaskOnlyIfTheComputerIsIdleForComboBox.FormattingEnabled = true;
+            StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Items.AddRange(new object[] { resources.GetString("StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Items"), resources.GetString("StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Items1"), resources.GetString("StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Items2"), resources.GetString("StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Items3"), resources.GetString("StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Items4"), resources.GetString("StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Items5") });
+            resources.ApplyResources(StartTheTaskOnlyIfTheComputerIsIdleForComboBox, "StartTheTaskOnlyIfTheComputerIsIdleForComboBox");
+            StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Name = "StartTheTaskOnlyIfTheComputerIsIdleForComboBox";
+            StartTheTaskOnlyIfTheComputerIsIdleForComboBox.SelectedIndexChanged += StartTheTaskOnlyIfTheComputerIsIdleForComboBox_SelectedIndexChanged;
             // 
-            // comboBox1
+            // WaitForIdleForComboBox
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { resources.GetString("comboBox1.Items"), resources.GetString("comboBox1.Items1"), resources.GetString("comboBox1.Items2"), resources.GetString("comboBox1.Items3"), resources.GetString("comboBox1.Items4"), resources.GetString("comboBox1.Items5"), resources.GetString("comboBox1.Items6"), resources.GetString("comboBox1.Items7") });
-            resources.ApplyResources(comboBox1, "comboBox1");
-            comboBox1.Name = "comboBox1";
+            WaitForIdleForComboBox.FormattingEnabled = true;
+            WaitForIdleForComboBox.Items.AddRange(new object[] { resources.GetString("WaitForIdleForComboBox.Items"), resources.GetString("WaitForIdleForComboBox.Items1"), resources.GetString("WaitForIdleForComboBox.Items2"), resources.GetString("WaitForIdleForComboBox.Items3"), resources.GetString("WaitForIdleForComboBox.Items4"), resources.GetString("WaitForIdleForComboBox.Items5"), resources.GetString("WaitForIdleForComboBox.Items6"), resources.GetString("WaitForIdleForComboBox.Items7") });
+            resources.ApplyResources(WaitForIdleForComboBox, "WaitForIdleForComboBox");
+            WaitForIdleForComboBox.Name = "WaitForIdleForComboBox";
+            WaitForIdleForComboBox.SelectedIndexChanged += WaitForIdleForComboBox_SelectedIndexChanged;
             // 
-            // label1
+            // WaitForIdleForLabel
             // 
-            resources.ApplyResources(label1, "label1");
-            label1.Name = "label1";
+            resources.ApplyResources(WaitForIdleForLabel, "WaitForIdleForLabel");
+            WaitForIdleForLabel.Name = "WaitForIdleForLabel";
+            WaitForIdleForLabel.Click += WaitForIdleForLabel_Click;
             // 
-            // checkBox6
+            // RestartIfTheIdleStateResumesCheckBox
             // 
-            resources.ApplyResources(checkBox6, "checkBox6");
-            checkBox6.Name = "checkBox6";
-            checkBox6.UseVisualStyleBackColor = true;
+            RestartIfTheIdleStateResumesCheckBox.AutoCheck = false;
+            resources.ApplyResources(RestartIfTheIdleStateResumesCheckBox, "RestartIfTheIdleStateResumesCheckBox");
+            RestartIfTheIdleStateResumesCheckBox.Name = "RestartIfTheIdleStateResumesCheckBox";
+            RestartIfTheIdleStateResumesCheckBox.UseVisualStyleBackColor = true;
+            RestartIfTheIdleStateResumesCheckBox.CheckedChanged += RestartIfTheIdleStateResumesCheckBox_CheckedChanged;
             // 
-            // checkBox5
+            // StopIfTheComputerCeasesToBeIdleCheckBox
             // 
-            resources.ApplyResources(checkBox5, "checkBox5");
-            checkBox5.Name = "checkBox5";
-            checkBox5.UseVisualStyleBackColor = true;
+            resources.ApplyResources(StopIfTheComputerCeasesToBeIdleCheckBox, "StopIfTheComputerCeasesToBeIdleCheckBox");
+            StopIfTheComputerCeasesToBeIdleCheckBox.Name = "StopIfTheComputerCeasesToBeIdleCheckBox";
+            StopIfTheComputerCeasesToBeIdleCheckBox.UseVisualStyleBackColor = true;
+            StopIfTheComputerCeasesToBeIdleCheckBox.CheckedChanged += StopIfTheComputerCeasesToBeIdleCheckBox_CheckedChanged;
             // 
-            // checkBox4
+            // StartTheTaskOnlyIfTheComputerIsIdleForCheckBox
             // 
-            resources.ApplyResources(checkBox4, "checkBox4");
-            checkBox4.Name = "checkBox4";
-            checkBox4.UseVisualStyleBackColor = true;
+            resources.ApplyResources(StartTheTaskOnlyIfTheComputerIsIdleForCheckBox, "StartTheTaskOnlyIfTheComputerIsIdleForCheckBox");
+            StartTheTaskOnlyIfTheComputerIsIdleForCheckBox.Name = "StartTheTaskOnlyIfTheComputerIsIdleForCheckBox";
+            StartTheTaskOnlyIfTheComputerIsIdleForCheckBox.UseVisualStyleBackColor = true;
+            StartTheTaskOnlyIfTheComputerIsIdleForCheckBox.CheckedChanged += StartTheTaskOnlyIfTheComputerIsIdleForCheckBox_CheckedChanged;
             // 
             // groupBox5
             // 
-            groupBox5.Controls.Add(checkBox7);
-            groupBox5.Controls.Add(checkBox8);
-            groupBox5.Controls.Add(checkBox9);
+            groupBox5.Controls.Add(StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox);
+            groupBox5.Controls.Add(StopIfTheComputerSwitchesToBatteryPowerCheckBox);
+            groupBox5.Controls.Add(WakeTheComputerToRunThisTaskCheckBox);
             resources.ApplyResources(groupBox5, "groupBox5");
             groupBox5.Name = "groupBox5";
             groupBox5.TabStop = false;
             // 
-            // checkBox7
+            // StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox
             // 
-            resources.ApplyResources(checkBox7, "checkBox7");
-            checkBox7.Name = "checkBox7";
-            checkBox7.UseVisualStyleBackColor = true;
+            resources.ApplyResources(StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox, "StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox");
+            StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox.Name = "StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox";
+            StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox.UseVisualStyleBackColor = true;
+            StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox.CheckedChanged += StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox_CheckedChanged;
             // 
-            // checkBox8
+            // StopIfTheComputerSwitchesToBatteryPowerCheckBox
             // 
-            resources.ApplyResources(checkBox8, "checkBox8");
-            checkBox8.Name = "checkBox8";
-            checkBox8.UseVisualStyleBackColor = true;
+            resources.ApplyResources(StopIfTheComputerSwitchesToBatteryPowerCheckBox, "StopIfTheComputerSwitchesToBatteryPowerCheckBox");
+            StopIfTheComputerSwitchesToBatteryPowerCheckBox.Name = "StopIfTheComputerSwitchesToBatteryPowerCheckBox";
+            StopIfTheComputerSwitchesToBatteryPowerCheckBox.UseVisualStyleBackColor = true;
+            StopIfTheComputerSwitchesToBatteryPowerCheckBox.CheckedChanged += StopIfTheComputerSwitchesToBatteryPowerCheckBox_CheckedChanged;
             // 
-            // checkBox9
+            // WakeTheComputerToRunThisTaskCheckBox
             // 
-            resources.ApplyResources(checkBox9, "checkBox9");
-            checkBox9.Name = "checkBox9";
-            checkBox9.UseVisualStyleBackColor = true;
+            resources.ApplyResources(WakeTheComputerToRunThisTaskCheckBox, "WakeTheComputerToRunThisTaskCheckBox");
+            WakeTheComputerToRunThisTaskCheckBox.Name = "WakeTheComputerToRunThisTaskCheckBox";
+            WakeTheComputerToRunThisTaskCheckBox.UseVisualStyleBackColor = true;
+            WakeTheComputerToRunThisTaskCheckBox.CheckedChanged += WakeTheComputerToRunThisTaskCheckBox_CheckedChanged;
             // 
             // tabPage4
             // 
-            tabPage4.Controls.Add(comboBox5);
-            tabPage4.Controls.Add(label4);
-            tabPage4.Controls.Add(textBox1);
-            tabPage4.Controls.Add(comboBox4);
-            tabPage4.Controls.Add(label3);
-            tabPage4.Controls.Add(comboBox3);
-            tabPage4.Controls.Add(label2);
-            tabPage4.Controls.Add(checkBox14);
-            tabPage4.Controls.Add(checkBox13);
-            tabPage4.Controls.Add(checkBox12);
-            tabPage4.Controls.Add(checkBox11);
-            tabPage4.Controls.Add(checkBox10);
+            tabPage4.Controls.Add(StopTheTaskIfItRunsLongerThanComboBox);
+            tabPage4.Controls.Add(TimesLabel);
+            tabPage4.Controls.Add(AttemptToRestartUpToTextBox);
+            tabPage4.Controls.Add(IfTheTaskFailsRestartEveryComboBox);
+            tabPage4.Controls.Add(AttemptToRestartUpToLabel);
+            tabPage4.Controls.Add(IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox);
+            tabPage4.Controls.Add(IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel);
+            tabPage4.Controls.Add(IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox);
+            tabPage4.Controls.Add(StopTheTaskIfItRunsLongerThanCheckBox);
+            tabPage4.Controls.Add(IfTheTaskFailsRestartEveryCheckBox);
+            tabPage4.Controls.Add(RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox);
+            tabPage4.Controls.Add(AllowTaskToBeRunOnDemandCheckBox);
             resources.ApplyResources(tabPage4, "tabPage4");
             tabPage4.Name = "tabPage4";
             tabPage4.UseVisualStyleBackColor = true;
             // 
-            // comboBox5
+            // StopTheTaskIfItRunsLongerThanComboBox
             // 
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Items.AddRange(new object[] { resources.GetString("comboBox5.Items"), resources.GetString("comboBox5.Items1"), resources.GetString("comboBox5.Items2"), resources.GetString("comboBox5.Items3"), resources.GetString("comboBox5.Items4"), resources.GetString("comboBox5.Items5"), resources.GetString("comboBox5.Items6") });
-            resources.ApplyResources(comboBox5, "comboBox5");
-            comboBox5.Name = "comboBox5";
+            StopTheTaskIfItRunsLongerThanComboBox.FormattingEnabled = true;
+            StopTheTaskIfItRunsLongerThanComboBox.Items.AddRange(new object[] { resources.GetString("StopTheTaskIfItRunsLongerThanComboBox.Items"), resources.GetString("StopTheTaskIfItRunsLongerThanComboBox.Items1"), resources.GetString("StopTheTaskIfItRunsLongerThanComboBox.Items2"), resources.GetString("StopTheTaskIfItRunsLongerThanComboBox.Items3"), resources.GetString("StopTheTaskIfItRunsLongerThanComboBox.Items4"), resources.GetString("StopTheTaskIfItRunsLongerThanComboBox.Items5"), resources.GetString("StopTheTaskIfItRunsLongerThanComboBox.Items6") });
+            resources.ApplyResources(StopTheTaskIfItRunsLongerThanComboBox, "StopTheTaskIfItRunsLongerThanComboBox");
+            StopTheTaskIfItRunsLongerThanComboBox.Name = "StopTheTaskIfItRunsLongerThanComboBox";
+            StopTheTaskIfItRunsLongerThanComboBox.SelectedIndexChanged += StopTheTaskIfItRunsLongerThanComboBox_SelectedIndexChanged;
             // 
-            // label4
+            // TimesLabel
             // 
-            resources.ApplyResources(label4, "label4");
-            label4.Name = "label4";
+            resources.ApplyResources(TimesLabel, "TimesLabel");
+            TimesLabel.Name = "TimesLabel";
             // 
-            // textBox1
+            // AttemptToRestartUpToTextBox
             // 
-            resources.ApplyResources(textBox1, "textBox1");
-            textBox1.Name = "textBox1";
-            textBox1.TextChanged += textBox1_TextChanged;
-            textBox1.KeyPress += textBox1_KeyPress;
+            resources.ApplyResources(AttemptToRestartUpToTextBox, "AttemptToRestartUpToTextBox");
+            AttemptToRestartUpToTextBox.Name = "AttemptToRestartUpToTextBox";
+            AttemptToRestartUpToTextBox.TextChanged += AttemptToRestartUpToTextBox_TextChanged;
+            AttemptToRestartUpToTextBox.KeyPress += textBox1_KeyPress;
             // 
-            // comboBox4
+            // IfTheTaskFailsRestartEveryComboBox
             // 
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Items.AddRange(new object[] { resources.GetString("comboBox4.Items"), resources.GetString("comboBox4.Items1"), resources.GetString("comboBox4.Items2"), resources.GetString("comboBox4.Items3"), resources.GetString("comboBox4.Items4"), resources.GetString("comboBox4.Items5"), resources.GetString("comboBox4.Items6") });
-            resources.ApplyResources(comboBox4, "comboBox4");
-            comboBox4.Name = "comboBox4";
+            IfTheTaskFailsRestartEveryComboBox.FormattingEnabled = true;
+            IfTheTaskFailsRestartEveryComboBox.Items.AddRange(new object[] { resources.GetString("IfTheTaskFailsRestartEveryComboBox.Items"), resources.GetString("IfTheTaskFailsRestartEveryComboBox.Items1"), resources.GetString("IfTheTaskFailsRestartEveryComboBox.Items2"), resources.GetString("IfTheTaskFailsRestartEveryComboBox.Items3"), resources.GetString("IfTheTaskFailsRestartEveryComboBox.Items4"), resources.GetString("IfTheTaskFailsRestartEveryComboBox.Items5"), resources.GetString("IfTheTaskFailsRestartEveryComboBox.Items6") });
+            resources.ApplyResources(IfTheTaskFailsRestartEveryComboBox, "IfTheTaskFailsRestartEveryComboBox");
+            IfTheTaskFailsRestartEveryComboBox.Name = "IfTheTaskFailsRestartEveryComboBox";
+            IfTheTaskFailsRestartEveryComboBox.SelectedIndexChanged += IfTheTaskFailsRestartEveryComboBox_SelectedIndexChanged;
             // 
-            // label3
+            // AttemptToRestartUpToLabel
             // 
-            resources.ApplyResources(label3, "label3");
-            label3.Name = "label3";
+            resources.ApplyResources(AttemptToRestartUpToLabel, "AttemptToRestartUpToLabel");
+            AttemptToRestartUpToLabel.Name = "AttemptToRestartUpToLabel";
+            AttemptToRestartUpToLabel.Click += AttemptToRestartUpToLabel_Click;
             // 
-            // comboBox3
+            // IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { resources.GetString("comboBox3.Items"), resources.GetString("comboBox3.Items1"), resources.GetString("comboBox3.Items2"), resources.GetString("comboBox3.Items3") });
-            resources.ApplyResources(comboBox3, "comboBox3");
-            comboBox3.Name = "comboBox3";
+            IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.FormattingEnabled = true;
+            IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.Items.AddRange(new object[] { resources.GetString("IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.Items"), resources.GetString("IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.Items1"), resources.GetString("IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.Items2"), resources.GetString("IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.Items3") });
+            resources.ApplyResources(IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox, "IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox");
+            IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.Name = "IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox";
+            IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.SelectedIndexChanged += IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox_SelectedIndexChanged;
             // 
-            // label2
+            // IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel
             // 
-            resources.ApplyResources(label2, "label2");
-            label2.Name = "label2";
+            resources.ApplyResources(IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel, "IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel");
+            IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel.Name = "IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel";
+            IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel.Click += IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel_Click;
             // 
-            // checkBox14
+            // IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox
             // 
-            resources.ApplyResources(checkBox14, "checkBox14");
-            checkBox14.Name = "checkBox14";
-            checkBox14.UseVisualStyleBackColor = true;
+            resources.ApplyResources(IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox, "IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox");
+            IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox.Name = "IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox";
+            IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox.UseVisualStyleBackColor = true;
+            IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox.CheckedChanged += IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox_CheckedChanged;
             // 
-            // checkBox13
+            // StopTheTaskIfItRunsLongerThanCheckBox
             // 
-            resources.ApplyResources(checkBox13, "checkBox13");
-            checkBox13.Name = "checkBox13";
-            checkBox13.UseVisualStyleBackColor = true;
+            resources.ApplyResources(StopTheTaskIfItRunsLongerThanCheckBox, "StopTheTaskIfItRunsLongerThanCheckBox");
+            StopTheTaskIfItRunsLongerThanCheckBox.Name = "StopTheTaskIfItRunsLongerThanCheckBox";
+            StopTheTaskIfItRunsLongerThanCheckBox.UseVisualStyleBackColor = true;
+            StopTheTaskIfItRunsLongerThanCheckBox.CheckedChanged += StopTheTaskIfItRunsLongerThanCheckBox_CheckedChanged;
             // 
-            // checkBox12
+            // IfTheTaskFailsRestartEveryCheckBox
             // 
-            resources.ApplyResources(checkBox12, "checkBox12");
-            checkBox12.Name = "checkBox12";
-            checkBox12.UseVisualStyleBackColor = true;
+            resources.ApplyResources(IfTheTaskFailsRestartEveryCheckBox, "IfTheTaskFailsRestartEveryCheckBox");
+            IfTheTaskFailsRestartEveryCheckBox.Name = "IfTheTaskFailsRestartEveryCheckBox";
+            IfTheTaskFailsRestartEveryCheckBox.UseVisualStyleBackColor = true;
+            IfTheTaskFailsRestartEveryCheckBox.CheckedChanged += IfTheTaskFailsRestartEveryCheckBox_CheckedChanged;
             // 
-            // checkBox11
+            // RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox
             // 
-            resources.ApplyResources(checkBox11, "checkBox11");
-            checkBox11.Name = "checkBox11";
-            checkBox11.UseVisualStyleBackColor = true;
+            resources.ApplyResources(RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox, "RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox");
+            RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox.Name = "RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox";
+            RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox.UseVisualStyleBackColor = true;
+            RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox.CheckedChanged += RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox_CheckedChanged;
             // 
-            // checkBox10
+            // AllowTaskToBeRunOnDemandCheckBox
             // 
-            resources.ApplyResources(checkBox10, "checkBox10");
-            checkBox10.Name = "checkBox10";
-            checkBox10.UseVisualStyleBackColor = true;
+            resources.ApplyResources(AllowTaskToBeRunOnDemandCheckBox, "AllowTaskToBeRunOnDemandCheckBox");
+            AllowTaskToBeRunOnDemandCheckBox.Name = "AllowTaskToBeRunOnDemandCheckBox";
+            AllowTaskToBeRunOnDemandCheckBox.UseVisualStyleBackColor = true;
+            AllowTaskToBeRunOnDemandCheckBox.CheckedChanged += AllowTaskToBeRunOnDemandCheckBox_CheckedChanged;
             // 
             // OpenTaskSchedulerButton
             // 
@@ -407,10 +433,18 @@
             OpenTaskSchedulerButton.UseVisualStyleBackColor = true;
             OpenTaskSchedulerButton.Click += OpenTaskSchedulerButton_Click;
             // 
+            // AdvancedScheduleSaveButton
+            // 
+            resources.ApplyResources(AdvancedScheduleSaveButton, "AdvancedScheduleSaveButton");
+            AdvancedScheduleSaveButton.Name = "AdvancedScheduleSaveButton";
+            AdvancedScheduleSaveButton.UseVisualStyleBackColor = true;
+            AdvancedScheduleSaveButton.Click += AdvancedScheduleSaveButton_Click;
+            // 
             // AdvancedScheduleForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            Controls.Add(AdvancedScheduleSaveButton);
             Controls.Add(OpenTaskSchedulerButton);
             Controls.Add(groupBox2);
             Controls.Add(CloseButton);
@@ -453,36 +487,37 @@
         private System.Windows.Forms.CheckBox TwentyFourHourCheckBox;
         private System.Windows.Forms.CheckBox DetailedTimeModeCheckBox;
         private System.Windows.Forms.Button OpenTaskSchedulerButton;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.RadioButton RunWhetherUserIsLoggedOnOrNotRadioButton;
+        private System.Windows.Forms.RadioButton RunOnlyWhenUserIsLoggedOnRadioButton;
+        private System.Windows.Forms.CheckBox RunWithHighestPrivilegesCheckBox;
         private System.Windows.Forms.CheckBox GeneralHiddenCheckBox;
         private System.Windows.Forms.GroupBox GeneralSecurityOptionsGroupBox;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox StartTheTaskOnlyIfTheComputerIsIdleForCheckBox;
+        private System.Windows.Forms.CheckBox WakeTheComputerToRunThisTaskCheckBox;
+        private System.Windows.Forms.CheckBox StopIfTheComputerSwitchesToBatteryPowerCheckBox;
+        private System.Windows.Forms.CheckBox StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox;
+        private System.Windows.Forms.CheckBox StopIfTheComputerCeasesToBeIdleCheckBox;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label WaitForIdleForLabel;
+        private System.Windows.Forms.ComboBox StartTheTaskOnlyIfTheComputerIsIdleForComboBox;
+        private System.Windows.Forms.ComboBox WaitForIdleForComboBox;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.CheckBox checkBox14;
-        private System.Windows.Forms.CheckBox checkBox13;
-        private System.Windows.Forms.CheckBox checkBox12;
-        private System.Windows.Forms.CheckBox checkBox11;
-        private System.Windows.Forms.CheckBox checkBox10;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.CheckBox IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox;
+        private System.Windows.Forms.CheckBox StopTheTaskIfItRunsLongerThanCheckBox;
+        private System.Windows.Forms.CheckBox IfTheTaskFailsRestartEveryCheckBox;
+        private System.Windows.Forms.CheckBox RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox;
+        private System.Windows.Forms.CheckBox AllowTaskToBeRunOnDemandCheckBox;
+        private System.Windows.Forms.Label IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel;
+        private System.Windows.Forms.ComboBox IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox;
+        private System.Windows.Forms.ComboBox IfTheTaskFailsRestartEveryComboBox;
+        private System.Windows.Forms.Label AttemptToRestartUpToLabel;
+        private System.Windows.Forms.Label TimesLabel;
+        private System.Windows.Forms.TextBox AttemptToRestartUpToTextBox;
+        private System.Windows.Forms.ComboBox StopTheTaskIfItRunsLongerThanComboBox;
         private System.Windows.Forms.Label GeneralDescriptionLabel;
         private System.Windows.Forms.TextBox GeneralDescriptionTextBox;
         private System.Windows.Forms.Button DefaultButton;
+        private System.Windows.Forms.CheckBox RestartIfTheIdleStateResumesCheckBox;
+        private System.Windows.Forms.Button AdvancedScheduleSaveButton;
     }
 }

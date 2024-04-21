@@ -478,7 +478,16 @@ Holding "SHIFT" will prompt to clear the backup</value>
   </data>
   <data name="AlertCheckBox.ToolTip" xml:space="preserve">
     <value>Creates a popup on startup that alerts the user
-when the program detects a cache reset.</value>
+when the program detects a cache reset.
+
+Logs to a file when cache reset occurs whenever
+a cache reset is detected while preloading.
+
+Setting the logging mode to "Debug Logging"
+will check for cache reset after preloading every
+file whereas other logging modes will check
+for cache reset at an interval of every second.
+(Debug mode only works in single-threaded mode)</value>
   </data>
   <data name="&gt;&gt;AlertCheckBox.Name" xml:space="preserve">
     <value>AlertCheckBox</value>

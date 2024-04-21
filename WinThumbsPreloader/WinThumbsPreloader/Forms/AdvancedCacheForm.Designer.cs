@@ -31,6 +31,8 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdvancedCacheForm));
             groupBox1 = new System.Windows.Forms.GroupBox();
+            ManualDeletionFrequencyComboBox = new System.Windows.Forms.ComboBox();
+            ManualDeletionFrequencyLabel = new System.Windows.Forms.Label();
             ExplorerCacheDeletionMethodComboBox = new System.Windows.Forms.ComboBox();
             ExplorerCacheDeletionMethodLabel = new System.Windows.Forms.Label();
             CacheSizeFormatComboBox = new System.Windows.Forms.ComboBox();
@@ -57,6 +59,8 @@
             // groupBox1
             // 
             groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            groupBox1.Controls.Add(ManualDeletionFrequencyComboBox);
+            groupBox1.Controls.Add(ManualDeletionFrequencyLabel);
             groupBox1.Controls.Add(ExplorerCacheDeletionMethodComboBox);
             groupBox1.Controls.Add(ExplorerCacheDeletionMethodLabel);
             groupBox1.Controls.Add(CacheSizeFormatComboBox);
@@ -76,6 +80,19 @@
             groupBox1.Name = "groupBox1";
             groupBox1.TabStop = false;
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // ManualDeletionFrequencyComboBox
+            // 
+            ManualDeletionFrequencyComboBox.FormattingEnabled = true;
+            ManualDeletionFrequencyComboBox.Items.AddRange(new object[] { resources.GetString("ManualDeletionFrequencyComboBox.Items"), resources.GetString("ManualDeletionFrequencyComboBox.Items1") });
+            resources.ApplyResources(ManualDeletionFrequencyComboBox, "ManualDeletionFrequencyComboBox");
+            ManualDeletionFrequencyComboBox.Name = "ManualDeletionFrequencyComboBox";
+            ManualDeletionFrequencyComboBox.SelectedIndexChanged += ManualDeletionFrequencyComboBox_SelectedIndexChanged;
+            // 
+            // ManualDeletionFrequencyLabel
+            // 
+            resources.ApplyResources(ManualDeletionFrequencyLabel, "ManualDeletionFrequencyLabel");
+            ManualDeletionFrequencyLabel.Name = "ManualDeletionFrequencyLabel";
             // 
             // ExplorerCacheDeletionMethodComboBox
             // 
@@ -219,9 +236,10 @@
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.ComboBox CacheSizeFormatComboBox;
         private System.Windows.Forms.Label CacheSizeFormatLabel;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox ExplorerCacheDeletionMethodComboBox;
         private System.Windows.Forms.Label ExplorerCacheDeletionMethodLabel;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label ManualDeletionFrequencyLabel;
+        private System.Windows.Forms.ComboBox ManualDeletionFrequencyComboBox;
     }
 }

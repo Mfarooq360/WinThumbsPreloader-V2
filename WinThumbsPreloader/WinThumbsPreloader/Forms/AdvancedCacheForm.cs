@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinThumbsPreloader.Properties;
+using static WinThumbsPreloader.Logger;
 
 namespace WinThumbsPreloader.Forms
 {
@@ -28,10 +29,12 @@ namespace WinThumbsPreloader.Forms
             AutoRestoreIntervalNumericUpDown.Value = Properties.Settings.Default.AutoRestoreInterval / 1000;
             CacheSizeFormatComboBox.SelectedItem = Properties.Settings.Default.CacheSizeFormat;
             ExplorerCacheDeletionMethodComboBox.SelectedItem = Properties.Settings.Default.ExplorerCacheDeletionMethod;
+            ManualDeletionFrequencyComboBox.SelectedItem = Properties.Settings.Default.ManualDeletionFrequency;
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
+            WriteLine("Closing Advanced Cache Form", LoggingFrequency.GUILogging);
             Close();
         }
 
@@ -42,25 +45,36 @@ namespace WinThumbsPreloader.Forms
         private void CacheSizeUpdateIntervalNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             tempCacheUpdateInterval = (int)CacheSizeUpdateIntervalNumericUpDown.Value;
+            WriteLine("Cache Update Interval set to: " + tempCacheUpdateInterval, LoggingFrequency.DebugLogging);
         }
 
         private void AutoBackupIntervalNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             tempAutoBackupInterval = (int)AutoBackupIntervalNumericUpDown.Value * 1000;
+            WriteLine("Auto Backup Interval set to: " + tempAutoBackupInterval, LoggingFrequency.DebugLogging);
         }
 
         private void AutoRestoreIntervalNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             tempAutoRestoreInterval = (int)AutoRestoreIntervalNumericUpDown.Value * 1000;
+            WriteLine("Auto Restore Interval set to: " + tempAutoRestoreInterval, LoggingFrequency.DebugLogging);
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            WriteLine("Saving Advanced Cache Form settings", LoggingFrequency.GUILogging);
             Properties.Settings.Default.CacheUpdateInterval = tempCacheUpdateInterval;
+            WriteLine("Cache Update Interval saved: " + tempCacheUpdateInterval, LoggingFrequency.DebugLogging);
             Properties.Settings.Default.AutoBackupInterval = tempAutoBackupInterval;
+            WriteLine("Auto Backup Interval saved: " + tempAutoBackupInterval, LoggingFrequency.DebugLogging);
             Properties.Settings.Default.AutoRestoreInterval = tempAutoRestoreInterval;
+            WriteLine("Auto Restore Interval saved: " + tempAutoRestoreInterval, LoggingFrequency.DebugLogging);
             Properties.Settings.Default.CacheSizeFormat = CacheSizeFormatComboBox.SelectedItem.ToString();
+            WriteLine("Cache Size Format saved: " + CacheSizeFormatComboBox.SelectedItem.ToString(), LoggingFrequency.DebugLogging);
             Properties.Settings.Default.ExplorerCacheDeletionMethod = ExplorerCacheDeletionMethodComboBox.SelectedItem.ToString();
+            WriteLine("Explorer Cache Deletion Method saved: " + ExplorerCacheDeletionMethodComboBox.SelectedItem.ToString(), LoggingFrequency.DebugLogging);
+            Properties.Settings.Default.ManualDeletionFrequency = ManualDeletionFrequencyComboBox.SelectedItem.ToString();
+            WriteLine("Manual Deletion Frequency saved: " + ManualDeletionFrequencyComboBox.SelectedItem.ToString(), LoggingFrequency.DebugLogging);
             Properties.Settings.Default.Save();
 
             CacheForm cacheForm = Owner as CacheForm;
@@ -80,6 +94,7 @@ namespace WinThumbsPreloader.Forms
 
         private void DefaultButton_Click(object sender, EventArgs e)
         {
+            WriteLine("Setting Advanced Cache Form settings to default", LoggingFrequency.GUILogging);
             CacheSizeUpdateIntervalNumericUpDown.Value = 250;
             AutoBackupIntervalNumericUpDown.Value = 5;
             AutoRestoreIntervalNumericUpDown.Value = 5;
@@ -99,6 +114,11 @@ namespace WinThumbsPreloader.Forms
         }
 
         private void CacheSizeFormatLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ManualDeletionFrequencyComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

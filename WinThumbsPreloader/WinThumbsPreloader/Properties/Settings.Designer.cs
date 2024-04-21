@@ -286,5 +286,29 @@ namespace WinThumbsPreloader.Properties {
                 this["PreloaderThumbnailSizes"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("On Deletion Start")]
+        public string ManualDeletionFrequency {
+            get {
+                return ((string)(this["ManualDeletionFrequency"]));
+            }
+            set {
+                this["ManualDeletionFrequency"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int LoggingFrequency {
+            get {
+                return ((int)(this["LoggingFrequency"]));
+            }
+            set {
+                this["LoggingFrequency"] = value;
+            }
+        }
     }
 }

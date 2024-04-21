@@ -68,5 +68,11 @@
     <Setting Name="PreloaderThumbnailSizes" Type="System.String" Scope="User">
       <Value Profile="(Default)">256</Value>
     </Setting>
+    <Setting Name="ManualDeletionFrequency" Type="System.String" Scope="User">
+      <Value Profile="(Default)">On Deletion Start</Value>
+    </Setting>
+    <Setting Name="LoggingFrequency" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

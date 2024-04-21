@@ -117,20 +117,112 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="LoggingFrequencyComboBox.Items" xml:space="preserve">
+    <value>No Logging</value>
+  </data>
+  <data name="LoggingFrequencyComboBox.Items1" xml:space="preserve">
+    <value>Preloader Logging</value>
+  </data>
+  <data name="LoggingFrequencyComboBox.Items2" xml:space="preserve">
+    <value>GUI Logging</value>
+  </data>
+  <data name="LoggingFrequencyComboBox.Items3" xml:space="preserve">
+    <value>All Logging</value>
+  </data>
+  <data name="LoggingFrequencyComboBox.Items4" xml:space="preserve">
+    <value>Debug Logging</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="LoggingFrequencyComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>145, 62</value>
+  </data>
+  <data name="LoggingFrequencyComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>207, 23</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="LoggingFrequencyComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="LoggingFrequencyComboBox.Text" xml:space="preserve">
+    <value>No Logging</value>
+  </data>
+  <data name="&gt;&gt;LoggingFrequencyComboBox.Name" xml:space="preserve">
+    <value>LoggingFrequencyComboBox</value>
+  </data>
+  <data name="&gt;&gt;LoggingFrequencyComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LoggingFrequencyComboBox.Parent" xml:space="preserve">
+    <value>AdvancedSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;LoggingFrequencyComboBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="LoggingFrequencyLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LoggingFrequencyLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 65</value>
+  </data>
+  <data name="LoggingFrequencyLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 15</value>
+  </data>
+  <data name="LoggingFrequencyLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="LoggingFrequencyLabel.Text" xml:space="preserve">
+    <value>Logging Frequency:</value>
+  </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="LoggingFrequencyLabel.ToolTip" xml:space="preserve">
+    <value>Enables various tiers of logging for various purposes.
+
+No Logging: Disables all logging.
+
+Preloader Logging: Enables logging for the preloader
+which includes basic logging of argument parsing and 
+directory scanning along with certain errors.
+
+GUI Logging: Enables logging for the GUI forms which
+includes basic logging of interactions and certain errors.
+
+All Logging: Enables logging for both the preloader and
+the GUI which includes basic logging of actions and errors.
+
+Debug Logging: Enables logging for both the preloader
+and the GUI which includes logging for almost every action,
+many variables, and every error that occurs, big or small.
+(Only works in single-threaded mode)
+
+Enabling Debug Logging may cause the application to run
+slower, especially while preloading, and may use more storage.</value>
+  </data>
+  <data name="&gt;&gt;LoggingFrequencyLabel.Name" xml:space="preserve">
+    <value>LoggingFrequencyLabel</value>
+  </data>
+  <data name="&gt;&gt;LoggingFrequencyLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LoggingFrequencyLabel.Parent" xml:space="preserve">
+    <value>AdvancedSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;LoggingFrequencyLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="PresetsComboBox.Items" xml:space="preserve">
     <value>Explorer Size/Photos App Small</value>
   </data>
   <data name="PresetsComboBox.Items1" xml:space="preserve">
     <value>Photos App Large/Medium</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="PresetsComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 170</value>
+    <value>160, 211</value>
   </data>
   <data name="PresetsComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 23</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="PresetsComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
@@ -144,68 +236,68 @@
     <value>AdvancedSettingsGroupBox</value>
   </data>
   <data name="&gt;&gt;PresetsComboBox.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
-  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+  <data name="PresetsLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 152</value>
+  <data name="PresetsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 193</value>
   </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="PresetsLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 15</value>
   </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+  <data name="PresetsLabel.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
-  <data name="label5.Text" xml:space="preserve">
+  <data name="PresetsLabel.Text" xml:space="preserve">
     <value>Presets:</value>
   </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
+  <data name="&gt;&gt;PresetsLabel.Name" xml:space="preserve">
+    <value>PresetsLabel</value>
   </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+  <data name="&gt;&gt;PresetsLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+  <data name="&gt;&gt;PresetsLabel.Parent" xml:space="preserve">
     <value>AdvancedSettingsGroupBox</value>
   </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;PresetsLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+  <data name="RequestedThumbnailSizesLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 111</value>
+  <data name="RequestedThumbnailSizesLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 152</value>
   </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="RequestedThumbnailSizesLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>153, 15</value>
   </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+  <data name="RequestedThumbnailSizesLabel.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="label3.Text" xml:space="preserve">
+  <data name="RequestedThumbnailSizesLabel.Text" xml:space="preserve">
     <value>Requested Thumbnail Sizes:</value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="label3.ToolTip" xml:space="preserve">
+  <data name="RequestedThumbnailSizesLabel.ToolTip" xml:space="preserve">
     <value>Determines which thumbnail sizes the preloader will request from Windows.
-The selected thumbnail sizes may not be guaranteed depending on Windows.</value>
+
+The selected thumbnail sizes may not be guaranteed depending on Windows.
+
+Selecting multiple thumbnail sizes will cause the preloader to run slower.</value>
   </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
+  <data name="&gt;&gt;RequestedThumbnailSizesLabel.Name" xml:space="preserve">
+    <value>RequestedThumbnailSizesLabel</value>
   </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+  <data name="&gt;&gt;RequestedThumbnailSizesLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;RequestedThumbnailSizesLabel.Parent" xml:space="preserve">
     <value>AdvancedSettingsGroupBox</value>
   </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;RequestedThumbnailSizesLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="PreloaderThumbnailSizesCheckedListBox.ColumnWidth" type="System.Int32, mscorlib">
     <value>62</value>
@@ -238,7 +330,7 @@ The selected thumbnail sizes may not be guaranteed depending on Windows.</value>
     <value>2560</value>
   </data>
   <data name="PreloaderThumbnailSizesCheckedListBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 91</value>
+    <value>160, 132</value>
   </data>
   <data name="PreloaderThumbnailSizesCheckedListBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 58</value>
@@ -256,7 +348,7 @@ The selected thumbnail sizes may not be guaranteed depending on Windows.</value>
     <value>AdvancedSettingsGroupBox</value>
   </data>
   <data name="&gt;&gt;PreloaderThumbnailSizesCheckedListBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="DefaultButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -291,7 +383,7 @@ The selected thumbnail sizes may not be guaranteed depending on Windows.</value>
     <value>AdvancedSettingsGroupBox</value>
   </data>
   <data name="&gt;&gt;DefaultButton.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="ExtensionsAutoFormattingComboBox.Items" xml:space="preserve">
     <value>Disabled</value>
@@ -309,7 +401,7 @@ The selected thumbnail sizes may not be guaranteed depending on Windows.</value>
     <value>Commas and Spaces</value>
   </data>
   <data name="ExtensionsAutoFormattingComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>145, 62</value>
+    <value>145, 27</value>
   </data>
   <data name="ExtensionsAutoFormattingComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>208, 23</value>
@@ -330,38 +422,38 @@ The selected thumbnail sizes may not be guaranteed depending on Windows.</value>
     <value>AdvancedSettingsGroupBox</value>
   </data>
   <data name="&gt;&gt;ExtensionsAutoFormattingComboBox.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+  <data name="ExtensionsAutoFormatLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 65</value>
+  <data name="ExtensionsAutoFormatLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 30</value>
   </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ExtensionsAutoFormatLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>136, 15</value>
   </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+  <data name="ExtensionsAutoFormatLabel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="label2.Text" xml:space="preserve">
+  <data name="ExtensionsAutoFormatLabel.Text" xml:space="preserve">
     <value>Extensions Auto Format:</value>
   </data>
-  <data name="label2.ToolTip" xml:space="preserve">
+  <data name="ExtensionsAutoFormatLabel.ToolTip" xml:space="preserve">
     <value>Automatically format the extensions text box to the 
 preferred format once the text box is deselected.</value>
   </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
+  <data name="&gt;&gt;ExtensionsAutoFormatLabel.Name" xml:space="preserve">
+    <value>ExtensionsAutoFormatLabel</value>
   </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+  <data name="&gt;&gt;ExtensionsAutoFormatLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ExtensionsAutoFormatLabel.Parent" xml:space="preserve">
     <value>AdvancedSettingsGroupBox</value>
   </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="&gt;&gt;ExtensionsAutoFormatLabel.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="PreloadFolderIconsForComboBox.Items" xml:space="preserve">
     <value>Folders Containing Set Extensions</value>
@@ -370,7 +462,7 @@ preferred format once the text box is deselected.</value>
     <value>All Folders</value>
   </data>
   <data name="PreloadFolderIconsForComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>145, 27</value>
+    <value>145, 97</value>
   </data>
   <data name="PreloadFolderIconsForComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>208, 23</value>
@@ -391,24 +483,24 @@ preferred format once the text box is deselected.</value>
     <value>AdvancedSettingsGroupBox</value>
   </data>
   <data name="&gt;&gt;PreloadFolderIconsForComboBox.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+  <data name="PreloadFolderIconsForLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 30</value>
+  <data name="PreloadFolderIconsForLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 100</value>
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="PreloadFolderIconsForLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>133, 15</value>
   </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+  <data name="PreloadFolderIconsForLabel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
+  <data name="PreloadFolderIconsForLabel.Text" xml:space="preserve">
     <value>Preload folder icons for:</value>
   </data>
-  <data name="label1.ToolTip" xml:space="preserve">
+  <data name="PreloadFolderIconsForLabel.ToolTip" xml:space="preserve">
     <value>Selecting "Folders Containing Set Extensions" will ensure that
 only folders that contain files that have the specified extensions
 will have their icons included to be preloaded.
@@ -416,17 +508,17 @@ will have their icons included to be preloaded.
 Selecting "All Folders" will add all folders to the preloader
 which may cause freezes when adding certain system folders.</value>
   </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
+  <data name="&gt;&gt;PreloadFolderIconsForLabel.Name" xml:space="preserve">
+    <value>PreloadFolderIconsForLabel</value>
   </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+  <data name="&gt;&gt;PreloadFolderIconsForLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;PreloadFolderIconsForLabel.Parent" xml:space="preserve">
     <value>AdvancedSettingsGroupBox</value>
   </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="&gt;&gt;PreloadFolderIconsForLabel.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="AdvancedSettingsGroupBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>

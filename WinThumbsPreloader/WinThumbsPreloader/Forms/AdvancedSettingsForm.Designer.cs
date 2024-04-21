@@ -31,15 +31,17 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdvancedSettingsForm));
             AdvancedSettingsGroupBox = new System.Windows.Forms.GroupBox();
+            LoggingFrequencyComboBox = new System.Windows.Forms.ComboBox();
+            LoggingFrequencyLabel = new System.Windows.Forms.Label();
             PresetsComboBox = new System.Windows.Forms.ComboBox();
-            label5 = new System.Windows.Forms.Label();
-            label3 = new System.Windows.Forms.Label();
+            PresetsLabel = new System.Windows.Forms.Label();
+            RequestedThumbnailSizesLabel = new System.Windows.Forms.Label();
             PreloaderThumbnailSizesCheckedListBox = new System.Windows.Forms.CheckedListBox();
             DefaultButton = new System.Windows.Forms.Button();
             ExtensionsAutoFormattingComboBox = new System.Windows.Forms.ComboBox();
-            label2 = new System.Windows.Forms.Label();
+            ExtensionsAutoFormatLabel = new System.Windows.Forms.Label();
             PreloadFolderIconsForComboBox = new System.Windows.Forms.ComboBox();
-            label1 = new System.Windows.Forms.Label();
+            PreloadFolderIconsForLabel = new System.Windows.Forms.Label();
             CloseButton = new System.Windows.Forms.Button();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
             AdvancedSettingsGroupBox.SuspendLayout();
@@ -48,18 +50,34 @@
             // AdvancedSettingsGroupBox
             // 
             AdvancedSettingsGroupBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            AdvancedSettingsGroupBox.Controls.Add(LoggingFrequencyComboBox);
+            AdvancedSettingsGroupBox.Controls.Add(LoggingFrequencyLabel);
             AdvancedSettingsGroupBox.Controls.Add(PresetsComboBox);
-            AdvancedSettingsGroupBox.Controls.Add(label5);
-            AdvancedSettingsGroupBox.Controls.Add(label3);
+            AdvancedSettingsGroupBox.Controls.Add(PresetsLabel);
+            AdvancedSettingsGroupBox.Controls.Add(RequestedThumbnailSizesLabel);
             AdvancedSettingsGroupBox.Controls.Add(PreloaderThumbnailSizesCheckedListBox);
             AdvancedSettingsGroupBox.Controls.Add(DefaultButton);
             AdvancedSettingsGroupBox.Controls.Add(ExtensionsAutoFormattingComboBox);
-            AdvancedSettingsGroupBox.Controls.Add(label2);
+            AdvancedSettingsGroupBox.Controls.Add(ExtensionsAutoFormatLabel);
             AdvancedSettingsGroupBox.Controls.Add(PreloadFolderIconsForComboBox);
-            AdvancedSettingsGroupBox.Controls.Add(label1);
+            AdvancedSettingsGroupBox.Controls.Add(PreloadFolderIconsForLabel);
             resources.ApplyResources(AdvancedSettingsGroupBox, "AdvancedSettingsGroupBox");
             AdvancedSettingsGroupBox.Name = "AdvancedSettingsGroupBox";
             AdvancedSettingsGroupBox.TabStop = false;
+            // 
+            // LoggingFrequencyComboBox
+            // 
+            LoggingFrequencyComboBox.FormattingEnabled = true;
+            LoggingFrequencyComboBox.Items.AddRange(new object[] { resources.GetString("LoggingFrequencyComboBox.Items"), resources.GetString("LoggingFrequencyComboBox.Items1"), resources.GetString("LoggingFrequencyComboBox.Items2"), resources.GetString("LoggingFrequencyComboBox.Items3"), resources.GetString("LoggingFrequencyComboBox.Items4") });
+            resources.ApplyResources(LoggingFrequencyComboBox, "LoggingFrequencyComboBox");
+            LoggingFrequencyComboBox.Name = "LoggingFrequencyComboBox";
+            LoggingFrequencyComboBox.SelectedIndexChanged += LoggingFrequencyComboBox_SelectedIndexChanged;
+            // 
+            // LoggingFrequencyLabel
+            // 
+            resources.ApplyResources(LoggingFrequencyLabel, "LoggingFrequencyLabel");
+            LoggingFrequencyLabel.Name = "LoggingFrequencyLabel";
+            toolTip1.SetToolTip(LoggingFrequencyLabel, resources.GetString("LoggingFrequencyLabel.ToolTip"));
             // 
             // PresetsComboBox
             // 
@@ -69,16 +87,16 @@
             PresetsComboBox.Name = "PresetsComboBox";
             PresetsComboBox.SelectedIndexChanged += PresetsComboBox_SelectedIndexChanged;
             // 
-            // label5
+            // PresetsLabel
             // 
-            resources.ApplyResources(label5, "label5");
-            label5.Name = "label5";
+            resources.ApplyResources(PresetsLabel, "PresetsLabel");
+            PresetsLabel.Name = "PresetsLabel";
             // 
-            // label3
+            // RequestedThumbnailSizesLabel
             // 
-            resources.ApplyResources(label3, "label3");
-            label3.Name = "label3";
-            toolTip1.SetToolTip(label3, resources.GetString("label3.ToolTip"));
+            resources.ApplyResources(RequestedThumbnailSizesLabel, "RequestedThumbnailSizesLabel");
+            RequestedThumbnailSizesLabel.Name = "RequestedThumbnailSizesLabel";
+            toolTip1.SetToolTip(RequestedThumbnailSizesLabel, resources.GetString("RequestedThumbnailSizesLabel.ToolTip"));
             // 
             // PreloaderThumbnailSizesCheckedListBox
             // 
@@ -88,7 +106,6 @@
             PreloaderThumbnailSizesCheckedListBox.Items.AddRange(new object[] { resources.GetString("PreloaderThumbnailSizesCheckedListBox.Items"), resources.GetString("PreloaderThumbnailSizesCheckedListBox.Items1"), resources.GetString("PreloaderThumbnailSizesCheckedListBox.Items2"), resources.GetString("PreloaderThumbnailSizesCheckedListBox.Items3"), resources.GetString("PreloaderThumbnailSizesCheckedListBox.Items4"), resources.GetString("PreloaderThumbnailSizesCheckedListBox.Items5"), resources.GetString("PreloaderThumbnailSizesCheckedListBox.Items6"), resources.GetString("PreloaderThumbnailSizesCheckedListBox.Items7"), resources.GetString("PreloaderThumbnailSizesCheckedListBox.Items8") });
             PreloaderThumbnailSizesCheckedListBox.MultiColumn = true;
             PreloaderThumbnailSizesCheckedListBox.Name = "PreloaderThumbnailSizesCheckedListBox";
-            PreloaderThumbnailSizesCheckedListBox.SelectedIndexChanged += PreloaderThumbnailSizesCheckedListBox_SelectedIndexChanged;
             // 
             // DefaultButton
             // 
@@ -105,11 +122,11 @@
             ExtensionsAutoFormattingComboBox.Name = "ExtensionsAutoFormattingComboBox";
             ExtensionsAutoFormattingComboBox.SelectedIndexChanged += ExtensionsAutoFormattingComboBox_SelectedIndexChanged;
             // 
-            // label2
+            // ExtensionsAutoFormatLabel
             // 
-            resources.ApplyResources(label2, "label2");
-            label2.Name = "label2";
-            toolTip1.SetToolTip(label2, resources.GetString("label2.ToolTip"));
+            resources.ApplyResources(ExtensionsAutoFormatLabel, "ExtensionsAutoFormatLabel");
+            ExtensionsAutoFormatLabel.Name = "ExtensionsAutoFormatLabel";
+            toolTip1.SetToolTip(ExtensionsAutoFormatLabel, resources.GetString("ExtensionsAutoFormatLabel.ToolTip"));
             // 
             // PreloadFolderIconsForComboBox
             // 
@@ -119,11 +136,11 @@
             PreloadFolderIconsForComboBox.Name = "PreloadFolderIconsForComboBox";
             PreloadFolderIconsForComboBox.SelectedIndexChanged += PreloadFolderIconsForComboBox_SelectedIndexChanged;
             // 
-            // label1
+            // PreloadFolderIconsForLabel
             // 
-            resources.ApplyResources(label1, "label1");
-            label1.Name = "label1";
-            toolTip1.SetToolTip(label1, resources.GetString("label1.ToolTip"));
+            resources.ApplyResources(PreloadFolderIconsForLabel, "PreloadFolderIconsForLabel");
+            PreloadFolderIconsForLabel.Name = "PreloadFolderIconsForLabel";
+            toolTip1.SetToolTip(PreloadFolderIconsForLabel, resources.GetString("PreloadFolderIconsForLabel.ToolTip"));
             // 
             // CloseButton
             // 
@@ -151,14 +168,16 @@
         private System.Windows.Forms.GroupBox AdvancedSettingsGroupBox;
         private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.ComboBox PreloadFolderIconsForComboBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label PreloadFolderIconsForLabel;
+        private System.Windows.Forms.Label ExtensionsAutoFormatLabel;
         private System.Windows.Forms.ComboBox ExtensionsAutoFormattingComboBox;
         private System.Windows.Forms.Button DefaultButton;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label RequestedThumbnailSizesLabel;
         private System.Windows.Forms.CheckedListBox PreloaderThumbnailSizesCheckedListBox;
         private System.Windows.Forms.ComboBox PresetsComboBox;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label PresetsLabel;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ComboBox LoggingFrequencyComboBox;
+        private System.Windows.Forms.Label LoggingFrequencyLabel;
     }
 }

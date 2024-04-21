@@ -132,7 +132,6 @@ namespace WinThumbsPreloader
             // 
             resources.ApplyResources(AppNameLabel, "AppNameLabel");
             AppNameLabel.Name = "AppNameLabel";
-            AppNameLabel.Click += AppNameLabel_Click;
             // 
             // ContentPanel
             // 

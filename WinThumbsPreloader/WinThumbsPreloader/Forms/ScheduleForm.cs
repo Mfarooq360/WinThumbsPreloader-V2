@@ -21,13 +21,14 @@ using Task = System.Threading.Tasks.Task;
 using TaskScheduler = Microsoft.Win32.TaskScheduler.Task;
 using Trigger = Microsoft.Win32.TaskScheduler.Trigger;
 using TriggerCollection = Microsoft.Win32.TaskScheduler.TriggerCollection;
+using static WinThumbsPreloader.Logger;
 
 namespace WinThumbsPreloader
 {
     [SupportedOSPlatform("windows")]
     public partial class ScheduleForm : Form //TODO: add a statistics form to show the speed of the preloader along with other things
     {
-        private const string TaskName = "WinThumbsPreloaderTask";
+        public const string TaskName = "WinThumbsPreloaderTask";
 
         public ScheduleForm()
         {
@@ -54,10 +55,12 @@ namespace WinThumbsPreloader
         {
             if (CloseButton.Text == "Close")
             {
+                WriteLine("Closing Schedule Form", LoggingFrequency.GUILogging);
                 Close();
             }
             else if (CloseButton.Text == "Exit")
             {
+                WriteLine("Exiting application from schedule form", LoggingFrequency.GUILogging);
                 Environment.Exit(0);
             }
         }
@@ -65,6 +68,7 @@ namespace WinThumbsPreloader
         {
             if (e.CloseReason == CloseReason.UserClosing && (Control.ModifierKeys & Keys.Shift) == Keys.Shift)
             {
+                WriteLine("Exiting application from schedule form", LoggingFrequency.GUILogging);
                 Environment.Exit(0); // Exit the entire application
             }
         }
@@ -144,7 +148,7 @@ namespace WinThumbsPreloader
             this.DrivesCheckedListBox.CheckOnClick = true;
         }
 
-        private void EnabledCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void EnabledCheckBox_CheckedChanged(object sender, EventArgs e) // This isn't supposed to do this most likely
         {
             using (TaskService ts = new TaskService())
             {
@@ -166,40 +170,11 @@ namespace WinThumbsPreloader
             //Sets whether the time is AM or PM
         }
 
-        private void OutputTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PathsTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void OutputTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void AdvancedButton_Click(object sender, EventArgs e)
         {
+            WriteLine("Opening Advanced Schedule Form", LoggingFrequency.GUILogging);
             AdvancedScheduleForm advancedScheduleForm = new AdvancedScheduleForm();
             this.OpenSecondaryFormCentered(advancedScheduleForm);
-        }
-
-        private void PathsLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void OutputLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DrivesLabel_Click(object sender, EventArgs e)
-        {
-
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
@@ -218,6 +193,7 @@ namespace WinThumbsPreloader
 
         public void OpenTaskSchedulerButton_Click(object sender, EventArgs e)
         {
+            WriteLine("Opening Task Scheduler", LoggingFrequency.GUILogging);
             // Check if taskschd.msc is already running
             var processes = System.Diagnostics.Process.GetProcessesByName("mmc");
 
@@ -290,6 +266,7 @@ namespace WinThumbsPreloader
         {
             await Task.Run(() =>
             {
+                WriteLine("Loading task details", LoggingFrequency.GUILogging);
                 bool isIdleTrigger = false;
                 bool isEnabled = false;
                 string arguments = string.Empty;
@@ -301,11 +278,15 @@ namespace WinThumbsPreloader
                     if (task != null)
                     {
                         isIdleTrigger = task.Definition.Triggers.Any(t => t.TriggerType == TaskTriggerType.Idle);
+                        WriteLine($"Idle trigger: {isIdleTrigger}", LoggingFrequency.DebugLogging);
                         isEnabled = task.Enabled;
+                        WriteLine($"Task enabled: {isEnabled}", LoggingFrequency.DebugLogging);
                         arguments = (task.Definition.Actions[0] as ExecAction)?.Arguments;
+                        WriteLine($"Arguments: {arguments}", LoggingFrequency.DebugLogging);
 
                         // Process the triggers here
                         var triggers = task.Definition.Triggers;
+                        WriteLine($"Number of triggers: {triggers.Count}", LoggingFrequency.DebugLogging);
                         if (triggers.OfType<DailyTrigger>().Any(t => t.Repetition != null && t.Repetition.Interval.TotalHours == 1))
                         {
                             triggerType = "Hour";
@@ -322,7 +303,7 @@ namespace WinThumbsPreloader
                         {
                             triggerType = "Month";
                         }
-
+                        WriteLine($"Trigger type: {triggerType}", LoggingFrequency.DebugLogging);
                         // Marshal the updates to the UI thread
                         this.Invoke((MethodInvoker)delegate
                         {
@@ -341,10 +322,12 @@ namespace WinThumbsPreloader
 
         private void UpdateUIFromArguments(string arguments)
         {
+            WriteLine($"Updating UI from arguments: {arguments}", LoggingFrequency.DebugLogging);
             if (arguments != null)
             {
                 // Extract multithreading argument
                 MultithreadedCheckBox.Checked = arguments.Contains("-m");
+                WriteLine($"Multithreaded: {MultithreadedCheckBox.Checked}", LoggingFrequency.DebugLogging);
                 var match = Regex.Match(arguments, @"-m:(\d+)");
                 if (match.Success)
                 {
@@ -354,11 +337,13 @@ namespace WinThumbsPreloader
                 {
                     ThreadsNumericUpDown.Value = 0;  // -m without a specific thread count
                 }
+                WriteLine($"Threads: {ThreadsNumericUpDown.Value}", LoggingFrequency.DebugLogging);
 
                 // Extract and update other arguments-related UI elements...
                 var rawDrivePaths = Regex.Split(arguments, @"(?=(\w:\\)|(\\\\[\w-]+\\?))")
                                          .Where(path => !string.IsNullOrWhiteSpace(path))
                                          .ToList();
+                WriteLine($"Raw drive paths: {string.Join(", ", rawDrivePaths)}", LoggingFrequency.DebugLogging);
 
                 var pathsSet = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
                 foreach (var rawPath in rawDrivePaths)
@@ -386,6 +371,7 @@ namespace WinThumbsPreloader
 
         private void UpdateRunEveryComboBox(string triggerType)
         {
+            WriteLine($"Updating RunEveryComboBox: {triggerType}", LoggingFrequency.DebugLogging);
             switch (triggerType)
             {
                 case "Hour":
@@ -408,6 +394,7 @@ namespace WinThumbsPreloader
 
         public void InitializeTimeValues(TriggerCollection triggers = null)
         {
+            WriteLine("Initializing time values", LoggingFrequency.DebugLogging);
             // If triggers are not provided, fetch them
             if (triggers == null)
             {
@@ -439,6 +426,7 @@ namespace WinThumbsPreloader
 
         private void UpdateTimeComboBoxes(DateTime triggerTime, bool is24HourMode)
         {
+            WriteLine($"Updating time ComboBoxes: {triggerTime}, 24-hour mode: {is24HourMode}", LoggingFrequency.DebugLogging);
             // Round the time down to the nearest hour for the ComboBoxes
             DateTime roundedTime = new DateTime(triggerTime.Year, triggerTime.Month, triggerTime.Day, triggerTime.Hour, 0, 0);
 
@@ -461,14 +449,24 @@ namespace WinThumbsPreloader
 
         string currentExePath = Environment.ProcessPath;
 
+        private string _defaultDescription = "Runs WinThumbsPreloader based on user's schedule";
+        private string _description;
+
+        public string Description //Revert this for now until its implemented in the advanced schedule form
+        {
+            get => string.IsNullOrWhiteSpace(_description) ? _defaultDescription : _description;
+            set => _description = string.IsNullOrWhiteSpace(value) ? _defaultDescription : value;
+        }
+
         private void SaveTask()
         {
+            WriteLine("Saving task", LoggingFrequency.GUILogging);
             try
             {
                 DateTime? selectedTime = GetSelectedTime();
                 if (!selectedTime.HasValue)
                 {
-                    return; // Exit if the selected time is not valid
+                    throw new Exception("Selected time is invalid.");
                 }
 
                 DateTime triggerStart = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
@@ -483,7 +481,7 @@ namespace WinThumbsPreloader
                 using (TaskService ts = new TaskService())
                 {
                     TaskDefinition td = ts.NewTask();
-                    td.RegistrationInfo.Description = "Runs WinThumbsPreloader based on user's schedule";
+                    td.RegistrationInfo.Description = Description;
 
                     // Set trigger based on user's selection
                     if (RunEveryComboBox.SelectedItem.ToString() == "Hour") // Special handling for hourly trigger
@@ -527,6 +525,7 @@ namespace WinThumbsPreloader
                     if (arguments != null)
                     {
                         td.Actions.Add(new ExecAction(currentExePath, arguments, null));
+                        /* td.Settings.RunOnlyIfIdle = true; */
                         TaskScheduler task = ts.RootFolder.RegisterTaskDefinition(TaskName, td);
                         task.Enabled = EnabledCheckBox.Checked;
                     }
@@ -541,27 +540,31 @@ namespace WinThumbsPreloader
 
                     OutputTextBox.Text = "Task saved successfully.";
                 }
+                WriteLine("Task saved successfully", LoggingFrequency.GUILogging);
                 LoadTaskDetails();
             }
-            catch
+            catch (Exception ex)
             {
+                WriteLine($"Error saving task: {ex.Message}", LoggingFrequency.GUILogging);
                 OutputTextBox.Text = "Task failed to save, try restarting as admin.";
             }
         }
 
         private void DeleteTask()
         {
+            WriteLine("Deleting task", LoggingFrequency.GUILogging);
             using (TaskService ts = new TaskService())
             {
                 try
                 {
                     ts.RootFolder.DeleteTask(TaskName);
                     EnabledCheckBox.Checked = false;
+                    WriteLine("Task deleted successfully", LoggingFrequency.GUILogging);
                     OutputTextBox.Text = "Task deleted successfully.";
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    // Handle specific exceptions as needed
+                    WriteLine($"Error deleting task: {ex.Message}", LoggingFrequency.GUILogging);
                     OutputTextBox.Text = "Failed to delete task, try restarting as admin.";
                 }
             }
@@ -593,6 +596,7 @@ namespace WinThumbsPreloader
 
         private string ConstructArguments()
         {
+            WriteLine("Constructing arguments", LoggingFrequency.DebugLogging);
             string arguments = "-r -s ";
 
             if (MultithreadedCheckBox.Checked)
@@ -600,6 +604,7 @@ namespace WinThumbsPreloader
                 if (ThreadsNumericUpDown.Value > 0) arguments += $"-m:{ThreadsNumericUpDown.Value} ";
                 else if (ThreadsNumericUpDown.Value == 0) arguments += $"-m ";
             }
+            WriteLine($"Arguments: {arguments}", LoggingFrequency.DebugLogging);
 
             // Use a HashSet to store unique paths
             var uniquePaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
@@ -620,6 +625,7 @@ namespace WinThumbsPreloader
                     uniquePaths.Add(correctedPath);
                 }
             }
+            WriteLine($"Unique paths: {string.Join(", ", uniquePaths)}", LoggingFrequency.DebugLogging);
 
             if (uniquePaths.Count == 0)
             {
@@ -629,6 +635,7 @@ namespace WinThumbsPreloader
 
             // Join all unique paths with spaces
             arguments += string.Join(" ", uniquePaths);
+            WriteLine($"Final arguments: {arguments}", LoggingFrequency.DebugLogging);
 
             return arguments.Trim();
         }

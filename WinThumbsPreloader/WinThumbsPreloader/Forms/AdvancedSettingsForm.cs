@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinThumbsPreloader.Properties;
+using static WinThumbsPreloader.Logger;
 
 namespace WinThumbsPreloader.Forms
 {
@@ -28,6 +29,7 @@ namespace WinThumbsPreloader.Forms
                 extensionsAutoFormatting = "Commas and Spaces";
             }
             ExtensionsAutoFormattingComboBox.SelectedItem = extensionsAutoFormatting;
+            LoggingFrequencyComboBox.SelectedIndex = Settings.Default.LoggingFrequency;
             PreloaderThumbnailSizesCheckedListBox.ItemCheck += PreloaderThumbnailSizesCheckedListBox_ItemCheck;
             LoadCheckedItemsFromSettings();
 
@@ -47,24 +49,44 @@ namespace WinThumbsPreloader.Forms
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
+            WriteLine("Closing Advanced Settings Form", LoggingFrequency.GUILogging);
             Close();
         }
 
         private void PreloadFolderIconsForComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            WriteLine("PreloadFolderIconsForComboBox.SelectedItem: " + PreloadFolderIconsForComboBox.SelectedItem, LoggingFrequency.DebugLogging);
             if (PreloadFolderIconsForComboBox.SelectedIndex == 1)
             {
+                WriteLine("Warning: Preloading all folders may cause freezes when adding certain system folders", LoggingFrequency.DebugLogging);
                 Settings.Default.PreloadAllFolders = true;
+                PreloadFolderIconsForLabel.ForeColor = Color.Red;
+                toolTip1.SetToolTip(PreloadFolderIconsForLabel, @"Selecting ""Folders Containing Set Extensions"" will ensure that
+only folders that contain files that have the specified extensions
+will have their icons included to be preloaded.
+
+Selecting ""All Folders"" will add all folders to the preloader
+which may cause freezes when adding certain system folders.
+
+WARNING: Selecting ""All Folders"" may cause the preloader to freeze.");
             }
             else
             {
                 Settings.Default.PreloadAllFolders = false;
+                PreloadFolderIconsForLabel.ForeColor = SystemColors.ControlText;
+                toolTip1.SetToolTip(PreloadFolderIconsForLabel, @"Selecting ""Folders Containing Set Extensions"" will ensure that
+only folders that contain files that have the specified extensions
+will have their icons included to be preloaded.
+
+Selecting ""All Folders"" will add all folders to the preloader
+which may cause freezes when adding certain system folders.");
             }
             Settings.Default.Save();
         }
 
         private void ExtensionsAutoFormattingComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            WriteLine("ExtensionsAutoFormattingComboBox.SelectedItem: " + ExtensionsAutoFormattingComboBox.SelectedItem, LoggingFrequency.DebugLogging);
             if (ExtensionsAutoFormattingComboBox.SelectedItem != null)
             {
                 string extensionsAutoFormatting = ExtensionsAutoFormattingComboBox.SelectedItem.ToString();
@@ -85,10 +107,13 @@ namespace WinThumbsPreloader.Forms
 
         private void DefaultButton_Click(object sender, EventArgs e)
         {
+            WriteLine("Resetting settings to default", LoggingFrequency.DebugLogging);
             ExtensionsAutoFormattingComboBox.SelectedItem = "Disabled";
             PreloadFolderIconsForComboBox.SelectedIndex = 0;
+            LoggingFrequencyComboBox.SelectedIndex = 0;
             Settings.Default.ExtensionsAutoFormatting = "Disabled";
             Settings.Default.PreloadAllFolders = false;
+            Settings.Default.LoggingFrequency = 0;
             PresetsComboBox.SelectedItem = "File Explorer Size";
 
             automaticUnchecked = true;
@@ -111,11 +136,6 @@ namespace WinThumbsPreloader.Forms
             // Save the new settings
             Settings.Default.PreloaderThumbnailSizes = "256";
             Settings.Default.Save();
-        }
-
-        private void PreloaderThumbnailSizesCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private async void PreloaderThumbnailSizesCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -180,6 +200,7 @@ namespace WinThumbsPreloader.Forms
 
         private void PresetsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            WriteLine("PresetsComboBox.SelectedItem: " + PresetsComboBox.SelectedItem, LoggingFrequency.DebugLogging);
             if (PresetsComboBox.SelectedItem is string selectedPreset && presets.ContainsKey(selectedPreset))
             {
                 var sizesToCheck = presets[selectedPreset];
@@ -204,6 +225,66 @@ namespace WinThumbsPreloader.Forms
 
                 automaticUnchecked = false;
             }
+        }
+
+        private void LoggingFrequencyComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            WriteLine("LoggingFrequencyComboBox.SelectedItem: " + LoggingFrequencyComboBox.SelectedItem, LoggingFrequency.DebugLogging);
+            currentLoggingFrequency = (LoggingFrequency)LoggingFrequencyComboBox.SelectedIndex;
+            Settings.Default.LoggingFrequency = (int)currentLoggingFrequency;
+            Settings.Default.Save();
+            LogFrequency = currentLoggingFrequency;
+            if (LoggingFrequencyComboBox.SelectedIndex < 4)
+            {
+                LoggingFrequencyLabel.ForeColor = SystemColors.ControlText;
+                toolTip1.SetToolTip(LoggingFrequencyLabel, @"Enables various tiers of logging for various purposes.
+
+No Logging: Disables all logging.
+
+Preloader Logging: Enables logging for the preloader
+which includes basic logging of argument parsing and 
+directory scanning along with certain errors.
+
+GUI Logging: Enables logging for the GUI forms which
+includes basic logging of interactions and certain errors.
+
+All Logging: Enables logging for both the preloader and
+the GUI which includes basic logging of actions and errors.
+
+Debug Logging: Enables logging for both the preloader
+and the GUI which includes logging for almost every action,
+many variables, and every error that occurs, big or small.
+(Only works in single-threaded mode)
+
+Enabling Debug Logging may cause the application to run
+slower, especially while preloading, and will use more storage.");
+            }
+            else if (LoggingFrequencyComboBox.SelectedIndex == 4)
+            {
+                LoggingFrequencyLabel.ForeColor = Color.Red;
+                toolTip1.SetToolTip(LoggingFrequencyLabel, @"Enables various tiers of logging for various purposes.
+
+No Logging: Disables all logging.
+
+Preloader Logging: Enables logging for the preloader
+which includes basic logging of argument parsing and 
+directory scanning along with certain errors.
+
+GUI Logging: Enables logging for the GUI forms which
+includes basic logging of interactions and certain errors.
+
+All Logging: Enables logging for both the preloader and
+the GUI which includes basic logging of actions and errors.
+
+Debug Logging: Enables logging for both the preloader
+and the GUI which includes logging for almost every action,
+many variables, and every error that occurs, big or small.
+(Only works in single-threaded mode)
+
+WARNING: Enabling Debug Logging may cause the application to run
+slower, especially while preloading, and will use more storage.");
+            }
+            InitializeLogger();
         }
     }
 }

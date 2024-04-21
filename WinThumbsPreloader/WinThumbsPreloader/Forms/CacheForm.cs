@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinThumbsPreloader.Forms;
 using WinThumbsPreloader.Properties;
+using static WinThumbsPreloader.Logger;
 
 namespace WinThumbsPreloader
 {
@@ -56,7 +57,7 @@ namespace WinThumbsPreloader
 
         private async void CacheForm_Shown(object sender, EventArgs e)
         {
-            await AboutForm.CheckForCacheReset();
+            await AboutForm.CheckForCacheReset(true, false);
         }
 
         private void CacheForm_Load(object sender, EventArgs e)
@@ -81,6 +82,7 @@ namespace WinThumbsPreloader
                 settingsUpdated = true;
             }
             cacheUpdateInterval = Settings.Default.CacheUpdateInterval;
+            WriteLine("Cache Update Interval: " + cacheUpdateInterval, LoggingFrequency.DebugLogging);
 
             if (Settings.Default.AutoBackupInterval == 0)
             {
@@ -88,6 +90,7 @@ namespace WinThumbsPreloader
                 settingsUpdated = true;
             }
             autoBackupInterval = Settings.Default.AutoBackupInterval;
+            WriteLine("Auto Backup Interval: " + autoBackupInterval, LoggingFrequency.DebugLogging);
 
             if (Settings.Default.AutoRestoreInterval == 0)
             {
@@ -95,6 +98,7 @@ namespace WinThumbsPreloader
                 settingsUpdated = true;
             }
             autoRestoreInterval = Settings.Default.AutoRestoreInterval;
+            WriteLine("Auto Restore Interval: " + autoRestoreInterval, LoggingFrequency.DebugLogging);
 
             if (settingsUpdated)
             {
@@ -132,6 +136,7 @@ namespace WinThumbsPreloader
         public void UpdateCacheSizeUpdateInterval(int newInterval)
         {
             cacheUpdateInterval = newInterval;
+            WriteLine("Cache Update Interval set to: " + cacheUpdateInterval, LoggingFrequency.DebugLogging);
             if (updateTimer != null)
             {
                 updateTimer.Interval = newInterval;
@@ -141,6 +146,7 @@ namespace WinThumbsPreloader
         public void UpdateAutoBackupInterval(int newInterval)
         {
             autoBackupInterval = newInterval;
+            WriteLine("Auto Backup Interval set to: " + autoBackupInterval, LoggingFrequency.DebugLogging);
             if (autoBackupTimer != null)
             {
                 autoBackupTimer.Interval = newInterval;
@@ -150,38 +156,65 @@ namespace WinThumbsPreloader
         public void UpdateAutoRestoreInterval(int newInterval)
         {
             autoRestoreInterval = newInterval;
+            WriteLine("Auto Restore Interval set to: " + autoRestoreInterval, LoggingFrequency.DebugLogging);
             if (autoRestoreTimer != null)
             {
                 autoRestoreTimer.Interval = newInterval;
             }
         }
 
-        private void UpdateTimer_Tick(object sender, EventArgs e)
+        private async void UpdateTimer_Tick(object sender, EventArgs e)
         {
             UpdateCacheSizeLabels();
+            if (AlertCheckBox.Checked == true)
+            {
+                updateTimer.Stop();
+                await AboutForm.CheckForCacheReset(true, false);
+                updateTimer.Start();
+            }
         }
 
         private async void AutoBackupThumbsCache_Tick(object sender, EventArgs e)
         {
+            autoBackupTimer.Stop();
             if (AutoBackupCheckBox.Checked == true && ExplorerCacheSize() > BackupCacheSize() && ExplorerCacheSize() == ExplorerCacheSize())
             {
+                WriteLine("Auto-backup triggered", LoggingFrequency.DebugLogging);
                 await BackupThumbsCache(null);
             }
+            autoBackupTimer.Start();
         }
 
         private async void AutoRestoreThumbsCache_Tick(object sender, EventArgs e)
         {
+            autoRestoreTimer.Stop();
             if (AutoRestoreCheckBox.Checked == true && BackupCacheSize() > ExplorerCacheSize())
             {
+                WriteLine("Auto-restore triggered", LoggingFrequency.DebugLogging);
                 await RestoreThumbsCache(progressBarRestore, false);
             }
+            autoRestoreTimer.Start();
         }
+
         public string format = Properties.Settings.Default.CacheSizeFormat;
+        long oldExplorerSize = 0;
+        long oldBackupSize = 0;
 
         public void UpdateCacheSizeLabels()
         {
             long explorerSize = ExplorerCacheSize();
+            if (explorerSize != oldExplorerSize)
+            {
+                WriteLine("Explorer cache size: " + explorerSize, LoggingFrequency.DebugLogging);
+            }
+            oldExplorerSize = explorerSize;
+
             long backupSize = BackupCacheSize();
+            if(backupSize != oldBackupSize)
+            {
+                WriteLine("Backup cache size: " + backupSize, LoggingFrequency.DebugLogging);
+            }
+            oldBackupSize = backupSize;
 
             CacheSizeLabel.Text = $"Cache Size: {FormatSize(explorerSize)}";
             BackupSizeLabel.Text = $"Backup Size: {FormatSize(backupSize)}";
@@ -251,6 +284,7 @@ namespace WinThumbsPreloader
         {
             if (e.CloseReason == CloseReason.UserClosing && (Control.ModifierKeys & Keys.Shift) == Keys.Shift)
             {
+                WriteLine("Exiting application from cache form", LoggingFrequency.GUILogging);
                 Environment.Exit(0); // Exit the entire application
             }
         }
@@ -271,7 +305,7 @@ namespace WinThumbsPreloader
         static string explorerPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Microsoft\Windows\Explorer");
         static string backupPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Explorer Backup");
 
-        static long ExplorerCacheSize()
+        public static long ExplorerCacheSize()
         {
             long explorerCacheSize = 0;
             try
@@ -279,11 +313,14 @@ namespace WinThumbsPreloader
                 string[] sourceFiles = Directory.GetFiles(explorerPath, "*.db");
                 explorerCacheSize = sourceFiles.Sum(file => new FileInfo(file).Length);
             }
-            catch { }
+            catch (Exception e)
+            {
+                WriteLine("Failed to get explorer cache size: " + e.Message, LoggingFrequency.GUILogging);
+            }
             return explorerCacheSize;
         }
 
-        static long BackupCacheSize()
+        public static long BackupCacheSize()
         {
             long backupCacheSize = 0;
 
@@ -294,10 +331,14 @@ namespace WinThumbsPreloader
                     string[] destinationFiles = Directory.GetFiles(backupPath, "*.db");
                     backupCacheSize = destinationFiles.Sum(file => new FileInfo(file).Length);
                 }
-                catch { }
+                catch (Exception e)
+                {
+                    WriteLine("Failed to get backup cache size: " + e.Message, LoggingFrequency.GUILogging);
+                }
             }
             return backupCacheSize;
         }
+        public static bool resetLogged = false;
 
         public static bool CompareThumbsCacheSize()
         {
@@ -305,8 +346,22 @@ namespace WinThumbsPreloader
             long explorerCacheSize = ExplorerCacheSize();
 
             bool isCacheSizeLargerThanBackup = false;
-            if (explorerCacheSize > backupCacheSize) { isCacheSizeLargerThanBackup = true; }
-            else if (explorerCacheSize <= backupCacheSize) { isCacheSizeLargerThanBackup = false; }
+            if (explorerCacheSize >= backupCacheSize) 
+            { 
+                isCacheSizeLargerThanBackup = true; 
+                resetLogged = false;
+            }
+            else if (explorerCacheSize < backupCacheSize)
+            {
+                isCacheSizeLargerThanBackup = false;
+                if (!resetLogged)
+                {
+                    WriteLine("Backup Cache Size: " + backupCacheSize, LoggingFrequency.DebugLogging);
+                    WriteLine("Explorer Cache Size: " + explorerCacheSize, LoggingFrequency.DebugLogging);
+                    WriteLine("Cache Size Larger Than Backup: " + isCacheSizeLargerThanBackup, LoggingFrequency.DebugLogging);
+                    resetLogged = true;
+                }
+            }
             return isCacheSizeLargerThanBackup;
         }
 
@@ -314,14 +369,18 @@ namespace WinThumbsPreloader
         {
             await Task.Run(() =>
             {
+                WriteLine("Backing up thumbnail cache...", LoggingFrequency.GUILogging);
                 string destinationPath = backupPath;
+                WriteLine("Backup Path: " + destinationPath, LoggingFrequency.DebugLogging);
                 long explorerSize = ExplorerCacheSize();
+                WriteLine("Explorer Cache Size: " + explorerSize, LoggingFrequency.DebugLogging);
                 try
                 {
                     Directory.CreateDirectory(destinationPath);
                 }
-                catch
+                catch (Exception e)
                 {
+                    WriteLine("Failed to create backup path: " + e.Message, LoggingFrequency.GUILogging);
                     CacheForm cacheForm = new CacheForm();
                     cacheForm.OutputTextBox.Text = "Failed to create backup path.";
                     return;
@@ -337,7 +396,10 @@ namespace WinThumbsPreloader
                     string fileName = Path.GetFileName(file);
                     string destFile = Path.Combine(backupPath, fileName);
                     try { File.Copy(file, destFile, true); }
-                    catch { }
+                    catch (Exception e)
+                    {
+                        WriteLine("Failed to copy file: " + e.Message, LoggingFrequency.DebugLogging);
+                    }
 
                     // Update progress
                     long currentSize = BackupCacheSize();
@@ -356,6 +418,7 @@ namespace WinThumbsPreloader
                     progressBar.Value = 100;
                     progressBar.Visible = false;
                 }));
+                WriteLine("Thumbnail cache backup complete.", LoggingFrequency.GUILogging);
             });
         }
 
@@ -363,6 +426,7 @@ namespace WinThumbsPreloader
         {
             await Task.Run(() =>
             {
+                WriteLine("Restoring thumbnail cache...", LoggingFrequency.GUILogging);
                 if (forceRestore) CloseExplorer();
 
                 if (Properties.Settings.Default.ExplorerCacheDeletionMethod == "Disk Cleanup")
@@ -374,8 +438,8 @@ namespace WinThumbsPreloader
                 {
                     DeleteExplorerThumbsCacheManually();
                 }
-
                 long backupSize = BackupCacheSize();
+                WriteLine("Backup Cache Size: " + backupSize, LoggingFrequency.DebugLogging);
                 int retryCount = 0;
 
                 progressBar?.Invoke((MethodInvoker)(() =>
@@ -390,9 +454,12 @@ namespace WinThumbsPreloader
                     {
                         string fileName = Path.GetFileName(file);
                         string sourceFile = Path.Combine(explorerPath, fileName);
-                        if (forceRestore) CloseExplorer();
+                        if (forceRestore && Settings.Default.ManualDeletionFrequency == "On Every File") CloseExplorer();
                         try { File.Copy(file, sourceFile, true); }
-                        catch { }
+                        catch (Exception e)
+                        {
+                            WriteLine("Failed to copy file: " + e.Message, LoggingFrequency.DebugLogging);
+                        }
 
                         // Update progress
                         long currentSize = ExplorerCacheSize();
@@ -423,11 +490,15 @@ namespace WinThumbsPreloader
                     progressBar.Visible = false;
                 }));
                 if (forceRestore) RestartExplorer();
+                Settings.Default.ResetRecognized = false;
+                Settings.Default.Save();
+                WriteLine("Thumbnail cache restore complete.", LoggingFrequency.GUILogging);
             });
         }
 
         private static void CloseExplorer()
         {
+            WriteLine("Closing Explorer...", LoggingFrequency.GUILogging);
             foreach (var process in Process.GetProcessesByName("explorer"))
             {
                 try
@@ -435,28 +506,39 @@ namespace WinThumbsPreloader
                     process.Kill();
                     process.WaitForExit();
                 }
-                catch { } // Do Nothing
+                catch (Exception e)
+                {
+                    WriteLine("Failed to close explorer: " + e.Message, LoggingFrequency.GUILogging);
+                }
             }
         }
 
         private static void RestartExplorer()
         {
+            WriteLine("Restarting Explorer...", LoggingFrequency.GUILogging);
             try
             {
                 Process.Start("explorer.exe");
             }
-            catch { } // Do Nothing
+            catch (Exception e)
+            {
+                WriteLine("Failed to restart explorer: " + e.Message, LoggingFrequency.GUILogging);
+            }
         }
 
         public static async void DeleteExplorerThumbsCacheManually()
         {
             await Task.Run(() =>
             {
+                WriteLine("Deleting explorer cache manually...", LoggingFrequency.GUILogging);
                 // Delete existing .db files in the explorer directory
                 foreach (string file in Directory.GetFiles(explorerPath, "*.db"))
                 {
                     try { File.Delete(file); }
-                    catch { } // Do Nothing
+                    catch (Exception e)
+                    {
+                        WriteLine("Failed to delete file: " + e.Message, LoggingFrequency.DebugLogging);
+                    }
                 }
             });
         }
@@ -466,12 +548,15 @@ namespace WinThumbsPreloader
 
         public void ConfigureDiskCleanupSageset()
         {
+            WriteLine("Configuring disk cleanup sageset...", LoggingFrequency.DebugLogging);
             try
             {
                 using (RegistryKey regKey = Registry.LocalMachine.OpenSubKey(ThumbnailCacheKey, writable: true))
                 {
                     if (regKey != null)
                     {
+                        WriteLine("ThumbnailCacheKey: " + ThumbnailCacheKey, LoggingFrequency.DebugLogging);
+                        WriteLine("SagesetNumber: " + sagesetNumber, LoggingFrequency.DebugLogging);
                         regKey.SetValue($"StateFlags{sagesetNumber:D4}", 2, RegistryValueKind.DWord);
                     }
                     else
@@ -480,8 +565,9 @@ namespace WinThumbsPreloader
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                WriteLine("Failed to configure disk cleanup: " + e.Message, LoggingFrequency.GUILogging);
                 OutputTextBox.Text = "Failed to configure disk cleanup. Retry as Admin.";
             }
         }
@@ -505,6 +591,7 @@ namespace WinThumbsPreloader
         private async void BackupButton_Click(object sender, EventArgs e)
         {
             string destinationPath = backupPath;
+            WriteLine("Backup Path: " + destinationPath, LoggingFrequency.DebugLogging);
 
             // Ensure the destination directory exists
             Directory.CreateDirectory(destinationPath);
@@ -623,6 +710,7 @@ namespace WinThumbsPreloader
 
         private void OpenBackupFolder(object sender, EventArgs e)
         {
+            WriteLine("Opening backup folder...", LoggingFrequency.GUILogging);
             // Check if the Explorer backup folder is open and maximize it if it is
             var processes = Process.GetProcessesByName("explorer");
 
@@ -660,8 +748,9 @@ namespace WinThumbsPreloader
                     {
                         Directory.CreateDirectory(backupPath);
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
+                        WriteLine("Failed to create backup folder: " + ex.Message, LoggingFrequency.GUILogging);
                         OutputTextBox.Text = "Failed to create backup folder.";
                         return;  // Exit the method if folder creation failed
                     }
@@ -679,6 +768,7 @@ namespace WinThumbsPreloader
 
         private void OpenCacheFolder(object sender, EventArgs e)
         {
+            WriteLine("Opening cache folder...", LoggingFrequency.GUILogging);
             // Check if the Explorer backup folder is open and maximize it if it is
             var processes = Process.GetProcessesByName("explorer");
 
@@ -712,6 +802,7 @@ namespace WinThumbsPreloader
                 // Check if the cache directory exists
                 if (!Directory.Exists(explorerPath))
                 {
+                    WriteLine("Cache folder not found", LoggingFrequency.GUILogging);
                     OutputTextBox.Text = "Cache folder not found";
                     return;  // Exit the method if folder doesn't exist
                 }
@@ -726,8 +817,9 @@ namespace WinThumbsPreloader
                         Verb = "open"
                     });
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    WriteLine("Failed to open cache folder: " + ex.Message, LoggingFrequency.GUILogging);
                     OutputTextBox.Text = "Failed to open cache folder";
                 }
             }
@@ -756,12 +848,15 @@ namespace WinThumbsPreloader
                     OutputTextBox.Text = "Backup clear cancelled.";
                     return;
                 }
-
+                WriteLine("Clearing backup cache...", LoggingFrequency.GUILogging);
                 // Delete all .db files in the backup directory
                 foreach (string file in Directory.GetFiles(backupPath, "*.db"))
                 {
                     try { File.Delete(file); }
-                    catch { }
+                    catch (Exception ex)
+                    {
+                        WriteLine("Failed to delete file: " + ex.Message, LoggingFrequency.DebugLogging);
+                    }
                 }
                 OutputTextBox.Text = "Backup cache cleared.";
             }
@@ -787,7 +882,9 @@ namespace WinThumbsPreloader
 
                 if (Properties.Settings.Default.ExplorerCacheDeletionMethod == "Disk Cleanup")
                 {
+                    WriteLine("Running disk cleanup...", LoggingFrequency.GUILogging);
                     RunThumbnailDiskCleanup();
+                    WriteLine("Disk cleanup complete.", LoggingFrequency.GUILogging);
                 }
                 else if (Properties.Settings.Default.ExplorerCacheDeletionMethod == "Manual Deletion")
                 {
@@ -860,6 +957,7 @@ namespace WinThumbsPreloader
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            WriteLine("Exiting application from icon tray", LoggingFrequency.DebugLogging);
             Environment.Exit(0);
         }
 
@@ -883,12 +981,29 @@ namespace WinThumbsPreloader
             {
                 if (startWithWindows)
                 {
-                    string executablePath = $"\"{Application.ExecutablePath}\" -startminimized";
-                    runKey.SetValue(RunKeyName, executablePath);
+                    WriteLine("Setting startup", LoggingFrequency.DebugLogging);
+                    try
+                    {
+                        string executablePath = $"\"{Application.ExecutablePath}\" -startminimized";
+                        WriteLine("Executable Path: " + executablePath, LoggingFrequency.DebugLogging);
+                        runKey.SetValue(RunKeyName, executablePath);
+                    }
+                    catch (Exception ex)
+                    {
+                        WriteLine("Failed to set startup: " + ex.Message, LoggingFrequency.GUILogging);
+                    }
                 }
                 else
                 {
-                    runKey.DeleteValue(RunKeyName, false);
+                    WriteLine("Removing startup", LoggingFrequency.DebugLogging);
+                    try
+                    {
+                        runKey.DeleteValue(RunKeyName, false);
+                    }
+                    catch (Exception ex)
+                    {
+                        WriteLine("Failed to remove startup: " + ex.Message, LoggingFrequency.GUILogging);
+                    }
                 }
             }
         }
@@ -901,6 +1016,7 @@ namespace WinThumbsPreloader
 
         private void AdvancedButton_Click(object sender, EventArgs e)
         {
+            WriteLine("Opening advanced cache settings form", LoggingFrequency.DebugLogging);
             AdvancedCacheForm advancedCacheForm = new AdvancedCacheForm();
             this.OpenSecondaryFormCentered(advancedCacheForm);
         }

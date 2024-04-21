@@ -311,7 +311,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="CloseButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -344,7 +344,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CloseButton.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="GeneralDescriptionLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -386,11 +386,11 @@
     <value>5</value>
   </data>
   <data name="GeneralDescriptionTextBox.Text" xml:space="preserve">
-    <value>This section is unfinished and non-functional.
+    <value>The Task Scheduler settings in this section are
+READ-ONLY for now.
 
-Feel free to suggest changes to this section.
-
-Recreating Task Scheduler settings to modify here.</value>
+Writing to Task Scheduler settings will arrive in a
+later version, use Task Scheduler to change settings.</value>
   </data>
   <data name="&gt;&gt;GeneralDescriptionTextBox.Name" xml:space="preserve">
     <value>GeneralDescriptionTextBox</value>
@@ -431,85 +431,85 @@ Recreating Task Scheduler settings to modify here.</value>
   <data name="&gt;&gt;GeneralHiddenCheckBox.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="checkBox2.AutoSize" type="System.Boolean, mscorlib">
+  <data name="RunWithHighestPrivilegesCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="checkBox2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="RunWithHighestPrivilegesCheckBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 72</value>
   </data>
-  <data name="checkBox2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="RunWithHighestPrivilegesCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 19</value>
   </data>
-  <data name="checkBox2.TabIndex" type="System.Int32, mscorlib">
+  <data name="RunWithHighestPrivilegesCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="checkBox2.Text" xml:space="preserve">
+  <data name="RunWithHighestPrivilegesCheckBox.Text" xml:space="preserve">
     <value>Run with highest privileges</value>
   </data>
-  <data name="&gt;&gt;checkBox2.Name" xml:space="preserve">
-    <value>checkBox2</value>
+  <data name="&gt;&gt;RunWithHighestPrivilegesCheckBox.Name" xml:space="preserve">
+    <value>RunWithHighestPrivilegesCheckBox</value>
   </data>
-  <data name="&gt;&gt;checkBox2.Type" xml:space="preserve">
+  <data name="&gt;&gt;RunWithHighestPrivilegesCheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;checkBox2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;RunWithHighestPrivilegesCheckBox.Parent" xml:space="preserve">
     <value>GeneralSecurityOptionsGroupBox</value>
   </data>
-  <data name="&gt;&gt;checkBox2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;RunWithHighestPrivilegesCheckBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="radioButton1.AutoSize" type="System.Boolean, mscorlib">
+  <data name="RunOnlyWhenUserIsLoggedOnRadioButton.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="radioButton1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="RunOnlyWhenUserIsLoggedOnRadioButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 22</value>
   </data>
-  <data name="radioButton1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="RunOnlyWhenUserIsLoggedOnRadioButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>197, 19</value>
   </data>
-  <data name="radioButton1.TabIndex" type="System.Int32, mscorlib">
+  <data name="RunOnlyWhenUserIsLoggedOnRadioButton.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="radioButton1.Text" xml:space="preserve">
+  <data name="RunOnlyWhenUserIsLoggedOnRadioButton.Text" xml:space="preserve">
     <value>Run only when user is logged on</value>
   </data>
-  <data name="&gt;&gt;radioButton1.Name" xml:space="preserve">
-    <value>radioButton1</value>
+  <data name="&gt;&gt;RunOnlyWhenUserIsLoggedOnRadioButton.Name" xml:space="preserve">
+    <value>RunOnlyWhenUserIsLoggedOnRadioButton</value>
   </data>
-  <data name="&gt;&gt;radioButton1.Type" xml:space="preserve">
+  <data name="&gt;&gt;RunOnlyWhenUserIsLoggedOnRadioButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;radioButton1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;RunOnlyWhenUserIsLoggedOnRadioButton.Parent" xml:space="preserve">
     <value>GeneralSecurityOptionsGroupBox</value>
   </data>
-  <data name="&gt;&gt;radioButton1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;RunOnlyWhenUserIsLoggedOnRadioButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="radioButton2.AutoSize" type="System.Boolean, mscorlib">
+  <data name="RunWhetherUserIsLoggedOnOrNotRadioButton.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="radioButton2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="RunWhetherUserIsLoggedOnOrNotRadioButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 47</value>
   </data>
-  <data name="radioButton2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="RunWhetherUserIsLoggedOnOrNotRadioButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>220, 19</value>
   </data>
-  <data name="radioButton2.TabIndex" type="System.Int32, mscorlib">
+  <data name="RunWhetherUserIsLoggedOnOrNotRadioButton.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="radioButton2.Text" xml:space="preserve">
+  <data name="RunWhetherUserIsLoggedOnOrNotRadioButton.Text" xml:space="preserve">
     <value>Run whether user is logged on or not</value>
   </data>
-  <data name="&gt;&gt;radioButton2.Name" xml:space="preserve">
-    <value>radioButton2</value>
+  <data name="&gt;&gt;RunWhetherUserIsLoggedOnOrNotRadioButton.Name" xml:space="preserve">
+    <value>RunWhetherUserIsLoggedOnOrNotRadioButton</value>
   </data>
-  <data name="&gt;&gt;radioButton2.Type" xml:space="preserve">
+  <data name="&gt;&gt;RunWhetherUserIsLoggedOnOrNotRadioButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;radioButton2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;RunWhetherUserIsLoggedOnOrNotRadioButton.Parent" xml:space="preserve">
     <value>GeneralSecurityOptionsGroupBox</value>
   </data>
-  <data name="&gt;&gt;radioButton2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;RunWhetherUserIsLoggedOnOrNotRadioButton.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="GeneralSecurityOptionsGroupBox.Location" type="System.Drawing.Point, System.Drawing">
@@ -590,196 +590,203 @@ Recreating Task Scheduler settings to modify here.</value>
   <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="comboBox2.Items" xml:space="preserve">
+  <data name="StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Items" xml:space="preserve">
     <value>1 minute</value>
   </data>
-  <data name="comboBox2.Items1" xml:space="preserve">
+  <data name="StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Items1" xml:space="preserve">
     <value>5 minutes</value>
   </data>
-  <data name="comboBox2.Items2" xml:space="preserve">
+  <data name="StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Items2" xml:space="preserve">
     <value>10 minutes</value>
   </data>
-  <data name="comboBox2.Items3" xml:space="preserve">
+  <data name="StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Items3" xml:space="preserve">
     <value>15 minutes</value>
   </data>
-  <data name="comboBox2.Items4" xml:space="preserve">
+  <data name="StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Items4" xml:space="preserve">
     <value>30 minutes</value>
   </data>
-  <data name="comboBox2.Items5" xml:space="preserve">
+  <data name="StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Items5" xml:space="preserve">
     <value>1 hour</value>
   </data>
-  <data name="comboBox2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>266, 15</value>
   </data>
-  <data name="comboBox2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>103, 23</value>
   </data>
-  <data name="comboBox2.TabIndex" type="System.Int32, mscorlib">
+  <data name="StartTheTaskOnlyIfTheComputerIsIdleForComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;comboBox2.Name" xml:space="preserve">
-    <value>comboBox2</value>
+  <data name="&gt;&gt;StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Name" xml:space="preserve">
+    <value>StartTheTaskOnlyIfTheComputerIsIdleForComboBox</value>
   </data>
-  <data name="&gt;&gt;comboBox2.Type" xml:space="preserve">
+  <data name="&gt;&gt;StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;comboBox2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
-  <data name="&gt;&gt;comboBox2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;StartTheTaskOnlyIfTheComputerIsIdleForComboBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="comboBox1.Items" xml:space="preserve">
+  <data name="WaitForIdleForComboBox.Items" xml:space="preserve">
     <value>Do not wait</value>
   </data>
-  <data name="comboBox1.Items1" xml:space="preserve">
+  <data name="WaitForIdleForComboBox.Items1" xml:space="preserve">
     <value>1 minute</value>
   </data>
-  <data name="comboBox1.Items2" xml:space="preserve">
+  <data name="WaitForIdleForComboBox.Items2" xml:space="preserve">
     <value>5 minutes</value>
   </data>
-  <data name="comboBox1.Items3" xml:space="preserve">
+  <data name="WaitForIdleForComboBox.Items3" xml:space="preserve">
     <value>10 minutes</value>
   </data>
-  <data name="comboBox1.Items4" xml:space="preserve">
+  <data name="WaitForIdleForComboBox.Items4" xml:space="preserve">
     <value>15 minutes</value>
   </data>
-  <data name="comboBox1.Items5" xml:space="preserve">
+  <data name="WaitForIdleForComboBox.Items5" xml:space="preserve">
     <value>30 minutes</value>
   </data>
-  <data name="comboBox1.Items6" xml:space="preserve">
+  <data name="WaitForIdleForComboBox.Items6" xml:space="preserve">
     <value>1 hour</value>
   </data>
-  <data name="comboBox1.Items7" xml:space="preserve">
+  <data name="WaitForIdleForComboBox.Items7" xml:space="preserve">
     <value>2 hours</value>
   </data>
-  <data name="comboBox1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="WaitForIdleForComboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>128, 44</value>
   </data>
-  <data name="comboBox1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="WaitForIdleForComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 23</value>
   </data>
-  <data name="comboBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="WaitForIdleForComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;comboBox1.Name" xml:space="preserve">
-    <value>comboBox1</value>
+  <data name="&gt;&gt;WaitForIdleForComboBox.Name" xml:space="preserve">
+    <value>WaitForIdleForComboBox</value>
   </data>
-  <data name="&gt;&gt;comboBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;WaitForIdleForComboBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;comboBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;WaitForIdleForComboBox.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
-  <data name="&gt;&gt;comboBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;WaitForIdleForComboBox.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+  <data name="WaitForIdleForLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="WaitForIdleForLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>30, 47</value>
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="WaitForIdleForLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 15</value>
   </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+  <data name="WaitForIdleForLabel.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
+  <data name="WaitForIdleForLabel.Text" xml:space="preserve">
     <value>Wait for idle for:</value>
   </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
+  <data name="&gt;&gt;WaitForIdleForLabel.Name" xml:space="preserve">
+    <value>WaitForIdleForLabel</value>
   </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+  <data name="&gt;&gt;WaitForIdleForLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;WaitForIdleForLabel.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;WaitForIdleForLabel.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="checkBox6.AutoSize" type="System.Boolean, mscorlib">
+  <data name="RestartIfTheIdleStateResumesCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="checkBox6.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="RestartIfTheIdleStateResumesCheckBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="RestartIfTheIdleStateResumesCheckBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="RestartIfTheIdleStateResumesCheckBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>41, 98</value>
   </data>
-  <data name="checkBox6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 19</value>
+  <data name="RestartIfTheIdleStateResumesCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>316, 19</value>
   </data>
-  <data name="checkBox6.TabIndex" type="System.Int32, mscorlib">
+  <data name="RestartIfTheIdleStateResumesCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="checkBox6.Text" xml:space="preserve">
-    <value>Restart if the idle state resumes</value>
+  <data name="RestartIfTheIdleStateResumesCheckBox.Text" xml:space="preserve">
+    <value>Restart if the idle state resumes (Only in task scheduler)
+</value>
   </data>
-  <data name="&gt;&gt;checkBox6.Name" xml:space="preserve">
-    <value>checkBox6</value>
+  <data name="&gt;&gt;RestartIfTheIdleStateResumesCheckBox.Name" xml:space="preserve">
+    <value>RestartIfTheIdleStateResumesCheckBox</value>
   </data>
-  <data name="&gt;&gt;checkBox6.Type" xml:space="preserve">
+  <data name="&gt;&gt;RestartIfTheIdleStateResumesCheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;checkBox6.Parent" xml:space="preserve">
+  <data name="&gt;&gt;RestartIfTheIdleStateResumesCheckBox.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
-  <data name="&gt;&gt;checkBox6.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;RestartIfTheIdleStateResumesCheckBox.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="checkBox5.AutoSize" type="System.Boolean, mscorlib">
+  <data name="StopIfTheComputerCeasesToBeIdleCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="checkBox5.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="StopIfTheComputerCeasesToBeIdleCheckBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>25, 73</value>
   </data>
-  <data name="checkBox5.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="StopIfTheComputerCeasesToBeIdleCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>224, 19</value>
   </data>
-  <data name="checkBox5.TabIndex" type="System.Int32, mscorlib">
+  <data name="StopIfTheComputerCeasesToBeIdleCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="checkBox5.Text" xml:space="preserve">
+  <data name="StopIfTheComputerCeasesToBeIdleCheckBox.Text" xml:space="preserve">
     <value>Stop if the computer ceases to be idle</value>
   </data>
-  <data name="&gt;&gt;checkBox5.Name" xml:space="preserve">
-    <value>checkBox5</value>
+  <data name="&gt;&gt;StopIfTheComputerCeasesToBeIdleCheckBox.Name" xml:space="preserve">
+    <value>StopIfTheComputerCeasesToBeIdleCheckBox</value>
   </data>
-  <data name="&gt;&gt;checkBox5.Type" xml:space="preserve">
+  <data name="&gt;&gt;StopIfTheComputerCeasesToBeIdleCheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;checkBox5.Parent" xml:space="preserve">
+  <data name="&gt;&gt;StopIfTheComputerCeasesToBeIdleCheckBox.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
-  <data name="&gt;&gt;checkBox5.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;StopIfTheComputerCeasesToBeIdleCheckBox.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="checkBox4.AutoSize" type="System.Boolean, mscorlib">
+  <data name="StartTheTaskOnlyIfTheComputerIsIdleForCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="checkBox4.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="StartTheTaskOnlyIfTheComputerIsIdleForCheckBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 19</value>
   </data>
-  <data name="checkBox4.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="StartTheTaskOnlyIfTheComputerIsIdleForCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>259, 19</value>
   </data>
-  <data name="checkBox4.TabIndex" type="System.Int32, mscorlib">
+  <data name="StartTheTaskOnlyIfTheComputerIsIdleForCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="checkBox4.Text" xml:space="preserve">
+  <data name="StartTheTaskOnlyIfTheComputerIsIdleForCheckBox.Text" xml:space="preserve">
     <value>Start the task only if the computer is idle for:</value>
   </data>
-  <data name="&gt;&gt;checkBox4.Name" xml:space="preserve">
-    <value>checkBox4</value>
+  <data name="&gt;&gt;StartTheTaskOnlyIfTheComputerIsIdleForCheckBox.Name" xml:space="preserve">
+    <value>StartTheTaskOnlyIfTheComputerIsIdleForCheckBox</value>
   </data>
-  <data name="&gt;&gt;checkBox4.Type" xml:space="preserve">
+  <data name="&gt;&gt;StartTheTaskOnlyIfTheComputerIsIdleForCheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;checkBox4.Parent" xml:space="preserve">
+  <data name="&gt;&gt;StartTheTaskOnlyIfTheComputerIsIdleForCheckBox.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
-  <data name="&gt;&gt;checkBox4.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;StartTheTaskOnlyIfTheComputerIsIdleForCheckBox.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
@@ -806,85 +813,85 @@ Recreating Task Scheduler settings to modify here.</value>
   <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="checkBox7.AutoSize" type="System.Boolean, mscorlib">
+  <data name="StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="checkBox7.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 19</value>
   </data>
-  <data name="checkBox7.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>288, 19</value>
   </data>
-  <data name="checkBox7.TabIndex" type="System.Int32, mscorlib">
+  <data name="StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="checkBox7.Text" xml:space="preserve">
+  <data name="StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox.Text" xml:space="preserve">
     <value>Start the task only if the computer is on AC power</value>
   </data>
-  <data name="&gt;&gt;checkBox7.Name" xml:space="preserve">
-    <value>checkBox7</value>
+  <data name="&gt;&gt;StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox.Name" xml:space="preserve">
+    <value>StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox</value>
   </data>
-  <data name="&gt;&gt;checkBox7.Type" xml:space="preserve">
+  <data name="&gt;&gt;StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;checkBox7.Parent" xml:space="preserve">
+  <data name="&gt;&gt;StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox.Parent" xml:space="preserve">
     <value>groupBox5</value>
   </data>
-  <data name="&gt;&gt;checkBox7.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="checkBox8.AutoSize" type="System.Boolean, mscorlib">
+  <data name="StopIfTheComputerSwitchesToBatteryPowerCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="checkBox8.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="StopIfTheComputerSwitchesToBatteryPowerCheckBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>21, 44</value>
   </data>
-  <data name="checkBox8.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="StopIfTheComputerSwitchesToBatteryPowerCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>273, 19</value>
   </data>
-  <data name="checkBox8.TabIndex" type="System.Int32, mscorlib">
+  <data name="StopIfTheComputerSwitchesToBatteryPowerCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="checkBox8.Text" xml:space="preserve">
+  <data name="StopIfTheComputerSwitchesToBatteryPowerCheckBox.Text" xml:space="preserve">
     <value>Stop if the computer switches to battery power</value>
   </data>
-  <data name="&gt;&gt;checkBox8.Name" xml:space="preserve">
-    <value>checkBox8</value>
+  <data name="&gt;&gt;StopIfTheComputerSwitchesToBatteryPowerCheckBox.Name" xml:space="preserve">
+    <value>StopIfTheComputerSwitchesToBatteryPowerCheckBox</value>
   </data>
-  <data name="&gt;&gt;checkBox8.Type" xml:space="preserve">
+  <data name="&gt;&gt;StopIfTheComputerSwitchesToBatteryPowerCheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;checkBox8.Parent" xml:space="preserve">
+  <data name="&gt;&gt;StopIfTheComputerSwitchesToBatteryPowerCheckBox.Parent" xml:space="preserve">
     <value>groupBox5</value>
   </data>
-  <data name="&gt;&gt;checkBox8.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;StopIfTheComputerSwitchesToBatteryPowerCheckBox.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="checkBox9.AutoSize" type="System.Boolean, mscorlib">
+  <data name="WakeTheComputerToRunThisTaskCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="checkBox9.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="WakeTheComputerToRunThisTaskCheckBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 69</value>
   </data>
-  <data name="checkBox9.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="WakeTheComputerToRunThisTaskCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 19</value>
   </data>
-  <data name="checkBox9.TabIndex" type="System.Int32, mscorlib">
+  <data name="WakeTheComputerToRunThisTaskCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="checkBox9.Text" xml:space="preserve">
+  <data name="WakeTheComputerToRunThisTaskCheckBox.Text" xml:space="preserve">
     <value>Wake the computer to run this task</value>
   </data>
-  <data name="&gt;&gt;checkBox9.Name" xml:space="preserve">
-    <value>checkBox9</value>
+  <data name="&gt;&gt;WakeTheComputerToRunThisTaskCheckBox.Name" xml:space="preserve">
+    <value>WakeTheComputerToRunThisTaskCheckBox</value>
   </data>
-  <data name="&gt;&gt;checkBox9.Type" xml:space="preserve">
+  <data name="&gt;&gt;WakeTheComputerToRunThisTaskCheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;checkBox9.Parent" xml:space="preserve">
+  <data name="&gt;&gt;WakeTheComputerToRunThisTaskCheckBox.Parent" xml:space="preserve">
     <value>groupBox5</value>
   </data>
-  <data name="&gt;&gt;checkBox9.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;WakeTheComputerToRunThisTaskCheckBox.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
@@ -938,361 +945,361 @@ Recreating Task Scheduler settings to modify here.</value>
   <data name="&gt;&gt;tabPage3.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="comboBox5.Items" xml:space="preserve">
+  <data name="StopTheTaskIfItRunsLongerThanComboBox.Items" xml:space="preserve">
     <value>1 hour</value>
   </data>
-  <data name="comboBox5.Items1" xml:space="preserve">
+  <data name="StopTheTaskIfItRunsLongerThanComboBox.Items1" xml:space="preserve">
     <value>2 hours</value>
   </data>
-  <data name="comboBox5.Items2" xml:space="preserve">
+  <data name="StopTheTaskIfItRunsLongerThanComboBox.Items2" xml:space="preserve">
     <value>4 hours</value>
   </data>
-  <data name="comboBox5.Items3" xml:space="preserve">
+  <data name="StopTheTaskIfItRunsLongerThanComboBox.Items3" xml:space="preserve">
     <value>8 hours</value>
   </data>
-  <data name="comboBox5.Items4" xml:space="preserve">
+  <data name="StopTheTaskIfItRunsLongerThanComboBox.Items4" xml:space="preserve">
     <value>12 hours</value>
   </data>
-  <data name="comboBox5.Items5" xml:space="preserve">
+  <data name="StopTheTaskIfItRunsLongerThanComboBox.Items5" xml:space="preserve">
     <value>1 day</value>
   </data>
-  <data name="comboBox5.Items6" xml:space="preserve">
+  <data name="StopTheTaskIfItRunsLongerThanComboBox.Items6" xml:space="preserve">
     <value>3 days</value>
   </data>
-  <data name="comboBox5.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="StopTheTaskIfItRunsLongerThanComboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>270, 113</value>
   </data>
-  <data name="comboBox5.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="StopTheTaskIfItRunsLongerThanComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 23</value>
   </data>
-  <data name="comboBox5.TabIndex" type="System.Int32, mscorlib">
+  <data name="StopTheTaskIfItRunsLongerThanComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="&gt;&gt;comboBox5.Name" xml:space="preserve">
-    <value>comboBox5</value>
+  <data name="&gt;&gt;StopTheTaskIfItRunsLongerThanComboBox.Name" xml:space="preserve">
+    <value>StopTheTaskIfItRunsLongerThanComboBox</value>
   </data>
-  <data name="&gt;&gt;comboBox5.Type" xml:space="preserve">
+  <data name="&gt;&gt;StopTheTaskIfItRunsLongerThanComboBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;comboBox5.Parent" xml:space="preserve">
+  <data name="&gt;&gt;StopTheTaskIfItRunsLongerThanComboBox.Parent" xml:space="preserve">
     <value>tabPage4</value>
   </data>
-  <data name="&gt;&gt;comboBox5.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;StopTheTaskIfItRunsLongerThanComboBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+  <data name="TimesLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="TimesLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>306, 91</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TimesLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>36, 15</value>
   </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+  <data name="TimesLabel.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="label4.Text" xml:space="preserve">
+  <data name="TimesLabel.Text" xml:space="preserve">
     <value>times</value>
   </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
+  <data name="&gt;&gt;TimesLabel.Name" xml:space="preserve">
+    <value>TimesLabel</value>
   </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+  <data name="&gt;&gt;TimesLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+  <data name="&gt;&gt;TimesLabel.Parent" xml:space="preserve">
     <value>tabPage4</value>
   </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;TimesLabel.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="AttemptToRestartUpToTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>270, 83</value>
   </data>
-  <data name="textBox1.MaxLength" type="System.Int32, mscorlib">
+  <data name="AttemptToRestartUpToTextBox.MaxLength" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="AttemptToRestartUpToTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>30, 23</value>
   </data>
-  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="AttemptToRestartUpToTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
-    <value>textBox1</value>
+  <data name="&gt;&gt;AttemptToRestartUpToTextBox.Name" xml:space="preserve">
+    <value>AttemptToRestartUpToTextBox</value>
   </data>
-  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;AttemptToRestartUpToTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;AttemptToRestartUpToTextBox.Parent" xml:space="preserve">
     <value>tabPage4</value>
   </data>
-  <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;AttemptToRestartUpToTextBox.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="comboBox4.Items" xml:space="preserve">
+  <data name="IfTheTaskFailsRestartEveryComboBox.Items" xml:space="preserve">
     <value>1 minute</value>
   </data>
-  <data name="comboBox4.Items1" xml:space="preserve">
+  <data name="IfTheTaskFailsRestartEveryComboBox.Items1" xml:space="preserve">
     <value>5 minutes</value>
   </data>
-  <data name="comboBox4.Items2" xml:space="preserve">
+  <data name="IfTheTaskFailsRestartEveryComboBox.Items2" xml:space="preserve">
     <value>10 minutes</value>
   </data>
-  <data name="comboBox4.Items3" xml:space="preserve">
+  <data name="IfTheTaskFailsRestartEveryComboBox.Items3" xml:space="preserve">
     <value>15 minutes</value>
   </data>
-  <data name="comboBox4.Items4" xml:space="preserve">
+  <data name="IfTheTaskFailsRestartEveryComboBox.Items4" xml:space="preserve">
     <value>30 minutes</value>
   </data>
-  <data name="comboBox4.Items5" xml:space="preserve">
+  <data name="IfTheTaskFailsRestartEveryComboBox.Items5" xml:space="preserve">
     <value>1 hour</value>
   </data>
-  <data name="comboBox4.Items6" xml:space="preserve">
+  <data name="IfTheTaskFailsRestartEveryComboBox.Items6" xml:space="preserve">
     <value>2 hours</value>
   </data>
-  <data name="comboBox4.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="IfTheTaskFailsRestartEveryComboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>270, 54</value>
   </data>
-  <data name="comboBox4.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="IfTheTaskFailsRestartEveryComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 23</value>
   </data>
-  <data name="comboBox4.TabIndex" type="System.Int32, mscorlib">
+  <data name="IfTheTaskFailsRestartEveryComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;comboBox4.Name" xml:space="preserve">
-    <value>comboBox4</value>
+  <data name="&gt;&gt;IfTheTaskFailsRestartEveryComboBox.Name" xml:space="preserve">
+    <value>IfTheTaskFailsRestartEveryComboBox</value>
   </data>
-  <data name="&gt;&gt;comboBox4.Type" xml:space="preserve">
+  <data name="&gt;&gt;IfTheTaskFailsRestartEveryComboBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;comboBox4.Parent" xml:space="preserve">
+  <data name="&gt;&gt;IfTheTaskFailsRestartEveryComboBox.Parent" xml:space="preserve">
     <value>tabPage4</value>
   </data>
-  <data name="&gt;&gt;comboBox4.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;IfTheTaskFailsRestartEveryComboBox.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+  <data name="AttemptToRestartUpToLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="AttemptToRestartUpToLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>22, 87</value>
   </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="AttemptToRestartUpToLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>135, 15</value>
   </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+  <data name="AttemptToRestartUpToLabel.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="label3.Text" xml:space="preserve">
+  <data name="AttemptToRestartUpToLabel.Text" xml:space="preserve">
     <value>Attempt to restart up to:</value>
   </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
+  <data name="&gt;&gt;AttemptToRestartUpToLabel.Name" xml:space="preserve">
+    <value>AttemptToRestartUpToLabel</value>
   </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+  <data name="&gt;&gt;AttemptToRestartUpToLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;AttemptToRestartUpToLabel.Parent" xml:space="preserve">
     <value>tabPage4</value>
   </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;AttemptToRestartUpToLabel.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="comboBox3.Items" xml:space="preserve">
+  <data name="IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.Items" xml:space="preserve">
     <value>Do not start a new instance</value>
   </data>
-  <data name="comboBox3.Items1" xml:space="preserve">
+  <data name="IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.Items1" xml:space="preserve">
     <value>Run a new instance in parallel</value>
   </data>
-  <data name="comboBox3.Items2" xml:space="preserve">
+  <data name="IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.Items2" xml:space="preserve">
     <value>Queue a new instance</value>
   </data>
-  <data name="comboBox3.Items3" xml:space="preserve">
+  <data name="IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.Items3" xml:space="preserve">
     <value>Stop the existing instance</value>
   </data>
-  <data name="comboBox3.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 205</value>
   </data>
-  <data name="comboBox3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>229, 23</value>
   </data>
-  <data name="comboBox3.TabIndex" type="System.Int32, mscorlib">
+  <data name="IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;comboBox3.Name" xml:space="preserve">
-    <value>comboBox3</value>
+  <data name="&gt;&gt;IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.Name" xml:space="preserve">
+    <value>IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox</value>
   </data>
-  <data name="&gt;&gt;comboBox3.Type" xml:space="preserve">
+  <data name="&gt;&gt;IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;comboBox3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.Parent" xml:space="preserve">
     <value>tabPage4</value>
   </data>
-  <data name="&gt;&gt;comboBox3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+  <data name="IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 178</value>
   </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>324, 15</value>
   </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+  <data name="IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="label2.Text" xml:space="preserve">
+  <data name="IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel.Text" xml:space="preserve">
     <value>If the task is already running, then the following rule applies:</value>
   </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
+  <data name="&gt;&gt;IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel.Name" xml:space="preserve">
+    <value>IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel</value>
   </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+  <data name="&gt;&gt;IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel.Parent" xml:space="preserve">
     <value>tabPage4</value>
   </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="checkBox14.AutoSize" type="System.Boolean, mscorlib">
+  <data name="IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="checkBox14.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 142</value>
   </data>
-  <data name="checkBox14.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>364, 19</value>
   </data>
-  <data name="checkBox14.TabIndex" type="System.Int32, mscorlib">
+  <data name="IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="checkBox14.Text" xml:space="preserve">
+  <data name="IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox.Text" xml:space="preserve">
     <value>If the running task does not end when requested, force it to stop</value>
   </data>
-  <data name="&gt;&gt;checkBox14.Name" xml:space="preserve">
-    <value>checkBox14</value>
+  <data name="&gt;&gt;IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox.Name" xml:space="preserve">
+    <value>IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox</value>
   </data>
-  <data name="&gt;&gt;checkBox14.Type" xml:space="preserve">
+  <data name="&gt;&gt;IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;checkBox14.Parent" xml:space="preserve">
+  <data name="&gt;&gt;IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox.Parent" xml:space="preserve">
     <value>tabPage4</value>
   </data>
-  <data name="&gt;&gt;checkBox14.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="checkBox13.AutoSize" type="System.Boolean, mscorlib">
+  <data name="StopTheTaskIfItRunsLongerThanCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="checkBox13.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="StopTheTaskIfItRunsLongerThanCheckBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 117</value>
   </data>
-  <data name="checkBox13.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="StopTheTaskIfItRunsLongerThanCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>207, 19</value>
   </data>
-  <data name="checkBox13.TabIndex" type="System.Int32, mscorlib">
+  <data name="StopTheTaskIfItRunsLongerThanCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="checkBox13.Text" xml:space="preserve">
+  <data name="StopTheTaskIfItRunsLongerThanCheckBox.Text" xml:space="preserve">
     <value>Stop the task if it runs longer than:</value>
   </data>
-  <data name="&gt;&gt;checkBox13.Name" xml:space="preserve">
-    <value>checkBox13</value>
+  <data name="&gt;&gt;StopTheTaskIfItRunsLongerThanCheckBox.Name" xml:space="preserve">
+    <value>StopTheTaskIfItRunsLongerThanCheckBox</value>
   </data>
-  <data name="&gt;&gt;checkBox13.Type" xml:space="preserve">
+  <data name="&gt;&gt;StopTheTaskIfItRunsLongerThanCheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;checkBox13.Parent" xml:space="preserve">
+  <data name="&gt;&gt;StopTheTaskIfItRunsLongerThanCheckBox.Parent" xml:space="preserve">
     <value>tabPage4</value>
   </data>
-  <data name="&gt;&gt;checkBox13.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;StopTheTaskIfItRunsLongerThanCheckBox.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="checkBox12.AutoSize" type="System.Boolean, mscorlib">
+  <data name="IfTheTaskFailsRestartEveryCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="checkBox12.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="IfTheTaskFailsRestartEveryCheckBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 56</value>
   </data>
-  <data name="checkBox12.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="IfTheTaskFailsRestartEveryCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 19</value>
   </data>
-  <data name="checkBox12.TabIndex" type="System.Int32, mscorlib">
+  <data name="IfTheTaskFailsRestartEveryCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="checkBox12.Text" xml:space="preserve">
+  <data name="IfTheTaskFailsRestartEveryCheckBox.Text" xml:space="preserve">
     <value>If the task fails, restart every:</value>
   </data>
-  <data name="&gt;&gt;checkBox12.Name" xml:space="preserve">
-    <value>checkBox12</value>
+  <data name="&gt;&gt;IfTheTaskFailsRestartEveryCheckBox.Name" xml:space="preserve">
+    <value>IfTheTaskFailsRestartEveryCheckBox</value>
   </data>
-  <data name="&gt;&gt;checkBox12.Type" xml:space="preserve">
+  <data name="&gt;&gt;IfTheTaskFailsRestartEveryCheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;checkBox12.Parent" xml:space="preserve">
+  <data name="&gt;&gt;IfTheTaskFailsRestartEveryCheckBox.Parent" xml:space="preserve">
     <value>tabPage4</value>
   </data>
-  <data name="&gt;&gt;checkBox12.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;IfTheTaskFailsRestartEveryCheckBox.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="checkBox11.AutoSize" type="System.Boolean, mscorlib">
+  <data name="RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="checkBox11.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 31</value>
   </data>
-  <data name="checkBox11.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>344, 19</value>
   </data>
-  <data name="checkBox11.TabIndex" type="System.Int32, mscorlib">
+  <data name="RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="checkBox11.Text" xml:space="preserve">
+  <data name="RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox.Text" xml:space="preserve">
     <value>Run task as soon as possible after a scheduled start is missed</value>
   </data>
-  <data name="&gt;&gt;checkBox11.Name" xml:space="preserve">
-    <value>checkBox11</value>
+  <data name="&gt;&gt;RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox.Name" xml:space="preserve">
+    <value>RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox</value>
   </data>
-  <data name="&gt;&gt;checkBox11.Type" xml:space="preserve">
+  <data name="&gt;&gt;RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;checkBox11.Parent" xml:space="preserve">
+  <data name="&gt;&gt;RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox.Parent" xml:space="preserve">
     <value>tabPage4</value>
   </data>
-  <data name="&gt;&gt;checkBox11.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;RunTaskAsSoonAsPossibleAfterAScheduledStartIsMissedCheckBox.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="checkBox10.AutoSize" type="System.Boolean, mscorlib">
+  <data name="AllowTaskToBeRunOnDemandCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="checkBox10.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="AllowTaskToBeRunOnDemandCheckBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 6</value>
   </data>
-  <data name="checkBox10.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="AllowTaskToBeRunOnDemandCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>195, 19</value>
   </data>
-  <data name="checkBox10.TabIndex" type="System.Int32, mscorlib">
+  <data name="AllowTaskToBeRunOnDemandCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="checkBox10.Text" xml:space="preserve">
+  <data name="AllowTaskToBeRunOnDemandCheckBox.Text" xml:space="preserve">
     <value>Allow task to be run on demand</value>
   </data>
-  <data name="&gt;&gt;checkBox10.Name" xml:space="preserve">
-    <value>checkBox10</value>
+  <data name="&gt;&gt;AllowTaskToBeRunOnDemandCheckBox.Name" xml:space="preserve">
+    <value>AllowTaskToBeRunOnDemandCheckBox</value>
   </data>
-  <data name="&gt;&gt;checkBox10.Type" xml:space="preserve">
+  <data name="&gt;&gt;AllowTaskToBeRunOnDemandCheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;checkBox10.Parent" xml:space="preserve">
+  <data name="&gt;&gt;AllowTaskToBeRunOnDemandCheckBox.Parent" xml:space="preserve">
     <value>tabPage4</value>
   </data>
-  <data name="&gt;&gt;checkBox10.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;AllowTaskToBeRunOnDemandCheckBox.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
   <data name="tabPage4.Location" type="System.Drawing.Point, System.Drawing">
@@ -1365,7 +1372,7 @@ Recreating Task Scheduler settings to modify here.</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="OpenTaskSchedulerButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1398,6 +1405,36 @@ Recreating Task Scheduler settings to modify here.</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;OpenTaskSchedulerButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="AdvancedScheduleSaveButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="AdvancedScheduleSaveButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="AdvancedScheduleSaveButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>119, 421</value>
+  </data>
+  <data name="AdvancedScheduleSaveButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="AdvancedScheduleSaveButton.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="AdvancedScheduleSaveButton.Text" xml:space="preserve">
+    <value>Save Task</value>
+  </data>
+  <data name="&gt;&gt;AdvancedScheduleSaveButton.Name" xml:space="preserve">
+    <value>AdvancedScheduleSaveButton</value>
+  </data>
+  <data name="&gt;&gt;AdvancedScheduleSaveButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AdvancedScheduleSaveButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;AdvancedScheduleSaveButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

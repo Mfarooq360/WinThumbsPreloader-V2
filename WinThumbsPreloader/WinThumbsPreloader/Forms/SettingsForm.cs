@@ -12,11 +12,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinThumbsPreloader.Forms;
 using WinThumbsPreloader.Properties;
+using static WinThumbsPreloader.Logger;
 
 namespace WinThumbsPreloader
 {
     [SupportedOSPlatform("windows")]
-    public partial class SettingsForm : Form //Add specification of thumbnail cache size. 
+    public partial class SettingsForm : Form //Add swapping of preload button options between recursive and bulk so they can swap between shift and ctrl
     {
         public SettingsForm()
         {
@@ -49,6 +50,7 @@ namespace WinThumbsPreloader
         {
             if (e.CloseReason == CloseReason.UserClosing && (Control.ModifierKeys & Keys.Shift) == Keys.Shift)
             {
+                WriteLine("Exiting application from SettingsForm", LoggingFrequency.DebugLogging);
                 Environment.Exit(0); // Exit the entire application
             }
         }
@@ -73,6 +75,7 @@ namespace WinThumbsPreloader
         {
             Settings.Default.Admin = AdminCheckBox.Checked;
             Settings.Default.Save();
+            WriteLine("Run as administrator: " + AdminCheckBox.Checked, LoggingFrequency.DebugLogging);
             SetRunAsAdmin();
             // If the application isn't running as administrator, restart it as administrator
             if (!IsRunningAsAdministrator() && AdminCheckBox.Checked)
@@ -83,19 +86,36 @@ namespace WinThumbsPreloader
 
         public static void SetRunAsAdmin()
         {
+            WriteLine("Setting run as administrator flag", LoggingFrequency.DebugLogging);
             string key = @"HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers";
+            WriteLine("Key: " + key, LoggingFrequency.DebugLogging);
             string applicationPath = Path.Combine(AppContext.BaseDirectory, $"{AppDomain.CurrentDomain.FriendlyName}.exe");
+            WriteLine("Application path: " + applicationPath, LoggingFrequency.DebugLogging);
 
             if (Settings.Default.Admin)
             {
                 // Add run as administrator flag
-                Microsoft.Win32.Registry.SetValue(key, applicationPath, "~ RUNASADMIN");
+                try
+                {
+                    Microsoft.Win32.Registry.SetValue(key, applicationPath, "~ RUNASADMIN");
+                }
+                catch (Exception ex)
+                {
+                    WriteLine("Error setting run as administrator flag: " + ex.Message, LoggingFrequency.GUILogging);
+                }
             }
             else
             {
                 // Remove run as administrator flag
-                var keyObj = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers", true);
-                keyObj.DeleteValue(applicationPath, false);
+                try
+                {
+                    var keyObj = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers", true);
+                    keyObj.DeleteValue(applicationPath, false);
+                }
+                catch (Exception ex)
+                {
+                    WriteLine("Error removing run as administrator flag: " + ex.Message, LoggingFrequency.GUILogging);
+                }
             }
         }
 
@@ -103,13 +123,16 @@ namespace WinThumbsPreloader
         {
             var identity = WindowsIdentity.GetCurrent();
             var principal = new WindowsPrincipal(identity);
-            return principal.IsInRole(WindowsBuiltInRole.Administrator);
+            var runningAsAdministrator = principal.IsInRole(WindowsBuiltInRole.Administrator);
+            WriteLine("Running as administrator: " + runningAsAdministrator, LoggingFrequency.DebugLogging);
+            return runningAsAdministrator;
         }
 
         private void DefaultExtensionsButton_Click(object sender, EventArgs e)
         {
             Settings.Default.ExtensionsText = "avif, bmp, gif, heic, heif, jpg, jpeg, mkv, mov, mp4, png, svg, tif, tiff, webp";
             ExtensionsTextBox.Text = Settings.Default.ExtensionsText;
+            WriteLine("Default extensions applied", LoggingFrequency.DebugLogging);
             UpdateExtensionsTextBoxDisplay();
         }
 
@@ -117,6 +140,7 @@ namespace WinThumbsPreloader
         {
             Settings.Default.ExtensionsText = "";
             ExtensionsTextBox.Text = Settings.Default.ExtensionsText;
+            WriteLine("Extensions text cleared", LoggingFrequency.DebugLogging);
         }
 
         private void ExtensionsTextBox_TextChanged(object sender, EventArgs e)
@@ -127,6 +151,8 @@ namespace WinThumbsPreloader
                 // Save the user's raw input
                 Settings.Default.ExtensionsText = textBox.Text;
                 Settings.Default.Save();
+                WriteLine("Extensions text changed", LoggingFrequency.DebugLogging);
+                WriteLine("Extensions text: " + textBox.Text, LoggingFrequency.DebugLogging);
             }
         }
 
@@ -137,12 +163,14 @@ namespace WinThumbsPreloader
 
         public void UpdateExtensionsTextBoxDisplay()
         {
+            WriteLine("Updating extensions text box display", LoggingFrequency.DebugLogging);
             // Prevent recursive updates
             ExtensionsTextBox.LostFocus -= ExtensionsTextBox_LostFocus;
 
             // Get the current sorting method from settings
             SortingMethod method = (SortingMethod)Enum.Parse(typeof(SortingMethod), Settings.Default.ExtensionsAutoFormatting);
             ExtensionsTextBox.Text = OrganizeExtensions(ExtensionsTextBox.Text, method);
+            WriteLine("ExtensionsTextBox.Text: " + ExtensionsTextBox.Text, LoggingFrequency.DebugLogging);
 
             // Reattach the LostFocus event handler
             ExtensionsTextBox.LostFocus += ExtensionsTextBox_LostFocus;
@@ -159,6 +187,7 @@ namespace WinThumbsPreloader
 
         private string OrganizeExtensions(string text, SortingMethod method)
         {
+            WriteLine("Organizing extensions", LoggingFrequency.DebugLogging);
             var extensions = text.Split(new[] { ',', ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
             switch (method)
@@ -207,22 +236,28 @@ namespace WinThumbsPreloader
                     if (files != null && files.Length > 0)
                     {
                         string fileContent = await File.ReadAllTextAsync(files[0]);
+                        WriteLine("File content: " + fileContent, LoggingFrequency.DebugLogging);
                         ExtensionsTextBox.Text = fileContent.Length > 10000 ? fileContent.Substring(0, 10000) : fileContent;
+                        WriteLine("ExtensionsTextBox.Text: " + ExtensionsTextBox.Text, LoggingFrequency.DebugLogging);
                     }
                 }
                 else if (e.Data.GetDataPresent(DataFormats.Text))
                 {
                     // Handle text drop
                     string text = (string)e.Data.GetData(DataFormats.Text);
-                    ExtensionsTextBox.Text = text;
+                    WriteLine("Text: " + text, LoggingFrequency.DebugLogging);
+                    ExtensionsTextBox.Text = text.Length > 10000 ? text.Substring(0, 10000) : text;
+                    WriteLine("ExtensionsTextBox.Text: " + ExtensionsTextBox.Text, LoggingFrequency.DebugLogging);
                 }
 
                 // Save the new content to settings
                 Settings.Default.ExtensionsText = ExtensionsTextBox.Text;
                 Settings.Default.Save();
+                WriteLine("Extensions text updated from drag and drop", LoggingFrequency.DebugLogging);
             }
             catch (Exception ex)
             {
+                WriteLine("Error processing text: " + ex.Message, LoggingFrequency.GUILogging);
                 MessageBox.Show("Error processing text: " + ex.Message);
             }
         }
@@ -234,12 +269,14 @@ namespace WinThumbsPreloader
             MultithreadedCheckBox.Checked = true;
             Settings.Default.Multithreaded = true;
             Settings.Default.Save();
+            WriteLine("Default thread count and multithreaded settings applied", LoggingFrequency.DebugLogging);
         }
 
         private void MultithreadedCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             Settings.Default.Multithreaded = MultithreadedCheckBox.Checked;
             Settings.Default.Save();
+            WriteLine("Multithreaded: " + MultithreadedCheckBox.Checked, LoggingFrequency.DebugLogging);
         }
 
         private void ThreadsNumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -249,6 +286,7 @@ namespace WinThumbsPreloader
             {
                 Settings.Default.ThreadCount = (int)numericUpDown.Value;
                 Settings.Default.Save();
+                WriteLine("Thread count: " + (int)numericUpDown.Value, LoggingFrequency.DebugLogging);
             }
         }
 
@@ -256,16 +294,19 @@ namespace WinThumbsPreloader
         {
             if (CloseButton.Text == "Close")
             {
+                WriteLine("Closing settings form", LoggingFrequency.DebugLogging);
                 Close();
             }
             else if (CloseButton.Text == "Exit")
             {
+                WriteLine("Exiting application", LoggingFrequency.DebugLogging);
                 Environment.Exit(0);
             }
         }
 
         private void ScheduleButton_Click(object sender, EventArgs e)
         {
+            WriteLine("Opening schedule form", LoggingFrequency.DebugLogging);
             ScheduleForm scheduleForm = new ScheduleForm();
             this.OpenFormCentered(scheduleForm);
         }
@@ -274,10 +315,12 @@ namespace WinThumbsPreloader
         {
             Settings.Default.PreloadFolderIcons = FolderIconsCheckBox.Checked;
             Settings.Default.Save();
+            WriteLine("Preload folder icons: " + FolderIconsCheckBox.Checked, LoggingFrequency.DebugLogging);
         }
 
         private void CacheButton_Click(object sender, EventArgs e)
         {
+            WriteLine("Opening cache form", LoggingFrequency.DebugLogging);
             CacheForm cacheForm = new CacheForm();
             this.OpenFormCentered(cacheForm);
         }
@@ -316,6 +359,7 @@ namespace WinThumbsPreloader
 
         private void ExportButton_Click(object sender, EventArgs e)
         {
+            WriteLine("Exporting extensions", LoggingFrequency.DebugLogging);
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
                 // Set properties of SaveFileDialog
@@ -336,6 +380,7 @@ namespace WinThumbsPreloader
 
         private void AdvancedButton_Click(object sender, EventArgs e)
         {
+            WriteLine("Opening advanced settings form", LoggingFrequency.DebugLogging);
             AdvancedSettingsForm advancedSettingsForm = new AdvancedSettingsForm();
             this.OpenSecondaryFormCentered(advancedSettingsForm);
         }
