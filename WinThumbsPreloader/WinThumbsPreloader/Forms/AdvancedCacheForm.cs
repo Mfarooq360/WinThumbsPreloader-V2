@@ -100,6 +100,7 @@ namespace WinThumbsPreloader.Forms
             AutoRestoreIntervalNumericUpDown.Value = 5;
             CacheSizeFormatComboBox.SelectedItem = "MB";
             ExplorerCacheDeletionMethodComboBox.SelectedItem = "Manual Deletion";
+            ManualDeletionFrequencyComboBox.SelectedItem = "On Deletion Start";
             SaveButton_Click(sender, e);
         }
 

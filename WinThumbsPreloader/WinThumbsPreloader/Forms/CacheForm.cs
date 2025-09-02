@@ -226,7 +226,7 @@ namespace WinThumbsPreloader
             // Choose the format based on the size if format is set to "auto"
             if (format == "Auto")
             {
-                if (bytes < 1024) // Less than 1 KB
+                if (bytes < 1024 * 1024) // Less than 1 KB
                 {
                     individualFormat = "KB";
                 }
@@ -243,7 +243,9 @@ namespace WinThumbsPreloader
             switch (individualFormat)
             {
                 case "KB":
-                    return $"{bytes / 1024.0:N0} KB";
+                    double kilobytes = bytes / 1024.0;
+                    string kbFormat = kilobytes < 10 ? "N2" : kilobytes < 100 ? "N2" : "N0";
+                    return $"{kilobytes.ToString(kbFormat)} KB";
 
                 case "GB":
                     double gigabytes = bytes / (1024.0 * 1024.0 * 1024.0);

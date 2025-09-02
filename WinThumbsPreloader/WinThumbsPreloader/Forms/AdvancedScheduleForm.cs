@@ -41,7 +41,7 @@ namespace WinThumbsPreloader.Forms
             {
                 DriveSortComboBox.SelectedItem = savedSortChoice;
             }
-            LoadAdvancedTaskDetails();
+            /*LoadAdvancedTaskDetails();*/
         }
 
         private void CloseButton_Click(object sender, EventArgs e)

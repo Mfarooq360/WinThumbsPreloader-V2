@@ -184,6 +184,7 @@
             // 
             resources.ApplyResources(GeneralDescriptionTextBox, "GeneralDescriptionTextBox");
             GeneralDescriptionTextBox.Name = "GeneralDescriptionTextBox";
+            GeneralDescriptionTextBox.ReadOnly = true;
             GeneralDescriptionTextBox.TextChanged += GeneralDescriptionTextBox_TextChanged;
             // 
             // GeneralHiddenCheckBox

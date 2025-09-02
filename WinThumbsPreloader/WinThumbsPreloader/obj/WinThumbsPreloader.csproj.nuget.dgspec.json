@@ -1,32 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mutah\\Source\\Repos\\WinThumbsPreloader-V2\\WinThumbsPreloader\\WinThumbsPreloader\\WinThumbsPreloader.csproj": {}
+    "C:\\Users\\mutah\\Source\\Repos\\WinThumbsPreloader-V2.0.0\\WinThumbsPreloader\\WinThumbsPreloader\\WinThumbsPreloader.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mutah\\Source\\Repos\\WinThumbsPreloader-V2\\WinThumbsPreloader\\WinThumbsPreloader\\WinThumbsPreloader.csproj": {
+    "C:\\Users\\mutah\\Source\\Repos\\WinThumbsPreloader-V2.0.0\\WinThumbsPreloader\\WinThumbsPreloader\\WinThumbsPreloader.csproj": {
       "version": "1.2.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mutah\\Source\\Repos\\WinThumbsPreloader-V2\\WinThumbsPreloader\\WinThumbsPreloader\\WinThumbsPreloader.csproj",
+        "projectUniqueName": "C:\\Users\\mutah\\Source\\Repos\\WinThumbsPreloader-V2.0.0\\WinThumbsPreloader\\WinThumbsPreloader\\WinThumbsPreloader.csproj",
         "projectName": "WinThumbsPreloader",
-        "projectPath": "C:\\Users\\mutah\\Source\\Repos\\WinThumbsPreloader-V2\\WinThumbsPreloader\\WinThumbsPreloader\\WinThumbsPreloader.csproj",
+        "projectPath": "C:\\Users\\mutah\\Source\\Repos\\WinThumbsPreloader-V2.0.0\\WinThumbsPreloader\\WinThumbsPreloader\\WinThumbsPreloader.csproj",
         "packagesPath": "C:\\Users\\mutah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mutah\\Source\\Repos\\WinThumbsPreloader-V2\\WinThumbsPreloader\\WinThumbsPreloader\\obj\\",
+        "outputPath": "C:\\Users\\mutah\\source\\repos\\WinThumbsPreloader-V2.0.0\\WinThumbsPreloader\\WinThumbsPreloader\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\mutah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows"
+          "net9.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0-windows7.0": {
-            "targetAlias": "net6.0-windows",
+          "net9.0-windows7.0": {
+            "targetAlias": "net9.0-windows",
             "projectReferences": {}
           }
         },
@@ -39,26 +43,21 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
-        "net6.0-windows7.0": {
-          "targetAlias": "net6.0-windows",
+        "net9.0-windows7.0": {
+          "targetAlias": "net9.0-windows",
           "dependencies": {
             "Microsoft.CSharp": {
               "target": "Package",
               "version": "[4.7.0, )"
             },
-            "Microsoft.NET.ILLink.Analyzers": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[7.0.100-1.23211.1, )",
-              "autoReferenced": true
-            },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.100-1.23211.1, )",
+              "version": "[9.0.7, )",
               "autoReferenced": true
             },
             "Microsoft.Win32.Registry": {
@@ -93,7 +92,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

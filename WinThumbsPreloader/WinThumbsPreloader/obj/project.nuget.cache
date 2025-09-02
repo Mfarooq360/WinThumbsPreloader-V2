@@ -1,12 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "8Vduf4pOHBKk7K3a6yrdXiSje+g1WAg33Yd94osGqrTDvmKdHP+ELnLsnBy3xTDwbEnUwva66Qn9PXcvsvsrSw==",
+  "dgSpecHash": "yDnR/7cTvh8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\mutah\\Source\\Repos\\WinThumbsPreloader-V2\\WinThumbsPreloader\\WinThumbsPreloader\\WinThumbsPreloader.csproj",
+  "projectFilePath": "C:\\Users\\mutah\\Source\\Repos\\WinThumbsPreloader-V2.0.0\\WinThumbsPreloader\\WinThumbsPreloader\\WinThumbsPreloader.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mutah\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
-    "C:\\Users\\mutah\\.nuget\\packages\\microsoft.net.illink.analyzers\\7.0.100-1.23211.1\\microsoft.net.illink.analyzers.7.0.100-1.23211.1.nupkg.sha512",
-    "C:\\Users\\mutah\\.nuget\\packages\\microsoft.net.illink.tasks\\7.0.100-1.23211.1\\microsoft.net.illink.tasks.7.0.100-1.23211.1.nupkg.sha512",
+    "C:\\Users\\mutah\\.nuget\\packages\\microsoft.net.illink.tasks\\9.0.7\\microsoft.net.illink.tasks.9.0.7.nupkg.sha512",
     "C:\\Users\\mutah\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\mutah\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\mutah\\.nuget\\packages\\system.data.datasetextensions\\4.5.0\\system.data.datasetextensions.4.5.0.nupkg.sha512",

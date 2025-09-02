@@ -314,7 +314,6 @@ namespace WinThumbsPreloader
                             OutputTextBox_Initialize(task);
                         });
                         InitializeTimeValues(triggers);
-
                     }
                 }
             });
@@ -450,13 +449,18 @@ namespace WinThumbsPreloader
         string currentExePath = Environment.ProcessPath;
 
         private string _defaultDescription = "Runs WinThumbsPreloader based on user's schedule";
-        private string _description;
+        private string _description = "";
 
-        public string Description //Revert this for now until its implemented in the advanced schedule form
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public string Description
         {
-            get => string.IsNullOrWhiteSpace(_description) ? _defaultDescription : _description;
-            set => _description = string.IsNullOrWhiteSpace(value) ? _defaultDescription : value;
+            get => _description;
+            set => _description = value;
         }
+
+        // Use this when assigning to the task scheduler (runtime logic only)
+        public string EffectiveDescription => string.IsNullOrWhiteSpace(_description) ? _defaultDescription : _description;
 
         private void SaveTask()
         {
@@ -481,7 +485,7 @@ namespace WinThumbsPreloader
                 using (TaskService ts = new TaskService())
                 {
                     TaskDefinition td = ts.NewTask();
-                    td.RegistrationInfo.Description = Description;
+                    td.RegistrationInfo.Description = EffectiveDescription;
 
                     // Set trigger based on user's selection
                     if (RunEveryComboBox.SelectedItem.ToString() == "Hour") // Special handling for hourly trigger
@@ -546,7 +550,7 @@ namespace WinThumbsPreloader
             catch (Exception ex)
             {
                 WriteLine($"Error saving task: {ex.Message}", LoggingFrequency.GUILogging);
-                OutputTextBox.Text = "Task failed to save, try restarting as admin.";
+                OutputTextBox.Text = "Task failed to save. If settings are valid, try restarting as admin.";
             }
         }
 
@@ -565,9 +569,10 @@ namespace WinThumbsPreloader
                 catch (Exception ex)
                 {
                     WriteLine($"Error deleting task: {ex.Message}", LoggingFrequency.GUILogging);
-                    OutputTextBox.Text = "Failed to delete task, try restarting as admin.";
+                    OutputTextBox.Text = "Failed to delete task. If the task exists, try restarting as admin.";
                 }
             }
+            LoadTaskDetails();
         }
 
         private DateTime? GetSelectedTime()

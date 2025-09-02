@@ -33,7 +33,6 @@
             licenseRichTextBox = new System.Windows.Forms.RichTextBox();
             groupBox1 = new System.Windows.Forms.GroupBox();
             CloseButton = new System.Windows.Forms.Button();
-            OpenLicenseButton = new System.Windows.Forms.Button();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -61,20 +60,11 @@
             CloseButton.UseVisualStyleBackColor = true;
             CloseButton.Click += CloseButton_Click;
             // 
-            // OpenLicenseButton
-            // 
-            resources.ApplyResources(OpenLicenseButton, "OpenLicenseButton");
-            OpenLicenseButton.Name = "OpenLicenseButton";
-            toolTip1.SetToolTip(OpenLicenseButton, resources.GetString("OpenLicenseButton.ToolTip"));
-            OpenLicenseButton.UseVisualStyleBackColor = true;
-            OpenLicenseButton.Click += OpenLicenseButton_Click;
-            // 
             // LicenseForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.SystemColors.Control;
-            Controls.Add(OpenLicenseButton);
             Controls.Add(CloseButton);
             Controls.Add(groupBox1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -89,7 +79,6 @@
         public System.Windows.Forms.RichTextBox licenseRichTextBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button CloseButton;
-        private System.Windows.Forms.Button OpenLicenseButton;
         private System.Windows.Forms.ToolTip toolTip1;
     }
 }

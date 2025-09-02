@@ -26,6 +26,7 @@ namespace WinThumbsPreloader
         static void Main(string[] arguments)
         {
             InitializeLogger();
+            WriteLine("New instance started - Main(string[])", LoggingFrequency.PreloaderLogging);
             WriteLine("Arguments: " + string.Join(" ", arguments), LoggingFrequency.PreloaderLogging);
 
             Options options = new Options(arguments);
