@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
-    Microsoft ResX Schema 
+    Microsoft ResX Schema
 
     Version 2.0
 
@@ -48,7 +48,7 @@
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
@@ -117,6 +117,78 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="LogsSizeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="LogsSizeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 276</value>
+  </data>
+  <data name="LogsSizeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 15</value>
+  </data>
+  <data name="LogsSizeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="LogsSizeLabel.Text" xml:space="preserve">
+    <value>Logs Size: 0.00 KB</value>
+  </data>
+  <data name="&gt;&gt;LogsSizeLabel.Name" xml:space="preserve">
+    <value>LogsSizeLabel</value>
+  </data>
+  <data name="&gt;&gt;LogsSizeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LogsSizeLabel.Parent" xml:space="preserve">
+    <value>AdvancedSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;LogsSizeLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="LogButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="LogButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LogButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 269</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="LogButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="LogButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="LogButton.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="LogButton.Text" xml:space="preserve">
+    <value>Open Logs</value>
+  </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="LogButton.ToolTip" xml:space="preserve">
+    <value>Opens the folder where the log files are stored.
+
+Holding "SHIFT" will ask to clear all log files.</value>
+  </data>
+  <data name="&gt;&gt;LogButton.Name" xml:space="preserve">
+    <value>LogButton</value>
+  </data>
+  <data name="&gt;&gt;LogButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LogButton.Parent" xml:space="preserve">
+    <value>AdvancedSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;LogButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="LoggingFrequencyComboBox.Items" xml:space="preserve">
     <value>No Logging</value>
   </data>
@@ -132,14 +204,12 @@
   <data name="LoggingFrequencyComboBox.Items4" xml:space="preserve">
     <value>Debug Logging</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="LoggingFrequencyComboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>145, 62</value>
   </data>
   <data name="LoggingFrequencyComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>207, 23</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="LoggingFrequencyComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
@@ -156,7 +226,7 @@
     <value>AdvancedSettingsGroupBox</value>
   </data>
   <data name="&gt;&gt;LoggingFrequencyComboBox.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="LoggingFrequencyLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -173,9 +243,6 @@
   <data name="LoggingFrequencyLabel.Text" xml:space="preserve">
     <value>Logging Frequency:</value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="LoggingFrequencyLabel.ToolTip" xml:space="preserve">
     <value>Enables various tiers of logging for various purposes.
 
@@ -209,7 +276,7 @@ slower, especially while preloading, and may use more storage.</value>
     <value>AdvancedSettingsGroupBox</value>
   </data>
   <data name="&gt;&gt;LoggingFrequencyLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="PresetsComboBox.Items" xml:space="preserve">
     <value>Explorer Size/Photos App Small</value>
@@ -236,7 +303,7 @@ slower, especially while preloading, and may use more storage.</value>
     <value>AdvancedSettingsGroupBox</value>
   </data>
   <data name="&gt;&gt;PresetsComboBox.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="PresetsLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -263,7 +330,7 @@ slower, especially while preloading, and may use more storage.</value>
     <value>AdvancedSettingsGroupBox</value>
   </data>
   <data name="&gt;&gt;PresetsLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="RequestedThumbnailSizesLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -272,7 +339,7 @@ slower, especially while preloading, and may use more storage.</value>
     <value>6, 152</value>
   </data>
   <data name="RequestedThumbnailSizesLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 15</value>
+    <value>154, 15</value>
   </data>
   <data name="RequestedThumbnailSizesLabel.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -297,7 +364,7 @@ Selecting multiple thumbnail sizes will cause the preloader to run slower.</valu
     <value>AdvancedSettingsGroupBox</value>
   </data>
   <data name="&gt;&gt;RequestedThumbnailSizesLabel.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="PreloaderThumbnailSizesCheckedListBox.ColumnWidth" type="System.Int32, mscorlib">
     <value>62</value>
@@ -348,9 +415,8 @@ Selecting multiple thumbnail sizes will cause the preloader to run slower.</valu
     <value>AdvancedSettingsGroupBox</value>
   </data>
   <data name="&gt;&gt;PreloaderThumbnailSizesCheckedListBox.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="DefaultButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -360,7 +426,6 @@ Selecting multiple thumbnail sizes will cause the preloader to run slower.</valu
   <data name="DefaultButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>264, 269</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="DefaultButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
@@ -383,7 +448,7 @@ Selecting multiple thumbnail sizes will cause the preloader to run slower.</valu
     <value>AdvancedSettingsGroupBox</value>
   </data>
   <data name="&gt;&gt;DefaultButton.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="ExtensionsAutoFormattingComboBox.Items" xml:space="preserve">
     <value>Disabled</value>
@@ -422,7 +487,7 @@ Selecting multiple thumbnail sizes will cause the preloader to run slower.</valu
     <value>AdvancedSettingsGroupBox</value>
   </data>
   <data name="&gt;&gt;ExtensionsAutoFormattingComboBox.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="ExtensionsAutoFormatLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -431,7 +496,7 @@ Selecting multiple thumbnail sizes will cause the preloader to run slower.</valu
     <value>6, 30</value>
   </data>
   <data name="ExtensionsAutoFormatLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 15</value>
+    <value>135, 15</value>
   </data>
   <data name="ExtensionsAutoFormatLabel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -453,7 +518,7 @@ preferred format once the text box is deselected.</value>
     <value>AdvancedSettingsGroupBox</value>
   </data>
   <data name="&gt;&gt;ExtensionsAutoFormatLabel.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="PreloadFolderIconsForComboBox.Items" xml:space="preserve">
     <value>Folders Containing Set Extensions</value>
@@ -483,7 +548,7 @@ preferred format once the text box is deselected.</value>
     <value>AdvancedSettingsGroupBox</value>
   </data>
   <data name="&gt;&gt;PreloadFolderIconsForComboBox.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="PreloadFolderIconsForLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -518,7 +583,7 @@ which may cause freezes when adding certain system folders.</value>
     <value>AdvancedSettingsGroupBox</value>
   </data>
   <data name="&gt;&gt;PreloadFolderIconsForLabel.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="AdvancedSettingsGroupBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>

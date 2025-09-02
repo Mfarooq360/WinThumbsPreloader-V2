@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +19,10 @@ namespace WinThumbsPreloader.Forms
         public AdvancedSettingsForm()
         {
             InitializeComponent();
+            this.KeyDown += AdvancedSettingsForm_KeyDown;
+            this.KeyUp += AdvancedSettingsForm_KeyUp;
+            this.Activated += AdvancedSettingsForm_Activated;
+            this.KeyPreview = true;
         }
 
         private void AdvancedSettingsForm_Load(object sender, EventArgs e)
@@ -32,6 +38,8 @@ namespace WinThumbsPreloader.Forms
             LoggingFrequencyComboBox.SelectedIndex = Settings.Default.LoggingFrequency;
             PreloaderThumbnailSizesCheckedListBox.ItemCheck += PreloaderThumbnailSizesCheckedListBox_ItemCheck;
             LoadCheckedItemsFromSettings();
+            StartLogsSizeTimer();
+            LogsSizeUpdateTimer_Tick(null, null);
 
             if (Settings.Default.PreloaderThumbnailSizes == "768")
             {
@@ -47,13 +55,43 @@ namespace WinThumbsPreloader.Forms
             }
         }
 
+        private void AdvancedSettingsForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.ShiftKey)
+            {
+                LogButton.Text = "Clear Logs";
+            }
+        }
+
+
+        private void AdvancedSettingsForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.ShiftKey)
+            {
+                LogButton.Text = "Open Logs";
+            }
+        }
+
+
+        private void AdvancedSettingsForm_Activated(object sender, EventArgs e)
+        {
+            if (Control.ModifierKeys == Keys.Shift)
+            {
+                LogButton.Text = "Clear Logs";
+            }
+            else
+            {
+                LogButton.Text = "Open Logs";
+            }
+        }
+
         private void CloseButton_Click(object sender, EventArgs e)
         {
             WriteLine("Closing Advanced Settings Form", LoggingFrequency.GUILogging);
             Close();
         }
 
-        private void PreloadFolderIconsForComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void PreloadFolderIconsForComboBox_SelectedIndexChanged(object sender, EventArgs e) //TODO maybe: Gray out if deselected for both this and manual deletion in cache form
         {
             WriteLine("PreloadFolderIconsForComboBox.SelectedItem: " + PreloadFolderIconsForComboBox.SelectedItem, LoggingFrequency.DebugLogging);
             if (PreloadFolderIconsForComboBox.SelectedIndex == 1)
@@ -285,6 +323,121 @@ WARNING: Enabling Debug Logging may cause the application to run
 slower, especially while preloading, and will use more storage.");
             }
             InitializeLogger();
+        }
+
+        private void LogButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string logFolder = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                "WinThumbsPreloader",
+                "Logs"
+                );
+
+
+                Directory.CreateDirectory(logFolder);
+
+
+                if (Control.ModifierKeys == Keys.Shift)
+                {
+                    if (MessageBox.Show("Are you sure you want to clear all log files?", "Confirm Clear Logs", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        string[] logFiles = Directory.GetFiles(logFolder, "*.txt");
+                        try
+                        {
+                            Logger.CloseLogger(); // Close the logger to release file handles
+                            foreach (string file in logFiles)
+                            {
+                                File.Delete(file);
+                            }
+                            Logger.InitializeLogger(); // Re-initialize the logger if it's enabled.
+                            WriteLine("All log files cleared.", LoggingFrequency.GUILogging);
+                            MessageBox.Show("Log files cleared successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            WriteLine("Failed to clear log files: " + ex.Message, LoggingFrequency.GUILogging);
+                            MessageBox.Show("Could not clear all log files.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    WriteLine("Opening logs folder: " + logFolder, LoggingFrequency.GUILogging);
+                    Process.Start("explorer.exe", logFolder);
+                }
+            }
+            catch (Exception ex)
+            {
+                WriteLine("Failed to open logs folder: " + ex.Message, LoggingFrequency.GUILogging);
+                MessageBox.Show("Could not open logs folder.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private System.Windows.Forms.Timer logsSizeUpdateTimer = new System.Windows.Forms.Timer();
+
+        private string FormatSize(long bytes)
+        {
+            string format = "Auto";
+
+            // Choose the format based on the size if set to "Auto"
+            if (format == "Auto")
+            {
+                if (bytes < 1024 * 1024)
+                    format = "KB";
+                else if (bytes < 1024 * 1024 * 1024)
+                    format = "MB";
+                else
+                    format = "GB";
+            }
+
+            switch (format)
+            {
+                case "KB":
+                    double kb = bytes / 1024.0;
+                    string kbFormat = kb < 10 ? "N2" : kb < 100 ? "N2" : "N0";
+                    return $"{kb.ToString(kbFormat)} KB";
+
+                case "GB":
+                    double gb = bytes / (1024.0 * 1024.0 * 1024.0);
+                    string gbFormat = gb < 10 ? "N2" : gb < 100 ? "N1" : "N0";
+                    return $"{gb.ToString(gbFormat)} GB";
+
+                default: // "MB"
+                    double mb = bytes / (1024.0 * 1024.0);
+                    string mbFormat = mb < 10 ? "N2" : mb < 100 ? "N1" : "N0";
+                    return $"{mb.ToString(mbFormat)} MB";
+            }
+        }
+
+        private void LogsSizeUpdateTimer_Tick(object sender, EventArgs e)
+        {
+            long totalSizeBytes = 0;
+            string logFolder = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                "WinThumbsPreloader",
+                "Logs"
+            );
+
+            if (Directory.Exists(logFolder))
+            {
+                totalSizeBytes = Directory.GetFiles(logFolder, "*.txt", SearchOption.AllDirectories)
+                    .Sum(f => new FileInfo(f).Length);
+
+                LogsSizeLabel.Text = "Logs Size: " + FormatSize(totalSizeBytes);
+            }
+            else
+            {
+                LogsSizeLabel.Text = "Logs Size: 0 MB";
+            }
+        }
+
+        private void StartLogsSizeTimer()
+        {
+            logsSizeUpdateTimer.Interval = 250;
+            logsSizeUpdateTimer.Tick += LogsSizeUpdateTimer_Tick;
+            logsSizeUpdateTimer.Start();
         }
     }
 }

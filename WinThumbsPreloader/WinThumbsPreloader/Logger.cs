@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinThumbsPreloader.Properties;
 
@@ -17,6 +13,8 @@ namespace WinThumbsPreloader
         private static bool logFileExists = false;  // New flag to track if the log file is expected to exist
         private const long MaxLogFileSize = 1L * 1024 * 1024 * 1024; // 1GB
         private static string logFilePath; // Path to the current log file
+        private static StreamWriter logStreamWriter;
+        private static FileStream logFileStream;
 
         public enum LoggingFrequency
         {
@@ -36,27 +34,21 @@ namespace WinThumbsPreloader
             {
                 try
                 {
-                    // Get the directory where the application is running
-                    string appDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                    // Specify the folder name for logs
-                    string logDirectory = Path.Combine(appDirectory, "WinThumbsPreloader Logs");
-                    // Create the directory if it doesn't exist
-                    Directory.CreateDirectory(logDirectory);
+                    string baseDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                    string logDirectory = Path.Combine(baseDirectory, "WinThumbsPreloader", "Logs");
 
-                    // Format the log file name with the current date to ensure a new file is created each day
+                    Directory.CreateDirectory(logDirectory); // Ensure folder exists
+
                     string logFileName = $"WinThumbsPreloaderLog_{DateTime.Now:yyyyMMdd}.txt";
-                    // Combine the log directory and file name to get the full path
                     logFilePath = Path.Combine(logDirectory, logFileName);
 
-                    // Open a FileStream with FileMode.Append to continue writing to the file if it already exists or create a new one for the day
-                    FileStream logFileStream = new FileStream(logFilePath, FileMode.Append, FileAccess.Write, FileShare.Read);
-                    StreamWriter logStreamWriter = new StreamWriter(logFileStream) { AutoFlush = true };
+                    logFileStream = new FileStream(logFilePath, FileMode.Append, FileAccess.Write, FileShare.Read);
+                    logStreamWriter = new StreamWriter(logFileStream) { AutoFlush = true };
                     Trace.Listeners.Add(new TextWriterTraceListener(logStreamWriter));
                     Trace.AutoFlush = true;
-                    logFileExists = true; // Set flag to true as the file is now created or opened
+                    logFileExists = true;
                     loggerInitialized = true;
 
-                    // Log initialization messages
                     WriteLine("Logger initialized - InitializeLogger()", LoggingFrequency.DebugLogging);
                     WriteLine($"Log frequency: {LogFrequency}", LoggingFrequency.DebugLogging);
                     WriteLine($"Logging to file: {logFilePath}", LoggingFrequency.DebugLogging);
@@ -66,13 +58,16 @@ namespace WinThumbsPreloader
                     MessageBox.Show($"Failed to properly initialize logger: {e.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            else if (!LoggingEnabled() && loggerInitialized)
+            {
+                CloseLogger();
+            }
+
             CheckLogFileSizeAndRotateIfNeeded();
         }
 
-        // Method to write a log entry, accepting the logging frequency directly
         public static void WriteLine(string message, LoggingFrequency frequency)
         {
-            // Check if the current log frequency allows logging this message
             if (ShouldLog(frequency))
             {
                 CheckLogFileSizeAndRotateIfNeeded();
@@ -96,14 +91,11 @@ namespace WinThumbsPreloader
             }
         }
 
-        // Rotate the log file
         private static void RotateLogFile()
         {
-            // Close existing log streams
             Trace.Flush();
             Trace.Listeners.Clear();
 
-            // Move the current log file to a new file
             string archiveFilePath = Path.Combine(Path.GetDirectoryName(logFilePath),
                                                   Path.GetFileNameWithoutExtension(logFilePath) +
                                                   "_archive_" +
@@ -111,9 +103,8 @@ namespace WinThumbsPreloader
                                                   Path.GetExtension(logFilePath));
             File.Move(logFilePath, archiveFilePath);
 
-            logFileExists = false; // Update flag since the original file is moved
-            // Reinitialize the logger to start a new log file
-            InitializeLogger();
+            logFileExists = false;
+            InitializeLogger(); // Reinitialize the logger to start a new log file
         }
 
         // Helper method to check if the message should be logged based on the frequency
@@ -124,8 +115,37 @@ namespace WinThumbsPreloader
 
         public static bool LoggingEnabled()
         {
-            if (LogFrequency != LoggingFrequency.NoLogging) return true;
-            else return false;
+            return LogFrequency != LoggingFrequency.NoLogging;
+        }
+
+        public static void CloseLogger()
+        {
+            if (loggerInitialized)
+            {
+                try
+                {
+                    Trace.Flush();
+                    Trace.Listeners.Clear();
+                    Trace.Close();
+
+                    logStreamWriter?.Flush();
+                    logStreamWriter?.Close();
+                    logStreamWriter?.Dispose();
+                    logStreamWriter = null;
+
+                    logFileStream?.Close();
+                    logFileStream?.Dispose();
+                    logFileStream = null;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error while closing logger: {ex.Message}", "Logger Close Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                loggerInitialized = false;
+                logFileExists = false;
+            }
         }
     }
 }

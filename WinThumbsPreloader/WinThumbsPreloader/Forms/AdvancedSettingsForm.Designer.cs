@@ -31,6 +31,8 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdvancedSettingsForm));
             AdvancedSettingsGroupBox = new System.Windows.Forms.GroupBox();
+            LogsSizeLabel = new System.Windows.Forms.Label();
+            LogButton = new System.Windows.Forms.Button();
             LoggingFrequencyComboBox = new System.Windows.Forms.ComboBox();
             LoggingFrequencyLabel = new System.Windows.Forms.Label();
             PresetsComboBox = new System.Windows.Forms.ComboBox();
@@ -50,6 +52,8 @@
             // AdvancedSettingsGroupBox
             // 
             AdvancedSettingsGroupBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            AdvancedSettingsGroupBox.Controls.Add(LogsSizeLabel);
+            AdvancedSettingsGroupBox.Controls.Add(LogButton);
             AdvancedSettingsGroupBox.Controls.Add(LoggingFrequencyComboBox);
             AdvancedSettingsGroupBox.Controls.Add(LoggingFrequencyLabel);
             AdvancedSettingsGroupBox.Controls.Add(PresetsComboBox);
@@ -64,6 +68,19 @@
             resources.ApplyResources(AdvancedSettingsGroupBox, "AdvancedSettingsGroupBox");
             AdvancedSettingsGroupBox.Name = "AdvancedSettingsGroupBox";
             AdvancedSettingsGroupBox.TabStop = false;
+            // 
+            // LogsSizeLabel
+            // 
+            resources.ApplyResources(LogsSizeLabel, "LogsSizeLabel");
+            LogsSizeLabel.Name = "LogsSizeLabel";
+            // 
+            // LogButton
+            // 
+            resources.ApplyResources(LogButton, "LogButton");
+            LogButton.Name = "LogButton";
+            toolTip1.SetToolTip(LogButton, resources.GetString("LogButton.ToolTip"));
+            LogButton.UseVisualStyleBackColor = true;
+            LogButton.Click += LogButton_Click;
             // 
             // LoggingFrequencyComboBox
             // 
@@ -179,5 +196,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ComboBox LoggingFrequencyComboBox;
         private System.Windows.Forms.Label LoggingFrequencyLabel;
+        private System.Windows.Forms.Button LogButton;
+        private System.Windows.Forms.Label LogsSizeLabel;
     }
 }
