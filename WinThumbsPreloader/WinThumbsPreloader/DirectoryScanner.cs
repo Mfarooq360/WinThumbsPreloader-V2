@@ -1,7 +1,11 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms.VisualStyles;
 using WinThumbsPreloader.Properties;
 using static WinThumbsPreloader.Logger;
 
@@ -9,19 +13,26 @@ namespace WinThumbsPreloader
 {
     class DirectoryScanner
     {
-        private string path;
-        private bool includeNestedDirectories;
-        List<string> filesList = new List<string>();
-        string[] thumbnailExtensions;
-        private bool preloadFolderIcons;
-        private bool preloadAllFolders;
+        public bool cancelled = false;
+        public int totalItemsCount = 0;
 
-        public DirectoryScanner(string path, bool includeNestedDirectories)
+        private List<string> filesList = new List<string>();
+        private bool includeNestedDirectories;
+        private bool multiThreaded;
+        private string path;
+        private bool preloadAllFolders;
+        private bool preloadFolderIcons;
+        private int threadCount;
+        private string[] thumbnailExtensions;
+
+        public DirectoryScanner(string path, bool includeNestedDirectories, bool multiThreaded, int threadCount)
         {
             WriteLine("Initializing Directory Scanner - DirectoryScanner(string, bool)", LoggingFrequency.PreloaderLogging);
             thumbnailExtensions = ThumbnailExtensions();
             this.path = path;
             this.includeNestedDirectories = includeNestedDirectories;
+            this.multiThreaded = multiThreaded;
+            this.threadCount = threadCount > 0 ? threadCount : Environment.ProcessorCount;
             this.preloadFolderIcons = Settings.Default.PreloadFolderIcons;
             this.preloadAllFolders = Settings.Default.PreloadAllFolders;
             WriteLine("IncludeNestedDirectories: " + includeNestedDirectories, LoggingFrequency.PreloaderLogging);
@@ -38,9 +49,11 @@ namespace WinThumbsPreloader
             try
             {
                 thumbnailExtensions = Properties.Settings.Default.ExtensionsText
-                                      .Split(new[] { ',', ' ', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries) // Ignore commas, spaces and newlines between extensions
-                                      .Where(ext => !string.IsNullOrWhiteSpace(ext)) // Ignore blank lines or lines with only spaces
-                                      .Select(ext => ext.Trim(' ')).ToArray(); // Ignore spaces after the extension for each line
+                    .Split(new[] { ',', ' ', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(ext => ext.Trim().TrimStart('.').ToLowerInvariant())
+                    .Where(ext => !string.IsNullOrWhiteSpace(ext))
+                    .Distinct(StringComparer.Ordinal)
+                    .ToArray();
                 WriteLine("Split(new[] { ',', ' ', '\\n', '\\r' }, StringSplitOptions.RemoveEmptyEntries)", LoggingFrequency.DebugLogging);
                 WriteLine("Where(ext => !string.IsNullOrWhiteSpace(ext))", LoggingFrequency.DebugLogging);
                 WriteLine("Select(ext => ext.Trim(' ')).ToArray();", LoggingFrequency.DebugLogging);
@@ -64,108 +77,198 @@ namespace WinThumbsPreloader
             return thumbnailExtensions;
         }
 
-        public IEnumerable<Tuple<int, List<string>>> GetItemsCount()
+        public List<string> GetItems()
         {
-            WriteLine("Getting items count - GetItemsCount()", LoggingFrequency.PreloaderLogging);
-            if (includeNestedDirectories)
-            {
-                foreach (Tuple<int, List<string>> itemsCount in GetItemsCountNested()) yield return itemsCount;
-            }
-            else
-            {
-                foreach (Tuple<int, List<string>> itemsCount in GetItemsCountOnlyFirstLevel()) yield return itemsCount;
-            }
+            return includeNestedDirectories
+                ? (multiThreaded ? GetItemsNestedParallel() : GetItemsNested())
+                : GetItemsOnlyFirstLevel();
         }
 
-        private IEnumerable<Tuple<int, List<string>>> GetItemsCountOnlyFirstLevel()
+        private bool ShouldIncludeFile(string file)
         {
-            WriteLine("Getting items count for first level", LoggingFrequency.PreloaderLogging);
-            HashSet<string> addedDirectories = new HashSet<string>(); // To avoid adding the same directory multiple times
+            string ext = Path.GetExtension(file).TrimStart('.').ToLowerInvariant();
+            return thumbnailExtensions.Length == 0 || thumbnailExtensions.Contains(ext);
+        }
 
+        private static bool IsFile(string path)
+        {
+            try { return (File.GetAttributes(path) & FileAttributes.Directory) == 0; }
+            catch { return false; } // Path doesn't exist or isn't accessible
+        }
+
+        private static bool IsDirectory(string path)
+        {
+            try { return (File.GetAttributes(path) & FileAttributes.Directory) != 0; }
+            catch { return false; } // Path doesn't exist or isn't accessible
+        }
+
+        private List<string> GetItemsOnlyFirstLevel()
+        {
+            WriteLine("Getting items count for only first level", LoggingFrequency.PreloaderLogging);
+
+            var enumOptions = new EnumerationOptions { IgnoreInaccessible = true, AttributesToSkip = 0 };
             try
             {
-                foreach (string entry in Directory.GetFileSystemEntries(path))
+                foreach (string entry in Directory.EnumerateFileSystemEntries(path, "*", enumOptions))
                 {
-                    /*WriteLine("Entry: " + entry, LoggingFrequency.DebugLogging);*/
-                    if (Directory.Exists(entry) && preloadFolderIcons)
+                    if (preloadFolderIcons && IsDirectory(entry)) // If the entry is a directory and we are to preload folder icons with thumb extension files...
                     {
-                        // Check each file in the subdirectory
-                        foreach (string subFile in Directory.GetFiles(entry))
+                        foreach (string subFile in Directory.EnumerateFiles(entry, "*", enumOptions)) // Scan each file in the subdirectory
                         {
-                            /*WriteLine("SubFile: " + subFile, LoggingFrequency.DebugLogging);*/
-                            if (thumbnailExtensions.Contains(new FileInfo(subFile).Extension.TrimStart('.'), StringComparer.OrdinalIgnoreCase) || preloadAllFolders)
+                            if (preloadAllFolders || ShouldIncludeFile(subFile)) // If the file contains a select extension or we are to preload all folder icons...
                             {
-                                if (!addedDirectories.Contains(entry))
-                                {
-                                    /*WriteLine("Adding directory (For Folder Icon Preloading): " + entry, LoggingFrequency.DebugLogging);*/
-                                    filesList.Add(entry); // Add the directory if a file with a thumbnail extension is found
-                                    addedDirectories.Add(entry); // Mark this directory as added
-                                }
+                                filesList.Add(entry); // Add the directory to the filesList if a file with a thumbnail extension is found
+                                totalItemsCount++;
+                                break; // No need to check further files in this directory
                             }
+                            if (cancelled) break;
                         }
                     }
-                    else if (File.Exists(entry) && thumbnailExtensions.Contains(new FileInfo(entry).Extension.TrimStart('.'), StringComparer.OrdinalIgnoreCase))
+                    else if (IsFile(entry) && ShouldIncludeFile(entry)) // If the entry is a file and has a thumbnail extension...
                     {
-                        /*WriteLine("Adding file: " + entry, LoggingFrequency.DebugLogging);*/
-                        filesList.Add(entry); // Add the file directly if it has a thumbnail extension
+                        filesList.Add(entry); // Add the file to the fileslist
+                        totalItemsCount++;
                     }
+                    if (cancelled) break;
                 }
-                /*WriteLine("filesList.Count: " + filesList.Count, LoggingFrequency.DebugLogging);*/
             }
             catch (Exception e)
             {
-                WriteLine("Exception thrown while scanning directory: " + e.Message, LoggingFrequency.PreloaderLogging);
+                WriteLine("Exception thrown while scanning directory: " + e.Message, LoggingFrequency.DebugLogging);
             }
-            if (filesList.Count > 0) yield return new Tuple<int, List<string>>(filesList.Count, filesList);
+            return filesList;
         }
 
-        private IEnumerable<Tuple<int, List<string>>> GetItemsCountNested()
+        private List<string> GetItemsNested()
         {
             WriteLine("Getting items count for nested directories", LoggingFrequency.PreloaderLogging);
+
+            var enumOptions = new EnumerationOptions { IgnoreInaccessible = true, AttributesToSkip = 0 };
             Queue<string> queue = new Queue<string>();
             queue.Enqueue(path);
             string currentPath;
 
-            while (queue.Count > 0)
+            while (queue.Count > 0 && !cancelled)
             {
-                /*WriteLine("Queue count: " + queue.Count, LoggingFrequency.DebugLogging);
-                WriteLine("Dequeueing currentPath", LoggingFrequency.DebugLogging);*/
                 currentPath = queue.Dequeue();
-                bool directoryContainsThumbnail = false; // Flag to check if directory contains thumbnail
+                bool directoryContainsThumbnail = false;
 
                 try
                 {
-                    foreach (string file in Directory.GetFiles(currentPath)) // Check each file in the current directory
+                    foreach (string file in Directory.EnumerateFiles(currentPath, "*", enumOptions))
                     {
-                        /*WriteLine("File: " + file, LoggingFrequency.DebugLogging);*/
-                        if (thumbnailExtensions.Contains(new FileInfo(file).Extension.TrimStart('.'), StringComparer.OrdinalIgnoreCase) || thumbnailExtensions.Length == 0)
+                        if (ShouldIncludeFile(file))
                         {
-                            /*WriteLine("Adding file: " + file, LoggingFrequency.DebugLogging);*/
                             filesList.Add(file);
-                            directoryContainsThumbnail = true; // Set flag if a thumbnail file is found
-                            /*WriteLine("directoryContainsThumbnail: " + directoryContainsThumbnail, LoggingFrequency.DebugLogging);*/
+                            totalItemsCount++;
+                            directoryContainsThumbnail = true;
                         }
+                        if (cancelled) break;
                     }
 
-                    if (preloadFolderIcons && (directoryContainsThumbnail || preloadAllFolders)) // If directory contains thumbnail, add the directory to the list
+                    if (preloadFolderIcons && (directoryContainsThumbnail || preloadAllFolders))
                     {
-                        /*WriteLine("Adding directory (For Folder Icon Preloading): " + currentPath, LoggingFrequency.DebugLogging);*/
                         filesList.Add(currentPath);
+                        totalItemsCount++;
                     }
 
-                    foreach (string subDir in Directory.GetDirectories(currentPath)) // Add subdirectories to the queue
+                    foreach (string subDir in Directory.EnumerateDirectories(currentPath, "*", enumOptions))
                     {
-                        /*WriteLine("Queueing subdirectory: " + subDir, LoggingFrequency.DebugLogging);*/
                         queue.Enqueue(subDir);
+                        if (cancelled) break;
                     }
-                    /*WriteLine("filesList.Count: " + filesList.Count, LoggingFrequency.DebugLogging);*/
+
                 }
                 catch (Exception e)
                 {
-                    WriteLine("Exception thrown while scanning directory: " + e.Message, LoggingFrequency.PreloaderLogging);
+                    WriteLine("Exception thrown while scanning directory: " + e.Message, LoggingFrequency.DebugLogging);
                 }
-                if (filesList.Count > 0) yield return new Tuple<int, List<string>>(filesList.Count, filesList);
+                if (cancelled) break;
             }
+            return filesList;
+        }
+
+        private List<string> GetItemsNestedParallel()
+        {
+            WriteLine("Getting items count for nested directories in parallel", LoggingFrequency.PreloaderLogging);
+
+            var enumOptions = new EnumerationOptions { IgnoreInaccessible = true, AttributesToSkip = 0 };
+            var scannedFiles = new ConcurrentBag<string>();
+            var directoriesToProcess = new BlockingCollection<string> { path };
+            int activeThreads = 0;
+
+            Parallel.ForEach(
+                directoriesToProcess.GetConsumingEnumerable(),
+                new ParallelOptions { MaxDegreeOfParallelism = threadCount },
+                (currentPath, loopState) =>
+                {
+                    if (cancelled || loopState.ShouldExitCurrentIteration)
+                    {
+                        loopState.Stop();
+                        return;
+                    }
+
+                    Interlocked.Increment(ref activeThreads);
+                    bool directoryContainsThumbnail = false;
+
+                    try
+                    {
+                        foreach (string subDir in Directory.EnumerateDirectories(currentPath, "*", enumOptions))
+                        {
+                            if (cancelled || loopState.ShouldExitCurrentIteration)
+                            {
+                                directoriesToProcess.CompleteAdding();
+                                foreach (string dir in directoriesToProcess.GetConsumingEnumerable()) { }
+                                loopState.Stop();
+                                return;
+                            }
+
+                            directoriesToProcess.Add(subDir);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        WriteLine("Exception thrown while scanning directory: " + e.Message, LoggingFrequency.DebugLogging);
+                    }
+
+                    try
+                    {
+                        foreach (string file in Directory.EnumerateFiles(currentPath, "*", enumOptions))
+                        {
+                            if (cancelled || loopState.ShouldExitCurrentIteration)
+                            {
+                                directoriesToProcess.CompleteAdding();
+                                foreach (string dir in directoriesToProcess.GetConsumingEnumerable()) { }
+                                loopState.Stop();
+                                return;
+                            }
+
+                            if (ShouldIncludeFile(file))
+                            {
+                                scannedFiles.Add(file);
+                                Interlocked.Increment(ref totalItemsCount);
+                                directoryContainsThumbnail = true;
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        WriteLine("Exception thrown while scanning directory: " + e.Message, LoggingFrequency.DebugLogging);
+                    }
+
+                    if (preloadFolderIcons && (directoryContainsThumbnail || preloadAllFolders))
+                    {
+                        scannedFiles.Add(currentPath);
+                        Interlocked.Increment(ref totalItemsCount);
+                    }
+
+                    if (Interlocked.Decrement(ref activeThreads) == 0 && directoriesToProcess.Count == 0)
+                    {
+                        directoriesToProcess.CompleteAdding();
+                    }
+                });
+
+            return scannedFiles.OrderBy(file => file, StringComparer.OrdinalIgnoreCase).ToList();
         }
     }
 }
