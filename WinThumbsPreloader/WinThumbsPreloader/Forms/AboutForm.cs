@@ -149,7 +149,15 @@ namespace WinThumbsPreloader
         private void CloseButton_Click(object sender, EventArgs e)
         {
             WriteLine("Exiting application from AboutForm", LoggingFrequency.GUILogging);
-            Environment.Exit(0);
+            if (Program.activeInstances > 0)
+            {
+                this.Hide();
+                Program.formOpen = false;
+            }
+            else
+            {
+                Environment.Exit(0);
+            }
         }
 
         private void LicenceButton_Click(object sender, EventArgs e)

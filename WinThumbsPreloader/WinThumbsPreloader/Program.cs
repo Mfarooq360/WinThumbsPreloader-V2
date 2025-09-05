@@ -82,9 +82,10 @@ namespace WinThumbsPreloader
             {
                 WriteLine($"exePath: {path}", LoggingFrequency.PreloaderLogging);
 
-                ThumbnailsPreloader preloader = new ThumbnailsPreloader(path, options.includeNestedDirectories, options.silentMode, options.multiThreaded, options.threadCount);
                 activeInstances++;
                 WriteLine($"Active Instances: {activeInstances}", LoggingFrequency.DebugLogging);
+
+                ThumbnailsPreloader preloader = new ThumbnailsPreloader(path, options.includeNestedDirectories, options.silentMode, options.multiThreaded, options.threadCount);
                 preloader.PreloaderCompleted += (sender) =>
                 {
                     if (activeInstances == 0 && !formOpen)
