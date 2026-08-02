@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Runtime.Versioning;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinThumbsPreloader.Forms;
 using WinThumbsPreloader.Properties;
@@ -17,11 +10,16 @@ using static WinThumbsPreloader.Logger;
 namespace WinThumbsPreloader
 {
     [SupportedOSPlatform("windows")]
-    public partial class SettingsForm : Form //Add swapping of preload button options between recursive and bulk so they can swap between shift and ctrl
+    public partial class SettingsForm : Form // TODO: Add swapping of preload button options between recursive and bulk so they can swap between shift and ctrl (bulk form not implemented yet)
     {
+        private bool adminCheckboxInitialized = false;
+        private bool adminCheckboxUserAction = false;
+
         public SettingsForm()
         {
             InitializeComponent();
+            AdminCheckBox.MouseDown += (_, __) => adminCheckboxUserAction = true;
+            AdminCheckBox.KeyDown += (_, e) => { if (e.KeyCode == Keys.Space) adminCheckboxUserAction = true; };
             this.KeyDown += SettingsForm_KeyDown;
             this.KeyUp += SettingsForm_KeyUp;
             this.Activated += SettingsForm_Activated;
@@ -39,7 +37,10 @@ namespace WinThumbsPreloader
         {
             this.Icon = Resources.MainIcon;
             MultithreadedCheckBox.Checked = Settings.Default.Multithreaded;
+            adminCheckboxInitialized = false; // prevent prompts
             AdminCheckBox.Checked = Settings.Default.Admin;
+            AdminCheckBoxUpdate();
+            adminCheckboxInitialized = true; // now user actions count
             ThreadsNumericUpDown.Value = Settings.Default.ThreadCount;
             ExtensionsTextBox.Text = Settings.Default.ExtensionsText;
             FolderIconsCheckBox.Checked = Settings.Default.PreloadFolderIcons;
@@ -71,66 +72,77 @@ namespace WinThumbsPreloader
             }
         }
 
-        private void AdminCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void AdminCheckBoxUpdate()
         {
-            Settings.Default.Admin = AdminCheckBox.Checked;
-            Settings.Default.Save();
-            WriteLine("Run as administrator: " + AdminCheckBox.Checked, LoggingFrequency.DebugLogging);
-            SetRunAsAdmin();
-            // If the application isn't running as administrator, restart it as administrator
-            if (!IsRunningAsAdministrator() && AdminCheckBox.Checked)
-            {
-                Program.RestartAsAdmin();
-            }
-        }
+            bool runningasAdmin = Program.IsRunningAsAdministrator();
 
-        public static void SetRunAsAdmin()
-        {
-            WriteLine("Setting run as administrator flag", LoggingFrequency.DebugLogging);
-            string key = @"HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers";
-            WriteLine("Key: " + key, LoggingFrequency.DebugLogging);
-            string applicationPath = Path.Combine(AppContext.BaseDirectory, $"{AppDomain.CurrentDomain.FriendlyName}.exe");
-            WriteLine("Application path: " + applicationPath, LoggingFrequency.DebugLogging);
-
-            if (Settings.Default.Admin)
+            if (runningasAdmin)
             {
-                // Add run as administrator flag
-                try
-                {
-                    Microsoft.Win32.Registry.SetValue(key, applicationPath, "~ RUNASADMIN");
-                }
-                catch (Exception ex)
-                {
-                    WriteLine("Error setting run as administrator flag: " + ex.Message, LoggingFrequency.GUILogging);
-                }
+                AdminCheckBox.ForeColor = Color.LimeGreen;
+                SettingsToolTips.SetToolTip(AdminCheckBox, "Toggles whether the preloader is run as Admin or not.\r\nEnabling this will scan more files on the disk, but may break\r\ncompatibility with some thumbnail generators like PowerToys.\r\nIf possible, use SVGSee as it is much faster and compatible with Admin.\r\n\r\nWinThumbsPreloader is currently running as Administrator.");
             }
             else
             {
-                // Remove run as administrator flag
-                try
+                if (Settings.Default.Admin)
                 {
-                    var keyObj = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers", true);
-                    keyObj.DeleteValue(applicationPath, false);
+                    AdminCheckBox.ForeColor = Color.Red;
+                    SettingsToolTips.SetToolTip(AdminCheckBox, "Toggles whether the preloa" +
+                        "der is run as Admin or not.\r\nEnabling this will scan more files on the disk, but may break\r\ncompatibility with some thumbnail generators like PowerToys.\r\nIf possible, use SVGSee as it is much faster and compatible with Admin.\r\n\r\nWinThumbsPreloader is currently NOT running as Administrator.");
                 }
-                catch (Exception ex)
+                else
                 {
-                    WriteLine("Error removing run as administrator flag: " + ex.Message, LoggingFrequency.GUILogging);
+                    AdminCheckBox.ForeColor = SystemColors.ControlText;
+                    SettingsToolTips.SetToolTip(AdminCheckBox, "Toggles whether the preloader is run as Admin or not.\r\nEnabling this will scan more files on the disk, but may break\r\ncompatibility with some thumbnail generators like PowerToys.\r\nIf possible, use SVGSee as it is much faster and compatible with Admin.");
                 }
             }
         }
 
-        public static bool IsRunningAsAdministrator()
+        private void AdminCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            var identity = WindowsIdentity.GetCurrent();
-            var principal = new WindowsPrincipal(identity);
-            var runningAsAdministrator = principal.IsInRole(WindowsBuiltInRole.Administrator);
-            WriteLine("Running as administrator: " + runningAsAdministrator, LoggingFrequency.DebugLogging);
-            return runningAsAdministrator;
+            // Ignore automatic/form-driven changes
+            if (!adminCheckboxInitialized || !adminCheckboxUserAction)
+                return;
+
+            adminCheckboxUserAction = false; // consume the flag
+
+            bool wantAdmin = AdminCheckBox.Checked;
+            bool isAdmin = Program.IsRunningAsAdministrator();
+
+            Settings.Default.Admin = wantAdmin;
+            Settings.Default.Save();
+
+            if (wantAdmin && !isAdmin)
+            {
+                var r = MessageBox.Show(
+                    "Restart as administrator?",
+                    "Requires Elevation",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (r == DialogResult.Yes)
+                {
+                    if (Program.RestartAsAdmin(["-reopensettings"])) { return; }
+
+                }
+                AdminCheckBoxUpdate();
+                AdminCheckBox.Text = "Run As Admin (relaunch required)";
+                AdminCheckBox.ForeColor = Color.Orange;
+                return;
+            }
+            else if (!wantAdmin && isAdmin)
+            {
+                AdminCheckBoxUpdate();
+                AdminCheckBox.Text = "Run As Admin (relaunch required)";
+                return;
+            }
+            AdminCheckBoxUpdate();
+            AdminCheckBox.Text = "Run As Admin";
         }
 
         private void DefaultExtensionsButton_Click(object sender, EventArgs e)
         {
-            Settings.Default.ExtensionsText = "avif, bmp, gif, heic, heif, jpg, jpeg, mkv, mov, mp4, png, svg, tif, tiff, webp";
+            Settings.Default.ExtensionsText = "avi, avif, bmp, gif, heic, heif, jpg, jpeg, mkv, mov, mp4, png, svg, tif, tiff, webp";
             ExtensionsTextBox.Text = Settings.Default.ExtensionsText;
             WriteLine("Default extensions applied", LoggingFrequency.DebugLogging);
             UpdateExtensionsTextBoxDisplay();
@@ -145,10 +157,8 @@ namespace WinThumbsPreloader
 
         private void ExtensionsTextBox_TextChanged(object sender, EventArgs e)
         {
-            TextBox textBox = sender as TextBox;
-            if (textBox != null)
+            if (sender is TextBox textBox)
             {
-                // Save the user's raw input
                 Settings.Default.ExtensionsText = textBox.Text;
                 Settings.Default.Save();
                 WriteLine("Extensions text changed", LoggingFrequency.DebugLogging);
@@ -164,15 +174,13 @@ namespace WinThumbsPreloader
         public void UpdateExtensionsTextBoxDisplay()
         {
             WriteLine("Updating extensions text box display", LoggingFrequency.DebugLogging);
-            // Prevent recursive updates
+
             ExtensionsTextBox.LostFocus -= ExtensionsTextBox_LostFocus;
 
-            // Get the current sorting method from settings
-            SortingMethod method = (SortingMethod)Enum.Parse(typeof(SortingMethod), Settings.Default.ExtensionsAutoFormatting);
+            SortingMethod method = Enum.Parse<SortingMethod>(Settings.Default.ExtensionsAutoFormatting);
             ExtensionsTextBox.Text = OrganizeExtensions(ExtensionsTextBox.Text, method);
             WriteLine("ExtensionsTextBox.Text: " + ExtensionsTextBox.Text, LoggingFrequency.DebugLogging);
 
-            // Reattach the LostFocus event handler
             ExtensionsTextBox.LostFocus += ExtensionsTextBox_LostFocus;
         }
 
@@ -185,43 +193,44 @@ namespace WinThumbsPreloader
             CommasAndSpaces
         }
 
-        private string OrganizeExtensions(string text, SortingMethod method)
+        private static string OrganizeExtensions(string text, SortingMethod method)
         {
             WriteLine("Organizing extensions", LoggingFrequency.DebugLogging);
-            var extensions = text.Split(new[] { ',', ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            var extensions = text.Split([',', ' ', '\r', '\n'], StringSplitOptions.RemoveEmptyEntries);
 
             switch (method)
             {
                 case SortingMethod.Disabled:
-                    // No sorting, return the original text
                     return text;
                 case SortingMethod.Vertically:
-                    // Join with new lines, vertically
                     return string.Join(Environment.NewLine, extensions);
                 case SortingMethod.Commas:
-                    // Join with commas
                     return string.Join(",", extensions);
                 case SortingMethod.Spaces:
-                    // Join with spaces
                     return string.Join(" ", extensions);
                 case SortingMethod.CommasAndSpaces:
-                    // Join with commas and spaces
                     return string.Join(", ", extensions);
                 default:
-                    return text; // Default case returns the original text
+                    return text;
             }
         }
 
         private void ExtensionsTextBox_DragEnter(object sender, DragEventArgs e)
         {
-            // Check if the data being dragged is a file
-            if (e.Data.GetDataPresent(DataFormats.FileDrop) || e.Data.GetDataPresent(DataFormats.Text))
+            try
             {
-                e.Effect = DragDropEffects.Copy;
+                if (e.Data.GetDataPresent(DataFormats.FileDrop) || e.Data.GetDataPresent(DataFormats.Text))
+                {
+                    e.Effect = DragDropEffects.Copy;
+                }
+                else
+                {
+                    e.Effect = DragDropEffects.None;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                e.Effect = DragDropEffects.None;
+                WriteLine("Error during drag enter: " + ex.Message, LoggingFrequency.GUILogging);
             }
         }
 
@@ -231,7 +240,6 @@ namespace WinThumbsPreloader
             {
                 if (e.Data.GetDataPresent(DataFormats.FileDrop))
                 {
-                    // Handle file drop
                     string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
                     if (files != null && files.Length > 0)
                     {
@@ -243,14 +251,12 @@ namespace WinThumbsPreloader
                 }
                 else if (e.Data.GetDataPresent(DataFormats.Text))
                 {
-                    // Handle text drop
                     string text = (string)e.Data.GetData(DataFormats.Text);
                     WriteLine("Text: " + text, LoggingFrequency.DebugLogging);
                     ExtensionsTextBox.Text = text.Length > 10000 ? text.Substring(0, 10000) : text;
                     WriteLine("ExtensionsTextBox.Text: " + ExtensionsTextBox.Text, LoggingFrequency.DebugLogging);
                 }
 
-                // Save the new content to settings
                 Settings.Default.ExtensionsText = ExtensionsTextBox.Text;
                 Settings.Default.Save();
                 WriteLine("Extensions text updated from drag and drop", LoggingFrequency.DebugLogging);
@@ -281,8 +287,7 @@ namespace WinThumbsPreloader
 
         private void ThreadsNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            NumericUpDown numericUpDown = sender as NumericUpDown;
-            if (numericUpDown != null)
+            if (sender is NumericUpDown numericUpDown)
             {
                 Settings.Default.ThreadCount = (int)numericUpDown.Value;
                 Settings.Default.Save();
@@ -362,17 +367,14 @@ namespace WinThumbsPreloader
             WriteLine("Exporting extensions", LoggingFrequency.DebugLogging);
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                // Set properties of SaveFileDialog
                 saveFileDialog.FileName = "ThumbnailExtensions.txt";
                 saveFileDialog.Filter = "Text Files (*.txt)|*.txt|CSV Files (*.csv)|*.csv";
                 saveFileDialog.DefaultExt = "txt";
                 saveFileDialog.AddExtension = true;
                 saveFileDialog.Title = "Save Extensions";
 
-                // Show the dialog and check if the user clicked the save button
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Get the selected file name and save the contents of ExtensionsTextBox
                     File.WriteAllText(saveFileDialog.FileName, ExtensionsTextBox.Text);
                 }
             }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
-    Microsoft ResX Schema 
+    Microsoft ResX Schema
 
     Version 2.0
 
@@ -48,7 +48,7 @@
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
@@ -130,7 +130,7 @@
     <value>4, 3, 4, 3</value>
   </data>
   <data name="MultithreadedCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 19</value>
+    <value>109, 19</value>
   </data>
   <data name="MultithreadedCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -168,7 +168,7 @@ Enabled is recommended for best performance.
     <value>68, 19</value>
   </data>
   <data name="EnabledCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>0</value>
   </data>
   <data name="EnabledCheckBox.Text" xml:space="preserve">
     <value>Enabled</value>
@@ -199,10 +199,10 @@ at every user set interval.</value>
     <value>4, 0, 4, 0</value>
   </data>
   <data name="ThreadsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 15</value>
+    <value>52, 15</value>
   </data>
   <data name="ThreadsLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>2</value>
   </data>
   <data name="ThreadsLabel.Text" xml:space="preserve">
     <value>Threads:</value>
@@ -233,7 +233,7 @@ A value of 0 will use the number of threads in the system.</value>
     <value>93, 23</value>
   </data>
   <data name="ThreadsNumericUpDown.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;ThreadsNumericUpDown.Name" xml:space="preserve">
     <value>ThreadsNumericUpDown</value>
@@ -260,7 +260,7 @@ A value of 0 will use the number of threads in the system.</value>
     <value>408, 112</value>
   </data>
   <data name="ScheduleOptionsGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>0</value>
   </data>
   <data name="ScheduleOptionsGroupBox.Text" xml:space="preserve">
     <value>Options</value>
@@ -288,7 +288,7 @@ A value of 0 will use the number of threads in the system.</value>
     <value>88, 28</value>
   </data>
   <data name="AdvancedButton.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>4</value>
   </data>
   <data name="AdvancedButton.Text" xml:space="preserve">
     <value>Advanced</value>
@@ -320,7 +320,7 @@ modifying the Settings and Conditions of the task</value>
     <value>22, 15</value>
   </data>
   <data name="AtLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>2</value>
   </data>
   <data name="AtLabel.Text" xml:space="preserve">
     <value>At:</value>
@@ -353,7 +353,7 @@ modifying the Settings and Conditions of the task</value>
     <value>42, 23</value>
   </data>
   <data name="TimeOfDayComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>5</value>
   </data>
   <data name="&gt;&gt;TimeOfDayComboBox.Name" xml:space="preserve">
     <value>TimeOfDayComboBox</value>
@@ -413,7 +413,7 @@ modifying the Settings and Conditions of the task</value>
     <value>55, 23</value>
   </data>
   <data name="TimeDigitsComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;TimeDigitsComboBox.Name" xml:space="preserve">
     <value>TimeDigitsComboBox</value>
@@ -515,7 +515,7 @@ modifying the Settings and Conditions of the task</value>
     <value>394, 58</value>
   </data>
   <data name="DrivesCheckedListBox.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+    <value>8</value>
   </data>
   <data name="&gt;&gt;DrivesCheckedListBox.Name" xml:space="preserve">
     <value>DrivesCheckedListBox</value>
@@ -536,7 +536,7 @@ modifying the Settings and Conditions of the task</value>
     <value>88, 28</value>
   </data>
   <data name="ScheduleSaveButton.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>3</value>
   </data>
   <data name="ScheduleSaveButton.Text" xml:space="preserve">
     <value>Save Task</value>
@@ -573,7 +573,7 @@ Holding "SHIFT" will delete the task</value>
     <value>64, 19</value>
   </data>
   <data name="OnIdleCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>6</value>
   </data>
   <data name="OnIdleCheckBox.Text" xml:space="preserve">
     <value>On Idle</value>
@@ -604,7 +604,7 @@ when the system is idle.</value>
     <value>62, 15</value>
   </data>
   <data name="RunEveryLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>0</value>
   </data>
   <data name="RunEveryLabel.Text" xml:space="preserve">
     <value>Run Every:</value>
@@ -647,7 +647,7 @@ will preload thumbnails in the background.</value>
     <value>64, 23</value>
   </data>
   <data name="RunEveryComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;RunEveryComboBox.Name" xml:space="preserve">
     <value>RunEveryComboBox</value>
@@ -674,7 +674,7 @@ will preload thumbnails in the background.</value>
     <value>42, 15</value>
   </data>
   <data name="DrivesLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>7</value>
   </data>
   <data name="DrivesLabel.Text" xml:space="preserve">
     <value>Drives:</value>
@@ -711,7 +711,7 @@ in the scheduled preloading</value>
     <value>88, 28</value>
   </data>
   <data name="CloseButton.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="CloseButton.Text" xml:space="preserve">
     <value>Close</value>
@@ -738,7 +738,7 @@ in the scheduled preloading</value>
     <value>105, 23</value>
   </data>
   <data name="dateTimePicker1.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;dateTimePicker1.Name" xml:space="preserve">
     <value>dateTimePicker1</value>
@@ -759,7 +759,7 @@ in the scheduled preloading</value>
     <value>394, 23</value>
   </data>
   <data name="OutputTextBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
+    <value>13</value>
   </data>
   <data name="&gt;&gt;OutputTextBox1.Name" xml:space="preserve">
     <value>OutputTextBox1</value>
@@ -786,7 +786,7 @@ in the scheduled preloading</value>
     <value>394, 52</value>
   </data>
   <data name="PathsTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
+    <value>10</value>
   </data>
   <data name="&gt;&gt;PathsTextBox.Name" xml:space="preserve">
     <value>PathsTextBox</value>
@@ -816,7 +816,7 @@ in the scheduled preloading</value>
     <value>39, 15</value>
   </data>
   <data name="PathsLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
+    <value>9</value>
   </data>
   <data name="PathsLabel.Text" xml:space="preserve">
     <value>Paths:</value>
@@ -847,7 +847,7 @@ in the scheduled preloading</value>
     <value>48, 15</value>
   </data>
   <data name="OutputLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+    <value>11</value>
   </data>
   <data name="OutputLabel.Text" xml:space="preserve">
     <value>Output:</value>
@@ -874,7 +874,7 @@ in the scheduled preloading</value>
     <value>394, 23</value>
   </data>
   <data name="OutputTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>12</value>
   </data>
   <data name="&gt;&gt;OutputTextBox.Name" xml:space="preserve">
     <value>OutputTextBox</value>
@@ -901,7 +901,7 @@ in the scheduled preloading</value>
     <value>408, 285</value>
   </data>
   <data name="ScheduleSettingsGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+    <value>1</value>
   </data>
   <data name="ScheduleSettingsGroupBox.Text" xml:space="preserve">
     <value>Settings</value>
@@ -934,7 +934,7 @@ in the scheduled preloading</value>
     <value>100, 28</value>
   </data>
   <data name="OpenTaskSchedulerButton.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+    <value>2</value>
   </data>
   <data name="OpenTaskSchedulerButton.Text" xml:space="preserve">
     <value>Task Scheduler</value>

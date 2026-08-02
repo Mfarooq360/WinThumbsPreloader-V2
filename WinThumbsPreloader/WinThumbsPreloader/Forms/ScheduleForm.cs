@@ -3,25 +3,21 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.Versioning;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Documents;
 using System.Windows.Forms;
 using WinThumbsPreloader.Forms;
 using WinThumbsPreloader.Properties;
+using static WinThumbsPreloader.Logger;
 using MessageBox = System.Windows.Forms.MessageBox;
 using Point = System.Drawing.Point;
 using Task = System.Threading.Tasks.Task;
 using TaskScheduler = Microsoft.Win32.TaskScheduler.Task;
 using Trigger = Microsoft.Win32.TaskScheduler.Trigger;
 using TriggerCollection = Microsoft.Win32.TaskScheduler.TriggerCollection;
-using static WinThumbsPreloader.Logger;
 
 namespace WinThumbsPreloader
 {
@@ -138,7 +134,16 @@ namespace WinThumbsPreloader
             }
             else if (ScheduleSaveButton.Text == "Delete Task")
             {
-                DeleteTask();
+                MessageBoxResult result = (MessageBoxResult)MessageBox.Show("Are you sure you want to delete the scheduled task?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == MessageBoxResult.Yes)
+                {
+                    DeleteTask();
+                }
+                else
+                {
+                    WriteLine("Task deletion canceled by user", LoggingFrequency.GUILogging);
+                    OutputTextBox.Text = "Task deletion canceled.";
+                }
             }
         }
 
@@ -153,10 +158,7 @@ namespace WinThumbsPreloader
             using (TaskService ts = new TaskService())
             {
                 TaskScheduler task = ts.FindTask(TaskName);
-                if (task != null)
-                {
-                    task.Enabled = EnabledCheckBox.Checked;
-                }
+                task?.Enabled = EnabledCheckBox.Checked;
             }
         }
 
@@ -359,7 +361,7 @@ namespace WinThumbsPreloader
                             pathsSet.Add(cleanedPath);
                         }
                     }
-                    else if (cleanedPath.Length > 3 && !cleanedPath.StartsWith("-"))
+                    else if (cleanedPath.Length > 3 && !cleanedPath.StartsWith('-'))
                     {
                         pathsSet.Add(cleanedPath);
                     }
@@ -565,6 +567,7 @@ namespace WinThumbsPreloader
                     EnabledCheckBox.Checked = false;
                     WriteLine("Task deleted successfully", LoggingFrequency.GUILogging);
                     OutputTextBox.Text = "Task deleted successfully.";
+                    OutputTextBox1.Text = "";
                 }
                 catch (Exception ex)
                 {
@@ -623,7 +626,7 @@ namespace WinThumbsPreloader
             if (!string.IsNullOrWhiteSpace(PathsTextBox.Text))
             {
                 // Append each line from PathsTextBox.Text as a separate path
-                var paths = PathsTextBox.Text.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                var paths = PathsTextBox.Text.Split(["\r\n", "\r", "\n"], StringSplitOptions.RemoveEmptyEntries);
                 foreach (var path in paths)
                 {
                     var correctedPath = path.Replace('/', '\\').Trim(); // Convert forward slashes to backslashes and trim
@@ -673,7 +676,7 @@ namespace WinThumbsPreloader
         private void TransferDrivesToPaths()
         {
             var paths = PathsTextBox.Text.Split(
-                new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+                [Environment.NewLine], StringSplitOptions.RemoveEmptyEntries).ToList();
 
             // Add checked drive letters to the paths list
             foreach (var item in DrivesCheckedListBox.CheckedItems)
@@ -699,11 +702,11 @@ namespace WinThumbsPreloader
         private void TransferPathsToDrives()
         {
             var paths = PathsTextBox.Text.Split(
-                new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+                [Environment.NewLine], StringSplitOptions.RemoveEmptyEntries);
 
             foreach (var path in paths)
             {
-                if (path.EndsWith("\\") && path.Length == 3) // e.g., "C:\"
+                if (path.EndsWith('\\') && path.Length == 3) // e.g., "C:\"
                 {
                     // If the path is a drive letter, check it in DrivesCheckedListBox
                     int index = DrivesCheckedListBox.Items.IndexOf(path[0].ToString());
@@ -715,7 +718,7 @@ namespace WinThumbsPreloader
             }
 
             // Remove drive paths from PathsTextBox
-            var nonDrivePaths = paths.Where(p => p.Length > 3 || !p.EndsWith("\\")).ToList();
+            var nonDrivePaths = paths.Where(p => p.Length > 3 || !p.EndsWith('\\')).ToList();
             PathsTextBox.Text = string.Join(Environment.NewLine, nonDrivePaths);
         }
 
@@ -729,9 +732,9 @@ namespace WinThumbsPreloader
             // Clear the items from the CheckedListBox
             DrivesCheckedListBox.Items.Clear();
 
-            List<char> alphabet = new List<char> { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+            List<char> alphabet = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
                            'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
-                           'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+                           'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
 
             List<char> reorderedAlphabet = Settings.Default.DriveSortChoice == "Horizontal"
                                            ? SortDriveLettersHorizontally(alphabet)
@@ -783,9 +786,9 @@ namespace WinThumbsPreloader
 
         private void PopulateTimeDigitsComboBox(bool is24HourMode)
         {
-            string[] twelveHourTime = { "1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00", "8:00", "9:00", "10:00", "11:00", "12:00" };
-            string[] twentyFourHourTime = { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00",
-            "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"};
+            string[] twelveHourTime = ["1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00", "8:00", "9:00", "10:00", "11:00", "12:00"];
+            string[] twentyFourHourTime = [ "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00",
+            "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"];
 
             TimeDigitsComboBox.Items.Clear(); // Clear existing items
             if (!is24HourMode)
@@ -820,11 +823,23 @@ namespace WinThumbsPreloader
             {
                 dateTimePicker1.Enabled = false;
                 dateTimePicker1.Visible = false;
+
+                TimeDigitsComboBox.Visible = true;
+                TimeDigitsComboBox.Enabled = true;
+
+                TimeOfDayComboBox.Visible = true;
+                TimeOfDayComboBox.Enabled = true;
             }
             else if (Settings.Default.DetailedTimeMode == true)
             {
                 dateTimePicker1.Enabled = true;
                 dateTimePicker1.Visible = true;
+
+                TimeDigitsComboBox.Visible = false;
+                TimeOfDayComboBox.Enabled = false;
+
+                TimeOfDayComboBox.Visible = false;
+                TimeOfDayComboBox.Enabled = false;
             }
         }
     }

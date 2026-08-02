@@ -1,14 +1,15 @@
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
-using System.IO;
-using System.Runtime.CompilerServices;
-using System.Runtime.Versioning;
-using System.Windows.Automation;
+using System.Linq;
+using System.Security.Principal;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using WinThumbsPreloader.Forms;
-using static WinThumbsPreloader.Logger;
 using WinThumbsPreloader.Properties;
+using static WinThumbsPreloader.Logger;
 
 namespace WinThumbsPreloader
 {
@@ -17,6 +18,8 @@ namespace WinThumbsPreloader
         public static Options AppOptions { get; private set; }
 
         public static int activeInstances = 0;
+        public static bool adminElevationAttempted = false;
+        public static bool standardElevationAttempted = false;
         public static bool formOpen = false;
 
         /// <summary>
@@ -33,7 +36,10 @@ namespace WinThumbsPreloader
             AppOptions = options;
 
             WriteLine($"Options: Bad or no arguments = {options.badOrNoArguments}, Include nested directories = {options.includeNestedDirectories}, Multithreaded = {options.multiThreaded}, Silent mode = {options.silentMode}, Start minimized = {options.startMinimized}, Thread count = {options.threadCount}", LoggingFrequency.PreloaderLogging);
-            WriteLine($"Paths: { string.Join(Environment.NewLine, options.paths) }", LoggingFrequency.PreloaderLogging);
+            WriteLine($"Paths: {string.Join(Environment.NewLine, options.paths)}", LoggingFrequency.PreloaderLogging);
+
+            if (!HandleElevationState(arguments))
+                return;
 
             if (options.startMinimized)
             {
@@ -41,7 +47,7 @@ namespace WinThumbsPreloader
 
                 StartMinimized();
             }
-            else if (options.badOrNoArguments || options.paths.Count == 0 || options.paths == null)
+            else if (options.badOrNoArguments || options.paths == null || options.paths.Count == 0)
             {
                 WriteLine("Starting GUI", LoggingFrequency.AllLogging);
 
@@ -52,7 +58,7 @@ namespace WinThumbsPreloader
                 WriteLine($"Active Instances: {activeInstances}", LoggingFrequency.DebugLogging);
                 WriteLine("Starting preloader", LoggingFrequency.PreloaderLogging);
 
-                StartPreloader(options);
+                RunPreloaderMode(options);
             }
         }
 
@@ -60,15 +66,13 @@ namespace WinThumbsPreloader
         {
             formOpen = true;
             Application.EnableVisualStyles();
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.SetHighDpiMode(HighDpiMode.SystemAware); // TODO: or test PerMonitorV2
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new CacheForm());
         }
 
         private static void OpenAboutForm()
         {
-            CheckForAdminRequirement();
-
             formOpen = true;
             Application.EnableVisualStyles();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
@@ -76,69 +80,103 @@ namespace WinThumbsPreloader
             Application.Run(new AboutForm());
         }
 
-        public static void StartPreloader(Options options)
+        private static void RunPreloaderMode(Options options)
         {
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            using var context = new PreloaderApplicationContext(options);
+            Application.Run(context);
+        }
+
+        public static async Task StartPreloadersAsync(Options options)
+        {
+            var preloaderTasks = new List<Task>(options.paths.Count);
+
             foreach (string path in options.paths)
             {
                 WriteLine($"exePath: {path}", LoggingFrequency.PreloaderLogging);
 
-                activeInstances++;
+                int count = Interlocked.Increment(ref activeInstances);
+
                 WriteLine($"Active Instances: {activeInstances}", LoggingFrequency.DebugLogging);
 
-                ThumbnailsPreloader preloader = new ThumbnailsPreloader(path, options.includeNestedDirectories, options.silentMode, options.multiThreaded, options.threadCount);
-                preloader.PreloaderCompleted += (sender) =>
-                {
-                    if (activeInstances == 0 && !formOpen)
-                    {
-                        Application.Exit();
-                    }
-                };
+                var preloader = new ThumbnailsPreloader(path, options.includeNestedDirectories, options.silentMode, options.multiThreaded, options.threadCount);
+
+                preloaderTasks.Add(preloader.StartPreloaderAsync());
             }
-            if (!formOpen) Application.Run();
+
+            await Task.WhenAll(preloaderTasks);
         }
 
-        private static void CheckForAdminRequirement()
+        private static bool HandleElevationState(string[] args)
         {
-            WriteLine("Checking for admin requirement - CheckForAdminRequirement()", LoggingFrequency.GUILogging);
+            bool shouldBeAdmin = Settings.Default.Admin;
+            bool isAdmin = IsRunningAsAdministrator();
 
-            bool adminRequired = Settings.Default.Admin;
-            WriteLine($"Admin required: {adminRequired}", LoggingFrequency.GUILogging);
-
-            if (!SettingsForm.IsRunningAsAdministrator() && adminRequired)
+            if (shouldBeAdmin && !isAdmin)
             {
-                WriteLine("Restarting as admin", LoggingFrequency.GUILogging);
-
-                SettingsForm.SetRunAsAdmin();
-                RestartAsAdmin();
+                RestartAsAdmin(args);
+                return true;
             }
+
+            return true;
         }
 
-        public static void RestartAsAdmin()
+        public static bool IsRunningAsAdministrator()
         {
-            WriteLine("Restarting as admin - RestartAsAdmin()", LoggingFrequency.GUILogging);
+            var identity = WindowsIdentity.GetCurrent();
+            var principal = new WindowsPrincipal(identity);
+            var runningAsAdministrator = principal.IsInRole(WindowsBuiltInRole.Administrator);
+            WriteLine("Running as administrator: " + runningAsAdministrator, LoggingFrequency.DebugLogging);
+            return runningAsAdministrator;
+        }
 
-            var exePath = Application.ExecutablePath;
-            WriteLine($"exePath: {exePath}", LoggingFrequency.DebugLogging);
+        public static bool RestartAsAdmin(string[] args)
+        {
+            string quotedArgs = string.Join(" ", args.Select(a => $"\"{a}\""));
 
-            var startInfo = new ProcessStartInfo(exePath)
+            var psi = new ProcessStartInfo
             {
+                FileName = Application.ExecutablePath,
+                Arguments = quotedArgs,
+                UseShellExecute = true,
                 Verb = "runas",
-                UseShellExecute = true
+                WorkingDirectory = Environment.CurrentDirectory
             };
-            WriteLine($"StartInfo: ExecutablePath = {startInfo.FileName}, Verb = {startInfo.Verb}, UseShellExecute = {startInfo.UseShellExecute}", LoggingFrequency.DebugLogging);
 
             try
             {
-                Process.Start(startInfo);
-                Application.Exit();
+                WriteLine("Attempting to restart as administrator.", LoggingFrequency.GUILogging);
+                Process.Start(psi);
+                Environment.Exit(0);
+                return true;
+            }
+            catch (Win32Exception ex) when (ex.NativeErrorCode == 1223)
+            {
+                // User cancelled the UAC prompt
+                WriteLine("User cancelled admin elevation: " + ex.Message, LoggingFrequency.GUILogging);
+                MessageBox.Show(
+                    "Administrator elevation was cancelled.\nThe program will continue without elevation.",
+                    "Elevation Cancelled",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                return false;
             }
             catch (Exception ex)
             {
-                WriteLine($"Failed to start as administrator: {ex.Message}", LoggingFrequency.GUILogging);
-                MessageBox.Show("Failed to start as administrator. The application will continue without elevated privileges.",
-                                "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                WriteLine("Failed to restart as administrator: " + ex.Message, LoggingFrequency.GUILogging);
+                MessageBox.Show(
+                    "Failed to restart as administrator.\n" + ex.Message,
+                    "Elevation Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return false;
             }
         }
+
+
 
         public static void OpenFormCentered(this Form currentForm, Form newForm)
         {
@@ -171,6 +209,55 @@ namespace WinThumbsPreloader
                                          currentForm.Location.Y + (currentForm.Height - newForm.Height) / 2);
             newForm.Owner = currentForm;
             newForm.Show();
+        }
+
+        private sealed class PreloaderApplicationContext : ApplicationContext
+        {
+            private readonly Options _options;
+            private bool _started;
+
+            public PreloaderApplicationContext(Options options)
+            {
+                _options = options;
+
+                // Idle will occur after Application.Run has started pumping messages.
+                Application.Idle += Application_Idle;
+            }
+
+            private async void Application_Idle(object sender, EventArgs e)
+            {
+                if (_started)
+                    return;
+
+                _started = true;
+                Application.Idle -= Application_Idle;
+
+                try
+                {
+                    await StartPreloadersAsync(_options);
+                }
+                catch (Exception ex)
+                {
+                    WriteLine("Unhandled preloader exception: " + ex, LoggingFrequency.PreloaderLogging);
+
+                    MessageBox.Show(
+                        "An error occurred while preloading thumbnails.\n\n" + ex.Message,
+                        "Preloader Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    // Stops Application.Run(context).
+                    ExitThread();
+                }
+            }
+
+            protected override void Dispose(bool disposing)
+            {
+                Application.Idle -= Application_Idle;
+                base.Dispose(disposing);
+            }
         }
     }
 }

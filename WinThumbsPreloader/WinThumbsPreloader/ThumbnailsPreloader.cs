@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Runtime.Versioning;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,79 +10,125 @@ using static WinThumbsPreloader.Logger;
 
 namespace WinThumbsPreloader
 {
-    public enum ThumbnailsPreloaderState
-    {
-        New,
-        GettingNumberOfItems,
-        Processing,
-        Canceled,
-        Done
-    }
-
-    //Preload all thumbnails, show progress dialog
     class ThumbnailsPreloader
     {
+        public enum ThumbnailsPreloaderState
+        {
+            New,
+            GettingNumberOfItems,
+            Processing,
+            Canceled,
+            Done
+        }
+
         private DirectoryScanner directoryScanner;
+        private System.Windows.Forms.Timer cacheCheckTimer;
         private ProgressDialog progressDialog;
         private System.Windows.Forms.Timer progressDialogUpdateTimer;
-        private System.Windows.Forms.Timer cacheCheckTimer;
+
+        private bool hasDecrementedActiveInstances = false;
         private bool includeNestedDirectories;
         private bool multiThreaded;
-        private string path;
+        private bool silentMode;
         private int threadCount;
+        private int threads;
+        private string path;
+        private readonly TaskCompletionSource<bool> _instanceCompletion =
+            new(TaskCreationOptions.RunContinuationsAsynchronously);
 
         public ThumbnailsPreloaderState state = ThumbnailsPreloaderState.GettingNumberOfItems;
         public ThumbnailsPreloaderState prevState = ThumbnailsPreloaderState.New;
-        public event Action<ThumbnailsPreloader> PreloaderCompleted;
-        private bool hasDecrementedActiveInstances = false;
         public int totalItemsCount = 0;
         public int processedItemsCount = 0;
+        public uint[] thumbnailSizes;
         public string currentFile = "";
-        public int[] thumbnailSizes;
 
         public ThumbnailsPreloader(string path, bool includeNestedDirectories, bool silentMode, bool multiThreaded, int threadCount)
         {
             WriteLine("Initializing Preloader - ThumbnailsPreloader(string, bool, bool, bool, int)", LoggingFrequency.PreloaderLogging);
+
             thumbnailSizes = ParseThumbnailSizes();
             WriteLine("thumbnailSizes: " + string.Join(", ", thumbnailSizes), LoggingFrequency.PreloaderLogging);
-            // Single File Mode for when passing a file through the command line
-
-            FileAttributes fAt = File.GetAttributes(path);
-            WriteLine("Path is a directory: " + fAt.HasFlag(FileAttributes.Directory), LoggingFrequency.PreloaderLogging);
-            // Path is file and not a directory, so the application had to be run in single file mode:
-            if (!fAt.HasFlag(FileAttributes.Directory))
-            {
-                WriteLine("Preloading single file: " + path, LoggingFrequency.PreloaderLogging);
-                ThumbnailPreloader.PreloadThumbnail(path, thumbnailSizes); // Generating thumbnail
-                WriteLine("Preloading single file done: " + path, LoggingFrequency.PreloaderLogging);
-                state = ThumbnailsPreloaderState.Done;
-                WriteLine("Preloader state: " + state, LoggingFrequency.PreloaderLogging);
-                if (InstanceCompleted()) 
-                { 
-                    WriteLine("Instance completed, ending instance.", LoggingFrequency.PreloaderLogging);
-                    EndInstance(); 
-                    return; 
-                }
-            }
-            // Normal mode for when passing a directory through the command line, context menu, or GUI
-            directoryScanner = new DirectoryScanner(path, includeNestedDirectories, multiThreaded, threadCount);
-            if (!silentMode)
-            {
-                InitProgressDialog();
-                InitProgressDialogUpdateTimer();
-                if (Settings.Default.ThumbsResetAlert == true && currentLoggingFrequency != LoggingFrequency.DebugLogging && currentLoggingFrequency != LoggingFrequency.NoLogging) { InitializeCacheCheckTimer(); }
-            }
+                        
             this.includeNestedDirectories = includeNestedDirectories;
             WriteLine("IncludeNestedDirectories: " + includeNestedDirectories, LoggingFrequency.PreloaderLogging);
+
             this.multiThreaded = multiThreaded;
             WriteLine("MultiThreaded: " + multiThreaded, LoggingFrequency.PreloaderLogging);
+
             this.threadCount = threadCount;
             WriteLine("ThreadCount: " + threadCount, LoggingFrequency.PreloaderLogging);
+
+            threads = DetermineThreadCount();
+            WriteLine("Resolved Thread Count: " + threads, LoggingFrequency.PreloaderLogging);
+
+            this.silentMode = silentMode;
+            WriteLine("SilentMode: " + silentMode, LoggingFrequency.PreloaderLogging);
+
             this.path = path;
-            WriteLine("Path: " + path, LoggingFrequency.PreloaderLogging);
-            Run();
+            WriteLine("Path: " + path, LoggingFrequency.PreloaderLogging);            
         }
-        
+
+        public async Task StartPreloaderAsync()
+        {
+            try
+            {
+                WriteLine("Starting Preloader - StartPreloaderAsync()", LoggingFrequency.PreloaderLogging);
+
+                FileAttributes attributes = File.GetAttributes(path);
+                bool isDirectory = attributes.HasFlag(FileAttributes.Directory);
+
+                WriteLine("Path is a directory: " + isDirectory, LoggingFrequency.PreloaderLogging);
+
+                if (!isDirectory)
+                {
+                    WriteLine("Preloading single file: " + path, LoggingFrequency.PreloaderLogging);
+
+                    ThumbnailPreloader.PreloadThumbnail(path, thumbnailSizes);
+
+                    WriteLine("Preloading single file done: " + path, LoggingFrequency.PreloaderLogging);
+
+                    state = ThumbnailsPreloaderState.Done;
+                    FinalizeInstance();
+                    EndInstance();
+                    return;
+                }
+
+                directoryScanner = new DirectoryScanner(path, includeNestedDirectories, multiThreaded, threads);
+
+                if (!silentMode)
+                {
+                    InitProgressDialog();
+                    InitProgressDialogUpdateTimer();
+
+                    if (Settings.Default.ThumbsResetAlert && currentLoggingFrequency != LoggingFrequency.DebugLogging && currentLoggingFrequency != LoggingFrequency.NoLogging)
+                    {
+                        InitializeCacheCheckTimer();
+                    }
+                }
+
+                await Run();
+
+                if (silentMode)
+                {
+                    FinalizeInstance();
+                    EndInstance();
+                }
+
+                await _instanceCompletion.Task;
+            }
+            catch (Exception ex)
+            {
+                WriteLine($"Preloader failed for '{path}': {ex}", LoggingFrequency.PreloaderLogging);
+
+                state = ThumbnailsPreloaderState.Canceled;
+                FinalizeInstance();
+                EndInstance();
+
+                throw;
+            }
+        }
+
         private void InitProgressDialog()
         {
             WriteLine("Initializing progress dialog - InitProgressDialog()", LoggingFrequency.PreloaderLogging);
@@ -96,18 +140,22 @@ namespace WinThumbsPreloader
             WriteLine("Progress dialog initialized", LoggingFrequency.PreloaderLogging);
             UpdateProgressDialog(null, null);
         }
-        
+
         private void InitProgressDialogUpdateTimer()
         {
             WriteLine("Initializing progress dialog update timer", LoggingFrequency.PreloaderLogging);
             progressDialogUpdateTimer = new System.Windows.Forms.Timer();
-            progressDialogUpdateTimer.Interval = 250;
+            progressDialogUpdateTimer.Interval = Settings.Default.ProgressDialogUpdateSpeed; // Default: 250ms
             progressDialogUpdateTimer.Tick += new EventHandler(UpdateProgressDialog);
             progressDialogUpdateTimer.Start();
             WriteLine("Progress dialog update timer initialized", LoggingFrequency.PreloaderLogging);
         }
+
         bool statusLogged = false;
         bool statusLogged2 = false;
+
+        private DateTime doneCompletedAt;
+        private bool doneCompletedAtSet = false;
 
         private async void UpdateProgressDialog(object sender, EventArgs e)
         {
@@ -123,18 +171,20 @@ namespace WinThumbsPreloader
                     WriteLine("Cancelling preloader and progress dialog", LoggingFrequency.PreloaderLogging);
                     statusLogged2 = true;
                 }
+                finishDelayCts.Cancel();
                 state = ThumbnailsPreloaderState.Canceled;
                 directoryScanner.cancelled = true;
+
                 progressDialog.Close();
                 progressDialog?.Dispose();
+                progressDialog = null;
                 progressDialogUpdateTimer.Stop();
+                progressDialogUpdateTimer.Tick -= UpdateProgressDialog;
                 progressDialogUpdateTimer?.Dispose();
+                progressDialogUpdateTimer = null;
+
                 if (InstanceCompleted())
                 {
-                    progressDialog.Close();
-                    progressDialog?.Dispose();
-                    progressDialogUpdateTimer.Stop();
-                    progressDialogUpdateTimer?.Dispose();
                     EndInstance();
                     return;
                 }
@@ -145,7 +195,7 @@ namespace WinThumbsPreloader
                 {
                     WriteLine("Updating number of items in progress dialog", LoggingFrequency.DebugLogging);
                     prevState = state;
-                    progressDialog.Line1 = Resources.ThumbnailsPreloader_PreloadingThumbnails;
+                    progressDialog.Line1 = "Scanning directory for items...";
                     progressDialog.Line3 = Resources.ThumbnailsPreloader_CalculatingNumberOfItems;
                     progressDialog.Marquee = true;
                 }
@@ -169,29 +219,220 @@ namespace WinThumbsPreloader
             }
             else if (state == ThumbnailsPreloaderState.Done)
             {
+                progressDialogUpdateTimer.Stop();
+                progressDialogUpdateTimer.Tick -= UpdateProgressDialog;
+                progressDialogUpdateTimer?.Dispose();
+                progressDialogUpdateTimer = null;
+
                 if (prevState != state)
                 {
                     WriteLine("Finalizing progress dialog", LoggingFrequency.DebugLogging);
-                    if (Settings.Default.AutoBackupThumbs == true && CacheForm.CompareThumbsCacheSize() == true && Program.activeInstances <= 1)
+                    if (!doneCompletedAtSet)
+                    {
+                        doneCompletedAt = DateTime.Now;
+                        doneCompletedAtSet = true;
+                    }
+                    progressDialog.Title = String.Format(Resources.ThumbnailsPreloader_Processing, 100); // TODO: Check if it flashes the taskbar icon on completion, and if so, allow the user to change that behavior if possible
+                    progressDialog.Line1 = $"Preloading completed for {totalItemsCount:N0} items";
+                    string displayPath = ShortenPath(path, 56);
+                    progressDialog.Line2 = "Path: \"" + displayPath + "\"";
+                    progressDialog.Line3 = $"Finished preloading {processedItemsCount:N0} items in {preloaderElapsedSeconds:N2} seconds.";
+                    progressDialog.Value = progressDialog.Maximum;
+
+                    bool backupAttempted = false;
+                    if (Settings.Default.AutoBackupAfterPreload && Settings.Default.AutoBackupThumbs && CacheForm.CompareThumbsCacheSize())
                     {
                         WriteLine("AutoBackupThumbs is enabled and the cache size has changed, backing up thumbs cache", LoggingFrequency.PreloaderLogging);
                         prevState = state;
-                        progressDialog.Line3 = Resources.ThumbnailsPreloader_BackingUpThumbsCache;
-                        await CacheForm.BackupThumbsCache(null);
-                        WriteLine("Thumbs cache backed up", LoggingFrequency.PreloaderLogging);
+                        progressDialog.Line1 = Resources.ThumbnailsPreloader_BackingUpThumbsCache;
+                        
+                        CacheForm.CacheOperationResult backupResult = await CacheForm.BackupThumbsCacheDetailedAsync(null);
+
+                        if (backupResult.Succeeded)
+                        {
+                            WriteLine("Thumbs cache backed up successfully", LoggingFrequency.PreloaderLogging);
+                            progressDialog.Line1 = "Thumbnail cache backed up successfully";
+                            backupAttempted = true;
+                        }
+                        else if (backupResult.PartiallySucceeded)
+                        {
+                            WriteLine("Thumbs cache partially backed up", LoggingFrequency.PreloaderLogging);
+                            progressDialog.Line1 = "Thumbnail cache partially backed up";
+                            backupAttempted = true;
+                        }
+                        else if (backupResult.FailureReason == CacheForm.CacheOperationFailureReason.AlreadyInProgress) // Preloader will return to regular done logic instead if cache backup is skipped due to another instance already running the backup
+                        {
+                            WriteLine("Thumbs cache backup skipped, already running in another instance", LoggingFrequency.PreloaderLogging);
+                        }
+                        else
+                        {
+                            WriteLine("Thumbs cache backup failed", LoggingFrequency.PreloaderLogging);
+                            WriteLine("Failure reason: " + backupResult.FailureReason, LoggingFrequency.PreloaderLogging);
+                            progressDialog.Line1 = "Thumbnail cache backup failed";
+                            backupAttempted = true;
+                        }
+
+                        if (backupAttempted)
+                        {
+                            TimeSpan delay = GetDelayTimeSpan(Settings.Default.WaitTimeAfterCacheBackup, Settings.Default.WaitAfterCacheUnit);
+
+                            await DelayWithCancellation(delay, updateDoneTitle: true);
+                        }
                     }
-                    if (InstanceCompleted() == true) 
+                    if (InstanceCompleted() == true && !backupAttempted)
                     {
-                        WriteLine("Instance completed, ending progress dialog", LoggingFrequency.PreloaderLogging);
-                        progressDialog.Close();
-                        progressDialog?.Dispose();
-                        progressDialogUpdateTimer.Stop();
-                        progressDialogUpdateTimer?.Dispose();
-                        EndInstance();
-                        return; 
+                        if (Settings.Default.WaitAfterPreloading)
+                        {
+                            if (Settings.Default.WaitTimeAfterPreloading == 0)
+                            {
+                                while (!progressDialog.HasUserCancelled)
+                                {
+                                    await DelayWithCancellation(TimeSpan.Zero, updateDoneTitle: true);
+                                }
+                            }
+                            else
+                            {
+                                WriteLine("Waiting " + Settings.Default.WaitTimeAfterPreloading + " " + Settings.Default.WaitAfterPreloadingUnit.ToLower() + " before closing preloader", LoggingFrequency.PreloaderLogging);
+                                TimeSpan delay = GetDelayTimeSpan(Settings.Default.WaitTimeAfterPreloading, Settings.Default.WaitAfterPreloadingUnit);
+
+                                await DelayWithCancellation(delay, updateDoneTitle: true);
+                            }
+                        }
                     }
+                    WriteLine("Instance completed, ending progress dialog", LoggingFrequency.PreloaderLogging);
+
+                    progressDialog.Close();
+                    progressDialog?.Dispose();
+                    progressDialog = null;
+
+                    finishDelayCts.Cancel();
+                    finishDelayCts.Dispose();
+
+                    EndInstance();
+                    return;
                 }
             }
+        }
+
+        private CancellationTokenSource finishDelayCts = new();
+
+        private async Task DelayWithCancellation(TimeSpan delay, bool updateDoneTitle = false)
+        {
+            const int stepMs = 100;
+
+            if (delay == TimeSpan.Zero) // Never close unless cancelled
+            {
+                if (updateDoneTitle)
+                    progressDialog.Title = $"Finished at {doneCompletedAt:yyyy-MM-dd h:mm:ss tt}";
+
+                while (!finishDelayCts.IsCancellationRequested && !progressDialog.HasUserCancelled)
+                {
+                    await Task.Delay(stepMs);
+                }
+
+                return;
+            }
+
+            DateTime closeAt = DateTime.Now + delay;
+            int lastSecondsShown = -1;
+
+            while (true)
+            {
+                if (finishDelayCts.IsCancellationRequested || progressDialog.HasUserCancelled)
+                    return;
+
+                TimeSpan remaining = closeAt - DateTime.Now;
+
+                if (remaining <= TimeSpan.Zero)
+                    break;
+
+                if (updateDoneTitle)
+                {
+                    int secondsShown = (int)Math.Ceiling(remaining.TotalSeconds);
+
+                    if (secondsShown != lastSecondsShown)
+                    {
+                        UpdateDoneTitleForCountdown(closeAt);
+                        lastSecondsShown = secondsShown;
+                    }
+                }
+
+                await Task.Delay(stepMs);
+            }
+
+            if (updateDoneTitle)
+                progressDialog.Title = "Closing...";
+        }
+
+        private static TimeSpan GetDelayTimeSpan(int amount, string unit)
+        {
+            if (amount <= 0)
+                return TimeSpan.Zero;
+
+            if (unit.Equals("Hours", StringComparison.OrdinalIgnoreCase))
+                return TimeSpan.FromHours(amount);
+
+            if (unit.Equals("Minutes", StringComparison.OrdinalIgnoreCase))
+                return TimeSpan.FromMinutes(amount);
+
+            return TimeSpan.FromSeconds(amount);
+        }
+
+        private static string FormatRemainingTime(TimeSpan remaining)
+        {
+            if (remaining < TimeSpan.Zero)
+                remaining = TimeSpan.Zero;
+
+            int hours = (int)Math.Floor(remaining.TotalHours);
+
+            return $"{hours}h {remaining.Minutes:D2}m {remaining.Seconds:D2}s";
+        }
+
+        private void UpdateDoneTitleForCountdown(DateTime closeAt)
+        {
+            TimeSpan remaining = closeAt - DateTime.Now;
+
+            if (remaining <= TimeSpan.Zero)
+            {
+                progressDialog.Title = "Closing...";
+                return;
+            }
+
+            progressDialog.Title = $"Closing in {FormatRemainingTime(remaining)}";
+        }
+
+        public static string ShortenPath(string path, int maxLength)
+        {
+            if (string.IsNullOrWhiteSpace(path))
+                return path;
+
+            path = Path.GetFullPath(path);
+            if (path.Length <= maxLength)
+                return path;
+
+            string root = Path.GetPathRoot(path) ?? "";
+            string relative = path.Substring(root.Length).Trim(Path.DirectorySeparatorChar);
+            string[] segments = relative.Split(Path.DirectorySeparatorChar, StringSplitOptions.RemoveEmptyEntries);
+            string sep = Path.DirectorySeparatorChar.ToString();
+            const string ellipsis = "...";
+
+            for (int keep = segments.Length; keep >= 1; keep--)
+            {
+                string tail = string.Join(sep, segments.Skip(segments.Length - keep));
+                string candidate = $"{root}{ellipsis}{sep}{tail}";
+                if (candidate.Length <= maxLength)
+                    return candidate;
+            }
+
+            string fileName = segments.Length > 0 ? segments[^1] : relative;
+            string prefix = root.Length + ellipsis.Length + sep.Length < maxLength
+                ? root + ellipsis + sep
+                : "";
+
+            int budget = Math.Max(1, maxLength - prefix.Length);
+            string truncatedName = fileName.Length > budget ? fileName[^budget..] : fileName;
+
+            return prefix + truncatedName;
         }
 
         private void InitializeCacheCheckTimer()
@@ -209,143 +450,15 @@ namespace WinThumbsPreloader
             CheckCacheReset(currentFile);
             cacheCheckTimer.Start();
         }
-        public long initialCacheSize = 0;
-        public bool cacheReset = false;
-
-        private async void Run()
-        {
-            WriteLine("Running Preloader - Run()", LoggingFrequency.PreloaderLogging);
-            await Task.Run(() =>
-            {
-                state = ThumbnailsPreloaderState.GettingNumberOfItems;
-                WriteLine("Preloader state: " + state, LoggingFrequency.PreloaderLogging);
-
-                var directoryStopWatch = new Stopwatch();
-                if (currentLoggingFrequency == LoggingFrequency.PreloaderLogging || currentLoggingFrequency >= LoggingFrequency.AllLogging) { directoryStopWatch = Stopwatch.StartNew(); }
-
-                List<string> items = new List<string>();
-                items = directoryScanner.GetItems();
-                totalItemsCount = directoryScanner.totalItemsCount; // This is also here in case the program is run in silent mode
-
-                if (currentLoggingFrequency == LoggingFrequency.PreloaderLogging || currentLoggingFrequency >= LoggingFrequency.AllLogging) { directoryStopWatch.Stop(); }
-                WriteLine($"Directory scanning completed in {directoryStopWatch.Elapsed.TotalSeconds:F2} seconds.", LoggingFrequency.PreloaderLogging);
-
-                if (totalItemsCount == 0)
-                {
-                    WriteLine("No items found", LoggingFrequency.PreloaderLogging);
-                    state = ThumbnailsPreloaderState.Done;
-                    WriteLine("Preloader state: " + state, LoggingFrequency.PreloaderLogging);
-                }
-                WriteLine("Total items count: " + totalItemsCount, LoggingFrequency.PreloaderLogging);
-
-                if (state != ThumbnailsPreloaderState.Canceled)
-                {
-                    state = ThumbnailsPreloaderState.Processing; //Start processing
-                }
-                WriteLine("Preloader state: " + state, LoggingFrequency.PreloaderLogging);
-
-                //Set the process priority to Below Normal to prevent system unresponsiveness
-                using (Process p = Process.GetCurrentProcess())
-                    p.PriorityClass = ProcessPriorityClass.BelowNormal;
-                WriteLine("Process priority set to Below Normal", LoggingFrequency.PreloaderLogging);
-
-                //Set the thread count
-                int threads = DetermineThreadCount();
-                WriteLine("Thread count: " + threads, LoggingFrequency.PreloaderLogging);
-                if (currentLoggingFrequency == LoggingFrequency.DebugLogging)
-                {
-                    WriteLine("Preloading thumbnails", LoggingFrequency.DebugLogging);
-                }
-                else
-                {
-                    WriteLine("Preloading thumbnails \nUse Debug Logging for more detailed information (Slows thumbnail generation)", LoggingFrequency.PreloaderLogging);
-
-                }
-                if (Settings.Default.ThumbsResetAlert == true && currentLoggingFrequency != LoggingFrequency.DebugLogging && currentLoggingFrequency != LoggingFrequency.NoLogging) 
-                {
-                    cacheCheckTimer?.Start();
-                    WriteLine("Cache check timer started", LoggingFrequency.PreloaderLogging);
-                }
-
-                var PreloaderStopWatch = new Stopwatch();
-                if (currentLoggingFrequency == LoggingFrequency.PreloaderLogging || currentLoggingFrequency >= LoggingFrequency.AllLogging) { PreloaderStopWatch = Stopwatch.StartNew(); }
-                if (!multiThreaded)
-                {
-                    initialCacheSize = CacheForm.ExplorerCacheSize();
-                    foreach (string item in items)
-                    {
-                        if (state == ThumbnailsPreloaderState.Canceled)
-                        {
-                            break;
-                        }
-                        /*WriteLine("Preloading thumbnail for: " + item, LoggingFrequency.DebugLogging);*/
-                        try
-                        {
-                            currentFile = item;
-                            ThumbnailPreloader.PreloadThumbnail(item, thumbnailSizes);
-                            /*WriteLine("Preloading thumbnail done for: " + item, LoggingFrequency.DebugLogging);*/
-                            CheckCacheReset(item);
-                        }
-                        catch (Exception e)
-                        {
-                            WriteLine($"Exception thrown while preloading thumbnail '{item}': " + e.Message, LoggingFrequency.PreloaderLogging);
-                        }
-                        processedItemsCount++;
-                        if (InstanceCompleted()) { FinalizeInstance(); break; }
-                    }
-                    state = ThumbnailsPreloaderState.Done;
-                }
-                else
-                {
-                    Parallel.ForEach(
-                        items,
-                        new ParallelOptions { MaxDegreeOfParallelism = threads },
-                        (item, parallelLoopState) =>
-                        {
-                            if (parallelLoopState.ShouldExitCurrentIteration)
-                                return;
-
-                            try
-                            {
-                                if (state == ThumbnailsPreloaderState.Canceled)
-                                {
-                                    parallelLoopState.Stop();
-                                    return;
-                                }
-
-                                currentFile = item;
-                                ThumbnailPreloader.PreloadThumbnail(item, thumbnailSizes);
-                            }
-                            catch (Exception e)
-                            {
-                                WriteLine($"Exception thrown while preloading thumbnail '{item}': " + e.Message, LoggingFrequency.PreloaderLogging);
-                            }
-
-                            Interlocked.Increment(ref processedItemsCount);
-
-                            if (InstanceCompleted())
-                            {
-                                FinalizeInstance();
-                                parallelLoopState.Stop();
-                            }
-                        });
-                    state = ThumbnailsPreloaderState.Done;
-                }
-                if (currentLoggingFrequency == LoggingFrequency.PreloaderLogging || currentLoggingFrequency >= LoggingFrequency.AllLogging) { PreloaderStopWatch.Stop(); }
-                WriteLine($"Thumbnail preloading completed in {PreloaderStopWatch.Elapsed.TotalSeconds:F2} seconds.", LoggingFrequency.PreloaderLogging);
-
-                if (InstanceCompleted()) { FinalizeInstance(); return; }
-            });
-        }
 
         private void CheckCacheReset(string item)
         {
-            if (currentLoggingFrequency == LoggingFrequency.DebugLogging && Settings.Default.ThumbsResetAlert)
+            if (Settings.Default.ThumbsResetAlert && currentLoggingFrequency == LoggingFrequency.DebugLogging)
             {
                 long currentCacheSize = CacheForm.ExplorerCacheSize();
                 if (initialCacheSize > currentCacheSize)
                 {
-                    if (cacheReset == false)
+                    if (!cacheReset)
                     {
                         WriteLine("WARNING: Thumbnail cache has been reset at file: " + item, LoggingFrequency.DebugLogging);
                     }
@@ -358,49 +471,241 @@ namespace WinThumbsPreloader
             }
         }
 
-        private int DetermineThreadCount()
+        public long initialCacheSize = 0;
+        public bool cacheReset = false;
+        public double preloaderElapsedSeconds;
+
+        // TODO: Make the directory scanner output relative paths and use them instead of generating relative paths in the loop to improve performance and reduce memory usage (I ran out of time to implement this before beta 7)
+        private async Task Run()
         {
-            if (threadCount == 0) //If the threadCount is 0, use the settings default unless it isn't set, if so, then use the system thread count instead. This is when threadCount is not specified in the command prompt.
+            WriteLine("Running Preloader - Run()", LoggingFrequency.PreloaderLogging);
+            await Task.Run(() =>
             {
-                return Settings.Default.ThreadCount == 0 ? Environment.ProcessorCount : Settings.Default.ThreadCount;
-            }
-            if (threadCount == 1) //If the threadCount is 1, use system thread count. This is when threadCount is specified as 0.
-            {
-                return Environment.ProcessorCount;
-            }
-            return threadCount <= 257 ? threadCount - 1 : Environment.ProcessorCount; //For other cases, use threadCount - 1
+                state = ThumbnailsPreloaderState.GettingNumberOfItems;
+                WriteLine("Preloader state: " + state, LoggingFrequency.PreloaderLogging);
+
+                var directoryStopWatch = new Stopwatch();
+                if (currentLoggingFrequency == LoggingFrequency.PreloaderLogging || currentLoggingFrequency >= LoggingFrequency.AllLogging) { directoryStopWatch = Stopwatch.StartNew(); }
+
+                string[] items = directoryScanner.GetItems();
+                totalItemsCount = directoryScanner.totalItemsCount; // This is also here in case the program is run in silent mode
+
+                if (currentLoggingFrequency == LoggingFrequency.PreloaderLogging || currentLoggingFrequency >= LoggingFrequency.AllLogging) { directoryStopWatch.Stop(); }
+                WriteLine($"Directory scanning completed in {directoryStopWatch.Elapsed.TotalSeconds:F2} seconds.", LoggingFrequency.PreloaderLogging);
+
+                //Debug code for testing directory scanner optimizations
+                //MessageBox.Show("Directory scanning completed in " + directoryStopWatch.Elapsed.TotalSeconds.ToString("F2") + " seconds.", "Directory Scanning Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //Environment.Exit(0);
+
+                if (totalItemsCount == 0)
+                {
+                    WriteLine("No items found", LoggingFrequency.PreloaderLogging);
+
+                    if (state != ThumbnailsPreloaderState.Canceled)
+                    {
+                        state = ThumbnailsPreloaderState.Done;
+                    }
+                    WriteLine("Preloader state: " + state, LoggingFrequency.PreloaderLogging);
+
+                    preloaderElapsedSeconds = 0;
+
+                    FinalizeInstance();
+                    return;
+                }
+                WriteLine("Total items count: " + totalItemsCount, LoggingFrequency.PreloaderLogging);
+
+                if (state != ThumbnailsPreloaderState.Canceled)
+                {
+                    state = ThumbnailsPreloaderState.Processing; // Start processing
+                }
+                WriteLine("Preloader state: " + state, LoggingFrequency.PreloaderLogging);
+
+                using (Process p = Process.GetCurrentProcess())
+                {
+                    if (Settings.Default.PreloaderProcessPriority.Equals("Realtime")) { p.PriorityClass = ProcessPriorityClass.RealTime; }
+                    else if (Settings.Default.PreloaderProcessPriority.Equals("High")) { p.PriorityClass = ProcessPriorityClass.High; }
+                    else if (Settings.Default.PreloaderProcessPriority.Equals("Above Normal")) { p.PriorityClass = ProcessPriorityClass.AboveNormal; }
+                    else if (Settings.Default.PreloaderProcessPriority.Equals("Normal")) { p.PriorityClass = ProcessPriorityClass.Normal; }
+                    else if (Settings.Default.PreloaderProcessPriority.Equals("Below Normal")) { p.PriorityClass = ProcessPriorityClass.BelowNormal; }
+                    else if (Settings.Default.PreloaderProcessPriority.Equals("Idle")) { p.PriorityClass = ProcessPriorityClass.Idle; }
+                }
+                WriteLine("Process priority set to " + Settings.Default.PreloaderProcessPriority, LoggingFrequency.PreloaderLogging);
+
+                if (currentLoggingFrequency == LoggingFrequency.DebugLogging)
+                {
+                    WriteLine("Preloading thumbnails", LoggingFrequency.DebugLogging);
+                }
+                else
+                {
+                    WriteLine("Preloading thumbnails \nUse Debug Logging in single-threaded mode for more detailed information (Slows thumbnail generation)", LoggingFrequency.PreloaderLogging);
+
+                }
+                if (Settings.Default.ThumbsResetAlert == true && currentLoggingFrequency != LoggingFrequency.DebugLogging && currentLoggingFrequency != LoggingFrequency.NoLogging) 
+                {
+                    cacheCheckTimer?.Start();
+                    WriteLine("Cache check timer started", LoggingFrequency.PreloaderLogging);
+                }
+
+                var PreloaderStopWatch = Stopwatch.StartNew();
+
+                if (!multiThreaded)
+                {
+                    initialCacheSize = CacheForm.ExplorerCacheSize();
+                    foreach (string item in items)
+                    {
+                        if (state == ThumbnailsPreloaderState.Canceled)
+                        {
+                            break;
+                        }
+                        WriteLine("Preloading thumbnail for: " + item, LoggingFrequency.DebugLogging);
+                        try
+                        {
+                            currentFile = item;
+                            string relativePath = Path.GetRelativePath(path, item);
+
+                            if (relativePath == "." || string.IsNullOrWhiteSpace(relativePath))
+                            {
+                                ThumbnailPreloader.PreloadThumbnail(item, thumbnailSizes);
+                            }
+                            else
+                            {
+                                ThumbnailPreloader.PreloadThumbnail(path, relativePath, thumbnailSizes);
+                            }
+                            WriteLine("Preloading thumbnail done for: " + item, LoggingFrequency.DebugLogging);
+                            CheckCacheReset(item);
+                        }
+                        catch (Exception e)
+                        {
+                            WriteLine($"Exception thrown while preloading thumbnail '{item}': " + e.Message, LoggingFrequency.PreloaderLogging);
+                        }
+                        processedItemsCount++;
+                        if (InstanceCompleted()) 
+                        {
+                            break; 
+                        }
+                    }
+                    if (state != ThumbnailsPreloaderState.Canceled)
+                    {
+                        state = ThumbnailsPreloaderState.Done;
+                    }
+                }
+                else
+                {
+                    WriteLine("(Note: COM exceptions in multithreaded mode may be harmless due to shell handlers)", LoggingFrequency.DebugLogging);
+
+                    int nextIndex = -1;
+
+                    Parallel.For(
+                        0,
+                        threads,
+                        new ParallelOptions { MaxDegreeOfParallelism = threads },
+                        workerNumber =>
+                        {
+                            while (state != ThumbnailsPreloaderState.Canceled)
+                            {
+                                int index = Interlocked.Increment(ref nextIndex);
+
+                                if (index >= items.Length)
+                                    break;
+
+                                string item = items[index];
+
+                                try
+                                {
+                                    Volatile.Write(ref currentFile, item);
+
+                                    string relativePath = Path.GetRelativePath(path, item);
+
+                                    if (relativePath == "." || string.IsNullOrWhiteSpace(relativePath))
+                                    {
+                                        ThumbnailPreloader.PreloadThumbnail(item, thumbnailSizes);
+                                    }
+                                    else
+                                    {
+                                        ThumbnailPreloader.PreloadThumbnail(path, relativePath, thumbnailSizes);
+                                    }
+                                }
+                                catch (Exception e)
+                                {
+                                    WriteLine($"Exception thrown while preloading thumbnail " + $"'{item}': {e.Message}", LoggingFrequency.PreloaderLogging);
+                                }
+
+                                Interlocked.Increment(ref processedItemsCount);
+                            }
+                        });
+                    if (state != ThumbnailsPreloaderState.Canceled)
+                    {
+                        state = ThumbnailsPreloaderState.Done;
+                    }
+                }
+                PreloaderStopWatch.Stop();
+                preloaderElapsedSeconds = PreloaderStopWatch.Elapsed.TotalSeconds;
+                WriteLine($"Thumbnail preloading completed in {preloaderElapsedSeconds:F2} seconds.", LoggingFrequency.PreloaderLogging);
+
+                if (InstanceCompleted()) 
+                {
+                    Array.Clear(items, 0, items.Length);
+                    items = null;
+                    FinalizeInstance();
+                    return; 
+                }
+            });
         }
 
-        private static int[] ParseThumbnailSizes()
+        private int DetermineThreadCount()
+        {
+            // User did NOT provide an explicit count
+            if (threadCount < 0)
+            {
+                int saved = Settings.Default.ThreadCount;
+
+                if (saved > 0)
+                    return Math.Min(saved, 512);
+
+                return Environment.ProcessorCount;
+            }
+
+            // User explicitly selected auto (0)
+            if (threadCount == 0)
+                return Environment.ProcessorCount;
+
+            // User entered an exact number
+            return Math.Min(threadCount, 512);
+        }
+
+        private static uint[] ParseThumbnailSizes()
         {
             try
             {
                 return Settings.Default.PreloaderThumbnailSizes
-                    .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
-                    .Select(int.Parse)
+                    .Split([','], StringSplitOptions.RemoveEmptyEntries)
+                    .Select(uint.Parse)
+                    .OrderByDescending(x => x)
                     .ToArray();
             }
             catch (Exception e)
             {
                 WriteLine("Error parsing thumbnail sizes: " + e.Message, LoggingFrequency.PreloaderLogging);
-                return new int[] { 256 }; // Default size
+                return [256];
             }
         }
 
-        //This was done to track how many preloading instances are open due to multiple instances now occurring in the same program, which helps to properly end the application when there are no more preloading instances.
-        private bool InstanceCompleted()
-        {
-            if (state == ThumbnailsPreloaderState.Canceled || state == ThumbnailsPreloaderState.Done) { return true; } 
-            else { return false; }
-        }
+        private bool InstanceCompleted() =>
+            state == ThumbnailsPreloaderState.Canceled || state == ThumbnailsPreloaderState.Done;
 
         bool isFinalizing = false;
+
         private void FinalizeInstance()
         {
-            if (isFinalizing) return; // Prevent multiple calls
+            if (isFinalizing) return; // Prevent multiple calls when multithreading
             isFinalizing = true;
+
             cacheCheckTimer?.Stop();
+            cacheCheckTimer?.Tick -= CacheCheckTimer_Tick;
+            cacheCheckTimer?.Dispose();
+            cacheCheckTimer = null;
             WriteLine("Cache check timer stopped", LoggingFrequency.PreloaderLogging);
+
             if (state == ThumbnailsPreloaderState.Done)
             {
                 WriteLine("Preloader state: " + state, LoggingFrequency.PreloaderLogging);
@@ -411,18 +716,31 @@ namespace WinThumbsPreloader
                 WriteLine("Preloader state: " + state, LoggingFrequency.PreloaderLogging);
                 WriteLine("Preloader has been canceled", LoggingFrequency.PreloaderLogging);
             }
-            WriteLine("Instance completed, ending instance.", LoggingFrequency.PreloaderLogging);
-            EndInstance();
         }
-        
+
         private void EndInstance()
         {
-            if (!hasDecrementedActiveInstances)
+            if (hasDecrementedActiveInstances)
+                return;
+
+            hasDecrementedActiveInstances = true;
+
+            int remainingInstances =
+                Interlocked.Decrement(ref Program.activeInstances);
+
+            WriteLine($"Instance completed. Active instances remaining: {remainingInstances}", LoggingFrequency.PreloaderLogging);
+
+            _instanceCompletion.TrySetResult(true);
+
+            if (remainingInstances == 0)
             {
-                Program.activeInstances--;
-                hasDecrementedActiveInstances = true;
+                if (!Program.formOpen)
+                {
+                    WriteLine("No forms or preloaders remain; exiting application.", LoggingFrequency.GUILogging);
+
+                    Application.Exit();
+                }
             }
-            PreloaderCompleted?.Invoke(this);
         }
     }
 }

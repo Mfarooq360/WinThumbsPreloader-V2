@@ -12,7 +12,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="ExtensionsText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">avif, bmp, gif, heic, heif, jpg, jpeg, mkv, mov, mp4, png, svg, tif, tiff, webp</Value>
+      <Value Profile="(Default)">avi, avif, bmp, gif, heic, heif, jpg, jpeg, mkv, mov, mp4, png, svg, tif, tiff, webp</Value>
     </Setting>
     <Setting Name="PreloadFolderIcons" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -66,13 +66,70 @@
       <Value Profile="(Default)">Disabled</Value>
     </Setting>
     <Setting Name="PreloaderThumbnailSizes" Type="System.String" Scope="User">
-      <Value Profile="(Default)">256</Value>
+      <Value Profile="(Default)">96,256</Value>
     </Setting>
-    <Setting Name="ManualDeletionFrequency" Type="System.String" Scope="User">
-      <Value Profile="(Default)">On Deletion Start</Value>
+    <Setting Name="ExplorerCloseFrequency" Type="System.String" Scope="User">
+      <Value Profile="(Default)">On Every File</Value>
     </Setting>
     <Setting Name="LoggingFrequency" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="BackupRestoreClearSafety" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Allow Partial Copy</Value>
+    </Setting>
+    <Setting Name="WaitAfterPreloading" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="WaitTimeAfterPreloading" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="ProgressDialogUpdateSpeed" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">250</Value>
+    </Setting>
+    <Setting Name="WaitAfterCacheBackup" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="WaitTimeAfterCacheBackup" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="WaitAfterPreloadingUnit" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Seconds</Value>
+    </Setting>
+    <Setting Name="WaitAfterCacheUnit" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Seconds</Value>
+    </Setting>
+    <Setting Name="PreloaderProcessPriority" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Below Normal</Value>
+    </Setting>
+    <Setting Name="DonePathScrollEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DonePathShortenMode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">End</Value>
+    </Setting>
+    <Setting Name="DonePathVisibleChars" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">54</Value>
+    </Setting>
+    <Setting Name="BackupCacheFolderPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LastBackupDateTime" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LoggerFolderPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="AutoDeleteLogsByAge" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LogRetentionDays" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="MaxLogFileSizeMB" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1024</Value>
+    </Setting>
+    <Setting Name="AutoBackupAfterPreload" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

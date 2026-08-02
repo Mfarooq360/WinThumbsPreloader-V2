@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Threading;
-using System.Runtime.Versioning;
 
 namespace WinThumbsPreloader
 {
@@ -109,8 +108,8 @@ namespace WinThumbsPreloader
                 if (diff && (_nativeProgressDialog != null))
                 {
                     _nativeProgressDialog.SetLine(1, _line1, _compactPaths, IntPtr.Zero);
-                    _nativeProgressDialog.SetLine(2, _line1, _compactPaths, IntPtr.Zero);
-                    _nativeProgressDialog.SetLine(3, _line1, _compactPaths, IntPtr.Zero);
+                    _nativeProgressDialog.SetLine(2, _line2, _compactPaths, IntPtr.Zero);
+                    _nativeProgressDialog.SetLine(3, _line3, _compactPaths, IntPtr.Zero);
                 }
             }
         }
@@ -300,14 +299,9 @@ namespace WinThumbsPreloader
             set
             {
                 if (value)
-                {
                     _flags &= ~PROGDLG.NoCancel;
-                }
                 else
-                {
-                    if (Environment.OSVersion.Version.Major < 6) throw new NotSupportedException("This option is only available on Windows Vista or greater.");
                     _flags |= PROGDLG.NoCancel;
-                }
             }
         }
         /// <summary>
@@ -324,7 +318,6 @@ namespace WinThumbsPreloader
             {
                 if (value)
                 {
-                    if (Environment.OSVersion.Version.Major < 6) throw new NotSupportedException("This option is only available on Windows Vista or greater.");
                     _flags |= PROGDLG.MarqueeProgress;
                 }
                 else
@@ -394,7 +387,7 @@ namespace WinThumbsPreloader
         /// </summary>
         private void UpdateProgress()
         {
-            _nativeProgressDialog.SetProgress((uint)_value, (uint)_maximum);
+            _nativeProgressDialog?.SetProgress((uint)_value, (uint)_maximum);
         }
 
         /// <summary>
@@ -419,23 +412,24 @@ namespace WinThumbsPreloader
             _nativeProgressDialog = (IProgressDialog)Activator.CreateInstance(_progressDialogType);
             _nativeProgressDialog.SetCancelMsg(_cancelMessage, null);
             if (ShowTimeRemaining) _nativeProgressDialog.SetLine(3, "Estimating time remaining...", false, IntPtr.Zero);
-            //Temporary title for progressbar handler detection
+            // Temporary title for progressbar handler detection
             string guidTitle = Guid.NewGuid().ToString();
             _nativeProgressDialog.SetTitle(guidTitle);
             _nativeProgressDialog.StartProgressDialog(handle, null, _flags, IntPtr.Zero);
-            //Workaround to manipulate progressbar style
+            // Workaround to manipulate progressbar style
             IntPtr handler = IntPtr.Zero;
-            while (true)
+            for (int attempt = 0; attempt < 600; attempt++) // Timeout after 15 seconds
             {
                 handler = FindWindow(null, guidTitle);
-                if (handler == IntPtr.Zero) Thread.Sleep(25); else break;
+                if (handler != IntPtr.Zero) break;
+                Thread.Sleep(25);
             }
             handler = FindWindowEx(handler, IntPtr.Zero, "DirectUIHWND", null);
             IntPtr childHandler = FindWindowEx(handler, IntPtr.Zero, "CtrlNotifySink", null);
             childHandler = FindWindowEx(handler, childHandler, "CtrlNotifySink", null);
             childHandler = FindWindowEx(handler, childHandler, "CtrlNotifySink", null);
             _progressBarHandler = FindWindowEx(childHandler, IntPtr.Zero, "msctls_progress32", null);
-            //Real title
+            // Real title
             _nativeProgressDialog.SetTitle(_title);
             _value = 0;
             _state = ProgressDialogState.Running;
@@ -470,16 +464,6 @@ namespace WinThumbsPreloader
         /// </summary>
         public void Close()
         {
-            if (_state != ProgressDialogState.Stopped)
-            {
-                try
-                {
-                    _nativeProgressDialog.StopProgressDialog();
-                }
-                catch { }
-                _state = ProgressDialogState.Stopped;
-            }
-
             CleanUp();
         }
 

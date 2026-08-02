@@ -146,7 +146,6 @@ namespace WinThumbsPreloader
             resources.ApplyResources(RichTextBox, "RichTextBox");
             RichTextBox.Name = "RichTextBox";
             RichTextBox.ReadOnly = true;
-            RichTextBox.ShortcutsEnabled = false;
             RichTextBox.TabStop = false;
             RichTextBox.LinkClicked += RichTextBox_LinkClicked;
             // 

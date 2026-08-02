@@ -252,6 +252,7 @@
             Controls.Add(CloseButton);
             Controls.Add(CacheOptionsGroupBox);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "CacheForm";
             Load += CacheForm_Load;
             CacheOptionsGroupBox.ResumeLayout(false);

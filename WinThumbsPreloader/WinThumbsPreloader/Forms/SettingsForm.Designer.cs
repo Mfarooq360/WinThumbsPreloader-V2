@@ -104,8 +104,9 @@
             // ThreadsNumericUpDown
             // 
             resources.ApplyResources(ThreadsNumericUpDown, "ThreadsNumericUpDown");
-            ThreadsNumericUpDown.Maximum = new decimal(new int[] { 256, 0, 0, 0 });
+            ThreadsNumericUpDown.Maximum = new decimal(new int[] { 512, 0, 0, 0 });
             ThreadsNumericUpDown.Name = "ThreadsNumericUpDown";
+            SettingsToolTips.SetToolTip(ThreadsNumericUpDown, resources.GetString("ThreadsNumericUpDown.ToolTip"));
             ThreadsNumericUpDown.ValueChanged += ThreadsNumericUpDown_ValueChanged;
             // 
             // ClearExtensionsButton

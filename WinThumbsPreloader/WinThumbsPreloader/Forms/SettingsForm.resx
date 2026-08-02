@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
-    Microsoft ResX Schema 
+    Microsoft ResX Schema
 
     Version 2.0
 
@@ -48,7 +48,7 @@
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
@@ -133,7 +133,7 @@
     <value>102, 19</value>
   </data>
   <data name="AdminCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="AdminCheckBox.Text" xml:space="preserve">
     <value>Run As Admin</value>
@@ -142,10 +142,10 @@
     <value>1175, 17</value>
   </metadata>
   <data name="AdminCheckBox.ToolTip" xml:space="preserve">
-    <value>Toggles whether the preloader is run as Admin or not.
-Enabling this will scan more files on the disk, but may break
+    <value>Toggles whether or not the program and preloader is run as Admin.
+Enabling this will scan more files on the directory, but may break
 compatibility with some thumbnail generators like PowerToys.
-If possible, use SVGSee as it is much faster and compatible with Admin. </value>
+If possible, use SVGSee as it is much faster and compatible with Admin.</value>
   </data>
   <data name="&gt;&gt;AdminCheckBox.Name" xml:space="preserve">
     <value>AdminCheckBox</value>
@@ -169,10 +169,10 @@ If possible, use SVGSee as it is much faster and compatible with Admin. </value>
     <value>4, 3, 4, 3</value>
   </data>
   <data name="MultithreadedCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 19</value>
+    <value>109, 19</value>
   </data>
   <data name="MultithreadedCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="MultithreadedCheckBox.Text" xml:space="preserve">
     <value>Multi-Threaded</value>
@@ -204,7 +204,7 @@ Enabled is recommended for best performance.</value>
     <value>4, 0, 4, 0</value>
   </data>
   <data name="ThreadsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 15</value>
+    <value>52, 15</value>
   </data>
   <data name="ThreadsLabel.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -246,7 +246,8 @@ Setting the value in the command line will override this setting.</value>
   </data>
   <data name="DefaultThreadsButton.ToolTip" xml:space="preserve">
     <value>Sets threads to 0 which makes the preloader
-use the amount of threads in the system.</value>
+use the amount of threads in the system
+or the allocated thread affinity to the program.</value>
   </data>
   <data name="&gt;&gt;DefaultThreadsButton.Name" xml:space="preserve">
     <value>DefaultThreadsButton</value>
@@ -270,7 +271,13 @@ use the amount of threads in the system.</value>
     <value>91, 23</value>
   </data>
   <data name="ThreadsNumericUpDown.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>3</value>
+  </data>
+  <data name="ThreadsNumericUpDown.ToolTip" xml:space="preserve">
+    <value>Choose the amount of threads the preloader can use.
+A value of 0 will use the number of threads in the system
+or the allocated thread affinity to the program.
+Setting the value in the command line will override this setting.</value>
   </data>
   <data name="&gt;&gt;ThreadsNumericUpDown.Name" xml:space="preserve">
     <value>ThreadsNumericUpDown</value>
@@ -297,7 +304,7 @@ use the amount of threads in the system.</value>
     <value>382, 114</value>
   </data>
   <data name="OptionsGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>0</value>
   </data>
   <data name="OptionsGroupBox.Text" xml:space="preserve">
     <value>Options</value>
@@ -334,7 +341,10 @@ use the amount of threads in the system.</value>
     <value>Clear</value>
   </data>
   <data name="ClearExtensionsButton.ToolTip" xml:space="preserve">
-    <value>Clears the Extensions list which processes all extensions</value>
+    <value>Clears the extensions list which processes all extensions.
+
+WARNING: Processing every file may lead to instabilities
+such as high memory usage or freezing.</value>
   </data>
   <data name="&gt;&gt;ClearExtensionsButton.Name" xml:space="preserve">
     <value>ClearExtensionsButton</value>
@@ -358,13 +368,13 @@ use the amount of threads in the system.</value>
     <value>88, 28</value>
   </data>
   <data name="DefaultExtensionsButton.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="DefaultExtensionsButton.Text" xml:space="preserve">
     <value>Default</value>
   </data>
   <data name="DefaultExtensionsButton.ToolTip" xml:space="preserve">
-    <value>Sets Extensions to default</value>
+    <value>Sets extensions list to the recommended default.</value>
   </data>
   <data name="&gt;&gt;DefaultExtensionsButton.Name" xml:space="preserve">
     <value>DefaultExtensionsButton</value>
@@ -421,13 +431,13 @@ use the amount of threads in the system.</value>
     <value>88, 28</value>
   </data>
   <data name="ExportButton.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="ExportButton.Text" xml:space="preserve">
     <value>Export</value>
   </data>
   <data name="ExportButton.ToolTip" xml:space="preserve">
-    <value>Export the file extension list as .txt or .csv</value>
+    <value>Export the file extension list as .txt or .csv.</value>
   </data>
   <data name="&gt;&gt;ExportButton.Name" xml:space="preserve">
     <value>ExportButton</value>
@@ -451,7 +461,7 @@ use the amount of threads in the system.</value>
     <value>133, 19</value>
   </data>
   <data name="FolderIconsCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>1</value>
   </data>
   <data name="FolderIconsCheckBox.Text" xml:space="preserve">
     <value>Preload Folder Icons</value>
@@ -489,7 +499,7 @@ Some folders may cause hanging when preloading.</value>
     <value>366, 122</value>
   </data>
   <data name="ExtensionsTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="ExtensionsTextBox.Text" xml:space="preserve">
     <value>avif, bmp, gif, heic, heif, jpg, jpeg, mkv, mov, mp4, png, svg, tif, tiff, webp</value>
@@ -519,7 +529,7 @@ Some folders may cause hanging when preloading.</value>
     <value>381, 205</value>
   </data>
   <data name="ExtensionsGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>1</value>
   </data>
   <data name="ExtensionsGroupBox.Text" xml:space="preserve">
     <value>Extensions</value>
@@ -594,7 +604,7 @@ Some folders may cause hanging when preloading.</value>
     <value>88, 28</value>
   </data>
   <data name="ScheduleButton.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>2</value>
   </data>
   <data name="ScheduleButton.Text" xml:space="preserve">
     <value>Schedule</value>
@@ -627,7 +637,7 @@ Some folders may cause hanging when preloading.</value>
     <value>88, 28</value>
   </data>
   <data name="CacheButton.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>3</value>
   </data>
   <data name="CacheButton.Text" xml:space="preserve">
     <value>Cache</value>
@@ -663,7 +673,7 @@ Some folders may cause hanging when preloading.</value>
     <value>88, 28</value>
   </data>
   <data name="AdvancedButton.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>4</value>
   </data>
   <data name="AdvancedButton.Text" xml:space="preserve">
     <value>Advanced</value>

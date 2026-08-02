@@ -117,181 +117,127 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="LogsSizeLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="LogsSizeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>102, 276</value>
-  </data>
-  <data name="LogsSizeLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 15</value>
-  </data>
-  <data name="LogsSizeLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="LogsSizeLabel.Text" xml:space="preserve">
-    <value>Logs Size: 0.00 KB</value>
-  </data>
-  <data name="&gt;&gt;LogsSizeLabel.Name" xml:space="preserve">
-    <value>LogsSizeLabel</value>
-  </data>
-  <data name="&gt;&gt;LogsSizeLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LogsSizeLabel.Parent" xml:space="preserve">
-    <value>AdvancedSettingsGroupBox</value>
-  </data>
-  <data name="&gt;&gt;LogsSizeLabel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="LogButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="SaveButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="LogButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="SaveButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="LogButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 269</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="SaveButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>195, 319</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="LogButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="SaveButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="LogButton.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="SaveButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 28</value>
   </data>
-  <data name="LogButton.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="SaveButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="LogButton.Text" xml:space="preserve">
-    <value>Open Logs</value>
+  <data name="SaveButton.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="&gt;&gt;SaveButton.Name" xml:space="preserve">
+    <value>SaveButton</value>
+  </data>
+  <data name="&gt;&gt;SaveButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SaveButton.Parent" xml:space="preserve">
+    <value>AdvancedSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;SaveButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="DefaultButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="DefaultButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DefaultButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>291, 319</value>
+  </data>
+  <data name="DefaultButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="DefaultButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="DefaultButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="DefaultButton.Text" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;DefaultButton.Name" xml:space="preserve">
+    <value>DefaultButton</value>
+  </data>
+  <data name="&gt;&gt;DefaultButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DefaultButton.Parent" xml:space="preserve">
+    <value>AdvancedSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;DefaultButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ExtensionsAutoFormatLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ExtensionsAutoFormatLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 13</value>
+  </data>
+  <data name="ExtensionsAutoFormatLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 15</value>
+  </data>
+  <data name="ExtensionsAutoFormatLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="ExtensionsAutoFormatLabel.Text" xml:space="preserve">
+    <value>Extensions Auto Format:</value>
   </data>
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="LogButton.ToolTip" xml:space="preserve">
-    <value>Opens the folder where the log files are stored.
-
-Holding "SHIFT" will ask to clear all log files.</value>
+  <data name="ExtensionsAutoFormatLabel.ToolTip" xml:space="preserve">
+    <value>Automatically format the extensions text box to the 
+preferred format once the text box is deselected.</value>
   </data>
-  <data name="&gt;&gt;LogButton.Name" xml:space="preserve">
-    <value>LogButton</value>
+  <data name="&gt;&gt;ExtensionsAutoFormatLabel.Name" xml:space="preserve">
+    <value>ExtensionsAutoFormatLabel</value>
   </data>
-  <data name="&gt;&gt;LogButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LogButton.Parent" xml:space="preserve">
-    <value>AdvancedSettingsGroupBox</value>
-  </data>
-  <data name="&gt;&gt;LogButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="LoggingFrequencyComboBox.Items" xml:space="preserve">
-    <value>No Logging</value>
-  </data>
-  <data name="LoggingFrequencyComboBox.Items1" xml:space="preserve">
-    <value>Preloader Logging</value>
-  </data>
-  <data name="LoggingFrequencyComboBox.Items2" xml:space="preserve">
-    <value>GUI Logging</value>
-  </data>
-  <data name="LoggingFrequencyComboBox.Items3" xml:space="preserve">
-    <value>All Logging</value>
-  </data>
-  <data name="LoggingFrequencyComboBox.Items4" xml:space="preserve">
-    <value>Debug Logging</value>
-  </data>
-  <data name="LoggingFrequencyComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>145, 62</value>
-  </data>
-  <data name="LoggingFrequencyComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 23</value>
-  </data>
-  <data name="LoggingFrequencyComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="LoggingFrequencyComboBox.Text" xml:space="preserve">
-    <value>No Logging</value>
-  </data>
-  <data name="&gt;&gt;LoggingFrequencyComboBox.Name" xml:space="preserve">
-    <value>LoggingFrequencyComboBox</value>
-  </data>
-  <data name="&gt;&gt;LoggingFrequencyComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LoggingFrequencyComboBox.Parent" xml:space="preserve">
-    <value>AdvancedSettingsGroupBox</value>
-  </data>
-  <data name="&gt;&gt;LoggingFrequencyComboBox.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="LoggingFrequencyLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LoggingFrequencyLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 65</value>
-  </data>
-  <data name="LoggingFrequencyLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 15</value>
-  </data>
-  <data name="LoggingFrequencyLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="LoggingFrequencyLabel.Text" xml:space="preserve">
-    <value>Logging Frequency:</value>
-  </data>
-  <data name="LoggingFrequencyLabel.ToolTip" xml:space="preserve">
-    <value>Enables various tiers of logging for various purposes.
-
-No Logging: Disables all logging.
-
-Preloader Logging: Enables logging for the preloader
-which includes basic logging of argument parsing and 
-directory scanning along with certain errors.
-
-GUI Logging: Enables logging for the GUI forms which
-includes basic logging of interactions and certain errors.
-
-All Logging: Enables logging for both the preloader and
-the GUI which includes basic logging of actions and errors.
-
-Debug Logging: Enables logging for both the preloader
-and the GUI which includes logging for almost every action,
-many variables, and every error that occurs, big or small.
-(Only works in single-threaded mode)
-
-Enabling Debug Logging may cause the application to run
-slower, especially while preloading, and may use more storage.</value>
-  </data>
-  <data name="&gt;&gt;LoggingFrequencyLabel.Name" xml:space="preserve">
-    <value>LoggingFrequencyLabel</value>
-  </data>
-  <data name="&gt;&gt;LoggingFrequencyLabel.Type" xml:space="preserve">
+  <data name="&gt;&gt;ExtensionsAutoFormatLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;LoggingFrequencyLabel.Parent" xml:space="preserve">
-    <value>AdvancedSettingsGroupBox</value>
+  <data name="&gt;&gt;ExtensionsAutoFormatLabel.Parent" xml:space="preserve">
+    <value>tabPage1</value>
   </data>
-  <data name="&gt;&gt;LoggingFrequencyLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;ExtensionsAutoFormatLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="PresetsComboBox.Items" xml:space="preserve">
-    <value>Explorer Size/Photos App Small</value>
+    <value>Most Common Sizes</value>
   </data>
   <data name="PresetsComboBox.Items1" xml:space="preserve">
+    <value>Explorer Size/Photos App Small</value>
+  </data>
+  <data name="PresetsComboBox.Items2" xml:space="preserve">
     <value>Photos App Large/Medium</value>
   </data>
   <data name="PresetsComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 211</value>
+    <value>165, 180</value>
   </data>
   <data name="PresetsComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 23</value>
   </data>
   <data name="PresetsComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;PresetsComboBox.Name" xml:space="preserve">
     <value>PresetsComboBox</value>
@@ -300,22 +246,22 @@ slower, especially while preloading, and may use more storage.</value>
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;PresetsComboBox.Parent" xml:space="preserve">
-    <value>AdvancedSettingsGroupBox</value>
+    <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;PresetsComboBox.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>1</value>
   </data>
   <data name="PresetsLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="PresetsLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 193</value>
+    <value>165, 162</value>
   </data>
   <data name="PresetsLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 15</value>
   </data>
   <data name="PresetsLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>6</value>
   </data>
   <data name="PresetsLabel.Text" xml:space="preserve">
     <value>Presets:</value>
@@ -327,44 +273,49 @@ slower, especially while preloading, and may use more storage.</value>
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;PresetsLabel.Parent" xml:space="preserve">
-    <value>AdvancedSettingsGroupBox</value>
+    <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;PresetsLabel.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>2</value>
   </data>
-  <data name="RequestedThumbnailSizesLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="ExtensionsAutoFormattingComboBox.Items" xml:space="preserve">
+    <value>Disabled</value>
   </data>
-  <data name="RequestedThumbnailSizesLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 152</value>
+  <data name="ExtensionsAutoFormattingComboBox.Items1" xml:space="preserve">
+    <value>Vertically</value>
   </data>
-  <data name="RequestedThumbnailSizesLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 15</value>
+  <data name="ExtensionsAutoFormattingComboBox.Items2" xml:space="preserve">
+    <value>Commas</value>
   </data>
-  <data name="RequestedThumbnailSizesLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="ExtensionsAutoFormattingComboBox.Items3" xml:space="preserve">
+    <value>Spaces</value>
   </data>
-  <data name="RequestedThumbnailSizesLabel.Text" xml:space="preserve">
-    <value>Requested Thumbnail Sizes:</value>
+  <data name="ExtensionsAutoFormattingComboBox.Items4" xml:space="preserve">
+    <value>Commas and Spaces</value>
   </data>
-  <data name="RequestedThumbnailSizesLabel.ToolTip" xml:space="preserve">
-    <value>Determines which thumbnail sizes the preloader will request from Windows.
-
-The selected thumbnail sizes may not be guaranteed depending on Windows.
-
-Selecting multiple thumbnail sizes will cause the preloader to run slower.</value>
+  <data name="ExtensionsAutoFormattingComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>145, 10</value>
   </data>
-  <data name="&gt;&gt;RequestedThumbnailSizesLabel.Name" xml:space="preserve">
-    <value>RequestedThumbnailSizesLabel</value>
+  <data name="ExtensionsAutoFormattingComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 23</value>
   </data>
-  <data name="&gt;&gt;RequestedThumbnailSizesLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ExtensionsAutoFormattingComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;RequestedThumbnailSizesLabel.Parent" xml:space="preserve">
-    <value>AdvancedSettingsGroupBox</value>
+  <data name="ExtensionsAutoFormattingComboBox.Text" xml:space="preserve">
+    <value>Disabled</value>
   </data>
-  <data name="&gt;&gt;RequestedThumbnailSizesLabel.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="&gt;&gt;ExtensionsAutoFormattingComboBox.Name" xml:space="preserve">
+    <value>ExtensionsAutoFormattingComboBox</value>
+  </data>
+  <data name="&gt;&gt;ExtensionsAutoFormattingComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ExtensionsAutoFormattingComboBox.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;ExtensionsAutoFormattingComboBox.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="PreloaderThumbnailSizesCheckedListBox.ColumnWidth" type="System.Int32, mscorlib">
     <value>62</value>
@@ -397,13 +348,13 @@ Selecting multiple thumbnail sizes will cause the preloader to run slower.</valu
     <value>2560</value>
   </data>
   <data name="PreloaderThumbnailSizesCheckedListBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 132</value>
+    <value>165, 100</value>
   </data>
   <data name="PreloaderThumbnailSizesCheckedListBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 58</value>
   </data>
   <data name="PreloaderThumbnailSizesCheckedListBox.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>5</value>
   </data>
   <data name="&gt;&gt;PreloaderThumbnailSizesCheckedListBox.Name" xml:space="preserve">
     <value>PreloaderThumbnailSizesCheckedListBox</value>
@@ -412,158 +363,59 @@ Selecting multiple thumbnail sizes will cause the preloader to run slower.</valu
     <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;PreloaderThumbnailSizesCheckedListBox.Parent" xml:space="preserve">
-    <value>AdvancedSettingsGroupBox</value>
+    <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;PreloaderThumbnailSizesCheckedListBox.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>4</value>
   </data>
-  <data name="DefaultButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="DefaultButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="DefaultButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>264, 269</value>
-  </data>
-  <data name="DefaultButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="DefaultButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 28</value>
-  </data>
-  <data name="DefaultButton.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="DefaultButton.Text" xml:space="preserve">
-    <value>Default</value>
-  </data>
-  <data name="&gt;&gt;DefaultButton.Name" xml:space="preserve">
-    <value>DefaultButton</value>
-  </data>
-  <data name="&gt;&gt;DefaultButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DefaultButton.Parent" xml:space="preserve">
-    <value>AdvancedSettingsGroupBox</value>
-  </data>
-  <data name="&gt;&gt;DefaultButton.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="ExtensionsAutoFormattingComboBox.Items" xml:space="preserve">
-    <value>Disabled</value>
-  </data>
-  <data name="ExtensionsAutoFormattingComboBox.Items1" xml:space="preserve">
-    <value>Vertically</value>
-  </data>
-  <data name="ExtensionsAutoFormattingComboBox.Items2" xml:space="preserve">
-    <value>Commas</value>
-  </data>
-  <data name="ExtensionsAutoFormattingComboBox.Items3" xml:space="preserve">
-    <value>Spaces</value>
-  </data>
-  <data name="ExtensionsAutoFormattingComboBox.Items4" xml:space="preserve">
-    <value>Commas and Spaces</value>
-  </data>
-  <data name="ExtensionsAutoFormattingComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>145, 27</value>
-  </data>
-  <data name="ExtensionsAutoFormattingComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 23</value>
-  </data>
-  <data name="ExtensionsAutoFormattingComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="ExtensionsAutoFormattingComboBox.Text" xml:space="preserve">
-    <value>Disabled</value>
-  </data>
-  <data name="&gt;&gt;ExtensionsAutoFormattingComboBox.Name" xml:space="preserve">
-    <value>ExtensionsAutoFormattingComboBox</value>
-  </data>
-  <data name="&gt;&gt;ExtensionsAutoFormattingComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ExtensionsAutoFormattingComboBox.Parent" xml:space="preserve">
-    <value>AdvancedSettingsGroupBox</value>
-  </data>
-  <data name="&gt;&gt;ExtensionsAutoFormattingComboBox.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="ExtensionsAutoFormatLabel.AutoSize" type="System.Boolean, mscorlib">
+  <data name="RequestedThumbnailSizesLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ExtensionsAutoFormatLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 30</value>
+  <data name="RequestedThumbnailSizesLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 103</value>
   </data>
-  <data name="ExtensionsAutoFormatLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 15</value>
+  <data name="RequestedThumbnailSizesLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 15</value>
   </data>
-  <data name="ExtensionsAutoFormatLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="RequestedThumbnailSizesLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
-  <data name="ExtensionsAutoFormatLabel.Text" xml:space="preserve">
-    <value>Extensions Auto Format:</value>
+  <data name="RequestedThumbnailSizesLabel.Text" xml:space="preserve">
+    <value>Requested Thumbnail Sizes:</value>
   </data>
-  <data name="ExtensionsAutoFormatLabel.ToolTip" xml:space="preserve">
-    <value>Automatically format the extensions text box to the 
-preferred format once the text box is deselected.</value>
+  <data name="RequestedThumbnailSizesLabel.ToolTip" xml:space="preserve">
+    <value>Determines which thumbnail sizes the preloader will request from Windows.
+
+The selected thumbnail sizes may not be guaranteed depending on Windows.
+
+Selecting multiple thumbnail sizes will cause the preloader to run slower.</value>
   </data>
-  <data name="&gt;&gt;ExtensionsAutoFormatLabel.Name" xml:space="preserve">
-    <value>ExtensionsAutoFormatLabel</value>
+  <data name="&gt;&gt;RequestedThumbnailSizesLabel.Name" xml:space="preserve">
+    <value>RequestedThumbnailSizesLabel</value>
   </data>
-  <data name="&gt;&gt;ExtensionsAutoFormatLabel.Type" xml:space="preserve">
+  <data name="&gt;&gt;RequestedThumbnailSizesLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ExtensionsAutoFormatLabel.Parent" xml:space="preserve">
-    <value>AdvancedSettingsGroupBox</value>
+  <data name="&gt;&gt;RequestedThumbnailSizesLabel.Parent" xml:space="preserve">
+    <value>tabPage1</value>
   </data>
-  <data name="&gt;&gt;ExtensionsAutoFormatLabel.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="PreloadFolderIconsForComboBox.Items" xml:space="preserve">
-    <value>Folders Containing Set Extensions</value>
-  </data>
-  <data name="PreloadFolderIconsForComboBox.Items1" xml:space="preserve">
-    <value>All Folders</value>
-  </data>
-  <data name="PreloadFolderIconsForComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>145, 97</value>
-  </data>
-  <data name="PreloadFolderIconsForComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 23</value>
-  </data>
-  <data name="PreloadFolderIconsForComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="PreloadFolderIconsForComboBox.Text" xml:space="preserve">
-    <value>Folders Containing Set Extensions</value>
-  </data>
-  <data name="&gt;&gt;PreloadFolderIconsForComboBox.Name" xml:space="preserve">
-    <value>PreloadFolderIconsForComboBox</value>
-  </data>
-  <data name="&gt;&gt;PreloadFolderIconsForComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PreloadFolderIconsForComboBox.Parent" xml:space="preserve">
-    <value>AdvancedSettingsGroupBox</value>
-  </data>
-  <data name="&gt;&gt;PreloadFolderIconsForComboBox.ZOrder" xml:space="preserve">
-    <value>11</value>
+  <data name="&gt;&gt;RequestedThumbnailSizesLabel.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="PreloadFolderIconsForLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="PreloadFolderIconsForLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 100</value>
+    <value>4, 58</value>
   </data>
   <data name="PreloadFolderIconsForLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 15</value>
+    <value>137, 15</value>
   </data>
   <data name="PreloadFolderIconsForLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="PreloadFolderIconsForLabel.Text" xml:space="preserve">
-    <value>Preload folder icons for:</value>
+    <value>Preload Folder Icons For:</value>
   </data>
   <data name="PreloadFolderIconsForLabel.ToolTip" xml:space="preserve">
     <value>Selecting "Folders Containing Set Extensions" will ensure that
@@ -580,16 +432,871 @@ which may cause freezes when adding certain system folders.</value>
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;PreloadFolderIconsForLabel.Parent" xml:space="preserve">
-    <value>AdvancedSettingsGroupBox</value>
+    <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;PreloadFolderIconsForLabel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="PreloadFolderIconsForComboBox.Items" xml:space="preserve">
+    <value>Folders Containing Set Extensions</value>
+  </data>
+  <data name="PreloadFolderIconsForComboBox.Items1" xml:space="preserve">
+    <value>All Folders</value>
+  </data>
+  <data name="PreloadFolderIconsForComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>145, 55</value>
+  </data>
+  <data name="PreloadFolderIconsForComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 23</value>
+  </data>
+  <data name="PreloadFolderIconsForComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="PreloadFolderIconsForComboBox.Text" xml:space="preserve">
+    <value>Folders Containing Set Extensions</value>
+  </data>
+  <data name="&gt;&gt;PreloadFolderIconsForComboBox.Name" xml:space="preserve">
+    <value>PreloadFolderIconsForComboBox</value>
+  </data>
+  <data name="&gt;&gt;PreloadFolderIconsForComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PreloadFolderIconsForComboBox.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;PreloadFolderIconsForComboBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="tabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 263</value>
+  </data>
+  <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabPage1.Text" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PreloaderProcessPriorityComboBox.Items" xml:space="preserve">
+    <value>Realtime</value>
+  </data>
+  <data name="PreloaderProcessPriorityComboBox.Items1" xml:space="preserve">
+    <value>High</value>
+  </data>
+  <data name="PreloaderProcessPriorityComboBox.Items2" xml:space="preserve">
+    <value>Above Normal</value>
+  </data>
+  <data name="PreloaderProcessPriorityComboBox.Items3" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="PreloaderProcessPriorityComboBox.Items4" xml:space="preserve">
+    <value>Below Normal</value>
+  </data>
+  <data name="PreloaderProcessPriorityComboBox.Items5" xml:space="preserve">
+    <value>Idle</value>
+  </data>
+  <data name="PreloaderProcessPriorityComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>220, 145</value>
+  </data>
+  <data name="PreloaderProcessPriorityComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 23</value>
+  </data>
+  <data name="PreloaderProcessPriorityComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="PreloaderProcessPriorityComboBox.Text" xml:space="preserve">
+    <value>Below Normal</value>
+  </data>
+  <data name="&gt;&gt;PreloaderProcessPriorityComboBox.Name" xml:space="preserve">
+    <value>PreloaderProcessPriorityComboBox</value>
+  </data>
+  <data name="&gt;&gt;PreloaderProcessPriorityComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PreloaderProcessPriorityComboBox.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;PreloaderProcessPriorityComboBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PreloaderProcessPriorityLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="PreloaderProcessPriorityLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 148</value>
+  </data>
+  <data name="PreloaderProcessPriorityLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 15</value>
+  </data>
+  <data name="PreloaderProcessPriorityLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="PreloaderProcessPriorityLabel.Text" xml:space="preserve">
+    <value>Preloader Process Priority:</value>
+  </data>
+  <data name="PreloaderProcessPriorityLabel.ToolTip" xml:space="preserve">
+    <value>Determines the process priority used by the thumbnail preloader.
+
+The recommended default is "Below Normal" for best system 
+responsiveness while preloading thumbnails in the background.</value>
+  </data>
+  <data name="&gt;&gt;PreloaderProcessPriorityLabel.Name" xml:space="preserve">
+    <value>PreloaderProcessPriorityLabel</value>
+  </data>
+  <data name="&gt;&gt;PreloaderProcessPriorityLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PreloaderProcessPriorityLabel.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;PreloaderProcessPriorityLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="WaitCacheComboBox.Items" xml:space="preserve">
+    <value>Seconds</value>
+  </data>
+  <data name="WaitCacheComboBox.Items1" xml:space="preserve">
+    <value>Minutes</value>
+  </data>
+  <data name="WaitCacheComboBox.Items2" xml:space="preserve">
+    <value>Hours</value>
+  </data>
+  <data name="WaitCacheComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>267, 55</value>
+  </data>
+  <data name="WaitCacheComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 23</value>
+  </data>
+  <data name="WaitCacheComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="WaitCacheComboBox.Text" xml:space="preserve">
+    <value>Seconds</value>
+  </data>
+  <data name="&gt;&gt;WaitCacheComboBox.Name" xml:space="preserve">
+    <value>WaitCacheComboBox</value>
+  </data>
+  <data name="&gt;&gt;WaitCacheComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;WaitCacheComboBox.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;WaitCacheComboBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="WaitCacheNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>221, 55</value>
+  </data>
+  <data name="WaitCacheNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 23</value>
+  </data>
+  <data name="WaitCacheNumericUpDown.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;WaitCacheNumericUpDown.Name" xml:space="preserve">
+    <value>WaitCacheNumericUpDown</value>
+  </data>
+  <data name="&gt;&gt;WaitCacheNumericUpDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;WaitCacheNumericUpDown.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;WaitCacheNumericUpDown.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="WaitPreloadComboBox.Items" xml:space="preserve">
+    <value>Seconds</value>
+  </data>
+  <data name="WaitPreloadComboBox.Items1" xml:space="preserve">
+    <value>Minutes</value>
+  </data>
+  <data name="WaitPreloadComboBox.Items2" xml:space="preserve">
+    <value>Hours</value>
+  </data>
+  <data name="WaitPreloadComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>267, 10</value>
+  </data>
+  <data name="WaitPreloadComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 23</value>
+  </data>
+  <data name="WaitPreloadComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="WaitPreloadComboBox.Text" xml:space="preserve">
+    <value>Seconds</value>
+  </data>
+  <data name="&gt;&gt;WaitPreloadComboBox.Name" xml:space="preserve">
+    <value>WaitPreloadComboBox</value>
+  </data>
+  <data name="&gt;&gt;WaitPreloadComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;WaitPreloadComboBox.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;WaitPreloadComboBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="WaitPreloadNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>221, 10</value>
+  </data>
+  <data name="WaitPreloadNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 23</value>
+  </data>
+  <data name="WaitPreloadNumericUpDown.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;WaitPreloadNumericUpDown.Name" xml:space="preserve">
+    <value>WaitPreloadNumericUpDown</value>
+  </data>
+  <data name="&gt;&gt;WaitPreloadNumericUpDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;WaitPreloadNumericUpDown.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;WaitPreloadNumericUpDown.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="WaitAfterCacheBackupCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="WaitAfterCacheBackupCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 58</value>
+  </data>
+  <data name="WaitAfterCacheBackupCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 19</value>
+  </data>
+  <data name="WaitAfterCacheBackupCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="WaitAfterCacheBackupCheckBox.Text" xml:space="preserve">
+    <value>Wait After Cache Backup:</value>
+  </data>
+  <data name="WaitAfterCacheBackupCheckBox.ToolTip" xml:space="preserve">
+    <value>Determines whether the progress dialog should stay open
+after cache backup and for how long it should stay open for.
+
+This setting will override the "Wait After Preloading Completion"
+value if Auto Backup is enabled and a cache backup occurs.
+
+A value of 0 seconds while enabled prevents auto closing,
+and waits indefinitely until it is manually cancelled or closed.
+</value>
+  </data>
+  <data name="&gt;&gt;WaitAfterCacheBackupCheckBox.Name" xml:space="preserve">
+    <value>WaitAfterCacheBackupCheckBox</value>
+  </data>
+  <data name="&gt;&gt;WaitAfterCacheBackupCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;WaitAfterCacheBackupCheckBox.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;WaitAfterCacheBackupCheckBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="ProgressDialogUpdateSpeedMsLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ProgressDialogUpdateSpeedMsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>335, 108</value>
+  </data>
+  <data name="ProgressDialogUpdateSpeedMsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 15</value>
+  </data>
+  <data name="ProgressDialogUpdateSpeedMsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="ProgressDialogUpdateSpeedMsLabel.Text" xml:space="preserve">
+    <value>ms</value>
+  </data>
+  <data name="&gt;&gt;ProgressDialogUpdateSpeedMsLabel.Name" xml:space="preserve">
+    <value>ProgressDialogUpdateSpeedMsLabel</value>
+  </data>
+  <data name="&gt;&gt;ProgressDialogUpdateSpeedMsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ProgressDialogUpdateSpeedMsLabel.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;ProgressDialogUpdateSpeedMsLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="ProgressDialogUpdateSpeedNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>221, 100</value>
+  </data>
+  <data name="ProgressDialogUpdateSpeedNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 23</value>
+  </data>
+  <data name="ProgressDialogUpdateSpeedNumericUpDown.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;ProgressDialogUpdateSpeedNumericUpDown.Name" xml:space="preserve">
+    <value>ProgressDialogUpdateSpeedNumericUpDown</value>
+  </data>
+  <data name="&gt;&gt;ProgressDialogUpdateSpeedNumericUpDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ProgressDialogUpdateSpeedNumericUpDown.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;ProgressDialogUpdateSpeedNumericUpDown.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="ProgressDialogUpdateSpeedLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ProgressDialogUpdateSpeedLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 103</value>
+  </data>
+  <data name="ProgressDialogUpdateSpeedLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 15</value>
+  </data>
+  <data name="ProgressDialogUpdateSpeedLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="ProgressDialogUpdateSpeedLabel.Text" xml:space="preserve">
+    <value>Progress Dialog Update Speed:</value>
+  </data>
+  <data name="ProgressDialogUpdateSpeedLabel.ToolTip" xml:space="preserve">
+    <value>Determines how often the progress bar updates while preloading.
+
+Slower values can help consume less resources, while faster values
+can show new information faster, but may consume more resources.</value>
+  </data>
+  <data name="&gt;&gt;ProgressDialogUpdateSpeedLabel.Name" xml:space="preserve">
+    <value>ProgressDialogUpdateSpeedLabel</value>
+  </data>
+  <data name="&gt;&gt;ProgressDialogUpdateSpeedLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ProgressDialogUpdateSpeedLabel.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;ProgressDialogUpdateSpeedLabel.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="WaitAfterPreloadingCompletionCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="WaitAfterPreloadingCompletionCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 13</value>
+  </data>
+  <data name="WaitAfterPreloadingCompletionCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 19</value>
+  </data>
+  <data name="WaitAfterPreloadingCompletionCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="WaitAfterPreloadingCompletionCheckBox.Text" xml:space="preserve">
+    <value>Wait After Preload Completion:</value>
+  </data>
+  <data name="WaitAfterPreloadingCompletionCheckBox.ToolTip" xml:space="preserve">
+    <value>Determines whether the progress dialog should stay open
+after preloading and for how long it should stay open for.
+
+This setting will be overridden by the "Wait For Cache Backup"
+value if Auto Backup is enabled and a cache backup occurs.
+
+A value of 0 seconds while enabled prevents auto closing,
+and waits indefinitely until it is manually cancelled or closed.</value>
+  </data>
+  <data name="&gt;&gt;WaitAfterPreloadingCompletionCheckBox.Name" xml:space="preserve">
+    <value>WaitAfterPreloadingCompletionCheckBox</value>
+  </data>
+  <data name="&gt;&gt;WaitAfterPreloadingCompletionCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;WaitAfterPreloadingCompletionCheckBox.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;WaitAfterPreloadingCompletionCheckBox.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="tabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 263</value>
+  </data>
+  <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tabPage2.Text" xml:space="preserve">
+    <value>Preloader</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="OutputTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 234</value>
+  </data>
+  <data name="OutputTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>350, 23</value>
+  </data>
+  <data name="OutputTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox.Name" xml:space="preserve">
+    <value>OutputTextBox</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="LoggingFrequencyLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LoggingFrequencyLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 140</value>
+  </data>
+  <data name="LoggingFrequencyLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 15</value>
+  </data>
+  <data name="LoggingFrequencyLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="LoggingFrequencyLabel.Text" xml:space="preserve">
+    <value>Logging Frequency:</value>
+  </data>
+  <data name="LoggingFrequencyLabel.ToolTip" xml:space="preserve">
+    <value>Enables various tiers of logging for various purposes.
+
+No Logging: Disables all logging.
+
+Preloader Logging: Enables logging for the preloader
+which includes basic logging of argument parsing and 
+directory scanning along with certain errors.
+
+GUI Logging: Enables logging for the GUI forms which
+includes basic logging of interactions and certain errors.
+
+All Logging: Enables logging for both the preloader and
+the GUI which includes basic logging of actions and errors.
+
+Debug Logging: Enables logging for both the preloader
+and the GUI which includes logging for almost every action,
+many variables, and every error that occurs, big or small.
+(More detailed logging available in single-threaded mode)
+
+Enabling Debug Logging may cause the application to run
+slower, especially while preloading, and may use more storage.</value>
+  </data>
+  <data name="&gt;&gt;LoggingFrequencyLabel.Name" xml:space="preserve">
+    <value>LoggingFrequencyLabel</value>
+  </data>
+  <data name="&gt;&gt;LoggingFrequencyLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LoggingFrequencyLabel.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;LoggingFrequencyLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="OutputLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="OutputLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 216</value>
+  </data>
+  <data name="OutputLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 15</value>
+  </data>
+  <data name="OutputLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="OutputLabel.Text" xml:space="preserve">
+    <value>Output:</value>
+  </data>
+  <data name="&gt;&gt;OutputLabel.Name" xml:space="preserve">
+    <value>OutputLabel</value>
+  </data>
+  <data name="&gt;&gt;OutputLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputLabel.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;OutputLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="LoggingFrequencyComboBox.Items" xml:space="preserve">
+    <value>No Logging</value>
+  </data>
+  <data name="LoggingFrequencyComboBox.Items1" xml:space="preserve">
+    <value>Preloader Logging</value>
+  </data>
+  <data name="LoggingFrequencyComboBox.Items2" xml:space="preserve">
+    <value>GUI Logging</value>
+  </data>
+  <data name="LoggingFrequencyComboBox.Items3" xml:space="preserve">
+    <value>All Logging</value>
+  </data>
+  <data name="LoggingFrequencyComboBox.Items4" xml:space="preserve">
+    <value>Debug Logging</value>
+  </data>
+  <data name="LoggingFrequencyComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>196, 137</value>
+  </data>
+  <data name="LoggingFrequencyComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 23</value>
+  </data>
+  <data name="LoggingFrequencyComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="LoggingFrequencyComboBox.Text" xml:space="preserve">
+    <value>No Logging</value>
+  </data>
+  <data name="&gt;&gt;LoggingFrequencyComboBox.Name" xml:space="preserve">
+    <value>LoggingFrequencyComboBox</value>
+  </data>
+  <data name="&gt;&gt;LoggingFrequencyComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LoggingFrequencyComboBox.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;LoggingFrequencyComboBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="LoggerFolderStatusLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LoggerFolderStatusLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 105</value>
+  </data>
+  <data name="LoggerFolderStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 15</value>
+  </data>
+  <data name="LoggerFolderStatusLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="LoggerFolderStatusLabel.Text" xml:space="preserve">
+    <value>Status: N/A</value>
+  </data>
+  <data name="&gt;&gt;LoggerFolderStatusLabel.Name" xml:space="preserve">
+    <value>LoggerFolderStatusLabel</value>
+  </data>
+  <data name="&gt;&gt;LoggerFolderStatusLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LoggerFolderStatusLabel.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;LoggerFolderStatusLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="LogsFolderLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LogsFolderLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="LogsFolderLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 15</value>
+  </data>
+  <data name="LogsFolderLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="LogsFolderLabel.Text" xml:space="preserve">
+    <value>Logs Folder:</value>
+  </data>
+  <data name="&gt;&gt;LogsFolderLabel.Name" xml:space="preserve">
+    <value>LogsFolderLabel</value>
+  </data>
+  <data name="&gt;&gt;LogsFolderLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LogsFolderLabel.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;LogsFolderLabel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="LogRetentionDaysLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LogRetentionDaysLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>327, 185</value>
+  </data>
+  <data name="LogRetentionDaysLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 15</value>
+  </data>
+  <data name="LogRetentionDaysLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="LogRetentionDaysLabel.Text" xml:space="preserve">
+    <value>days</value>
+  </data>
+  <data name="&gt;&gt;LogRetentionDaysLabel.Name" xml:space="preserve">
+    <value>LogRetentionDaysLabel</value>
+  </data>
+  <data name="&gt;&gt;LogRetentionDaysLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LogRetentionDaysLabel.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;LogRetentionDaysLabel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="LogRetentionDaysNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>196, 176</value>
+  </data>
+  <data name="LogRetentionDaysNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 23</value>
+  </data>
+  <data name="LogRetentionDaysNumericUpDown.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;LogRetentionDaysNumericUpDown.Name" xml:space="preserve">
+    <value>LogRetentionDaysNumericUpDown</value>
+  </data>
+  <data name="&gt;&gt;LogRetentionDaysNumericUpDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LogRetentionDaysNumericUpDown.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;LogRetentionDaysNumericUpDown.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="AutoDeleteLogsByAgeCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="AutoDeleteLogsByAgeCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 177</value>
+  </data>
+  <data name="AutoDeleteLogsByAgeCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 19</value>
+  </data>
+  <data name="AutoDeleteLogsByAgeCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="AutoDeleteLogsByAgeCheckBox.Text" xml:space="preserve">
+    <value>Delete Logs After:</value>
+  </data>
+  <data name="AutoDeleteLogsByAgeCheckBox.ToolTip" xml:space="preserve">
+    <value>Selects whether to delete old log files
+after a selected number of days.</value>
+  </data>
+  <data name="&gt;&gt;AutoDeleteLogsByAgeCheckBox.Name" xml:space="preserve">
+    <value>AutoDeleteLogsByAgeCheckBox</value>
+  </data>
+  <data name="&gt;&gt;AutoDeleteLogsByAgeCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AutoDeleteLogsByAgeCheckBox.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;AutoDeleteLogsByAgeCheckBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="ClearLoggerFolderButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ClearLoggerFolderButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 60</value>
+  </data>
+  <data name="ClearLoggerFolderButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="ClearLoggerFolderButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="ClearLoggerFolderButton.Text" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="ClearLoggerFolderButton.ToolTip" xml:space="preserve">
+    <value>Clears the backup path and disables all logging features.
+</value>
+  </data>
+  <data name="&gt;&gt;ClearLoggerFolderButton.Name" xml:space="preserve">
+    <value>ClearLoggerFolderButton</value>
+  </data>
+  <data name="&gt;&gt;ClearLoggerFolderButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ClearLoggerFolderButton.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;ClearLoggerFolderButton.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="DefaultLoggerFolderButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DefaultLoggerFolderButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 60</value>
+  </data>
+  <data name="DefaultLoggerFolderButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="DefaultLoggerFolderButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="DefaultLoggerFolderButton.Text" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="DefaultLoggerFolderButton.ToolTip" xml:space="preserve">
+    <value>Sets the Logs Folder to the default folder,
+depending on how the program is installed/located.
+
+If the program is installed in a restricted folder such as in Program Files, 
+the default location will be in AppData.
+
+If the program is ran portably or installed in a non-restricted folder,
+the default location will be in the same directory as the program.
+</value>
+  </data>
+  <data name="&gt;&gt;DefaultLoggerFolderButton.Name" xml:space="preserve">
+    <value>DefaultLoggerFolderButton</value>
+  </data>
+  <data name="&gt;&gt;DefaultLoggerFolderButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DefaultLoggerFolderButton.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;DefaultLoggerFolderButton.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="BrowseLoggerFolderButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>328, 28</value>
+  </data>
+  <data name="BrowseLoggerFolderButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 28</value>
+  </data>
+  <data name="BrowseLoggerFolderButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="BrowseLoggerFolderButton.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;BrowseLoggerFolderButton.Name" xml:space="preserve">
+    <value>BrowseLoggerFolderButton</value>
+  </data>
+  <data name="&gt;&gt;BrowseLoggerFolderButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BrowseLoggerFolderButton.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;BrowseLoggerFolderButton.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="LoggerFolderPathTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 31</value>
+  </data>
+  <data name="LoggerFolderPathTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 23</value>
+  </data>
+  <data name="LoggerFolderPathTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;LoggerFolderPathTextBox.Name" xml:space="preserve">
+    <value>LoggerFolderPathTextBox</value>
+  </data>
+  <data name="&gt;&gt;LoggerFolderPathTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LoggerFolderPathTextBox.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;LoggerFolderPathTextBox.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="tabPage3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="tabPage3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPage3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 263</value>
+  </data>
+  <data name="tabPage3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabPage3.Text" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.Name" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 22</value>
+  </data>
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>373, 291</value>
+  </data>
+  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
+    <value>AdvancedSettingsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="AdvancedSettingsGroupBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
   </data>
   <data name="AdvancedSettingsGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>359, 303</value>
+    <value>385, 353</value>
   </data>
   <data name="AdvancedSettingsGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -607,7 +1314,71 @@ which may cause freezes when adding certain system folders.</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;AdvancedSettingsGroupBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="LogsSizeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LogsSizeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>107, 378</value>
+  </data>
+  <data name="LogsSizeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 15</value>
+  </data>
+  <data name="LogsSizeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="LogsSizeLabel.Text" xml:space="preserve">
+    <value>Logs Size: 0.00 KB</value>
+  </data>
+  <data name="&gt;&gt;LogsSizeLabel.Name" xml:space="preserve">
+    <value>LogsSizeLabel</value>
+  </data>
+  <data name="&gt;&gt;LogsSizeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LogsSizeLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LogsSizeLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="LogButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="LogButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LogButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 371</value>
+  </data>
+  <data name="LogButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="LogButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="LogButton.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="LogButton.Text" xml:space="preserve">
+    <value>Open Logs</value>
+  </data>
+  <data name="LogButton.ToolTip" xml:space="preserve">
+    <value>Opens the folder where the log files are stored.
+Holding "SHIFT" will ask to clear all log files.</value>
+  </data>
+  <data name="&gt;&gt;LogButton.Name" xml:space="preserve">
+    <value>LogButton</value>
+  </data>
+  <data name="&gt;&gt;LogButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LogButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LogButton.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="CloseButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -616,7 +1387,7 @@ which may cause freezes when adding certain system folders.</value>
     <value>NoControl</value>
   </data>
   <data name="CloseButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>283, 321</value>
+    <value>308, 371</value>
   </data>
   <data name="CloseButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -625,7 +1396,7 @@ which may cause freezes when adding certain system folders.</value>
     <value>88, 28</value>
   </data>
   <data name="CloseButton.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>3</value>
   </data>
   <data name="CloseButton.Text" xml:space="preserve">
     <value>Close</value>
@@ -640,16 +1411,19 @@ which may cause freezes when adding certain system folders.</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CloseButton.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>62</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>384, 361</value>
+    <value>409, 411</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>WinThumbsPreloader - Advanced Settings Form</value>

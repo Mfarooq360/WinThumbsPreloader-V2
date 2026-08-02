@@ -1,16 +1,10 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
-using System.IO;
-using System.Net;
 using System.Net.Http;
-using System.Reflection;
-using System.Runtime.Versioning;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Shapes;
 using WinThumbsPreloader.Forms;
 using WinThumbsPreloader.Properties;
 using static WinThumbsPreloader.Logger;
@@ -37,11 +31,46 @@ namespace WinThumbsPreloader
             CheckForUpdates();
 
             WriteLine($"AboutForm loaded with product version: {Application.ProductVersion}", LoggingFrequency.GUILogging);
+            if (Program.AppOptions.reopenSettings)
+            {
+                Program.AppOptions.reopenSettings = false;
+                SettingsButton_Click(sender, e);
+            }
         }
+
+        private bool invalidLaunchPathMessageShown;
 
         private async void AboutForm_Shown(object sender, EventArgs e)
         {
+            await Task.Yield();
+
+            ShowInvalidLaunchPathMessage();
+
             await CheckForCacheReset(true, false);
+        }
+
+        private void ShowInvalidLaunchPathMessage()
+        {
+            if (invalidLaunchPathMessageShown)
+                return;
+
+            Options options = Program.AppOptions;
+
+            if (options == null || !options.invalidPathProvided || string.IsNullOrWhiteSpace(options.invalidPath))
+            {
+                return;
+            }
+
+            invalidLaunchPathMessageShown = true;
+
+            string displayPath = options.invalidPath
+                .Replace("\r", " ")
+                .Replace("\n", " ")
+                .Trim();
+
+            WriteLine("Displaying invalid launch path warning for path: " + displayPath, LoggingFrequency.GUILogging);
+
+            MessageBox.Show(this, "The provided path is invalid or does not exist." + Environment.NewLine + Environment.NewLine + "Path: " + displayPath, "Invalid Path", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private enum UpdateState
@@ -224,37 +253,25 @@ namespace WinThumbsPreloader
             this.OpenFormCentered(settingsForm);
         }
 
-        private void PreloadButton_Click(object sender, EventArgs e)
+        private void PreloadButton_Click(object sender, EventArgs e) // TODO: Add an option to make Recursive preloading be the default
         {
             WriteLine("PreloadButton clicked", LoggingFrequency.GUILogging);
             if (PreloadButton.Text == "Preload" || PreloadButton.Text == "Recursively")
             {
                 string preloadMode = PreloadButton.Text;
                 WriteLine("Preload mode: " + preloadMode, LoggingFrequency.GUILogging);
-                FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-                folderBrowserDialog.ShowDialog();
-                string folderName = folderBrowserDialog.SelectedPath;
+
+                string folderName = PathFromFolderBrowser();
+
+                if (string.IsNullOrWhiteSpace(folderName))
+                    return;
+
                 WriteLine("Selected folder: " + folderName, LoggingFrequency.GUILogging);
-                if (folderName == null || folderName == string.Empty) return;
-                else
+
                 {
                     try
                     {
-                        // Create an Options object with the appropriate settings
-                        Options options = new Options(new string[] { folderName })
-                        {
-                            includeNestedDirectories = (preloadMode == "Recursively"),
-                            silentMode = false,
-                            multiThreaded = Settings.Default.Multithreaded,
-                            threadCount = Settings.Default.ThreadCount
-                        };
-                        WriteLine("options.includeNestedDirectories: " + options.includeNestedDirectories + "\n" +
-                                   "options.silentMode: " + options.silentMode + "\n" +
-                                   "options.multiThreaded: " + options.multiThreaded + "\n" +
-                                   "options.threadCount: " + options.threadCount, LoggingFrequency.GUILogging);
-
-                        // Start the preloader with the constructed Options object
-                        Program.StartPreloader(options);
+                        LaunchPreloaderInstance(folderName, preloadMode == "Recursively");
                     }
                     catch (Exception ex)
                     {
@@ -263,11 +280,41 @@ namespace WinThumbsPreloader
                     }
                 }
             }
-            else if (PreloadButton.Text == "Bulk Preload")
+        }
+
+        private void LaunchPreloaderInstance(string folderPath, bool recursive)
+        {
+            var psi = new ProcessStartInfo
             {
-                WriteLine("Opening BulkPreloaderForm from AboutForm", LoggingFrequency.GUILogging);
-                OpenBulkPreloaderForm();
+                FileName = Application.ExecutablePath,
+                UseShellExecute = true,
+                WorkingDirectory = Environment.CurrentDirectory
+            };
+
+            if (recursive)
+                psi.ArgumentList.Add("-r");
+
+            if (Settings.Default.Multithreaded)
+            {
+                psi.ArgumentList.Add(Settings.Default.ThreadCount > 0
+                    ? $"-m:{Settings.Default.ThreadCount}"
+                    : "-m");
             }
+
+            psi.ArgumentList.Add(folderPath);
+
+            WriteLine("Launching new preloader process for: " + folderPath, LoggingFrequency.GUILogging);
+            Process.Start(psi);
+        }
+
+        private string PathFromFolderBrowser()
+        {
+            using FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+
+            if (folderBrowserDialog.ShowDialog(this) != DialogResult.OK)
+                return null;
+
+            return folderBrowserDialog.SelectedPath;
         }
 
         private void AboutForm_Activated(object sender, EventArgs e)
@@ -317,14 +364,8 @@ namespace WinThumbsPreloader
             }*/
         }
 
-        private void OpenBulkPreloaderForm()
-        {
-            WriteLine("Opening BulkPreloaderForm from AboutForm", LoggingFrequency.GUILogging);
-            OldBulkPreloaderForm bulkPreloaderForm = new OldBulkPreloaderForm();
-            this.OpenFormCentered(bulkPreloaderForm);
-        }
-        public static bool recognizedLogged = false;
-        public static bool cacheResetLogged = false;
+        private static bool recognizedLogged = false;
+        private static bool cacheResetLogged = false;
 
         public static async Task CheckForCacheReset(bool checkResetRecognized, bool logOnly)
         {
@@ -363,7 +404,7 @@ namespace WinThumbsPreloader
                         if (checkResetRecognized)
                         {
                             Settings.Default.ResetRecognized = true;
-                            Settings.Default.Save(); // Save settings after modifying them
+                            Settings.Default.Save();
                             WriteLine("cacheResetRecognized set to true", LoggingFrequency.DebugLogging);
                         }
                     }

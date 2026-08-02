@@ -2,6 +2,18 @@
   "profiles": {
     "WinThumbsPreloader": {
       "commandName": "Project"
+    },
+    "Downloads Folder Test": {
+      "commandName": "Project",
+      "commandLineArgs": "-m -r \"C:\\Users\\mutah\\Downloads\""
+    },
+    "C:\\ Drive Test": {
+      "commandName": "Project",
+      "commandLineArgs": "-m -r \"C:\\\""
+    },
+    "Custom": {
+      "commandName": "Project",
+      "commandLineArgs": "-m -r \"C:\\Users\\mutah\\Downloads\\Pokemon - Yellow Version - Special Pikachu Edition (USA, Europe) (CGB+SGB Enhanced)\""
     }
   }
 }

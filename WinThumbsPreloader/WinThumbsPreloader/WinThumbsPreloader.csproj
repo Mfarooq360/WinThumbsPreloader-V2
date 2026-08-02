@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net9.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows7.0</TargetFramework>
     <OutputType>WinExe</OutputType>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -10,7 +10,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>https://api.github.com/repos/Mfarooq360/WinThumbsPreloader/releases/</UpdateUrl>
+    <UpdateUrl>https://api.github.com/repos/Mfarooq360/WinThumbsPreloader-V2/releases</UpdateUrl>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
@@ -32,9 +32,12 @@
     <Version>1.2.0</Version>
     <FileVersion>1.2.0</FileVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <Nullable>warnings</Nullable>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>False</Optimize>
+    <WarningLevel>9</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="LICENSE.txt" />
@@ -56,8 +59,6 @@
     <EmbeddedResource Include="LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="TaskScheduler" Version="2.10.1" />
   </ItemGroup>
@@ -66,5 +67,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\mutah\Source\Repos\WinThumbsPreloader-V2.0.0\WinThumbsPreloader\WinThumbsPreloader\.editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\mutah\Source\Repos\WinThumbsPreloader-V2.0.0\WinThumbsPreloader\WinThumbsPreloader\.editorconfig" />
   </ItemGroup>
 </Project>

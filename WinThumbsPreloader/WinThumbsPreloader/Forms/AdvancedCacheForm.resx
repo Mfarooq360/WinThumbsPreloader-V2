@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
-    Microsoft ResX Schema 
+    Microsoft ResX Schema
 
     Version 2.0
 
@@ -48,7 +48,7 @@
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
@@ -117,113 +117,402 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ManualDeletionFrequencyComboBox.Items" xml:space="preserve">
-    <value>On Deletion Start</value>
-  </data>
-  <data name="ManualDeletionFrequencyComboBox.Items1" xml:space="preserve">
-    <value>On Every File</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="ManualDeletionFrequencyComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 202</value>
-  </data>
-  <data name="ManualDeletionFrequencyComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 23</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ManualDeletionFrequencyComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="ManualDeletionFrequencyComboBox.Text" xml:space="preserve">
-    <value>On Deletion Start</value>
-  </data>
-  <data name="&gt;&gt;ManualDeletionFrequencyComboBox.Name" xml:space="preserve">
-    <value>ManualDeletionFrequencyComboBox</value>
-  </data>
-  <data name="&gt;&gt;ManualDeletionFrequencyComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ManualDeletionFrequencyComboBox.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;ManualDeletionFrequencyComboBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="ManualDeletionFrequencyLabel.AutoSize" type="System.Boolean, mscorlib">
+  <data name="StatusLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ManualDeletionFrequencyLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 205</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="StatusLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 105</value>
   </data>
-  <data name="ManualDeletionFrequencyLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 15</value>
+  <data name="StatusLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 15</value>
   </data>
-  <data name="ManualDeletionFrequencyLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+  <data name="StatusLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="ManualDeletionFrequencyLabel.Text" xml:space="preserve">
-    <value>Manual Deletion Frequency:</value>
+  <data name="StatusLabel.Text" xml:space="preserve">
+    <value>Status: N/A</value>
   </data>
-  <data name="&gt;&gt;ManualDeletionFrequencyLabel.Name" xml:space="preserve">
-    <value>ManualDeletionFrequencyLabel</value>
+  <data name="&gt;&gt;StatusLabel.Name" xml:space="preserve">
+    <value>StatusLabel</value>
   </data>
-  <data name="&gt;&gt;ManualDeletionFrequencyLabel.Type" xml:space="preserve">
+  <data name="&gt;&gt;StatusLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ManualDeletionFrequencyLabel.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+  <data name="&gt;&gt;StatusLabel.Parent" xml:space="preserve">
+    <value>BackupTabPage</value>
   </data>
-  <data name="&gt;&gt;ManualDeletionFrequencyLabel.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;StatusLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="OutputTextBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 184</value>
+  </data>
+  <data name="OutputTextBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>328, 23</value>
+  </data>
+  <data name="OutputTextBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox1.Name" xml:space="preserve">
+    <value>OutputTextBox1</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox1.Parent" xml:space="preserve">
+    <value>BackupTabPage</value>
+  </data>
+  <data name="&gt;&gt;OutputTextBox1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="ExplorerCacheDeletionMethodComboBox.Items" xml:space="preserve">
-    <value>Disk Cleanup</value>
+  <data name="OutputTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 155</value>
   </data>
-  <data name="ExplorerCacheDeletionMethodComboBox.Items1" xml:space="preserve">
-    <value>Manual Deletion</value>
+  <data name="OutputTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>328, 23</value>
   </data>
-  <data name="ExplorerCacheDeletionMethodComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>189, 166</value>
+  <data name="OutputTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
-  <data name="ExplorerCacheDeletionMethodComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 23</value>
+  <data name="&gt;&gt;OutputTextBox.Name" xml:space="preserve">
+    <value>OutputTextBox</value>
   </data>
-  <data name="ExplorerCacheDeletionMethodComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+  <data name="&gt;&gt;OutputTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ExplorerCacheDeletionMethodComboBox.Text" xml:space="preserve">
-    <value>Manual Deletion</value>
+  <data name="&gt;&gt;OutputTextBox.Parent" xml:space="preserve">
+    <value>BackupTabPage</value>
   </data>
-  <data name="&gt;&gt;ExplorerCacheDeletionMethodComboBox.Name" xml:space="preserve">
-    <value>ExplorerCacheDeletionMethodComboBox</value>
+  <data name="&gt;&gt;OutputTextBox.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;ExplorerCacheDeletionMethodComboBox.Type" xml:space="preserve">
+  <data name="OutputLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="OutputLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 137</value>
+  </data>
+  <data name="OutputLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 15</value>
+  </data>
+  <data name="OutputLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="OutputLabel.Text" xml:space="preserve">
+    <value>Output:</value>
+  </data>
+  <data name="&gt;&gt;OutputLabel.Name" xml:space="preserve">
+    <value>OutputLabel</value>
+  </data>
+  <data name="&gt;&gt;OutputLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OutputLabel.Parent" xml:space="preserve">
+    <value>BackupTabPage</value>
+  </data>
+  <data name="&gt;&gt;OutputLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="BackupFolderLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="BackupFolderLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="BackupFolderLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 15</value>
+  </data>
+  <data name="BackupFolderLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="BackupFolderLabel.Text" xml:space="preserve">
+    <value>Backup Folder:</value>
+  </data>
+  <data name="&gt;&gt;BackupFolderLabel.Name" xml:space="preserve">
+    <value>BackupFolderLabel</value>
+  </data>
+  <data name="&gt;&gt;BackupFolderLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BackupFolderLabel.Parent" xml:space="preserve">
+    <value>BackupTabPage</value>
+  </data>
+  <data name="&gt;&gt;BackupFolderLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ClearBackupFolderButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="ClearBackupFolderButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ClearBackupFolderButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 60</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ClearBackupFolderButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="ClearBackupFolderButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="ClearBackupFolderButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="ClearBackupFolderButton.Text" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="ClearBackupFolderButton.ToolTip" xml:space="preserve">
+    <value>Clears the backup path and disables all backup features.</value>
+  </data>
+  <data name="&gt;&gt;ClearBackupFolderButton.Name" xml:space="preserve">
+    <value>ClearBackupFolderButton</value>
+  </data>
+  <data name="&gt;&gt;ClearBackupFolderButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ClearBackupFolderButton.Parent" xml:space="preserve">
+    <value>BackupTabPage</value>
+  </data>
+  <data name="&gt;&gt;ClearBackupFolderButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="DefaultBackupFolderButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="DefaultBackupFolderButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DefaultBackupFolderButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 60</value>
+  </data>
+  <data name="DefaultBackupFolderButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="DefaultBackupFolderButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="DefaultBackupFolderButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="DefaultBackupFolderButton.Text" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="DefaultBackupFolderButton.ToolTip" xml:space="preserve">
+    <value>Sets the backup thumbnail cache folder to the default folder,
+depending on how the program is installed/located.
+
+If the program is installed in a restricted folder such as in Program Files, 
+the default location will be in AppData.
+
+If the program is ran portably or installed in a non-restricted folder,
+the default location will be in the same directory as the program.</value>
+  </data>
+  <data name="&gt;&gt;DefaultBackupFolderButton.Name" xml:space="preserve">
+    <value>DefaultBackupFolderButton</value>
+  </data>
+  <data name="&gt;&gt;DefaultBackupFolderButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DefaultBackupFolderButton.Parent" xml:space="preserve">
+    <value>BackupTabPage</value>
+  </data>
+  <data name="&gt;&gt;DefaultBackupFolderButton.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="BrowseBackupFolderButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="BrowseBackupFolderButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BrowseBackupFolderButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>303, 28</value>
+  </data>
+  <data name="BrowseBackupFolderButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="BrowseBackupFolderButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 28</value>
+  </data>
+  <data name="BrowseBackupFolderButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="BrowseBackupFolderButton.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;BrowseBackupFolderButton.Name" xml:space="preserve">
+    <value>BrowseBackupFolderButton</value>
+  </data>
+  <data name="&gt;&gt;BrowseBackupFolderButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BrowseBackupFolderButton.Parent" xml:space="preserve">
+    <value>BackupTabPage</value>
+  </data>
+  <data name="&gt;&gt;BrowseBackupFolderButton.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="BackupFolderPathTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 31</value>
+  </data>
+  <data name="BackupFolderPathTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>290, 23</value>
+  </data>
+  <data name="BackupFolderPathTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;BackupFolderPathTextBox.Name" xml:space="preserve">
+    <value>BackupFolderPathTextBox</value>
+  </data>
+  <data name="&gt;&gt;BackupFolderPathTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BackupFolderPathTextBox.Parent" xml:space="preserve">
+    <value>BackupTabPage</value>
+  </data>
+  <data name="&gt;&gt;BackupFolderPathTextBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="BackupTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="BackupTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="BackupTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>339, 213</value>
+  </data>
+  <data name="BackupTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="BackupTabPage.Text" xml:space="preserve">
+    <value>Backup</value>
+  </data>
+  <data name="&gt;&gt;BackupTabPage.Name" xml:space="preserve">
+    <value>BackupTabPage</value>
+  </data>
+  <data name="&gt;&gt;BackupTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BackupTabPage.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;BackupTabPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="AutoBackupAfterPreloadCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="AutoBackupAfterPreloadCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 15</value>
+  </data>
+  <data name="AutoBackupAfterPreloadCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 19</value>
+  </data>
+  <data name="AutoBackupAfterPreloadCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="AutoBackupAfterPreloadCheckBox.Text" xml:space="preserve">
+    <value>Auto Backup After Preload</value>
+  </data>
+  <data name="AutoBackupAfterPreloadCheckBox.ToolTip" xml:space="preserve">
+    <value>Toggles whether to backup the thumbnail cache
+after preloading completion if Auto Backup is enabled.</value>
+  </data>
+  <data name="&gt;&gt;AutoBackupAfterPreloadCheckBox.Name" xml:space="preserve">
+    <value>AutoBackupAfterPreloadCheckBox</value>
+  </data>
+  <data name="&gt;&gt;AutoBackupAfterPreloadCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AutoBackupAfterPreloadCheckBox.Parent" xml:space="preserve">
+    <value>CacheTabPage</value>
+  </data>
+  <data name="&gt;&gt;AutoBackupAfterPreloadCheckBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ExplorerCloseFrequencyComboBox.Items" xml:space="preserve">
+    <value>On Every File</value>
+  </data>
+  <data name="ExplorerCloseFrequencyComboBox.Items1" xml:space="preserve">
+    <value>On Deletion Start</value>
+  </data>
+  <data name="ExplorerCloseFrequencyComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>205, 132</value>
+  </data>
+  <data name="ExplorerCloseFrequencyComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="ExplorerCloseFrequencyComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="ExplorerCloseFrequencyComboBox.Text" xml:space="preserve">
+    <value>On Every File</value>
+  </data>
+  <data name="&gt;&gt;ExplorerCloseFrequencyComboBox.Name" xml:space="preserve">
+    <value>ExplorerCloseFrequencyComboBox</value>
+  </data>
+  <data name="&gt;&gt;ExplorerCloseFrequencyComboBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ExplorerCacheDeletionMethodComboBox.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+  <data name="&gt;&gt;ExplorerCloseFrequencyComboBox.Parent" xml:space="preserve">
+    <value>CacheTabPage</value>
   </data>
-  <data name="&gt;&gt;ExplorerCacheDeletionMethodComboBox.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ExplorerCloseFrequencyComboBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="BackupRestoreClearSafetyComboBox.Items" xml:space="preserve">
+    <value>Allow Partial Copy</value>
+  </data>
+  <data name="BackupRestoreClearSafetyComboBox.Items1" xml:space="preserve">
+    <value>Require Full Copy</value>
+  </data>
+  <data name="BackupRestoreClearSafetyComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>205, 52</value>
+  </data>
+  <data name="BackupRestoreClearSafetyComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="BackupRestoreClearSafetyComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="BackupRestoreClearSafetyComboBox.Text" xml:space="preserve">
+    <value>Allow Partial Copy</value>
+  </data>
+  <data name="&gt;&gt;BackupRestoreClearSafetyComboBox.Name" xml:space="preserve">
+    <value>BackupRestoreClearSafetyComboBox</value>
+  </data>
+  <data name="&gt;&gt;BackupRestoreClearSafetyComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BackupRestoreClearSafetyComboBox.Parent" xml:space="preserve">
+    <value>CacheTabPage</value>
+  </data>
+  <data name="&gt;&gt;BackupRestoreClearSafetyComboBox.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="ExplorerCacheDeletionMethodLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="ExplorerCacheDeletionMethodLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 170</value>
+    <value>6, 95</value>
   </data>
   <data name="ExplorerCacheDeletionMethodLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 15</value>
+    <value>180, 15</value>
   </data>
   <data name="ExplorerCacheDeletionMethodLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+    <value>3</value>
   </data>
   <data name="ExplorerCacheDeletionMethodLabel.Text" xml:space="preserve">
     <value>Explorer Cache Deletion Method:</value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="ExplorerCacheDeletionMethodLabel.ToolTip" xml:space="preserve">
     <value>Sets the method used to delete the explorer thumbnail cache
 This affects the deletion and the restoration of thumbs cache
@@ -241,58 +530,274 @@ though it may be more stable in certain situations</value>
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ExplorerCacheDeletionMethodLabel.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+    <value>CacheTabPage</value>
   </data>
   <data name="&gt;&gt;ExplorerCacheDeletionMethodLabel.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="CacheSizeFormatComboBox.Items" xml:space="preserve">
-    <value>Auto</value>
+  <data name="ExplorerCacheDeletionMethodComboBox.Items" xml:space="preserve">
+    <value>Manual Deletion</value>
   </data>
-  <data name="CacheSizeFormatComboBox.Items1" xml:space="preserve">
-    <value>KB</value>
+  <data name="ExplorerCacheDeletionMethodComboBox.Items1" xml:space="preserve">
+    <value>Disk Cleanup</value>
   </data>
-  <data name="CacheSizeFormatComboBox.Items2" xml:space="preserve">
-    <value>MB</value>
+  <data name="ExplorerCacheDeletionMethodComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>205, 92</value>
   </data>
-  <data name="CacheSizeFormatComboBox.Items3" xml:space="preserve">
-    <value>GB</value>
+  <data name="ExplorerCacheDeletionMethodComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
   </data>
-  <data name="CacheSizeFormatComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>119, 97</value>
+  <data name="ExplorerCacheDeletionMethodComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
-  <data name="CacheSizeFormatComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 23</value>
+  <data name="ExplorerCacheDeletionMethodComboBox.Text" xml:space="preserve">
+    <value>Manual Deletion</value>
   </data>
-  <data name="CacheSizeFormatComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="&gt;&gt;ExplorerCacheDeletionMethodComboBox.Name" xml:space="preserve">
+    <value>ExplorerCacheDeletionMethodComboBox</value>
   </data>
-  <data name="CacheSizeFormatComboBox.Text" xml:space="preserve">
-    <value>MB</value>
-  </data>
-  <data name="&gt;&gt;CacheSizeFormatComboBox.Name" xml:space="preserve">
-    <value>CacheSizeFormatComboBox</value>
-  </data>
-  <data name="&gt;&gt;CacheSizeFormatComboBox.Type" xml:space="preserve">
+  <data name="&gt;&gt;ExplorerCacheDeletionMethodComboBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;CacheSizeFormatComboBox.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+  <data name="&gt;&gt;ExplorerCacheDeletionMethodComboBox.Parent" xml:space="preserve">
+    <value>CacheTabPage</value>
   </data>
-  <data name="&gt;&gt;CacheSizeFormatComboBox.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ExplorerCacheDeletionMethodComboBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="ExplorerCloseFrequencyLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ExplorerCloseFrequencyLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ExplorerCloseFrequencyLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 135</value>
+  </data>
+  <data name="ExplorerCloseFrequencyLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 15</value>
+  </data>
+  <data name="ExplorerCloseFrequencyLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="ExplorerCloseFrequencyLabel.Text" xml:space="preserve">
+    <value>Explorer Close Frequency:</value>
+  </data>
+  <data name="ExplorerCloseFrequencyLabel.ToolTip" xml:space="preserve">
+    <value>Determines how often to close explorer.exe when 
+force copying or deleting thumbnail cache files.</value>
+  </data>
+  <data name="&gt;&gt;ExplorerCloseFrequencyLabel.Name" xml:space="preserve">
+    <value>ExplorerCloseFrequencyLabel</value>
+  </data>
+  <data name="&gt;&gt;ExplorerCloseFrequencyLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ExplorerCloseFrequencyLabel.Parent" xml:space="preserve">
+    <value>CacheTabPage</value>
+  </data>
+  <data name="&gt;&gt;ExplorerCloseFrequencyLabel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="BackupRestoreClearSafetyLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="BackupRestoreClearSafetyLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 55</value>
+  </data>
+  <data name="BackupRestoreClearSafetyLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 15</value>
+  </data>
+  <data name="BackupRestoreClearSafetyLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="BackupRestoreClearSafetyLabel.Text" xml:space="preserve">
+    <value>Backup/Restore/Clear Safety:</value>
+  </data>
+  <data name="BackupRestoreClearSafetyLabel.ToolTip" xml:space="preserve">
+    <value>Determines whether or not backup/restore/clear functions
+should either partially complete or cancel on any failure.</value>
+  </data>
+  <data name="&gt;&gt;BackupRestoreClearSafetyLabel.Name" xml:space="preserve">
+    <value>BackupRestoreClearSafetyLabel</value>
+  </data>
+  <data name="&gt;&gt;BackupRestoreClearSafetyLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BackupRestoreClearSafetyLabel.Parent" xml:space="preserve">
+    <value>CacheTabPage</value>
+  </data>
+  <data name="&gt;&gt;BackupRestoreClearSafetyLabel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="CacheTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="CacheTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="CacheTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>339, 213</value>
+  </data>
+  <data name="CacheTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="CacheTabPage.Text" xml:space="preserve">
+    <value>Cache</value>
+  </data>
+  <data name="&gt;&gt;CacheTabPage.Name" xml:space="preserve">
+    <value>CacheTabPage</value>
+  </data>
+  <data name="&gt;&gt;CacheTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CacheTabPage.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;CacheTabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="AutoBackupIntervalNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>205, 12</value>
+  </data>
+  <data name="AutoBackupIntervalNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 23</value>
+  </data>
+  <data name="AutoBackupIntervalNumericUpDown.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;AutoBackupIntervalNumericUpDown.Name" xml:space="preserve">
+    <value>AutoBackupIntervalNumericUpDown</value>
+  </data>
+  <data name="&gt;&gt;AutoBackupIntervalNumericUpDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AutoBackupIntervalNumericUpDown.Parent" xml:space="preserve">
+    <value>GeneralTabPage</value>
+  </data>
+  <data name="&gt;&gt;AutoBackupIntervalNumericUpDown.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="AutoBackupIntervalLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="AutoBackupIntervalLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 15</value>
+  </data>
+  <data name="AutoBackupIntervalLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 15</value>
+  </data>
+  <data name="AutoBackupIntervalLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="AutoBackupIntervalLabel.Text" xml:space="preserve">
+    <value>Auto Backup Interval:</value>
+  </data>
+  <data name="AutoBackupIntervalLabel.ToolTip" xml:space="preserve">
+    <value>Sets the interval that the application checks for when
+to make an auto backup of the thumbnail cache</value>
+  </data>
+  <data name="&gt;&gt;AutoBackupIntervalLabel.Name" xml:space="preserve">
+    <value>AutoBackupIntervalLabel</value>
+  </data>
+  <data name="&gt;&gt;AutoBackupIntervalLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AutoBackupIntervalLabel.Parent" xml:space="preserve">
+    <value>GeneralTabPage</value>
+  </data>
+  <data name="&gt;&gt;AutoBackupIntervalLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="CacheSizeUpdateIntervalLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CacheSizeUpdateIntervalLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 135</value>
+  </data>
+  <data name="CacheSizeUpdateIntervalLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 15</value>
+  </data>
+  <data name="CacheSizeUpdateIntervalLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="CacheSizeUpdateIntervalLabel.Text" xml:space="preserve">
+    <value>Cache Size Update Interval:</value>
+  </data>
+  <data name="CacheSizeUpdateIntervalLabel.ToolTip" xml:space="preserve">
+    <value>Sets the interval that the thumbnail cache sizes are updated</value>
+  </data>
+  <data name="&gt;&gt;CacheSizeUpdateIntervalLabel.Name" xml:space="preserve">
+    <value>CacheSizeUpdateIntervalLabel</value>
+  </data>
+  <data name="&gt;&gt;CacheSizeUpdateIntervalLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CacheSizeUpdateIntervalLabel.Parent" xml:space="preserve">
+    <value>GeneralTabPage</value>
+  </data>
+  <data name="&gt;&gt;CacheSizeUpdateIntervalLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="BackupSecondsLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="BackupSecondsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>318, 21</value>
+  </data>
+  <data name="BackupSecondsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>12, 15</value>
+  </data>
+  <data name="BackupSecondsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="BackupSecondsLabel.Text" xml:space="preserve">
+    <value>s</value>
+  </data>
+  <data name="&gt;&gt;BackupSecondsLabel.Name" xml:space="preserve">
+    <value>BackupSecondsLabel</value>
+  </data>
+  <data name="&gt;&gt;BackupSecondsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BackupSecondsLabel.Parent" xml:space="preserve">
+    <value>GeneralTabPage</value>
+  </data>
+  <data name="&gt;&gt;BackupSecondsLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="CacheSizeUpdateIntervalNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>205, 132</value>
+  </data>
+  <data name="CacheSizeUpdateIntervalNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 23</value>
+  </data>
+  <data name="CacheSizeUpdateIntervalNumericUpDown.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;CacheSizeUpdateIntervalNumericUpDown.Name" xml:space="preserve">
+    <value>CacheSizeUpdateIntervalNumericUpDown</value>
+  </data>
+  <data name="&gt;&gt;CacheSizeUpdateIntervalNumericUpDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CacheSizeUpdateIntervalNumericUpDown.Parent" xml:space="preserve">
+    <value>GeneralTabPage</value>
+  </data>
+  <data name="&gt;&gt;CacheSizeUpdateIntervalNumericUpDown.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <data name="CacheSizeFormatLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="CacheSizeFormatLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 100</value>
+    <value>6, 95</value>
   </data>
   <data name="CacheSizeFormatLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 15</value>
   </data>
   <data name="CacheSizeFormatLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>6</value>
   </data>
   <data name="CacheSizeFormatLabel.Text" xml:space="preserve">
     <value>Cache Size Format:</value>
@@ -310,234 +815,22 @@ on the sizes of the backup or explorer thumbs cache</value>
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;CacheSizeFormatLabel.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+    <value>GeneralTabPage</value>
   </data>
   <data name="&gt;&gt;CacheSizeFormatLabel.ZOrder" xml:space="preserve">
     <value>5</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="SaveButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="SaveButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="SaveButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>119, 244</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="SaveButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="SaveButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 28</value>
-  </data>
-  <data name="SaveButton.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="SaveButton.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="&gt;&gt;SaveButton.Name" xml:space="preserve">
-    <value>SaveButton</value>
-  </data>
-  <data name="&gt;&gt;SaveButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SaveButton.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;SaveButton.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="DefaultButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="DefaultButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="DefaultButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>215, 244</value>
-  </data>
-  <data name="DefaultButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="DefaultButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 28</value>
-  </data>
-  <data name="DefaultButton.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="DefaultButton.Text" xml:space="preserve">
-    <value>Default</value>
-  </data>
-  <data name="&gt;&gt;DefaultButton.Name" xml:space="preserve">
-    <value>DefaultButton</value>
-  </data>
-  <data name="&gt;&gt;DefaultButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DefaultButton.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;DefaultButton.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="MilisecondsLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="MilisecondsLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>222, 140</value>
-  </data>
-  <data name="MilisecondsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 15</value>
-  </data>
-  <data name="MilisecondsLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="MilisecondsLabel.Text" xml:space="preserve">
-    <value>ms</value>
-  </data>
-  <data name="&gt;&gt;MilisecondsLabel.Name" xml:space="preserve">
-    <value>MilisecondsLabel</value>
-  </data>
-  <data name="&gt;&gt;MilisecondsLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MilisecondsLabel.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;MilisecondsLabel.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="BackupSecondsLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="BackupSecondsLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>176, 36</value>
-  </data>
-  <data name="BackupSecondsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>12, 15</value>
-  </data>
-  <data name="BackupSecondsLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="BackupSecondsLabel.Text" xml:space="preserve">
-    <value>s</value>
-  </data>
-  <data name="&gt;&gt;BackupSecondsLabel.Name" xml:space="preserve">
-    <value>BackupSecondsLabel</value>
-  </data>
-  <data name="&gt;&gt;BackupSecondsLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BackupSecondsLabel.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;BackupSecondsLabel.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="RestoreSecondsLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="RestoreSecondsLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>176, 71</value>
-  </data>
-  <data name="RestoreSecondsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>12, 15</value>
-  </data>
-  <data name="RestoreSecondsLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="RestoreSecondsLabel.Text" xml:space="preserve">
-    <value>s</value>
-  </data>
-  <data name="&gt;&gt;RestoreSecondsLabel.Name" xml:space="preserve">
-    <value>RestoreSecondsLabel</value>
-  </data>
-  <data name="&gt;&gt;RestoreSecondsLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RestoreSecondsLabel.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;RestoreSecondsLabel.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="AutoBackupIntervalNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 28</value>
-  </data>
-  <data name="AutoBackupIntervalNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 23</value>
-  </data>
-  <data name="AutoBackupIntervalNumericUpDown.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;AutoBackupIntervalNumericUpDown.Name" xml:space="preserve">
-    <value>AutoBackupIntervalNumericUpDown</value>
-  </data>
-  <data name="&gt;&gt;AutoBackupIntervalNumericUpDown.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AutoBackupIntervalNumericUpDown.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;AutoBackupIntervalNumericUpDown.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="AutoRestoreIntervalNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 63</value>
-  </data>
-  <data name="AutoRestoreIntervalNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 23</value>
-  </data>
-  <data name="AutoRestoreIntervalNumericUpDown.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;AutoRestoreIntervalNumericUpDown.Name" xml:space="preserve">
-    <value>AutoRestoreIntervalNumericUpDown</value>
-  </data>
-  <data name="&gt;&gt;AutoRestoreIntervalNumericUpDown.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AutoRestoreIntervalNumericUpDown.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;AutoRestoreIntervalNumericUpDown.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="CacheSizeUpdateIntervalNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 132</value>
-  </data>
-  <data name="CacheSizeUpdateIntervalNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 23</value>
-  </data>
-  <data name="CacheSizeUpdateIntervalNumericUpDown.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;CacheSizeUpdateIntervalNumericUpDown.Name" xml:space="preserve">
-    <value>CacheSizeUpdateIntervalNumericUpDown</value>
-  </data>
-  <data name="&gt;&gt;CacheSizeUpdateIntervalNumericUpDown.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CacheSizeUpdateIntervalNumericUpDown.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;CacheSizeUpdateIntervalNumericUpDown.ZOrder" xml:space="preserve">
-    <value>13</value>
   </data>
   <data name="AutoRestoreIntervalLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="AutoRestoreIntervalLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 65</value>
+    <value>6, 55</value>
   </data>
   <data name="AutoRestoreIntervalLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 15</value>
   </data>
   <data name="AutoRestoreIntervalLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="AutoRestoreIntervalLabel.Text" xml:space="preserve">
     <value>Auto Restore Interval:</value>
@@ -554,77 +847,241 @@ to auto restore the thumbnail cache from the backup
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;AutoRestoreIntervalLabel.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+    <value>GeneralTabPage</value>
   </data>
   <data name="&gt;&gt;AutoRestoreIntervalLabel.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>6</value>
   </data>
-  <data name="AutoBackupIntervalLabel.AutoSize" type="System.Boolean, mscorlib">
+  <data name="MilisecondsLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="AutoBackupIntervalLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 30</value>
+  <data name="MilisecondsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>307, 141</value>
   </data>
-  <data name="AutoBackupIntervalLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 15</value>
+  <data name="MilisecondsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 15</value>
   </data>
-  <data name="AutoBackupIntervalLabel.TabIndex" type="System.Int32, mscorlib">
+  <data name="MilisecondsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="MilisecondsLabel.Text" xml:space="preserve">
+    <value>ms</value>
+  </data>
+  <data name="&gt;&gt;MilisecondsLabel.Name" xml:space="preserve">
+    <value>MilisecondsLabel</value>
+  </data>
+  <data name="&gt;&gt;MilisecondsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MilisecondsLabel.Parent" xml:space="preserve">
+    <value>GeneralTabPage</value>
+  </data>
+  <data name="&gt;&gt;MilisecondsLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="AutoRestoreIntervalNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>205, 52</value>
+  </data>
+  <data name="AutoRestoreIntervalNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 23</value>
+  </data>
+  <data name="AutoRestoreIntervalNumericUpDown.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;AutoRestoreIntervalNumericUpDown.Name" xml:space="preserve">
+    <value>AutoRestoreIntervalNumericUpDown</value>
+  </data>
+  <data name="&gt;&gt;AutoRestoreIntervalNumericUpDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AutoRestoreIntervalNumericUpDown.Parent" xml:space="preserve">
+    <value>GeneralTabPage</value>
+  </data>
+  <data name="&gt;&gt;AutoRestoreIntervalNumericUpDown.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="CacheSizeFormatComboBox.Items" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="CacheSizeFormatComboBox.Items1" xml:space="preserve">
+    <value>KB</value>
+  </data>
+  <data name="CacheSizeFormatComboBox.Items2" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="CacheSizeFormatComboBox.Items3" xml:space="preserve">
+    <value>GB</value>
+  </data>
+  <data name="CacheSizeFormatComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>205, 92</value>
+  </data>
+  <data name="CacheSizeFormatComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="CacheSizeFormatComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="CacheSizeFormatComboBox.Text" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="&gt;&gt;CacheSizeFormatComboBox.Name" xml:space="preserve">
+    <value>CacheSizeFormatComboBox</value>
+  </data>
+  <data name="&gt;&gt;CacheSizeFormatComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CacheSizeFormatComboBox.Parent" xml:space="preserve">
+    <value>GeneralTabPage</value>
+  </data>
+  <data name="&gt;&gt;CacheSizeFormatComboBox.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="RestoreSecondsLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RestoreSecondsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>318, 61</value>
+  </data>
+  <data name="RestoreSecondsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>12, 15</value>
+  </data>
+  <data name="RestoreSecondsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="RestoreSecondsLabel.Text" xml:space="preserve">
+    <value>s</value>
+  </data>
+  <data name="&gt;&gt;RestoreSecondsLabel.Name" xml:space="preserve">
+    <value>RestoreSecondsLabel</value>
+  </data>
+  <data name="&gt;&gt;RestoreSecondsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RestoreSecondsLabel.Parent" xml:space="preserve">
+    <value>GeneralTabPage</value>
+  </data>
+  <data name="&gt;&gt;RestoreSecondsLabel.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="GeneralTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="GeneralTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="GeneralTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>339, 213</value>
+  </data>
+  <data name="GeneralTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="AutoBackupIntervalLabel.Text" xml:space="preserve">
-    <value>Auto Backup Interval:</value>
+  <data name="GeneralTabPage.Text" xml:space="preserve">
+    <value>General</value>
   </data>
-  <data name="AutoBackupIntervalLabel.ToolTip" xml:space="preserve">
-    <value>Sets the interval that the application checks for when
-to make an auto backup of the thumbnail cache</value>
+  <data name="&gt;&gt;GeneralTabPage.Name" xml:space="preserve">
+    <value>GeneralTabPage</value>
   </data>
-  <data name="&gt;&gt;AutoBackupIntervalLabel.Name" xml:space="preserve">
-    <value>AutoBackupIntervalLabel</value>
+  <data name="&gt;&gt;GeneralTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;AutoBackupIntervalLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;GeneralTabPage.Parent" xml:space="preserve">
+    <value>tabControl1</value>
   </data>
-  <data name="&gt;&gt;AutoBackupIntervalLabel.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+  <data name="&gt;&gt;GeneralTabPage.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;AutoBackupIntervalLabel.ZOrder" xml:space="preserve">
-    <value>15</value>
+  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 22</value>
   </data>
-  <data name="CacheSizeUpdateIntervalLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>347, 241</value>
   </data>
-  <data name="CacheSizeUpdateIntervalLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 135</value>
-  </data>
-  <data name="CacheSizeUpdateIntervalLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 15</value>
-  </data>
-  <data name="CacheSizeUpdateIntervalLabel.TabIndex" type="System.Int32, mscorlib">
+  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="CacheSizeUpdateIntervalLabel.Text" xml:space="preserve">
-    <value>Cache Size Update Interval:</value>
+  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
+    <value>tabControl1</value>
   </data>
-  <data name="CacheSizeUpdateIntervalLabel.ToolTip" xml:space="preserve">
-    <value>Sets the interval that the thumbnail cache sizes are updated</value>
+  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;CacheSizeUpdateIntervalLabel.Name" xml:space="preserve">
-    <value>CacheSizeUpdateIntervalLabel</value>
-  </data>
-  <data name="&gt;&gt;CacheSizeUpdateIntervalLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CacheSizeUpdateIntervalLabel.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;CacheSizeUpdateIntervalLabel.ZOrder" xml:space="preserve">
-    <value>16</value>
+  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="SaveButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="SaveButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="SaveButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 269</value>
+  </data>
+  <data name="SaveButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="SaveButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="SaveButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="SaveButton.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="&gt;&gt;SaveButton.Name" xml:space="preserve">
+    <value>SaveButton</value>
+  </data>
+  <data name="&gt;&gt;SaveButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SaveButton.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;SaveButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="DefaultButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="DefaultButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DefaultButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>265, 269</value>
+  </data>
+  <data name="DefaultButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="DefaultButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="DefaultButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="DefaultButton.Text" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;DefaultButton.Name" xml:space="preserve">
+    <value>DefaultButton</value>
+  </data>
+  <data name="&gt;&gt;DefaultButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DefaultButton.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;DefaultButton.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>310, 278</value>
+    <value>360, 303</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -651,7 +1108,7 @@ to make an auto backup of the thumbnail cache</value>
     <value>NoControl</value>
   </data>
   <data name="CloseButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>233, 296</value>
+    <value>284, 321</value>
   </data>
   <data name="CloseButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -660,7 +1117,7 @@ to make an auto backup of the thumbnail cache</value>
     <value>88, 28</value>
   </data>
   <data name="CloseButton.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>1</value>
   </data>
   <data name="CloseButton.Text" xml:space="preserve">
     <value>Close</value>
@@ -680,14 +1137,14 @@ to make an auto backup of the thumbnail cache</value>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>68</value>
+  </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>334, 336</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>384, 361</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>WinThumbsPreloader - Advanced Cache</value>

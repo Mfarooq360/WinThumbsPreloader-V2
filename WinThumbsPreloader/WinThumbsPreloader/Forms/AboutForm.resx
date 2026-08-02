@@ -137,7 +137,7 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="CloseButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="CloseButton.Text" xml:space="preserve">
     <value>Close</value>
@@ -170,7 +170,7 @@
     <value>88, 29</value>
   </data>
   <data name="LicenceButton.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>2</value>
   </data>
   <data name="LicenceButton.Text" xml:space="preserve">
     <value>License</value>
@@ -233,7 +233,7 @@
     <value>88, 29</value>
   </data>
   <data name="PreloadButton.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>0</value>
   </data>
   <data name="PreloadButton.Text" xml:space="preserve">
     <value>Preload</value>
@@ -273,7 +273,7 @@ Holding "SHIFT" will recursively preload thumbnails.</value>
     <value>88, 29</value>
   </data>
   <data name="SettingsButton.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>1</value>
   </data>
   <data name="SettingsButton.Text" xml:space="preserve">
     <value>Settings</value>
@@ -483,25 +483,25 @@ Holding "SHIFT" will recursively preload thumbnails.</value>
     <value>398, 257</value>
   </data>
   <data name="RichTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="RichTextBox.Text" xml:space="preserve">
     <value>To use this app, press "Preload" or right click on a folder to call the context menu and select WinThumbsPreloader &gt; Preload thumbnails in the menu.
 
-This app can also be launched from the command line:
-Usage:
+CLI Usage:
     WinThumbsPreloader.exe [-r -s] &lt;path&gt;
 Options:
     -r Recursively preload thumbnails in nested folders.
     -s Silent mode - don't show a progress dialog.
     -m / -m&lt;n&gt; / -m:&lt;n&gt; Multi-Threaded mode with optional thread count
 
-File extensions for thumbnail preloading can be modified in the Settings.
+- File extensions for thumbnail preloading can be modified in the Settings.
+- Hover over or tab to various elements to view helpful tooltips.
 
 Project page: https://github.com/Mfarooq360/WinThumbsPreloader-V2
 
 Copyright (c) 2018 Dmitry Bruhov
-Copyright (c) 2025 Mutahar Farooq</value>
+Copyright (c) 2026 Mutahar Farooq</value>
   </data>
   <data name="&gt;&gt;RichTextBox.Name" xml:space="preserve">
     <value>RichTextBox</value>

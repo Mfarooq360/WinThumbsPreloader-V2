@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
-    Microsoft ResX Schema 
+    Microsoft ResX Schema
 
     Version 2.0
 
@@ -48,7 +48,7 @@
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="progressBarRestore.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="progressBarRestore.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 216</value>
@@ -126,7 +130,7 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="progressBarRestore.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+    <value>6</value>
   </data>
   <data name="progressBarRestore.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -153,7 +157,7 @@
     <value>128, 19</value>
   </data>
   <data name="StartWithWindowsCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>2</value>
   </data>
   <data name="StartWithWindowsCheckBox.Text" xml:space="preserve">
     <value>Start with Windows</value>
@@ -162,7 +166,8 @@
     <value>285, 17</value>
   </metadata>
   <data name="StartWithWindowsCheckBox.ToolTip" xml:space="preserve">
-    <value>Enables the program to start in the system tray</value>
+    <value>Enables the program to start on 
+Windows startup in the system tray.</value>
   </data>
   <data name="&gt;&gt;StartWithWindowsCheckBox.Name" xml:space="preserve">
     <value>StartWithWindowsCheckBox</value>
@@ -186,14 +191,17 @@
     <value>94, 19</value>
   </data>
   <data name="AutoRestoreCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>5</value>
   </data>
   <data name="AutoRestoreCheckBox.Text" xml:space="preserve">
     <value>Auto Restore</value>
   </data>
   <data name="AutoRestoreCheckBox.ToolTip" xml:space="preserve">
-    <value>Enables restoring of the thumbnail cache from
-backup when the cache size is less than the backup.</value>
+    <value>Enables auto restoring of the thumbnail cache from
+backup when the cache size is less than the backup size.
+
+Interval of the auto restore check can be changed
+in the advanced form settings.</value>
   </data>
   <data name="&gt;&gt;AutoRestoreCheckBox.Name" xml:space="preserve">
     <value>AutoRestoreCheckBox</value>
@@ -277,7 +285,7 @@ backup when the cache size is less than the backup.</value>
     <value>Output:</value>
   </data>
   <data name="label1.ToolTip" xml:space="preserve">
-    <value>Displays any completion or error messages</value>
+    <value>Displays any completion or error messages.</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -291,7 +299,6 @@ backup when the cache size is less than the backup.</value>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ClearCacheButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -309,14 +316,14 @@ backup when the cache size is less than the backup.</value>
     <value>88, 28</value>
   </data>
   <data name="ClearCacheButton.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>8</value>
   </data>
   <data name="ClearCacheButton.Text" xml:space="preserve">
     <value>Open Cache</value>
   </data>
   <data name="ClearCacheButton.ToolTip" xml:space="preserve">
-    <value>Opens thumbnail cache folder
-Holding "SHIFT" will prompt to clear the cache</value>
+    <value>Opens the explorer thumbnail cache folder.
+Holding "SHIFT" will prompt to clear the cache.</value>
   </data>
   <data name="&gt;&gt;ClearCacheButton.Name" xml:space="preserve">
     <value>ClearCacheButton</value>
@@ -337,7 +344,7 @@ Holding "SHIFT" will prompt to clear the cache</value>
     <value>319, 23</value>
   </data>
   <data name="OutputTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;OutputTextBox.Name" xml:space="preserve">
     <value>OutputTextBox</value>
@@ -367,14 +374,18 @@ Holding "SHIFT" will prompt to clear the cache</value>
     <value>88, 28</value>
   </data>
   <data name="RestoreButton.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>1</value>
   </data>
   <data name="RestoreButton.Text" xml:space="preserve">
     <value>Restore</value>
   </data>
   <data name="RestoreButton.ToolTip" xml:space="preserve">
-    <value>Restores the thumbnail cache from backup
-Holding "SHIFT" will close explorer before restoring</value>
+    <value>Restores the thumbnail cache from backup.
+Holding "SHIFT" will close explorer before restoring.
+
+WARNING: Force Restore closes explorer.exe
+and may cause instability depending on 
+chosen settings in the Advanced form.</value>
   </data>
   <data name="&gt;&gt;RestoreButton.Name" xml:space="preserve">
     <value>RestoreButton</value>
@@ -404,14 +415,14 @@ Holding "SHIFT" will close explorer before restoring</value>
     <value>88, 28</value>
   </data>
   <data name="ClearButton.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>7</value>
   </data>
   <data name="ClearButton.Text" xml:space="preserve">
     <value>Open Backup</value>
   </data>
   <data name="ClearButton.ToolTip" xml:space="preserve">
-    <value>Opens backup folder
-Holding "SHIFT" will prompt to clear the backup</value>
+    <value>Opens the thumbnail cache backup folder.
+Holding "SHIFT" will prompt to clear the backup.</value>
   </data>
   <data name="&gt;&gt;ClearButton.Name" xml:space="preserve">
     <value>ClearButton</value>
@@ -441,13 +452,13 @@ Holding "SHIFT" will prompt to clear the backup</value>
     <value>88, 28</value>
   </data>
   <data name="BackupButton.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>0</value>
   </data>
   <data name="BackupButton.Text" xml:space="preserve">
     <value>Backup</value>
   </data>
   <data name="BackupButton.ToolTip" xml:space="preserve">
-    <value>Creates a backup of the thumbnail cache</value>
+    <value>Creates a backup of the thumbnail cache.</value>
   </data>
   <data name="&gt;&gt;BackupButton.Name" xml:space="preserve">
     <value>BackupButton</value>
@@ -471,7 +482,7 @@ Holding "SHIFT" will prompt to clear the backup</value>
     <value>135, 19</value>
   </data>
   <data name="AlertCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="AlertCheckBox.Text" xml:space="preserve">
     <value>Alert on Cache Reset</value>
@@ -511,14 +522,17 @@ for cache reset at an interval of every second.
     <value>94, 19</value>
   </data>
   <data name="AutoBackupCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>4</value>
   </data>
   <data name="AutoBackupCheckBox.Text" xml:space="preserve">
     <value>Auto Backup</value>
   </data>
   <data name="AutoBackupCheckBox.ToolTip" xml:space="preserve">
-    <value>Enables backing up of thumbnail cache
-in the background at every user selected interval</value>
+    <value>Enables auto backup of thumbnail cache
+when the backup size is less than the cache size.
+
+Interval of the auto backup check can be changed
+in the advanced form settings.</value>
   </data>
   <data name="&gt;&gt;AutoBackupCheckBox.Name" xml:space="preserve">
     <value>AutoBackupCheckBox</value>
@@ -545,7 +559,7 @@ in the background at every user selected interval</value>
     <value>333, 279</value>
   </data>
   <data name="CacheOptionsGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>0</value>
   </data>
   <data name="CacheOptionsGroupBox.Text" xml:space="preserve">
     <value>Cache Options</value>
@@ -578,7 +592,7 @@ in the background at every user selected interval</value>
     <value>88, 28</value>
   </data>
   <data name="CloseButton.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>2</value>
   </data>
   <data name="CloseButton.Text" xml:space="preserve">
     <value>Close</value>
@@ -674,7 +688,7 @@ in the background at every user selected interval</value>
     <value>88, 28</value>
   </data>
   <data name="AdvancedButton.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>1</value>
   </data>
   <data name="AdvancedButton.Text" xml:space="preserve">
     <value>Advanced</value>

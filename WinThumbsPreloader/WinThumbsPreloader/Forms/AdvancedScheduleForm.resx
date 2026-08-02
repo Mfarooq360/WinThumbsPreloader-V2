@@ -137,7 +137,7 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="DefaultButton.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>5</value>
   </data>
   <data name="DefaultButton.Text" xml:space="preserve">
     <value>Default</value>
@@ -164,7 +164,7 @@
     <value>133, 19</value>
   </data>
   <data name="DetailedTimeModeCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="DetailedTimeModeCheckBox.Text" xml:space="preserve">
     <value>Detailed Time Mode</value>
@@ -191,7 +191,7 @@
     <value>122, 19</value>
   </data>
   <data name="TwentyFourHourCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="TwentyFourHourCheckBox.Text" xml:space="preserve">
     <value>Use 24-Hour Time</value>
@@ -212,13 +212,13 @@
     <value>True</value>
   </data>
   <data name="DriveSortLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>199, 23</value>
+    <value>214, 22</value>
   </data>
   <data name="DriveSortLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 15</value>
   </data>
   <data name="DriveSortLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="DriveSortLabel.Text" xml:space="preserve">
     <value>Drive Sort:</value>
@@ -242,13 +242,13 @@
     <value>Horizontal</value>
   </data>
   <data name="DriveSortComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>266, 18</value>
+    <value>281, 18</value>
   </data>
   <data name="DriveSortComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 23</value>
   </data>
   <data name="DriveSortComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;DriveSortComboBox.Name" xml:space="preserve">
     <value>DriveSortComboBox</value>
@@ -329,7 +329,7 @@
     <value>88, 28</value>
   </data>
   <data name="CloseButton.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>4</value>
   </data>
   <data name="CloseButton.Text" xml:space="preserve">
     <value>Close</value>
@@ -356,7 +356,7 @@
     <value>70, 15</value>
   </data>
   <data name="GeneralDescriptionLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>0</value>
   </data>
   <data name="GeneralDescriptionLabel.Text" xml:space="preserve">
     <value>Description:</value>
@@ -383,10 +383,10 @@
     <value>293, 88</value>
   </data>
   <data name="GeneralDescriptionTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>1</value>
   </data>
   <data name="GeneralDescriptionTextBox.Text" xml:space="preserve">
-    <value>The Task Scheduler settings are
+    <value>The Task Scheduler settings are work-in-progress and
 READ-ONLY for now.
 
 Writing to Task Scheduler settings will arrive in a
@@ -519,7 +519,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>375, 104</value>
   </data>
   <data name="GeneralSecurityOptionsGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>2</value>
   </data>
   <data name="GeneralSecurityOptionsGroupBox.Text" xml:space="preserve">
     <value>Security options</value>
@@ -615,7 +615,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>103, 23</value>
   </data>
   <data name="StartTheTaskOnlyIfTheComputerIsIdleForComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;StartTheTaskOnlyIfTheComputerIsIdleForComboBox.Name" xml:space="preserve">
     <value>StartTheTaskOnlyIfTheComputerIsIdleForComboBox</value>
@@ -660,7 +660,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>121, 23</value>
   </data>
   <data name="WaitForIdleForComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;WaitForIdleForComboBox.Name" xml:space="preserve">
     <value>WaitForIdleForComboBox</value>
@@ -684,7 +684,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>92, 15</value>
   </data>
   <data name="WaitForIdleForLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="WaitForIdleForLabel.Text" xml:space="preserve">
     <value>Wait for idle for:</value>
@@ -717,7 +717,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>316, 19</value>
   </data>
   <data name="RestartIfTheIdleStateResumesCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>5</value>
   </data>
   <data name="RestartIfTheIdleStateResumesCheckBox.Text" xml:space="preserve">
     <value>Restart if the idle state resumes (Only in task scheduler)
@@ -745,7 +745,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>224, 19</value>
   </data>
   <data name="StopIfTheComputerCeasesToBeIdleCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="StopIfTheComputerCeasesToBeIdleCheckBox.Text" xml:space="preserve">
     <value>Stop if the computer ceases to be idle</value>
@@ -796,7 +796,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>375, 125</value>
   </data>
   <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>0</value>
   </data>
   <data name="groupBox4.Text" xml:space="preserve">
     <value>Idle</value>
@@ -823,7 +823,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>288, 19</value>
   </data>
   <data name="StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>0</value>
   </data>
   <data name="StartTheTaskOnlyIfTheComputerIsOnACPowerCheckBox.Text" xml:space="preserve">
     <value>Start the task only if the computer is on AC power</value>
@@ -850,7 +850,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>273, 19</value>
   </data>
   <data name="StopIfTheComputerSwitchesToBatteryPowerCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>1</value>
   </data>
   <data name="StopIfTheComputerSwitchesToBatteryPowerCheckBox.Text" xml:space="preserve">
     <value>Stop if the computer switches to battery power</value>
@@ -877,7 +877,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>211, 19</value>
   </data>
   <data name="WakeTheComputerToRunThisTaskCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>2</value>
   </data>
   <data name="WakeTheComputerToRunThisTaskCheckBox.Text" xml:space="preserve">
     <value>Wake the computer to run this task</value>
@@ -901,7 +901,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>375, 94</value>
   </data>
   <data name="groupBox5.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>1</value>
   </data>
   <data name="groupBox5.Text" xml:space="preserve">
     <value>Power</value>
@@ -973,7 +973,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>93, 23</value>
   </data>
   <data name="StopTheTaskIfItRunsLongerThanComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>8</value>
   </data>
   <data name="&gt;&gt;StopTheTaskIfItRunsLongerThanComboBox.Name" xml:space="preserve">
     <value>StopTheTaskIfItRunsLongerThanComboBox</value>
@@ -997,7 +997,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>36, 15</value>
   </data>
   <data name="TimesLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>6</value>
   </data>
   <data name="TimesLabel.Text" xml:space="preserve">
     <value>times</value>
@@ -1024,7 +1024,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>30, 23</value>
   </data>
   <data name="AttemptToRestartUpToTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>5</value>
   </data>
   <data name="&gt;&gt;AttemptToRestartUpToTextBox.Name" xml:space="preserve">
     <value>AttemptToRestartUpToTextBox</value>
@@ -1066,7 +1066,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>93, 23</value>
   </data>
   <data name="IfTheTaskFailsRestartEveryComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;IfTheTaskFailsRestartEveryComboBox.Name" xml:space="preserve">
     <value>IfTheTaskFailsRestartEveryComboBox</value>
@@ -1090,7 +1090,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>135, 15</value>
   </data>
   <data name="AttemptToRestartUpToLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>4</value>
   </data>
   <data name="AttemptToRestartUpToLabel.Text" xml:space="preserve">
     <value>Attempt to restart up to:</value>
@@ -1126,7 +1126,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>229, 23</value>
   </data>
   <data name="IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>11</value>
   </data>
   <data name="&gt;&gt;IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox.Name" xml:space="preserve">
     <value>IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesComboBox</value>
@@ -1150,7 +1150,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>324, 15</value>
   </data>
   <data name="IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>10</value>
   </data>
   <data name="IfTheTaskIsAlreadyRunningThenTheFollowingRuleAppliesLabel.Text" xml:space="preserve">
     <value>If the task is already running, then the following rule applies:</value>
@@ -1177,7 +1177,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>364, 19</value>
   </data>
   <data name="IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>9</value>
   </data>
   <data name="IfTheRunningTaskDoesNotEndWhenRequestedForceItToStopCheckBox.Text" xml:space="preserve">
     <value>If the running task does not end when requested, force it to stop</value>
@@ -1204,7 +1204,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>207, 19</value>
   </data>
   <data name="StopTheTaskIfItRunsLongerThanCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>7</value>
   </data>
   <data name="StopTheTaskIfItRunsLongerThanCheckBox.Text" xml:space="preserve">
     <value>Stop the task if it runs longer than:</value>
@@ -1357,7 +1357,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>409, 290</value>
   </data>
   <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>1</value>
   </data>
   <data name="groupBox2.Text" xml:space="preserve">
     <value>Task Scheduler</value>
@@ -1390,7 +1390,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>100, 28</value>
   </data>
   <data name="OpenTaskSchedulerButton.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>2</value>
   </data>
   <data name="OpenTaskSchedulerButton.Text" xml:space="preserve">
     <value>Task Scheduler</value>
@@ -1420,7 +1420,7 @@ later version, use Task Scheduler to change settings.</value>
     <value>88, 28</value>
   </data>
   <data name="AdvancedScheduleSaveButton.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>3</value>
   </data>
   <data name="AdvancedScheduleSaveButton.Text" xml:space="preserve">
     <value>Save Task</value>
