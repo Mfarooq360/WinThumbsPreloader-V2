@@ -26,8 +26,8 @@ It is useful for when browsing folders with large numbers of images, videos, or 
 
 ### WinThumbsPreloader V2
 - **Project Page:** [WinThumbsPreloader-V2](https://github.com/Mfarooq360/WinThumbsPreloader-V2)
-- **Standalone EXE:** [WinThumbsPreloader.exe](https://github.com/Mfarooq360/WinThumbsPreloader-V2/releases/download/v2.0.0-beta7/WinThumbsPreloader.exe)
-- **Installer:** [WinThumbsPreloader-2.0.0-setup.exe](https://github.com/Mfarooq360/WinThumbsPreloader-V2/releases/download/v2.0.0-beta7/WinThumbsPreloader-2.0.0-setup.exe)
+- **Standalone EXE:** [WinThumbsPreloader.exe](https://github.com/Mfarooq360/WinThumbsPreloader-V2/releases/download/v2.0.0-beta7/WinThumbsPreloader-2.0.0-net10.zip)
+- **Installer:** [WinThumbsPreloader-2.0.0-setup.exe](https://github.com/Mfarooq360/WinThumbsPreloader-V2/releases/download/v2.0.0-beta7/WinThumbsPreloader-2.0.0-net10-setup.exe)
 
 ### WinThumbsPreloader V1 (Multi-threaded Fork)
 - **Project Page:** [WinThumbsPreloader](https://github.com/Mfarooq360/WinThumbsPreloader)
