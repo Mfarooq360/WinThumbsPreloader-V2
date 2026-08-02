@@ -408,3 +408,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/WinThumbsPreloader/.vs/WinThumbsPreloader/DesignTimeBuild/.dtbcache.v2
+/WinThumbsPreloader/.vs/WinThumbsPreloader/DesignTimeBuild/.dtbcache.v2

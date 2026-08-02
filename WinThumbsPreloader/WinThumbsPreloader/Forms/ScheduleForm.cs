@@ -158,7 +158,8 @@ namespace WinThumbsPreloader
             using (TaskService ts = new TaskService())
             {
                 TaskScheduler task = ts.FindTask(TaskName);
-                task?.Enabled = EnabledCheckBox.Checked;
+                if (task != null)
+                    task.Enabled = EnabledCheckBox.Checked;
             }
         }
 

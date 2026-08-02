@@ -227,21 +227,24 @@ namespace WinThumbsPreloader
         {
             cacheUpdateInterval = newInterval;
             WriteLine("Cache Update Interval set to: " + cacheUpdateInterval, LoggingFrequency.DebugLogging);
-            updateTimer?.Interval = newInterval;
+            if (updateTimer != null)
+                updateTimer.Interval = newInterval;
         }
 
         public void UpdateAutoBackupInterval(int newInterval)
         {
             autoBackupInterval = newInterval;
             WriteLine("Auto Backup Interval set to: " + autoBackupInterval, LoggingFrequency.DebugLogging);
-            autoBackupTimer?.Interval = newInterval;
+            if (autoBackupTimer != null)
+                autoBackupTimer.Interval = newInterval;
         }
 
         public void UpdateAutoRestoreInterval(int newInterval)
         {
             autoRestoreInterval = newInterval;
             WriteLine("Auto Restore Interval set to: " + autoRestoreInterval, LoggingFrequency.DebugLogging);
-            autoRestoreTimer?.Interval = newInterval;
+            if (autoRestoreTimer != null)
+                autoRestoreTimer.Interval = newInterval;
         }
 
         private async void UpdateTimer_Tick(object sender, EventArgs e)

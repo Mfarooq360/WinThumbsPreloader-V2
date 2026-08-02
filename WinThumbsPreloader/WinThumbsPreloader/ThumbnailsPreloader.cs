@@ -701,7 +701,8 @@ namespace WinThumbsPreloader
             isFinalizing = true;
 
             cacheCheckTimer?.Stop();
-            cacheCheckTimer?.Tick -= CacheCheckTimer_Tick;
+            if (cacheCheckTimer != null)
+                cacheCheckTimer.Tick -= CacheCheckTimer_Tick;
             cacheCheckTimer?.Dispose();
             cacheCheckTimer = null;
             WriteLine("Cache check timer stopped", LoggingFrequency.PreloaderLogging);
