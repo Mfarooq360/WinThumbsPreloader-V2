@@ -2,7 +2,7 @@
 ### Fast and Advanced Thumbnail Preloader for Windows Explorer
 
 Preload Windows Explorer thumbnails faster and more conveniently with WinThumbsPreloader V2.  
-This project is designed to help generate thumbnails ahead of time so large folders can feel smoother to browse in Explorer.
+This project is designed to help generate thumbnails ahead of time so large folders can feel smoother to browse.
 
 ![WinThumbsPreloader Demo](https://raw.githubusercontent.com/Mfarooq360/WinThumbsPreloader/master/demo.gif)
 
