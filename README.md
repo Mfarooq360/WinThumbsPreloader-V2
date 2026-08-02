@@ -26,12 +26,12 @@ It is useful for when browsing folders with large numbers of images, videos, or 
 
 ### WinThumbsPreloader V2
 - **Project Page:** [WinThumbsPreloader-V2](https://github.com/Mfarooq360/WinThumbsPreloader-V2)
-- **Standalone EXE:** [WinThumbsPreloader.exe](https://github.com/Mfarooq360/WinThumbsPreloader-V2/releases/download/v2.0.0-beta7/WinThumbsPreloader-2.0.0-net10.zip)
-- **Installer:** [WinThumbsPreloader-2.0.0-setup.exe](https://github.com/Mfarooq360/WinThumbsPreloader-V2/releases/download/v2.0.0-beta7/WinThumbsPreloader-2.0.0-net10-setup.exe)
+- **Portable:** [WinThumbsPreloader-2.0.0-net10.zip](https://github.com/Mfarooq360/WinThumbsPreloader-V2/releases/download/v2.0.0-beta7/WinThumbsPreloader-2.0.0-net10.zip)
+- **Installer:** [WinThumbsPreloader-2.0.0-net10-setup.exe](https://github.com/Mfarooq360/WinThumbsPreloader-V2/releases/download/v2.0.0-beta7/WinThumbsPreloader-2.0.0-net10-setup.exe)
 
 ### WinThumbsPreloader V1 (Multi-threaded Fork)
 - **Project Page:** [WinThumbsPreloader](https://github.com/Mfarooq360/WinThumbsPreloader)
-- **Standalone EXE:** [WinThumbsPreloader.exe](https://github.com/Mfarooq360/WinThumbsPreloader/releases/download/v1.2.1/WinThumbsPreloader.exe)
+- **Portable:** [WinThumbsPreloader.exe](https://github.com/Mfarooq360/WinThumbsPreloader/releases/download/v1.2.1/WinThumbsPreloader.exe)
 - **Installer:** [WinThumbsPreloader-1.2.1-setup.exe](https://github.com/Mfarooq360/WinThumbsPreloader/releases/download/v1.2.1/WinThumbsPreloader-1.2.1-setup.exe)
 
 ---
