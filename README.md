@@ -1,5 +1,5 @@
 # WinThumbsPreloader V2
-### Fast and Advanced Thumbnail Preloader for Windows Explorer
+### Multi-Threaded Thumbnail Preloader for Windows Explorer
 
 Preload Windows Explorer thumbnails faster and more conveniently with WinThumbsPreloader V2.  
 This project is designed to help generate thumbnails ahead of time so large folders can feel smoother to browse.
@@ -12,13 +12,20 @@ This project is designed to help generate thumbnails ahead of time so large fold
 
 ## Overview
 
-WinThumbsPreloader V2 is a Windows utility for pre-generating Explorer thumbnails, with support for:
+#### WinThumbsPreloader V2 is a Windows utility for pre-generating Explorer thumbnails, with support for:
 
-- Multi-threaded generation
+- Multi-threaded thumbnail generation
 - Recursive directory scanning
 - Silent command-line usage
 
-It is useful for when browsing folders with large numbers of images, videos, or other thumbnail-supported files in Windows Explorer.
+#### WinThumbsPreloader V2 also includes a GUI with support for:
+
+- Adjustable thumbnail sizes
+- Cache backup and restore
+- File extension filtering
+- Preloader task scheduling
+
+WinThumbsPreloader V2 is especially useful for improving Explorer performance when browsing folders containing large numbers of images, videos, or other thumbnail-supported files.
 
 ---
 
@@ -35,7 +42,7 @@ It is useful for when browsing folders with large numbers of images, videos, or 
 - **Portable:** [WinThumbsPreloader-2.0.0-net9.zip](https://github.com/Mfarooq360/WinThumbsPreloader-V2/releases/download/v2.0.0-beta7/WinThumbsPreloader-2.0.0-net9.zip)
 - **Installer:** [WinThumbsPreloader-2.0.0-net9-setup.exe](https://github.com/Mfarooq360/WinThumbsPreloader-V2/releases/download/v2.0.0-beta7/WinThumbsPreloader-2.0.0-net9-setup.exe)
 
-### WinThumbsPreloader V1 (Multi-threaded Fork)
+### WinThumbsPreloader V1 (Legacy Multi-threaded Fork)
 - **Project Page:** [WinThumbsPreloader](https://github.com/Mfarooq360/WinThumbsPreloader)
 - **Portable:** [WinThumbsPreloader.exe](https://github.com/Mfarooq360/WinThumbsPreloader/releases/download/v1.2.1/WinThumbsPreloader.exe)
 - **Installer:** [WinThumbsPreloader-1.2.1-setup.exe](https://github.com/Mfarooq360/WinThumbsPreloader/releases/download/v1.2.1/WinThumbsPreloader-1.2.1-setup.exe)
@@ -59,9 +66,9 @@ For better thumbnail and preview support with certain file types:
 
 ### CLI Options
 
-- `-s` — Silent mode
-- `-r` — Recursive directory search
-- `-m` — Multi-threaded generation
+- `-s` - Silent mode
+- `-r` - Recursive directory search
+- `-m` - Multi-threaded generation
 
 ### Example
 
