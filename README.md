@@ -29,7 +29,7 @@ WinThumbsPreloader V2 is especially useful for improving Explorer performance wh
 
 ---
 
-## Downloads
+## Downloads [![Downloads](https://img.shields.io/github/downloads/Mfarooq360/WinThumbsPreloader-V2/total.svg)](https://github.com/Mfarooq360/WinThumbsPreloader-V2/releases)
 
 ### WinThumbsPreloader V2
 - **Project Page:** [WinThumbsPreloader-V2](https://github.com/Mfarooq360/WinThumbsPreloader-V2)
